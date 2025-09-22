@@ -2,6 +2,7 @@
 // import dynamic from "next/dynamic";
 
 import CubePano from "@/components/CubePano";
+import KrpanoWithMenu from "@/components/KrpanoWithMenu";
 
 // const PanoramaViewer = dynamic(() => import("../components/PanoramaViewer"), {
 //   ssr: false
@@ -51,14 +52,9 @@ import CubePano from "@/components/CubePano";
 //   );
 // }
 
-
-
-
 // export default function Page() {
 //   return <CubePano />;
 // }
-
-
 
 import dynamic from "next/dynamic";
 
@@ -68,8 +64,16 @@ const KrpanoViewer = dynamic(() => import("@/components/KrpanoViewer"), {
 
 export default function Page() {
   return (
-    <main style={{ width: "100%", height: "100vh" }}>
-      <KrpanoViewer xml="/kp/tour.xml" />
+    <main
+      style={{
+        width: "100vw",
+        height: "100vh",
+        margin: 0,
+        padding: 0,
+        overflow: "hidden"
+      }}
+    >
+      <KrpanoWithMenu />
     </main>
   );
 }
