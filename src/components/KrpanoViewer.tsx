@@ -14,15 +14,15 @@ interface KrpanoEmbedOptions {
   onready?: (krpanoInterface: unknown) => void;
 }
 
-declare global {
-  interface Window {
-    embedpano?: (opts: KrpanoEmbedOptions) => void;
-    removepano?: (id?: string) => void;
-  }
-}
+// declare global {
+//   interface Window {
+//     embedpano?: (opts: KrpanoEmbedOptions) => void;
+//     removepano?: (id?: string) => void;
+//   }
+// }
 
 export default function KrpanoViewer({
-  xml = "/kp/tour.xml",
+  xml = "/kp/working.xml",
   style = { width: "100%", height: "100vh" },
   panoramaType = "bathtub",
   ...bottomMenuProps
@@ -90,7 +90,7 @@ export default function KrpanoViewer({
       />
 
       {/* Bottom menu positioned like in the reference implementation */}
-      {/* <div className={cn("absolute bottom-8 left-1/2 -translate-x-1/2 z-20")}>
+      <div className={cn("absolute bottom-8 left-1/2 -translate-x-1/2 z-20")}>
         <BottomMenu
           panoramaType={panoramaType}
           onInfoClick={() => {}}
@@ -98,7 +98,7 @@ export default function KrpanoViewer({
           onAnimationComplete={() => {}}
           {...bottomMenuProps}
         />
-      </div> */}
+      </div>
     </div>
   );
 }

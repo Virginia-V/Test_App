@@ -30,22 +30,22 @@ type HotspotProps = {
   color?: string;
 };
 
-export const Hotspot: React.FC<HotspotProps> = ({
-  radius,
-  yaw,
-  pitch,
-  onClick,
-  color = "red"
-}) => {
-  const position = sphericalToCartesian(radius-1, yaw, pitch);
+// export const Hotspot: React.FC<HotspotProps> = ({
+//   radius,
+//   yaw,
+//   pitch,
+//   onClick,
+//   color = "red"
+// }) => {
+//   const position = sphericalToCartesian(radius-1, yaw, pitch);
 
-  return (
-    <mesh position={position} onClick={onClick}>
-      <sphereGeometry args={[500, 100, 100]} />
-      <meshBasicMaterial color={color} />
-    </mesh>
-  );
-};
+//   return (
+//     <mesh position={position} onClick={onClick}>
+//       <sphereGeometry args={[500, 100, 100]} />
+//       <meshBasicMaterial color={color} />
+//     </mesh>
+//   );
+// };
 
 export const toScreenPosition = (
   position: THREE.Vector3,

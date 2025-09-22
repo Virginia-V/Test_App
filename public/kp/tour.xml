@@ -63,19 +63,17 @@
 	    from above or optionally include one of the predefined designs from below.
 	-->
 	<!-- <include url="skin/vtourskin_design_flat_light.xml"  /> -->
-	<!-- <include url="skin/vtourskin_design_glass.xml"       /> -->
-	<include url="skin/vtourskin_design_ultra_light.xml" />
+	<include url="skin/vtourskin_design_glass.xml"       />
+	<!-- <include url="skin/vtourskin_design_ultra_light.xml" /> -->
 	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
 	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
 	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
 	
 
 	
-	<scene name="scene_test_pano_wood" title="test-pano-wood" onstart="" thumburl="panos/test_pano_wood.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<scene name="scene_test_pano_stone_variant_1" title="test-pano-stone-variant-1" onstart="" thumburl="panos/test_pano_stone_variant_1.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
-        
-        
-        <control
+		      <control
           mousetype="drag2d"
 
           mouseaccelerate="0.25"
@@ -94,25 +92,7 @@
         />
 
 
-
-
-
-<!--		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />-->
-        
-<!--        <view-->
-<!--          hlookat="0"-->
-<!--          vlookat="0"-->
-<!--          projection="fisheye"-->
-<!--          fisheye="1.0"-->
-<!--          fovtype="MFOV"-->
-<!--          fov="100"-->
-<!--          fovmin="60"-->
-<!--          fovmax="120"-->
-<!--          maxpixelzoom="2.0"-->
-<!--          limitview="auto"-->
-<!--        />-->
-        
-        <view projection="fisheye"
+     <view projection="fisheye"
               fisheye="1.2"
               fovtype="MFOV"
               fov="110"
@@ -122,7 +102,33 @@
               limitview="auto" />
 
 
+		<preview url="panos/test_pano_stone_variant_1.tiles/preview.jpg" />
 
+		<image>
+			<cube url="panos/test_pano_stone_variant_1.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_test_pano_stone_variant_2" title="test-pano-stone-variant-2" onstart="" thumburl="panos/test_pano_stone_variant_2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/test_pano_stone_variant_2.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/test_pano_stone_variant_2.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_test_pano_wood" title="test-pano-wood" onstart="" thumburl="panos/test_pano_wood.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/test_pano_wood.tiles/preview.jpg" />
 
