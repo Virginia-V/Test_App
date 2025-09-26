@@ -1,0 +1,272 @@
+﻿<krpano>
+	
+	<!-- 
+		NOTE: these examples requires a GoogleMaps API-key and/or BingMaps API-key to work!
+	-->
+	
+	<layer name="infotext"
+		type="text"
+		text="[b]Maps Plugins Comparison[/b][br][small]Google Maps / krpano Maps (OpenStreetMap) / Bing Maps[/small]"
+		css="color:white; font-size:18px;"
+		textalign="center"
+		txtshadow="0 2 4 0x000000"
+		bg="false"
+		align="top"
+		y="12%"
+		zorder="0"
+		enabled="false"
+		/>
+
+	
+	<include url="%VIEWER%/plugins/stateurls.xml" />
+	
+	<scene autoload="true" name="rome" title="Rome" lat="41.898761" lng="12.473094" heading="0.0">
+		<view hlookat="0" vlookat="0" fov="90" />
+		<image>
+			<preview url="preview.jpg" />
+			<cube url="pano_%s.jpg" />
+		</image>
+	</scene>
+
+	<scene name="croatia" title="Croatia" lat="45.0820942" lng="14.1589635" heading="0.0">
+		<view hlookat="0" vlookat="0" fov="90" />
+		<image>
+			<preview url="../maps2/panos/croatia/preview.jpg" />
+			<cube url="../maps2/panos/croatia/pano_%s.jpg" />
+		</image>
+	</scene>
+	
+	<scene name="oldapartment" title="Old Apartment" lat="47.834338" lng="16.519840" heading="0.0">
+		<view hlookat="0" vlookat="0" fov="90" />
+		<image>
+			<preview url="../compare-panos/pano2_preview.jpg" />
+			<cube url="../compare-panos/pano2_%s.jpg" />
+		</image>
+	</scene>
+
+	
+	
+	<style name="box"
+		type="container"
+		bgcolor="0xFFFFFF"
+		bgalpha="1"
+		bgroundedge="5"
+		bgshadow="0 4 8 0x000000 0.7"
+		width="30%" 
+		height="33%" minheight="250"
+		zorder="1"
+		/>		
+	
+	<style name="expandbutton"
+		type="text"
+		align="righttop" x="34" y="34"
+		width="28" height="28"
+		textalign="center"
+		edge="center"
+		bgcolor="0xFFFFFF"
+		bgalpha="1"
+		bgborder="1 0xFFFFFF 0.5"
+		bgroundedge="1"
+		bgshadow="0 1 3 0x000000 1.0"
+		ondown="bgcolor=0xDDDDDD;"
+		onup="bgcolor=0xFFFFFF;"
+		text='[svg style="display:block;" width="100%" height="100%" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"][path fill="none" stroke="#333" stroke-width="1" d="M 2 2 H 6 2 H 2 V 6 M 14 2 H 18 V 6 M 14 18 H 18 V 14 M 6 18 H 2 V 14"/][/svg]'
+		css="font-size:14px; font-weight:bold;"
+		expanded="false"
+		onclick="expand();"
+		/>
+		
+	<action name="expand" scope="local">
+		if(caller.expanded == false,
+			caller.expanded = true;
+			caller.backupalign = caller.parentobject.align;
+			caller.backupedge = caller.parentobject.align;
+			caller.backuppos = join('|',caller.parentobject.x, caller.parentobject.y, caller.parentobject.width, caller.parentobject.height);
+			caller.parentobject.zorder += 100;
+			callwith(caller.parentobject,
+				changealign(center,center);
+				tween(x|y|width|height, 0|0|-100|-100);
+			);
+		  ,
+			callwith(caller.parentobject, 
+				changealign(get(caller.backupalign),get(caller.backupedge));
+				tween(x|y|width|height, get(caller.backuppos), 0.5, default,
+					caller.expanded = false;
+					caller.parentobject.zorder -= 100;
+				);
+			);
+		);
+	</action>
+		
+
+	<!-- Google Maps -->
+	<layer style="box" align="leftbottom" x="16" y="16" keep="true" if="1">
+
+		<plugin name="googlemaps"
+		        url="%VIEWER%/plugins/googlemaps.js"
+		        key=""
+		        maptype="SATELLITE"
+		        xcontrols="zoom|maptype|scale|streetview|rotate"
+		        lat="41.898761" lng="12.473094" zoom="18"
+		        align="center" width="-16" height="-16"
+		        bgborder="1 0xAAAAAA 1"
+		        onmapready="add_scene_spots();"
+		        >
+
+			<radar visible="true" size="100" alpha="0.33" fillcolor="0xFFFFFF" fillalpha="1.0" linecolor="0x00FF00" linealpha="0.5" linewidth="0.5" dragable="true" headingoffset="0" />
+
+		</plugin>
+		
+		<layer style="expandbutton" />
+
+	</layer>
+	
+	
+	<!-- Bing Maps -->
+	<layer style="box" align="rightbottom" x="16" y="16" keep="true" if="1">
+
+		<plugin name="bingmaps"
+		        url="%VIEWER%/plugins/bingmaps.js"
+		        key=""
+		        maptype="SATELLITE"
+		        lat="41.898761" lng="12.473094" zoom="18"
+		        align="center" width="-20" height="-20"
+		        bgborder="1 0xAAAAAA 1"
+		        onmapready="add_scene_spots();"
+		        >
+
+			<radar visible="true" size="100" alpha="0.33" fillcolor="0xFFFFFF" fillalpha="1.0" linecolor="0x00FF00" linealpha="0.5" linewidth="0.5" dragable="true" headingoffset="0" />
+			<maptypecontrol visible="true" />
+
+		</plugin>
+		
+		<layer style="expandbutton" />
+
+	</layer>
+	
+	
+	<!-- krpano Maps -->
+	<include url="%VIEWER%/plugins/krpanomaps.xml" />
+
+	<layer style="box" align="bottom" x="0" y="16" keep="true">
+
+		<plugin name="krpanomaps"
+		        style="krpanomaps"
+		        lat="41.898761" lng="12.473094" zoom="18"
+		        tileprovider="arcgis_worldmap"
+		        align="center" width="-20" height="-20"
+		        bgborder="1 0xAAAAAA 1"
+		        onmapready="add_scene_spots();"
+		        >
+
+			<radar visible="true" size="100" alpha="0.33" fillcolor="0xFFFFFF" fillalpha="1.0" linecolor="0x00FF00" linealpha="0.5" linewidth="0.5" dragable="true" headingoffset="0" />
+
+		</plugin>
+		
+		<layer style="expandbutton" />
+
+	</layer>
+	
+	
+	<include url="%VIEWER%/plugins/combobox.xml" />
+	
+	<combobox name="cb1" align="lefttop" x="16" y="16" keep="true" design="default" onloaded="combobox_addscenes()" />
+	
+	<action name="combobox_addscenes" scope="local">
+		forall(scene, s, 
+			caller.additem(get(s.title), calc('loadscene('+s.name+',null,MERGE,BLEND(0.5));')); 
+		);
+	</action>
+			
+	
+	<action name="add_scene_spots" scope="local">
+		
+		set(caller.spotstyle[DEFAULT],
+			url="%CURRENTXML%/mapspot-ball.svg",
+			overurl="%CURRENTXML%/mapspot-ball.svg",
+			activeurl="%CURRENTXML%/mapspot-ball-active.svg",
+			edge="center",
+			x=0,
+			y=0,
+			scale=1
+		);
+		
+		forall(scene, s, 
+			caller.addspot(get(s.name), get(s.lat), get(s.lng), get(s.heading), calc(xml.scene == s.name), calc('loadscene('+s.name+',null,MERGE,BLEND(0.5));')); 
+			
+			// optionally: zoom toward each spot (krpanomaps only)
+			//set(caller.spot[get(s.name)].zoomlevel, 17);
+		);
+		
+		
+		caller.lastinteraction = timertick;
+		caller.onover = "lastinteraction = timertick;";
+		caller.ondown = "lastinteraction = timertick;";
+		
+		caller.onmapmoved = "sync_maps()";
+		caller.onmapzoomed = "sync_maps();";
+		
+		caller.zoomtospotsextent();
+		
+	</action>
+	
+	<style name="button"
+		type="text" padding="8" bgcolor="0xFFFFFF" bgborder="0 0xFFFFFF 1" bgroundedge="1" bgshadow="0 1 4 0x000000 1.0"
+		vcenter="true"
+		css="text-align:center;"
+		ondown.addevent="set(bgcolor,0xDDDDDD);"
+		onup.addevent="if(!hovering,set(bgcolor,0xFFFFFF),set(bgcolor,0xEEEEEE));"
+		onover.addevent="if(!pressed,set(bgcolor,0xEEEEEE));"
+		onout.addevent="if(!pressed,set(bgcolor,0xFFFFFF));"
+		/>
+		
+		
+	<settings syncmaps="false" />
+
+	<layer name="syncmaps" style="button" keep="true"
+		type="text"
+		template="Sync Maps: {{settings.syncmaps:settings.syncmaps ? 'On' : 'Off'}}"
+		align="righttop" x="16" y="16"
+		onclick="switch(settings.syncmaps); sync_maps();"
+		/>
+	
+	<action name="sync_maps" scope="local">
+		
+		if (settings.syncmaps,
+		
+			if(caller.lastinteraction GT plugin[googlemaps].lastinteraction,
+				plugin[googlemaps].lat = caller.lat;
+				plugin[googlemaps].lng = caller.lng;
+				plugin[googlemaps].zoom = caller.zoom;
+			);
+			
+			if(caller.lastinteraction GT plugin[bingmaps].lastinteraction,
+				plugin[bingmaps].lat = caller.lat;
+				plugin[bingmaps].lng = caller.lng;
+				plugin[bingmaps].zoom = caller.zoom;
+			);
+			
+			if(caller.lastinteraction GT plugin[krpanomaps].lastinteraction,
+				plugin[krpanomaps].lat = caller.lat;
+				plugin[krpanomaps].lng = caller.lng;
+				plugin[krpanomaps].zoom = caller.zoom;
+			);
+		);
+		
+	</action>
+	
+	<events onnewscene="scene_activate_spot()" />
+	
+	<action name="scene_activate_spot">
+		suppresserrors(
+			plugin[googlemaps].pantospot(get(xml.scene));
+			plugin[bingmaps].pantospot(get(xml.scene));
+			plugin[krpanomaps].pantospot(get(xml.scene));
+			plugin[googlemaps].activatespot(get(xml.scene));
+			plugin[bingmaps].activatespot(get(xml.scene));
+			plugin[krpanomaps].activatespot(get(xml.scene));
+		);
+	</action>
+
+
+</krpano>

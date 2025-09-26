@@ -5,8 +5,6 @@ export const MIN_DISTANCE = 10;
 export const MAX_DISTANCE = 450;
 export const ZOOM_STEP = 25;
 
-
-
 export const variants = {
   hidden: {
     opacity: 0,

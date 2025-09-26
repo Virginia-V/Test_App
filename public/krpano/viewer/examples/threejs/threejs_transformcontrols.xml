@@ -1,0 +1,199 @@
+<krpano>
+	
+	<include url="%VIEWER%/plugins/iphone_fullscreen_swipe.xml" />
+	<include url="%VIEWER%/plugins/controls3d.xml" />
+	<control collision="false" />
+	
+	
+	<!-- load th ThreeJS plugin and the TransformControls module -->
+	<plugin api="threejs" url="%VIEWER%/plugins/threejs_krpanoplugin.js">
+		<module name="TransformControls" url="opensource/threejs_154/TransformControls.js" />
+	</plugin>
+
+
+	<threejs envmapurl="preview" />
+	
+	<image objectsize="infinity">
+		<preview url="../webvr/panos/intro/preview.jpg" />
+		<cube url="../webvr/panos/intro/pano_%s.jpg" />
+	</image>
+	
+	<!-- the startup view -->
+	<view hlookat="0" vlookat="0" fov.normal="95" fov.mobile="105" tx="0" ty="0" tz="-160" />
+
+
+	<!-- a light -->
+	<hotspot name="light" keep="true"
+		type="threejslight"
+		mode="sun"
+		castshadow="true"
+		intensity="0.5"
+		shadowmapbias="0.0001"
+		shadowmapnormalbias="0.01"
+		shadowmapres="1024"
+		color="0xFFFFFF"
+		ath="0" atv="-30"
+		/>
+	
+	<!-- a 3D Model to test the TransformControls -->
+	<hotspot name="model"
+		type="threejs"
+		url="models/damagedhelmet.glb"
+		scale="0.5"
+		depth="0"
+		tx="0" ty="0" tz="0"
+		onloaded="addtransformcontrols( transformsize=1.5; );"
+		onclick="switch(transformmode, translate, rotate, scale);"
+		/>
+		
+	<hotspot name="floor"
+		type="threejs" url="custom" onloaded="addfloor()"
+		texurl="models/floor.jpg"
+		distorted="true" depthbuffer="true" enabled="false"
+		depth="0"
+		ty="80"
+		/>
+	
+	<action name="addfloor" type="js"><![CDATA[
+		
+		var THREE = krpano.threejs.THREE;
+		
+		var material = new THREE.MeshStandardMaterial({color:0xffffff, roughness:0.5, metalness:0.5, side:THREE.DoubleSide});
+			
+		var textureLoader = new THREE.TextureLoader();
+		textureLoader.load(caller.texurl, 
+			function (map)
+			{
+				map.anisotropy = 4;
+				map.colorSpace = THREE.SRGBColorSpace;
+				map.wrapS = THREE.MirroredRepeatWrapping;
+				map.wrapT = THREE.RepeatWrapping;
+				map.anisotropy = 4;
+				map.repeat.set(100, 100);
+					
+				material.map = map;
+				material.needsUpdate = true;
+			}
+		);
+
+		var mesh = new THREE.Mesh( new THREE.PlaneGeometry(1000, 1000), material );
+		mesh.rotation.x = -Math.PI/2;
+		mesh.receiveShadow = true;
+		mesh.castShadow = true;
+		caller.threejsobject.add( mesh );
+		
+	]]></action>
+		
+		
+	<!-- an info box that shows the current 3D Model pose -->
+	<layer name="infos" keep="true"
+		type="text"
+		align="lefttop" x="20" y="20"
+		bg="false"
+		css="font-family:monospace; color:#FFFFFF; font-size:12px;"
+		txtshadow="0 1 4 0x000000 1.0"
+		enabled="false"
+		trimwhitespace="true"
+		template="ThreeJS TransformControls[br]
+			[br]
+			Position: {{hotspot[model].tx:roundval(hotspot[model].tx,1)}} / {{hotspot[model].ty:roundval(hotspot[model].ty,1)}} / {{hotspot[model].tz:roundval(hotspot[model].tz,1)}}[br]
+			Rotation: {{hotspot[model].rx:roundval(hotspot[model].rx,-2)}} / {{hotspot[model].ry:roundval(hotspot[model].ry,-2)}} / {{hotspot[model].rz:roundval(hotspot[model].rz,-2)}}[br]
+			Scale: {{hotspot[model].scalex:roundval(hotspot[model].scalex,-3)}} / {{hotspot[model].scaley:roundval(hotspot[model].scaley,-3)}} / {{hotspot[model].tz:roundval(hotspot[model].scalez,-3)}}[br]
+			"
+		/>
+
+	
+	<action name="addtransformcontrols" type="js" args="donecallback"><![CDATA[
+		
+		var THREE = krpano.threejs.THREE;
+		var TransformControls = krpano.threejs.TransformControls;
+		
+		if (!TransformControls)
+		{
+			// load the TransformControls only once
+			if (krpano.threejs.getmodule)
+			{
+				// normal krpano ThreeJS plugin - use getmodule()
+				TransformControls = krpano.threejs.TransformControls = krpano.threejs.getmodule("TransformControls").TransformControls;
+				threejs_addtransformcontrols(caller);
+			}
+			else
+			{
+				// Open-Source krpano ThreeJS plugn - need to use import()
+				import("TransformControls").then(function(module)
+				{
+					TransformControls = krpano.threejs.TransformControls = module.TransformControls;
+					threejs_addtransformcontrols(caller);
+				});
+			}
+		}
+		else
+		{
+			threejs_addtransformcontrols(caller);
+		}
+		
+		function threejs_addtransformcontrols(hs)
+		{
+			var model = hs.threejsobject;
+		
+			// the krpano 'controllayer' need to be as controlling target for the TransformControls
+			var transformcontrol = new TransformControls(krpano.threejs.camera, krpano.display.controllayer);
+				
+			transformcontrol.addEventListener("change", function()
+			{
+				// convert the current ThreeJS scale/position/rotation to a krpano one
+				hs.get_threejs_pose();
+				
+				// request a redraw
+				krpano.view.haschanged = true; 
+			});
+
+			transformcontrol.addEventListener("dragging-changed", function(event)
+			{
+				// disable the pano control during dragging
+				krpano.control.usercontrol = event.value ? "off" : "all";
+			});
+			
+			transformcontrol.attach(model);
+			krpano.threejs.scene.add(transformcontrol);
+			
+			// store
+			hs.transformcontrol = transformcontrol;
+			
+			// add some interface settings
+			hs.registerattribute("transformmode", "translate", function(mode){ transformcontrol.mode = mode; krpano.view.haschanged = true; }, function(){ return transformcontrol.mode; });
+			hs.registerattribute("transformsize", 1.0, function(size){ transformcontrol.size = size; krpano.view.haschanged = true; }, function(){ return transformcontrol.size; });
+			
+			// a function for removing the controls
+			hs.removetransformcontrols = function()
+			{
+				threejs_removetransformcontrols(hs);
+			};
+			
+			// automatically remove when destroying the hotspot
+			hs.addevent("ondestroy", hs.removetransformcontrols);
+			
+			// call when done (because the opensource-plugin version module import() is async)
+			if (donecallback)
+			{
+				krpano.call(donecallback, caller);
+			}
+		}
+		
+		function threejs_removetransformcontrols(hs)
+		{
+			if (hs.transformcontrol)
+			{
+				krpano.threejs.scene.remove(hs.transformcontrol);
+				
+				hs.transformcontrol.dispose();
+			
+				delete hs.transformcontrol;
+				delete hs.transformmode;
+				delete hs.transformsize;
+			}
+		}
+		
+	]]></action>
+	
+</krpano>

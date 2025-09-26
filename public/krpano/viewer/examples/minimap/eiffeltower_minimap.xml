@@ -1,0 +1,47 @@
+﻿<krpano>
+
+	<include url="%VIEWER%/plugins/minimap_zoomrect.xml" />
+	
+	<layer name="minimap"
+		url="minimap.jpg" scale="0.5"
+		align="lefttop" x="10" y="10" bgborder="1 0xFFFFFF" bgshadow="1 1 4 0x000000 0.5"
+		style="minimap_zoomrect"
+		zoomrect_border="1 0xFFFFFF"
+		zoomrect_dragable="true"
+		zoomrect_movetoclick="true"
+		zoomrect_dragdelay="0.95"
+		zoomrect_showzoompercent="true"
+		/>
+		
+	<control zoomtocursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
+	<view maxpixelzoom="2.0" limitview="fullrange" />
+
+	
+	<image>
+		<preview url="https://krpano.com/panos/eiffeltower/eiffeltower.tiles/preview.jpg" />
+		<flat url="https://krpano.com/panos/eiffeltower/eiffeltower.tiles/l%l/%00v/l%l_%00v_%00h.jpg" multires="512,512x844,1152x1898,2176x3586,4352x7172,8832x14554,17664x29110,35328x58220" />
+	</image>
+	
+	<layer name="logo"
+		url="logo.png" 
+		scale="0.5"
+		align="rightbottom" x="10" y="10" 
+		onclick="openurl('http://www.ecliptique.com', _blank)" 
+		scalechildren="false"
+		onover="tween(layer[logotext].alpha,1);"
+		onout="tween(layer[logotext].alpha,0);"
+		/>
+	
+	<layer name="logotext"
+		type="text"
+		text="Thanks to ecliptique.com for providing this pano!"
+		bg="false"
+		css="color:#FFFFFF;"
+		txtshadow="1 1 2 0x000000 1"
+		enabled="false"
+		alpha="0"
+		parent="logo"
+		align="topright" edge="bottomright"
+		/>
+
+</krpano>

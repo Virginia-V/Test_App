@@ -1,0 +1,201 @@
+<krpano>
+	
+	<!--
+		An example for using the new Reactive-Programming/Designing APIs (available since version 1.22).
+		When one variable gets changed, then all elements depending on it, will get automatically updated.
+	-->
+	
+	
+	<!-- a pano background -->
+	<image>
+		<preview url="../webvr/panos/intro/preview.jpg" />
+		<cube url="../webvr/panos/intro/pano_%s.jpg" />
+	</image>
+
+	
+	<!-- some base settings to which other elements will link to -->
+	<base
+		color="0xFFFFFF"
+		color.onchange="trace('the color has been changed to: ',(tohexcolor(color)));"
+		linewidth="1"
+		bgroundedge="0"
+		bgalpha="0.5"
+		bgblur="5"
+		spacing="8"
+		/>
+		
+	
+	<!-- different languages texts -->
+	<languages name="en" displayname="English"
+		title="Reactive API Examples"
+		subtitle="Change one variable and all elements depending on it, will automatically update."
+		color="Color"
+		white="White"
+		yellow="Yellow"
+		green="Green"
+		cyan="Cyan"
+		blue="Blue"
+		pink="Pink"
+		red="Red"
+		edges="Edges"
+		spacing="Spacing"
+		language="Language"
+		colorizeimages="Colorized Images"
+		/>
+		
+	<languages name="de" displayname="Deutsch"
+		title="Reactive API Beispiele"
+		subtitle="Ändere eine Variable und alle davon abhängigen Elemente werden automatisch aktualisiert."
+		color="Farbe"
+		white="Weiß"
+		yellow="Gelb"
+		green="Grün"
+		cyan="Cyan"
+		blue="Blau"
+		pink="Pink"
+		red="Rot"
+		edges="Ecken"
+		spacing="Abstände"
+		language="Sprache"
+		colorizeimages="Eingefärbte Bilder"
+		/>
+	
+	<languages name="ch" displayname="Chinese"
+		title="反应式 API 示例"
+		subtitle="改变一个变量，所有依赖于它的元素都会自动更新。"
+		color="颜色"
+		white="白色"
+		yellow="黄色"
+		green="绿色"
+		cyan="青色"
+		blue="蓝色"
+		pink="粉色"
+		red="红色"
+		edges="边缘"
+		spacing="距离"
+		language="语言"
+		colorizeimages="彩色图像"
+		/>
+	
+	
+	<!-- some styles for the elements -->
+	<style name="text"
+		type="text"
+		textalign="center"
+		bgcolor="link:base.color"
+		bgalpha="0.0"
+		css="link:base.color:'color:'+tohexcolor(base.color,'#')+';'"
+		txtshadow="0 0 2 0x000000"
+		/>
+		
+	<style name="button"
+		style="link:text"
+		padding="4 8"
+		bgcolor="link:base.color"
+		bgborder="link:base.color|base.linewidth:base.linewidth+' '+tohexcolor(base.color)+' 0.5'"
+		bgroundedge="link:base.bgroundedge:base.bgroundedge * 0.6"
+		bgalpha="0.1"
+		onover="bgalpha=0.3;"
+		onout="bgalpha=0.1;"
+		/>
+	
+	<style name="box"
+		bgcolor="link:base.bgcolor"
+		bgalpha="link:base.bgalpha"
+		bgblur="link:base.bgblur"
+		bgborder="link:base.color|base.linewidth:base.linewidth+' '+tohexcolor(base.color)+' 0.7'"
+		bgroundedge="link:base.bgroundedge"
+		bgshadow="link:base.color:'4 8 16 '+tohexcolor(colormix(base.color,0x000000,0.5))+' 0.5'"
+		bgcapture="true"
+		cursor="move"
+		/>
+		
+	<style name="dragable"
+		ondown="asyncloop(pressed, x+=mouse.dx; y+=mouse.dy; );"
+		/>
+	
+	
+	<!-- the example layers -->
+	<layer name="title" enabled="false"
+		type="text" 
+		bg="false"
+		textalign="center"
+		css="link:base.color:'font-size:24px; color:'+tohexcolor(base.color,'#')+';'"
+		width="80%"
+		txtshadow="0 1 5 0x000000"
+		template="{{translate(title)}}[div style='font-size:14px;line-height:20px;']{{translate(subtitle)}}[/div]" 
+		align="top" 
+		y="40"
+		/>
+		
+	<layer name="languages" style="link:box|dragable" align="center" x="6" y="-54" type="container" flowchildren="v" flowchildrenexpand="true" childflowspacing="link:base.spacing:base.spacing+1" childmargin="link:base.spacing"
+		onloaded="forall(languages,l, addlayer(auto,item); item.parent=name; item.linkstyle(button); item.text=l.displayname;  item.onclick='set(language,' + l.name + ');'; );">
+		<layer style="link:text" template="{{translate('language')}}" enabled="false" />
+	</layer>
+	
+	<layer name="color" style="link:box|dragable" align="center" x="-120" y="-60" type="container" flowchildren="v" flowchildrenexpand="true" childflowspacing="link:base.spacing:base.spacing+1" childmargin="link:base.spacing">
+		<layer style="link:text" template="{{translate('color')}}" enabled="false" />
+		<layer style="link:button" template="{{translate('white')}}"  onclick="tween(base.color,0xFFFFFF);" />
+		<layer style="link:button" template="{{translate('yellow')}}" onclick="tween(base.color,0xFFFF00);" />
+		<layer style="link:button" template="{{translate('green')}}"  onclick="tween(base.color,0x00FF00);" />
+		<layer style="link:button" template="{{translate('cyan')}}"  onclick="tween(base.color,0x00FFFF);" />
+		<layer style="link:button" template="{{translate('pink')}}"  onclick="tween(base.color,0xFF00FF);" />
+		<layer style="link:button" template="{{translate('red')}}"  onclick="tween(base.color,0xFF0000);" />
+	</layer>
+	
+	<layer name="edges" style="link:box|dragable" align="center" x="-94" y="200" type="container" flowchildren="v" flowchildrenexpand="true" childflowspacing="link:base.spacing:base.spacing+1" childmargin="link:base.spacing">
+		<layer style="link:text" template="{{translate('edges')}}" enabled="false" />
+		<layer style="link:button" text="0" onclick="tween(base.bgroundedge,0);" />
+		<layer style="link:button" text="5" onclick="tween(base.bgroundedge,5);" />
+		<layer style="link:button" text="11" onclick="tween(base.bgroundedge,11);" />
+		<layer style="link:button" text="17" onclick="tween(base.bgroundedge,17);" />
+	</layer>
+	
+	<layer name="spacing" style="link:box|dragable" align="center" x="128" y="12" type="container" flowchildren="v" flowchildrenexpand="true" childflowspacing="link:base.spacing:base.spacing+1" childmargin="link:base.spacing">
+		<layer style="link:text" template="{{translate('spacing')}}" enabled="false" />
+		<layer style="link:button" text="0" onclick="tween(base.spacing,0);" />
+		<layer style="link:button" text="2" onclick="tween(base.spacing,2);" />
+		<layer style="link:button" text="8" onclick="tween(base.spacing,8);" />
+		<layer style="link:button" text="16" onclick="tween(base.spacing,16);" />
+	</layer>
+	
+	<layer name="image" style="link:box|dragable" align="center" x="62" y="190" type="container" flowchildren="v" flowchildrenexpand="true" childflowspacing="link:base.spacing:base.spacing+1" childmargin="link:base.spacing">
+		<layer style="link:text" align="top" template="{{translate('colorizeimages')}}" enabled="false" />
+		<layer url="krpano.svg" brightness="1.0" colorize="link:base.color" dropshadow="4 4 8 0x000000 0.5" />
+	</layer>
+	
+	<layer name="mouseinfo" enabled="false"
+		style="link:text"
+		align="leftbottom"
+		template="Mouse Position: {{mouse.x}} / {{mouse.y}}"
+		/>
+			
+	<layer name="screeninfo" enabled="false"
+		style="link:text"
+		align="rightbottom"
+		text="link:event.onresize:'Windowsize: ' + stagewidth + 'x' + stageheight"
+		/>
+	
+	
+	<!-- extra for mobile devices -  adjust the layout depending if landscape or portrait orientation -->
+	<events name="mobile_layouts" devices="mobile"
+		onresize="orientation=stagewidth GT stageheight; if(orientation != oldorientation, oldorientation=orientation; adjust_mobile_layout(get(orientation)); );"
+		/>
+	
+	<action name="adjust_mobile_layout" scope="local" args="orientation">
+		if(orientation,
+			callwith(layer[languages], tween(x,-16); tween(y,13); );
+			callwith(layer[color], tween(x,-240); tween(y,8); );
+			callwith(layer[edges], tween(x,-140); tween(y,66); );
+			callwith(layer[spacing], tween(x,206); tween(y,-56); );
+			callwith(layer[image], tween(x,168); tween(y,120); );
+		,
+			callwith(layer[languages], tween(x,6); tween(y,-54); );
+			callwith(layer[color], tween(x,-120); tween(y,-60); );
+			callwith(layer[edges], tween(x,-94); tween(y,200); );
+			callwith(layer[spacing], tween(x,128); tween(y,12); );
+			callwith(layer[image], tween(x,62); tween(y,190); );
+		);
+	</action>
+		
+</krpano>

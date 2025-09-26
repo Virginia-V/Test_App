@@ -1,0 +1,453 @@
+<krpano>
+	
+	 <!-- Comparison between Gaussian Splat files and a Photogrammetry 3D Model -->
+
+	<!-- include 3d controls, with on-screen-joypads -->
+	<include url="%VIEWER%/plugins/controls3d.xml" />
+	<include url="contextmenu3d.xml" />
+	
+	<!-- move the joypads into the ui layer -->
+	<layer name="joypad" parent="ui" />
+	<layer name="joypad_levelcontrol" parent="ui" />
+
+	<!-- adjust controls -->
+	<control speed="0.5" wheelmode="distance" dollydistance="5.0" />
+	
+	<!-- set the startup view -->
+	<view hlookat="-55" vlookat="7" tx="0" ty="0" tz="0" oz="2000" fov="100" />
+	
+		
+	<scene name="house_gaussian" title="Gaussian Splats[br](32 MB, splat format)">
+		<image objectsize="0">
+			<preview type="SPHERE" url="https://krpano.com/examples/gsplats/house-cmp/house_envmap.jpg" />
+			<splats url="https://krpano.com/examples/gsplats/house-cmp/model_without_sky.splat" scale="9.728" ry="90" tx="26.5" ty="-38.5" tz="-14.5" />
+		</image>
+	</scene>
+	
+	<scene name="house_gaussian_compressedply" title="Gaussian Splats[br](16 MB, compressed ply format)">
+		<image objectsize="0">
+			<preview type="SPHERE" url="https://krpano.com/examples/gsplats/house-cmp/house_envmap.jpg" />
+			<splats url="https://krpano.com/examples/gsplats/house-cmp/model_without_sky.compressed.ply" scale="9.728" ry="90" tx="26.5" ty="-38.5" tz="-14.5" />
+		</image>
+	</scene>
+	
+	<scene name="house_3dmodel" title="3D Model[br](43 MB, obj format, 4k tex)">
+		<image rx="-1.0" ry="66.8" rz="0.5" rotationorder="XZY">
+			<depthmap 
+				url="https://krpano.com/examples/gsplats/house-cmp/model_big.obj"
+				rendermode="3dmodel" textured="true" 
+				backgroundurl="https://krpano.com/examples/gsplats/house-cmp/house_envmap.jpg" 
+				scale="290.0" ox="0.7" oy="1.1" oz="0.75"
+				subdiv="0" 
+				waitforload="true" 
+				/>
+		</image>
+	</scene>
+	
+	
+	<style name="subkrpano" type="krpano" scene="0" onloaded.addevent="subkrpano_onloaded()" />
+	
+	<action name="subkrpano_onloaded" type="js"><![CDATA[
+		var subkrpano = caller.krpano;
+		
+		subkrpano.events.addListener("onnewpano", function(){ krpano.actions.invalidatescreen(); });
+		
+		function subkrpano_loadscene()
+		{
+			var scene_element = krpano.scene.getItem(caller.scene);
+			if (scene_element)
+			{
+				var side = caller.name == "krpano1" ? 1 : 2;
+				subkrpano.actions.loadxml(('<krpano>' + scene_element.content  + '</krpano>'), "view.limitview=off&view.fovmin=0", "IMAGExANDVIEW", "BLEND(0.5)");
+			}
+			else
+			{
+				krpano.actions.error("scene not found: " + caller.scene); 
+			}
+		}
+		
+		// when changing the "scene" attribute, automatically load that scene
+		krpano.addChangeListener(caller, "scene", subkrpano_loadscene);
+		
+		subkrpano_loadscene();
+	]]></action>
+	
+
+
+	<layer name="krpano1container" type="container" safearea="false" x="0%" width="50%" height="100%" gridfit="false" maskchildren="true" enabled="false" zorder="0">
+		<layer name="krpano1" style="subkrpano" scene="0" krpanoembedsettings.object="{webglsettings:{antialias:false}}" align="left" width="200%" height="100%" gridfit="false" />
+	</layer>
+
+	<layer name="krpano2container" type="container" safearea="false" x="50%" width="50%" height="100%" gridfit="false" maskchildren="true" enabled="false" zorder="0">
+		<layer name="krpano2" style="subkrpano" scene="2" align="right" width="200%" height="100%" gridfit="false" />
+	</layer>
+	
+	
+	<include url="%VIEWER%/plugins/combobox.xml" />
+	
+	<action autorun="true">
+		addComboboxLayer(cb1, default);
+		addComboboxLayer(cb2, default);
+		
+		layer[cb1].parent = "ui";
+		layer[cb2].parent = "ui";
+		
+		layer[cb1].align = 'lefttop';
+		layer[cb1].x = 20;
+		layer[cb1].y = 20;
+		
+		layer[cb2].align = 'righttop';
+		layer[cb2].x = 20;
+		layer[cb2].y = 20;
+		
+		forall(scene, s, 
+			layer[cb1].addnameditem(get(s.name), get(s.title), calc('layer[krpano1].scene = ' + s.index) );
+			layer[cb2].addnameditem(get(s.name), get(s.title), calc('layer[krpano2].scene = ' + s.index) );
+		);
+		
+		layer[cb1].selectitembyname( get(scene[ get(layer[krpano1].scene) ].name) );
+		layer[cb2].selectitembyname( get(scene[ get(layer[krpano2].scene) ].name) );
+	</action>
+
+
+	<events onresize="resize_viewers();"
+			onviewchange="sync_viewers();"
+			/>
+
+
+	<action name="resize_viewers" scope="local">
+		w = stagewidth;
+		h = stageheight;
+		if(display.safearea_inset,	// iPhone 'notch' fullscreen mode support
+			w = display.safearea_inset.sw;
+			h = display.safearea_inset.sh;
+		);
+		layer[krpano1].width = w;
+		layer[krpano1].height = h;
+		layer[krpano2].width = w;
+		layer[krpano2].height = h;
+	</action>
+	
+
+	<action name="sync_viewers" scope="local">
+		krpano1 = layer[krpano1].krpano;
+		krpano2 = layer[krpano2].krpano;
+		
+		<!-- sync the view of the sub-viewers to the main view -->
+		krpano1.view.syncto(get(view));
+		krpano2.view.syncto(get(view));
+	</action>
+
+
+
+	<style name="button" type="text" zorder="2"
+	       css="text-align:center;"
+	       padding="4 8"
+	       bgborder="4 0xFFFFFF 1"
+	       bgroundedge="1"
+	       bgshadow="0 1 4 0x000000 1.0"
+	       onover="set(bgcolor, 0xC7E4FC);"
+	       onout="calc(bgcolor, pressed ? 0x90CAF9 : 0xFFFFFF);"
+	       ondown="set(bgcolor, 0x90CAF9);"
+	       onup="calc(bgcolor, hovering ? 0xC7E4FC : 0xFFFFFF);"
+	       />
+
+	<style name="button_selected"
+	       css="text-align:center; text-decoration:underline;"
+	       />
+
+	<layer name="ui" type="container" width="100%" height="100%" zorder="2" autoalpha="true">
+
+		<layer name="button_side_by_side" style="button" align="bottom" x="-60" y="60" width="100"
+			text="Side-by-Side"
+			onclick="side_by_side(tween);"
+			/>
+			
+		<layer name="button_overlap_blending" style="button" align="bottom" x="+60" y="60" width="100"
+			text="Overlapped"
+			onclick="overlap_blending(tween);"
+			/>
+
+		<layer name="button_split_screen" style="button|button_selected" align="bottom" x="0" y="20" width="100"
+			text="Split-Screen"
+			onclick="split_screen(tween,0.5);"
+			/>
+
+		<layer name="button_left_only" style="button" align="bottom" x="-120" y="20" width="100"
+			text="Left only"
+			onclick="left_only(tween);"
+			/>
+
+		<layer name="button_right_only" style="button" align="bottom" x="+120" y="20" width="100"
+			text="Right only"
+			onclick="right_only(tween);"
+			/>
+
+		
+	
+	</layer>
+	
+	<layer name="split_slider" type="container" safearea="false" zorder="1"
+		x="50%" edge="top" width="20" height="100%" bgcapture="true" cursor="ew-resize" enablechildren="false" autoalpha="true"
+		ondown="asyncloop(pressed, x=(mouse.x/stagewidth * 100) + '%'; set_split_screen(set, (1-mouse.x/stagewidth),true) );"
+		>
+		<layer type="container" align="top" width="3" height="100%" bgcolor="0xFFFFFF" bgshadow="0 0 16 0x000000 1.0" bgalpha="1" />
+		<layer type="text" align="center" width="22" height="22" style="button" padding="0" bgroundedge="20"
+			text='[svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"]
+			[polyline points="9,7 5,11 9,15" fill="none" stroke="currentColor" stroke-width="1.3"/]
+			[polyline points="13,15 17,11 13,7" fill="none" stroke="currentColor" stroke-width="1.3"/]
+			[/svg]'
+			/>
+	</layer>
+
+
+	<layer name="blend_slider" type="container" zorder="1" autoalpha="true" alpha="0"
+		align="bottom" y="200" width="200" height="16"
+		bgalpha="0.5" bgcolor="0xFFFFFF" bgborder="1 0xFFFFFF 0.2" bgroundedge="9" bgblur="5"
+		>
+		<layer name="blend_grip" align="left" edge="center" style="button" width="48" height="28"
+			bgroundedge="20" padding="0" textalign="center" text="50%" x="50%"
+			ondown.addevent="asyncloop(pressed,
+					pos = clamp((mouse.stagex - parentobject.stagex) / parentobject.pixelwidth, 0, 1);
+					x = 100*pos + '%';
+					text = (100-floor(100*pos)) + ':' + floor(100*pos);
+					layer[krpano2container].alpha = pos;
+					);">
+		</layer>
+	</layer>
+
+
+	<action name="set_active_button" scope="local" args="activebutton">
+		layer[button_overlap_blending].loadstyle(button);
+		layer[button_side_by_side].loadstyle(button);
+		layer[button_left_only].loadstyle(button);
+		layer[button_split_screen].loadstyle(button);
+		layer[button_right_only].loadstyle(button);
+		layer[get(activebutton)].loadstyle(button|button_selected);
+	</action>
+
+
+	<!--
+		Actions for changing the modes - the first argument (%1) can be
+		either 'set' for instant changes or 'tween' for animated changes.
+	-->
+	<action name="side_by_side">
+		set_active_button('button_side_by_side');
+
+		%1(layer[blend_slider].alpha, 0.0);
+		%1(layer[split_slider].alpha, 0.0);
+		%1(layer[split_slider].x, 50%);
+
+		%1(layer[krpano1container].alpha, 1.0);
+		%1(layer[krpano1container].x, 0%);
+		%1(layer[krpano1container].y, 0%);
+		%1(layer[krpano1container].width, 50%);
+		%1(layer[krpano1container].height, 100%);
+		%1(layer[krpano1].x, -50%);
+
+		%1(layer[krpano2container].alpha, 1.0);
+		%1(layer[krpano2container].x, 50%);
+		%1(layer[krpano2container].y, 0%);
+		%1(layer[krpano2container].width, 50%);
+		%1(layer[krpano2container].height, 100%);
+		%1(layer[krpano2].x, -50%);
+	</action>
+
+	
+
+	<action name="set_split_screen" scope="local" args="mode, split">
+		%1(layer[krpano1container].alpha, 1.0);
+		%1(layer[krpano1container].x, 0%);
+		%1(layer[krpano1container].y, 0%);
+		%1(layer[krpano1container].width, ((1-split) * 100 + '%'));
+		%1(layer[krpano1container].height, 100%);
+		%1(layer[krpano1].x, 0%);
+
+		%1(layer[krpano2container].alpha, 1.0);
+		%1(layer[krpano2container].x, ((1-split) * 100 + '%'));
+		%1(layer[krpano2container].y, 0%);
+		%1(layer[krpano2container].width, ((split * 100 + '%')));
+		%1(layer[krpano2container].height, 100%);
+		%1(layer[krpano2].x, 0%);
+	</action>
+
+	<action name="split_screen">
+		set_active_button('button_split_screen');
+
+		%1(layer[blend_slider].alpha, 0.0);
+		%1(layer[split_slider].alpha, 1.0);
+		%1(layer[split_slider].x, 50%);
+
+		set_split_screen(%1, 0.5);
+	</action>
+
+	<action name="left_only">
+		set_active_button('button_left_only');
+
+		%1(layer[blend_slider].alpha, 0.0);
+		%1(layer[split_slider].alpha, 0.0);
+		%1(layer[split_slider].x, 100%);
+
+		set_split_screen(%1, 0.0);
+	</action>
+
+	<action name="right_only">
+		set_active_button('button_right_only');
+
+		%1(layer[blend_slider].alpha, 0.0);
+		%1(layer[split_slider].alpha, 0.0);
+		%1(layer[split_slider].x, 0%);
+
+		set_split_screen(%1, 1.0);
+	</action>
+
+	<action name="overlap_blending">
+		set_active_button('button_overlap_blending');
+
+		%1(layer[blend_slider].alpha, 1.0);
+		%1(layer[blend_grip].x, 50%);
+		set(layer[blend_grip].text, '50:50');
+
+		%1(layer[split_slider].alpha, 0.0);
+		%1(layer[split_slider].x, 50%);
+
+		%1(layer[krpano1container].alpha, 1.0);
+		%1(layer[krpano1container].x, 0%);
+		%1(layer[krpano1container].y, 0%);
+		%1(layer[krpano1container].width, 100%);
+		%1(layer[krpano1container].height, 100%);
+		%1(layer[krpano1].x, 0%);
+
+		%1(layer[krpano2container].alpha, 0.5);
+		%1(layer[krpano2container].x, 0%);
+		%1(layer[krpano2container].y, 0%);
+		%1(layer[krpano2container].width, 100%);
+		%1(layer[krpano2container].height, 100%);
+		%1(layer[krpano2].x, 0%);
+	</action>
+
+
+	
+	<!-- select the startup mode -->
+	<action autorun="onstart">
+		//side_by_side(set);
+		split_screen(set,0.5);
+		//overlap_blending(set);
+	</action>
+
+	
+	<events ondoubleclick="
+		callwith(layer[ui], tween(alpha, (alpha LT 0.5 ? 1.0 : 0.0)));
+		" />
+	
+	<cssstyles>
+		a{text-decoration:none;}
+		a:hover{text-decoration:underline;}
+	</cssstyles>
+
+	<layer name="infolink" keep="true"
+		type="text"
+		text="Model provided by [a href='https://www.virtualtuur.com/' target='_blank']virtualtuur.com[/a]"
+		css="font-size:12px; font-style:italic; color:#FFFFFF;"
+		bg="false"
+		txtshadow="0 1 1 0, 1 0 1 0"
+		align="leftbottom"
+		/>
+	
+	<layer name="backlink" keep="true"
+		type="text"
+		text="[a href='https://krpano.com']krpano.com[/a]"
+		css="font-size:12px; font-style:italic; color:#FFFFFF;"
+		bg="false"
+		txtshadow="0 1 1 0, 1 0 1 0"
+		align="rightbottom"
+		/>
+		
+	
+	<!-- file-drop support - a little tool for quickly testing own splat models -->
+	<action name="splatexamples_drop_in_support" autorun="onstart" type="js"><![CDATA[
+
+		function preventDefault(e)
+		{
+			if (e.type == "dragover") e.dataTransfer.dropEffect = "copy";
+			e.preventDefault();
+			e.stopPropagation();
+		}
+
+		function enable_drop_in_support()
+		{
+			document.addEventListener("dragenter", preventDefault);
+			document.addEventListener("dragover", preventDefault);
+			document.addEventListener("dragleave", preventDefault);
+
+			document.addEventListener("drop", function(e)
+			{
+				preventDefault(e);
+				
+				// where to drop
+				var viewer_side = null;
+				var mx = krpano.mouse.stagex;
+				var my = krpano.mouse.stagey;
+				var targetkrpano = null;
+				
+				if (e.clientX < window.innerWidth/2)
+				{
+					viewer_side = "left";
+					targetkrpano = krpano.get("layer[krpano1].krpano");
+				}
+				else 
+				{
+					viewer_side = "right";
+					targetkrpano = krpano.get("layer[krpano2].krpano");
+				}
+				
+				if (!targetkrpano)
+					return;
+
+				var file = e.dataTransfer.files[0];
+				if (!file)
+					return;
+				
+				var urlinfo = krpano.utils.spliturl(file.name);
+
+				// only .splat and .ply files are supported
+				var fileext = urlinfo.ext.toLowerCase();
+				if (fileext != "splat" && fileext != "ply")
+					return;
+				
+				// create a URL object
+				var fileURL = URL.createObjectURL(file);
+
+				// krpano will take the text after the '#' as filename for blob-urls
+				var bloburl_with_filename = fileURL + "#" + file.name;
+				
+				// load the dropped splat model
+				targetkrpano.image.reset();
+				targetkrpano.image.splats.url = bloburl_with_filename;
+				targetkrpano.actions.loadpanoimage();
+				
+				// reset the view
+				targetkrpano.view.reset();
+				
+				// include the splat tools
+				targetkrpano.actions.includexml("%CURRENTXML%/splattools.xml", function()
+				{
+					if (viewer_side == "right")
+					{
+						targetkrpano.call("layer[splattools].align = 'right';");
+					}
+				});
+
+				// remove the URL object when leaving the pano
+				targetkrpano.events.addListener("onremovepano|once", function()
+				{
+					URL.revokeObjectURL(fileURL);
+				});
+			});
+		}
+
+		enable_drop_in_support();
+
+	]]></action>
+
+</krpano>

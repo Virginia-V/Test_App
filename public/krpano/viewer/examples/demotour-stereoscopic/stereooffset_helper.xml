@@ -1,0 +1,66 @@
+<krpano>
+
+	<!--
+		A helper tool for finding a good image.stereooffset setting for
+		stereoscopic images.
+
+		Usage:
+		- include this file
+		- enable anaglyph, stereo or vr mode
+		- use the D and F keyboard keys to adjust image.stereooffset
+		- use the G and H keyboard keys to adjust display.stereoseparation
+		- image content very far away should overlap congruently
+	-->
+
+	<layer name="stereooffsetinfo" keep="true"
+		type="text" align="leftbottom" x="15" y="15" zorder="999"
+		text="data:stereooffsetinfo"
+		padding="4 6"
+		bgroundedge="3"
+		bgshadow="0 2 5 0x000000 1.0"
+		/>
+
+	<data name="stereooffsetinfo"><![CDATA[
+		[u]Stereo-Offset Helper[/u] - Keyboard keys:<br>
+		&bull; D and F for adjusting the stereo offset<br>
+		&bull; G and H for adjusting the stereo separation<br>
+		&bull; SPACE for toggling the stereo offset on/off<br>
+		&bull; A for anglyph-mode<br>
+		&bull; S for stereo-mode<br>
+	]]></data>
+
+	<hotspot name="stereooffset" keep="true"
+		type="text"
+		css="font-size:15px;"
+		textalign="center"
+		flying="1.0"
+		padding="4 6"
+		bgroundedge="3"
+		bgshadow="0 2 5 0x000000 1.0"
+		oversampling="2"
+		oy="-100"
+		/>
+
+	<action name="updatestereooffset" autorun="preinit">
+		calc(hotspot[stereooffset].text,
+			'stereooffset=' + roundval(image.stereooffset,2) + '[br]' + 
+			'stereoseparation=' + roundval(display.stereoseparation,2) + 
+			(xml.scene != null ? ('[br]scene=' + xml.scene) : ''));
+		updatescreen();
+	</action>
+	
+
+	<events name="stereooffset" keep="true"
+		onxmlcomplete="updatestereooffset();"
+		onkeydown="
+			if(keycode==charcode(' '), if((1*image.stereooffset) == 0, copy(image.stereooffset,stereooffetbackup), copy(stereooffetbackup,image.stereooffset); set(image.stereooffset,0); ); updatestereooffset(); );
+			if(keycode==charcode('A'), switch(display.anaglyph) );
+			if(keycode==charcode('S'), switch(display.stereo) );
+			if(keycode==charcode('D'), add(image.stereooffset,-0.05); updatestereooffset(); );
+			if(keycode==charcode('F'), add(image.stereooffset,+0.05); updatestereooffset(); );
+			if(keycode==charcode('G'), add(display.stereoseparation,-0.05); updatestereooffset(); );
+			if(keycode==charcode('H'), add(display.stereoseparation,+0.05); updatestereooffset(); );
+			"
+		/>
+
+</krpano>

@@ -1,0 +1,266 @@
+﻿<krpano>
+	
+	<data name="infotext">
+		krpano Maps Plugin Example<br/>
+		<br/>
+		This example shows how to use the new
+		<a href="https://krpano.com/plugins/krpanomaps/#top">krpano Maps Plugin</a>
+		and its new APIs.
+	</data>
+	
+	<layer name="info" zorder="2"
+		type="text"
+		text="data:infotext"
+		width="320"
+		bg="false"
+		css="font-family:monospace; color:#FFFFFF; font-size:14px; text-align:center; line-height:18px;"
+		txtshadow="0 1 4 0x000000 1.0"
+		align="top"
+		y="100"
+		onclick="set(enabled,false); tween(alpha,0,0.5,default,remove());"
+		onloaded="delayedcall(12, onclick() );"
+		/>
+		
+	
+	<!-- krpano Maps Plugin -->
+	<include url="%VIEWER%/plugins/krpanomaps.xml" />
+
+	<layer name="krpanomaps" zorder="1"
+		style="krpanomaps"
+		width="100%" height="100%"
+		tileprovider="arcgis_worldmap"
+		onmapready="test_krpanomaps();"
+		gesturerotation="true"
+		/>
+
+	
+	<action name="test_krpanomaps" type="js"><![CDATA[
+		
+		// get the plugin API
+		var krpanomaps = caller;
+	
+		// wait for multiple tasks (loading two files) before doing the next step
+		krpano.mergeCallbacks(
+		[
+			// load polygons
+			function(callback)
+			{
+				// Austria Boundary - Source: https://cartographyvectors.com/map/854-austria-detailed-boundary
+				krpano.loadFile("%CURRENTXML%/austria-detailed-boundary_854.json", function(loader)
+				{
+					var geojson = JSON.parse(loader.data);
+					
+					if (geojson && Array.isArray(geojson.features))
+					{
+						// parse the GeoJSON, but only support "Polygon" features
+						geojson.features.forEach( function(feature)
+						{
+							if (feature.geometry && feature.geometry.type == "Polygon" && Array.isArray(feature.geometry.coordinates))
+							{
+								var coords = feature.geometry.coordinates[0];
+								var mappoints = [];
+								var cnt = coords.length;
+								var i;
+								
+								for (i=0; i < cnt; i++)
+								{
+									mappoints.push( coords[i][1] );
+									mappoints.push( coords[i][0] );
+								}
+								
+								var hs_borderpoly = krpanomaps.addhotspot();
+								hs_borderpoly.enabled = false;
+								hs_borderpoly.polyline = true;
+								hs_borderpoly.borderwidth = 3.0;
+								hs_borderpoly.bordercolor = 0x00FF00;
+								hs_borderpoly.mappoints = mappoints.join(",");
+							}
+						});
+						
+						callback();
+					}
+				});
+			},
+			
+			// load spots
+			function(callback)
+			{
+				// an info text hotspot
+				var hs_infotext = krpanomaps.addhotspot("infotext", false);
+				hs_infotext.visible = false;
+				hs_infotext.enabled = false;
+				hs_infotext.type = "text";
+				hs_infotext.edge = "lefttop";
+				hs_infotext.zorder = 4;
+				hs_infotext.ox = 8;
+				hs_infotext.oy = 8;
+				hs_infotext.css = "font-family:monospace;";
+				hs_infotext.padding = "3 5";
+				hs_infotext.bgroundedge = 5;
+				hs_infotext.bgborder = "1 0x000000 0.5";
+				
+				// A list of 183 prominent cities in Austria - Source: https://simplemaps.com/data/at-cities
+				krpano.loadFile("%CURRENTXML%/austria-cities-database.json", function(loader)
+				{
+					var db = JSON.parse(loader.data);
+					
+					if (db && Array.isArray(db))
+					{
+						// first sort the spots for nicer overlapping
+						db.sort( function(a,b)
+						{
+							var d = 1*b.lat - 1*a.lat;
+							if (Math.abs(d) < 0.01) d = 1*a.lng - 1*b.lng;
+							return d;
+						});
+						
+						var spotdesign = "flag";	// "pin", "ball" or "flag"
+						
+						db.forEach( function(city)
+						{
+							var hs = krpanomaps.addhotspot();
+							hs.city = city.city;
+							hs.lng = city.lng;
+							hs.lat = city.lat;
+							
+							if (spotdesign == "pin")
+							{
+								hs.url = "%CURRENTXML%/mapspot-pin.svg";
+								hs.edge = "0.5|0.875";
+							}
+							else if (spotdesign == "ball")
+							{
+								hs.url = "%CURRENTXML%/mapspot-ball.svg";
+							}
+							else if (spotdesign == "flag")
+							{
+								hs.url = "%CURRENTXML%/mapmarker.png";
+								hs.edge = "0.125|0.976";
+								hs.scale = 0.5;
+								
+								// zoom/scale the hotspots only within certain zoom levels
+								hs.zoom = true;
+								hs.zoomlevelbase = 8;
+								hs.zoomlevelmin = 7;
+								hs.zoomlevelmax = 9;
+							}
+							
+							hs.capture = false;
+							
+							hs.onover = function()
+							{
+								hs_infotext.visible = true;
+								hs_infotext.text = hs.city + "[br]" + "lat=[dq]" + hs.lat.toFixed(6) + "[dq][br]" + "lng=[dq]" + hs.lng.toFixed(6) + "[dq][br]";
+								hs_infotext.lat = hs.lat;
+								hs_infotext.lng = hs.lng;
+							}
+							hs.onout = function()
+							{
+								hs_infotext.visible = false;
+							}
+							
+							hs.ondown = hs.onover;
+							hs.onup = hs.onout;
+						});
+					}
+					
+					callback();
+				});
+			}
+		],
+		
+		// done - all files are loaded
+		function()
+		{
+			// draw a boundary box around
+			var bounds = krpanomaps.getbounds();
+					
+			if (bounds)
+			{
+				var hs_bbox = krpanomaps.addhotspot("bbox", false);
+				hs_bbox.enabled = false;
+				hs_bbox.polyline = true;
+				hs_bbox.borderwidth = 3.0;
+				hs_bbox.bordercolor = 0xFFFF00;
+				hs_bbox.mappoints = [bounds.minlat,bounds.minlng, bounds.maxlat,bounds.minlng, bounds.maxlat,bounds.maxlng, bounds.minlat,bounds.maxlng, bounds.minlat,bounds.minlng].join(",");
+			}
+			
+			// update the mapview to see the whole content
+			if (bounds)
+			krpanomaps.fitbounds(null, 1.5, 0, function()
+			{
+				// distance() - Source: https://geodatasource.com/developers/javascript
+				function lat_lng_distance_in_km(lat1, lon1, lat2, lon2)
+				{
+					if ((lat1 == lat2) && (lon1 == lon2))
+					{
+						return 0;
+					}
+					else
+					{
+						var radlat1 = Math.PI * lat1/180;
+						var radlat2 = Math.PI * lat2/180;
+						var theta = lon1 - lon2;
+						var radtheta = Math.PI * theta/180;
+						var dist = Math.sin(radlat1)*Math.sin(radlat2) + Math.cos(radlat1)*Math.cos(radlat2)*Math.cos(radtheta);
+						if (dist > 1) dist = 1;
+						return Math.acos(dist) * 180/Math.PI * 60 * 1.1515 * 1.609344;
+					}
+				}
+				
+				// add two dragable measurements points 
+				
+				var hs_measure_p1 = krpanomaps.addhotspot("measure1", false);
+				var hs_measure_p2 = krpanomaps.addhotspot("measure2", false);
+				var hs_measure_line = krpanomaps.addhotspot("measureline", false);
+				var hs_measure_text = krpanomaps.addhotspot("measuretext", false);
+				
+				hs_measure_p1.url = hs_measure_p2.url = "%CURRENTXML%/crosshair.png";
+				hs_measure_p1.scale = hs_measure_p2.scale = 0.5;
+				hs_measure_p1.zorder = hs_measure_p2.zorder = 3;
+				hs_measure_p1.dragable = hs_measure_p2.dragable = true;
+				
+				var latrange = (bounds.maxlat - bounds.minlat);
+				var lngrange = (bounds.maxlng - bounds.minlng);
+				hs_measure_p1.lat = krpanomaps.lat - latrange/2;
+				hs_measure_p2.lat = krpanomaps.lat + latrange/2;
+				hs_measure_p1.lng = krpanomaps.lng - lngrange/2;
+				hs_measure_p2.lng = krpanomaps.lng + lngrange/2;
+				
+				hs_measure_line.enabled = false;
+				hs_measure_line.polyline = true;
+				hs_measure_line.svglayer = "separate";
+				hs_measure_line.zorder = 1;
+				hs_measure_line.borderwidth = 3.0;
+				hs_measure_line.bordercolor = 0xFF0000;
+				hs_measure_line.borderalpha = 0.8;
+				
+				hs_measure_text.enabled = false;
+				hs_measure_text.type = "text";
+				hs_measure_text.zorder = 2;
+				hs_measure_text.css = "font-family:monospace;";
+				hs_measure_text.padding = "3 5";
+				hs_measure_text.bgroundedge = 5;
+				hs_measure_text.bgborder = "1 0x000000 0.5";
+				
+				function update_measure()
+				{
+					var km = krpanomaps.distance(hs_measure_p1.lat, hs_measure_p1.lng, hs_measure_p2.lat, hs_measure_p2.lng, "km");
+					
+					// mesure short distances in meter
+					hs_measure_text.text = km < 1 ? (km*1000).toFixed(1) + " m" : km.toFixed(2) + " km";
+					
+					hs_measure_text.ath = (hs_measure_p1.ath + hs_measure_p2.ath)/2;
+					hs_measure_text.atv = (hs_measure_p1.atv + hs_measure_p2.atv)/2;
+					hs_measure_line.mappoints = [hs_measure_p1.lat, hs_measure_p1.lng, hs_measure_p2.lat, hs_measure_p2.lng].join(",");
+				}
+				
+				hs_measure_p1.ondrag = hs_measure_p2.ondrag = update_measure;
+				
+				update_measure();
+			});
+		});
+		
+	]]></action>
+
+</krpano>

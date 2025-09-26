@@ -1,0 +1,92 @@
+<krpano>
+	
+	<image>
+		<preview url="../webvr/panos/intro/preview.jpg" />
+		<cube url="../webvr/panos/intro/pano_%s.jpg" />
+	</image>
+	
+	<layer
+		type="text"
+		text="Style Layers using[br]CSS classes and CSS variables"
+		css="color:white; text-align:center; font-size:18px; font-weight:bold;"
+		txtshadow="0 1 2 0x000000 1.0"
+		align="top" y="100"
+		enabled="false"
+		bgalpha="0"
+		zorder="2"
+		/>
+		
+	
+	<!-- define the CSS styles inline here (but they could be also be defined in html/css files) -->
+	<cssstyles>
+		:root
+		{
+			--color1-rgb: 255,255,255;
+			--color2-rgb: 255,255,255;
+			--color3-rgb: 10,10,10;
+		}
+		
+		[data-theme="darkmode"]
+		{
+			--color1-rgb: 30,30,30;
+			--color2-rgb: 100,100,100;
+			--color3-rgb: 200,200,200;
+		}
+		
+		[data-theme="blue"]
+		{
+			--color1-rgb: 200,200,255;
+			--color2-rgb: 0,0,128;
+			--color3-rgb: 0,0,10;
+		}
+
+		.background
+		{
+			background: radial-gradient(rgba(0,0,0,0.0) 50%, rgba(255,255,0,1.0) 120%);
+		}
+	
+		.panel
+		{
+			background: rgba(var(--color2-rgb), 0.2);
+			border: 1px solid rgba(var(--color1-rgb), 0.3);
+			border-radius: 15px;
+			box-shadow: 0 4px 30px rgba(var(--color3-rgb), 0.4);
+			backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+		}
+		
+		.button
+		{
+			color: rgba(var(--color1-rgb),1.0);
+			text-shadow: 0px 1px 1px rgba(var(--color3-rgb), 0.5), 0px 0px 10px rgba(var(--color3-rgb), 0.5);
+			font-size: 14px;
+			font-weight: bold;
+			letter-spacing: 0.5px;
+			background: rgba(var(--color2-rgb),0.4);
+			border: 1px solid rgba(var(--color1-rgb), 0.3);
+			border-radius: 7px;
+			box-shadow: 0 4px 30px rgba(var(--color3-rgb), 0.2);
+			backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+			transition: background 1s, box-shadow 0.5s;
+		}
+		
+		.button:hover
+		{
+			background: rgba(var(--color1-rgb), 0.1);
+			box-shadow: 0 4px 30px rgba(var(--color3-rgb), 0.2), 0 0 0px 4px rgba(var(--color1-rgb), 1.0);
+		}
+		
+		.button:active
+		{
+			text-shadow: 0px -1px 1px rgba(var(--color3-rgb), 0.5), 0px 0px 20px rgba(var(--color3-rgb), 1.0);
+		}
+	</cssstyles>
+	
+	<layer type="container" enabled="false" width="100%" height="100%" safearea="false" cssclass="background" />
+	
+	<layer type="container" flowchildren="h" childflowspacing="20" childmargin="20" align="bottom" y="20%" cssclass="panel">
+		<layer type="text" text="Light" padding="8 16" cssclass="button" onclick="js:document.documentElement.setAttribute('data-theme', 'lightmode');" />
+		<layer type="text" text="Dark"  padding="8 16" cssclass="button" onclick="js:document.documentElement.setAttribute('data-theme', 'darkmode');" />
+		<layer type="text" text="Blue"  padding="8 16" cssclass="button" onclick="js:document.documentElement.setAttribute('data-theme', 'blue');" />
+	</layer>
+	
+</krpano>

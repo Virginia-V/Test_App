@@ -1,0 +1,52 @@
+<krpano>
+	
+	<image>
+		<preview url="../webvr/panos/intro/preview.jpg" />
+		<cube url="../webvr/panos/intro/pano_%s.jpg" />
+	</image>
+	
+	<data name="test"><![CDATA[
+		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br>
+		<br>
+		Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.<br>
+		<br>
+		Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.<br>
+	]]></data>
+	
+	
+	<layer name="box" type="container" align="center" width.normal="380" width.mobile="80%" height="300" bgcolor="0xFFFFFF" bgalpha="1" bgborder="1 0x777777 0.5" bgroundedge="7" bgshadow="0 4 20 0x000000 0.25">
+		<layer name="scrollarea"
+			type="scrollarea"
+			width="-4" flowchildren="v" childmargin="10"
+			scrolltype.desktop="smooth"
+			scrolltype.tablet.or.mobile="inertia"
+			direction="v"
+			draggable="true"
+			mwheel="true"
+			capturechildren="true"
+			autoscrollbars="null,vscrollbar_grip,10"
+			onhover_autoscrolling="false"
+			onscroll=""
+			onoverflowchange=""
+			>
+			<!-- Scrolling content layers here: -->
+			<layer name="somecontent" type="text" align="lefttop" html="get:data[test].content" htmlautosize="true" width="100%" bgalpha="0.0" css="color:black; font-size:18px;" 
+				onclick="callwith(hotspot[info], set(enabled,true);tween(alpha,1); spheretoscreen(ath,atv,fade_to_x,fade_to_y); ); fade_to_x-=stagewidth/2; fade_to_y-=stageheight/2; callwith(layer[box], tween(scale|alpha|ox|oy,('0|0|'+fade_to_x+'|'+fade_to_y)) ); "
+				/>
+		</layer>
+
+		<!-- Non scrolling layers (scrollbars, buttons, ...) here: -->
+		<layer name="vscrollbar_bg" type="container" align="right" width="16" height="100%">
+			<layer name="vscrollbar_grip" type="container" align="righttop" width="8" x="4" height="16" bgcolor="0xAAAAAA" bgalpha="0.5" bgroundedge="7" bgcapture="true" />
+		</layer>
+
+	</layer>
+	
+	<!-- a hotspot to open the info scrollbar again -->
+	<hotspot name="info" type="text" html="Show Info"  bgcolor="0xFFFFFF" bgalpha="1" bgborder="1 0x777777 0.5" bgroundedge="7" bgshadow="0 4 20 0x000000 0.25" css="color:black; font-size:18px;" padding="4 8" autoalpha="true"
+		ath="0" atv="30" enabled="false" alpha="0"
+		onclick="set(enabled,false);tween(alpha,0); callwith(layer[box], ox=mouse.x-stagewidth/2; oy=mouse.y-stageheight/2; tween(scale|alpha|ox|oy,1|1|0|0); );"
+		/>
+
+</krpano>
+

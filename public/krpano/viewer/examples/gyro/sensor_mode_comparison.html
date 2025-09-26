@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>krpano Gyro Example</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="x-ua-compatible" content="IE=edge" />
+	<style>
+		html { height:100%; }
+		body { height:100%; overflow:hidden; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#FFFFFF; background-color:#000000; }
+	</style>
+</head>
+<body>
+
+	<script src="../../krpano.js"></script>
+	
+	<div id="container" style="position:absolute; left:0; top:0; width:100%; height:100%;">
+		<div id="krpano1" style="position:absolute; left:0%;  top:0; width:50%; height:100%;"></div>
+		<div id="krpano2" style="position:absolute; left:50%; top:0; width:50%; height:100%;"></div>
+	</div>
+	
+	<script>
+		var krpano1 = null;
+		var krpano2 = null;
+		
+		embedpano({target:"krpano1", xml:"gyro.xml", vars:{"plugin[gyro].sensor":0}, onready:function(krpano){ krpano1 = install_viewers(krpano); }});
+		embedpano({target:"krpano2", xml:"gyro.xml", vars:{"plugin[gyro].sensor":1}, onready:function(krpano){ krpano2 = install_viewers(krpano); }});
+		
+		function install_viewers(krpano)
+		{
+			// use the container as fullscreen element
+			krpano.display.customFullscreenElement = document.getElementById("container");
+			
+			return krpano;
+		}
+		
+	</script>
+
+</body>
+</html>

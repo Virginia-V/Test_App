@@ -1,0 +1,1010 @@
+﻿<!DOCTYPE html>
+<html>
+<!--
+	Several examples for using krpano from and with Javascript-only.
+	For krpano version 1.22 and higher.
+-->
+<head>
+	<title>krpano Javascript API Examples</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<style>
+		html{ height:100%; }
+		body{ height:100%; display:flex; flex-direction:column; background:#36B; box-sizing:border-box; margin:0px; padding:16px; overflow:hidden; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:white; -webkit-text-size-adjust:none; -moz-text-size-adjust:none; -ms-text-size-adjust:none; text-size-adjust:none; }
+		h1{ color:white; font-size:16px; margin-top:0; }
+		#localusagenote{ background:white; border:1px solid red; border-radius:5px; color:red; padding:8px; margin:20px 16px 20px 0; }
+		#content { flex:1; display:flex; overflow:auto; }
+		#pano { flex:auto; border:1px solid #FFF; border-radius:11px; overflow:hidden; box-shadow:0px 3px 14px rgba(0,0,0,0.5); }
+		#buttons { padding:0 16px; overflow:auto; }
+		.button{ background:#fff; color:#245; display:inline-block; border:1px solid #333; border-radius:5px; box-shadow:0px 1px 3px rgba(0,0,0,0.3); cursor:pointer; padding:4px 8px; margin:4px 0; user-select:none; -moz-user-select:none; }
+		.button:hover{ background-color:#EEEEEE; }
+
+		/* mobile layout */
+		@media (max-width:500px)
+		{
+			#content{ flex-direction:column;  }
+			#pano{ min-height:60vh; }
+			#buttons { padding: 0; margin-top:16px;  }
+		}
+
+		/* workaround for a Firefox bug:
+			- backdrop-blur effects don't work when the container has a border-radius:
+			- https://stackoverflow.com/questions/75137879/bug-with-backdrop-filter-in-firefox
+		*/
+		@-moz-document url-prefix(){ #pano{ border-radius:0px; } }
+	</style>
+</head>
+<body>
+
+<h1>krpano Javascript API Examples (Version 1.22)</h1>
+
+<div id="localusagenote" style=" display:none;">
+	<b>NOTE:</b>
+	Start this example from a local server like the <a href="https://krpano.com/tools/testingserver/#top" target="_blank" style="color:red;">krpano Testing Server</a>
+	and select the root folder of the krpano Download Package as server folder!<br>
+	If using the example locally on a <u>file://</u> url or with another server folder,
+	it might be not possible to access the files that are used by the examples
+	(depending on the <a href="https://krpano.com/docu/localusage/#top" target="_blank" style="color:red;">Browser settings</a>).
+</div>
+
+<div id="content">
+
+	<div id="pano"></div>
+
+	<div id="buttons" style="pointer-events:none; user-select:none; opacity:0.0; transition:opacity 1.0s ease-out;">
+		Loading panos:<br>
+		<div class="button" onclick="loadxmlfile()">load xml file</div><br>
+		<div class="button" onclick="loadxmlstring()">load xml string</div><br>
+		<div class="button" onclick="loadimage()">load image (single-res)</div><br>
+		<div class="button" onclick="loadimage_mres()">load image (multi-res)</div><br>
+		<div class="button" onclick="loadimage_partial()">load image (partial-pano)</div><br>
+		<div class="button" onclick="loadimage_3dmodel()">load image (3D-model)</div><br>
+		<br>
+		Changing the view:<br>
+		<div class="button" onclick="reset_view()">Reset view</div><br>
+		<div class="button" onclick="randomview_set()">Set a Random view</div><br>
+		<div class="button" onclick="randomview_lookto()">Animated Look-to a Random view</div><br>
+		<br>
+		Hotspots:<br>
+		<div class="button" onclick="add_hotspot()">Add a Hotspot at the looking position</div><br>
+		<div class="button" onclick="add_hotspot_on_next_click()">Add a Hotspot at the click position</div><br>
+		<div class="button" onclick="add_poly_hotspot()">Add Polygonal Hotspot</div><br>
+		<div class="button" onclick="remove_all_hotspots()">Remove all hotspots</div><br>
+		<br>
+		Layers:<br>
+		<div class="button" onclick="textfield_template()">Add a Textfield with a template</div><br>
+		<div class="button" onclick="layers_colormixer_demo()">A Simple Color-Mixer as Demo</div><br>
+		<br>
+		Plugins:<br>
+		<div class="button" onclick="plugin_soundinterface_demo()">Soundinterface Demo</div><br>
+		<div class="button" onclick="plugin_videoplayer_demo()">Videoplayer Demo</div><br>
+		<div class="button" onclick="plugin_postprocessing_demo()">Postprocessing Demo</div><br>
+	</div>
+
+</div>
+
+
+<script src="../../krpano.js"></script>
+
+<script>
+
+	// show a note when opening that example directly from a local file:// url
+	if ( location.protocol == "file:" )
+	{
+		document.getElementById("localusagenote").style.display = "";
+	}
+
+
+	// a global 'krpano' variable (will be set in the embedpano.onready callback)
+	// open the Browsers developer tools and type 'krpano' for directly playing with it
+	var krpano = null;
+
+
+	// embed the krpano viewer
+	embedpano({
+		target : document.getElementById("pano"), 	// embed the krpano viewer into the 'pano' div element
+		consolelog : true,							// log the krpano messages also to the Browser console
+		//bgcolor : "transparent",					// optionally: use a transparent background (for seeing the webpage behind 3D-models or partial panos)
+		onready : function(krpanointerface)
+		{
+			krpano = krpanointerface;
+
+			// enable the debugmode and handle all JS errors in the Browsers console
+			krpano.debugmode = true;
+			krpano.debugjsactions = true;
+			krpano.debugjsplugins = true;
+
+			// add a grid pano (with custom colors)
+			krpano.image.preview = {type:"grid(cube,64,64,512,0xCCAA00,0x222222)"};
+
+			// add an intro info text
+			var info = krpano.addlayer();
+			info.setvars({type:"text", align:"center", text:"krpano is ready...", bg:false, css:"color:white;font-size:14px;font-weight:bold;"});
+			info.onclick = function()
+			{
+				// disable the layer to avoid getting additional clicks during the animation
+				info.enabled = false;
+
+				// do an animation and remove the layer
+				krpano.tween(info, {scale:10,alpha:0}, 0.5, "smooth", function(){ info.remove(); });
+			}
+
+			// enable the example buttons now
+			var buttons = document.getElementById("buttons");
+			buttons.style.pointerEvents = "auto";
+			buttons.style.opacity = 1.0;
+		}
+	});
+
+
+	// examples
+
+	function loadxmlfile()
+	{
+		// load a tour xml file
+		krpano.actions.loadpano("../demotour-corfu/tour.xml", null, "RESET");
+	}
+
+
+	function loadxmlstring()
+	{
+		// load a xml as string
+		var xmlstring =
+			`<krpano>
+				<image>
+					<preview url="../webvr/panos/intro/preview.jpg" />
+					<cube url="../webvr/panos/intro/pano_%s.jpg" />
+				</image>
+				<view hlookat="0" vlookat="0" fov="100" />
+			</krpano>`;
+
+		krpano.actions.loadxml(xmlstring, null, "RESET", "BLEND(0.35)");
+	}
+
+
+	function loadimage()
+	{
+		// load a spherical image directly
+		krpano.image.reset();
+		krpano.image.sphere = {url:"../depthmap/depthmap-images/pano1.jpg"};
+		krpano.actions.loadpanoimage("RESET", "BLEND(0.35)");
+		krpano.actions.lookat(30,0,100);
+	}
+
+
+	function loadimage_mres()
+	{
+		// load images directly from the krpano cloudfront tile-server
+		krpano.image.reset();
+		krpano.image.preview = {url:"https://d8d913s460fub.cloudfront.net/tours/paris/panos/a.tiles/preview.jpg"};
+		krpano.image.cube = {url:"https://d8d913s460fub.cloudfront.net/tours/paris/panos/a.tiles/l%l_%s_%v_%h.jpg", multires:"512|768|1536|3072|6144|12409"};
+		krpano.actions.loadpanoimage("RESET", "BLEND(0.35)");
+
+		// add a contextmenu with different projection settings
+		krpano.actions.includexml("%VIEWER%/plugins/contextmenu.xml");
+	}
+
+
+	function loadimage_partial()
+	{
+		if (krpano.display.istransparent == false)
+		{
+			// unload and embed again with enabled transparent support
+			var embeddingparameters = krpano.embeddingparameters;
+			var old_onready = embeddingparameters.onready;
+			embeddingparameters.bgcolor = "transparent";
+			embeddingparameters.onready = function(krpano){ if(old_onready){ old_onready(krpano); }; loadimage_partial(); };
+			krpano.unload();
+			embedpano(embeddingparameters);
+			return;
+		}
+	
+		// load a 'partial' (non 360x180) pano
+		krpano.image.reset();
+		krpano.image.preview = {url:"../partialpano/tiles/preview.jpg"};
+		krpano.image.sphere = {url:"../partialpano/tiles/l%l/%0v/l%l_%0v_%0h.jpg", multires:"512,3072x928,6144x1854"};
+		krpano.image.hfov = 156.0;
+		krpano.image.vfov = 47.0;
+		krpano.image.voffset = 9.0;
+		krpano.actions.loadpanoimage("RESET", "BLEND(0.35)");
+
+		// disable the viewing limits to better see the partial pano ranges
+		krpano.view.limitview = "off";
+
+		// add a contextmenu with different projection settings
+		krpano.actions.includexml("%VIEWER%/plugins/contextmenu.xml");
+
+		// add a helper script for changing the partial pano fov settings
+		krpano.actions.includexml("../partialpano/partialpano_helpertool.xml", null, function(){});
+		
+		// add an other krpano viewer behind the current viewer one 
+		// to display a grid-pano behind the partial pano and sync its movements
+		{
+			var bg = krpano.addlayer();
+			bg.setvars({type:"krpano",width:"100%",height:"100%",parent:"BGLAYER"});
+			bg.onloaded = function()
+			{
+				bg.krpano.image.reset();
+				bg.krpano.image.preview = {type:"grid(cube,64,64,512,0xAA9900,0x222222)"};
+				bg.krpano.actions.loadpanoimage();
+				
+				// sync the view
+				krpano.events.addListener("onviewchange", function()
+				{
+					bg.krpano.view.syncto( krpano.view );
+				})
+			}
+		}
+	}
+
+
+	function loadimage_3dmodel()
+	{
+		// load a textured 3D-model pano
+		krpano.image.reset();
+		krpano.image.depthmap.setvars({
+			url     : "../depthmap/depthmap-textured/tourmodel.obj",
+			scale   : 100,
+			hittest : true
+		});
+		krpano.actions.loadpanoimage("RESET", "BLEND(0.35)");
+
+		// add a helper script for 3D navigation controls
+		krpano.actions.includexml("%VIEWER%/plugins/depthmap_navigation.xml");
+
+		// start with a pan-out animation to show that this is a 3D-model
+		krpano.events.addListener("onloadcomplete,once", function()
+		{
+			krpano.delayedcall(0.5, function()
+			{
+				krpano.tween(krpano.view, {oz:1200, hlookat:-100, vlookat:42}, 3.0, "smoother", function()
+				{
+					krpano.control.invert = true;
+				});
+			});
+		});
+
+		// add a 3D navigation cursor
+		var hit = null;
+		var cursor = krpano.addhotspot();
+		cursor.setvars({type:"text",
+			width:50, height:50, scale:0.6,
+			bgcolor:0xFFFFFF, bgalpha:0.2, bgroundedge:35, bgborder:"10 0xFFFFFF 0.5", blendmode:"add",
+			distorted:true, rotationorder:"zxy", mipmapping:true, oversampling:2,
+			torigin:"world", depth:0, depthbuffer:true, depthoffset:-100,
+			alpha:0, enabled:false
+		});
+
+		// constantly update the navigation cursor
+		krpano.asyncloop( function()
+		{
+			hit = krpano.device.istouchevent ? null : krpano.actions.screenraycast(krpano.mouse.x, krpano.mouse.y);
+			if (hit && hit.ny < -0.8)	// normal vector mostly pointing upward => hit on the floor
+			{
+				cursor.alpha = 1;
+				cursor.rx = hit.rx;
+				cursor.ry = hit.ry;
+				cursor.rz = hit.rz;
+				cursor.tx = hit.x;
+				cursor.ty = hit.y;
+				cursor.tz = hit.z;
+			}
+			else
+			{
+				cursor.alpha = 0;
+				hit = null;
+			}
+			return true; // keep looping
+		});
+
+		// move to the clicked floor position
+		krpano.events.addListener("onclick", function()
+		{
+			if (krpano.device.istouchevent)
+			{
+				hit = krpano.actions.screenraycast(krpano.mouse.x, krpano.mouse.y);
+				if (hit && hit.ny > -0.8)	// not a hit on the floor => skip
+				{
+					hit = null;
+				}
+			}
+			else
+			{
+				// accept only left-mousebutton clicks
+				if (krpano.mouse.button != 0)
+				{
+					hit = null;
+				}
+			}
+
+			if (hit)
+			{
+				// if still panned-out, pan in into first-person view
+				if (krpano.view.oz > 0)
+				{
+					krpano.tween(krpano.view, {oz:0, hlookat:krpano.view.hlookat, vlookat:0}, 1.0, "smooth", function()
+					{
+						krpano.control.invert = false;
+					});
+				}
+
+				// add motion blur
+				krpano.actions.tween(krpano.view, {longexposure:0.5}, 0.0);
+
+				// get the default eye-floor offset
+				var eyelevel = krpano.depthmap_navigation.eyelevel;
+
+				// move
+				krpano.tween(krpano.view, {tx:hit.x, ty:hit.y-eyelevel, tz:hit.z}, 1.0, "smoother", function()
+				{
+					krpano.depthmap_navigation.groundcollision = true;
+
+					krpano.actions.tween(krpano.view, {longexposure:0.0}, 0.2);
+				});
+			}
+		});
+	}
+
+
+	function reset_view()
+	{
+		// stop all lookto and view animations
+		krpano.actions.stoplookto();
+		krpano.actions.stoptween(krpano.view, "*");
+
+		krpano.view.defaults();
+
+		// reset also the global view offsets
+		krpano.view.setvars({ox:0, oy:0, oz:0, rx:0, ry:0});
+	}
+
+
+	function randomview_set()
+	{
+		krpano.view.hlookat    = (Math.random() - 0.5) * krpano.view.hlookatrange;
+		krpano.view.vlookat    = (Math.random() - 0.5) * krpano.view.vlookatrange;
+		krpano.view.fov        = krpano.view.fovmin + Math.random() * (krpano.view.fovmax - krpano.view.fovmin);
+		krpano.view.distortion = (Math.random() < 0.5) || (krpano.view.hlookatrange < 360.0 && krpano.view.vlookatrange < 180.0) ? 0.0 : Math.random();
+	}
+
+
+	function randomview_lookto()
+	{
+		krpano.actions.lookto(
+			(Math.random() - 0.5) * krpano.view.hlookatrange,
+			(Math.random() - 0.5) * krpano.view.vlookatrange,
+			krpano.view.fovmin + Math.random() * (krpano.view.fovmax - krpano.view.fovmin),
+			"smooth",
+			true,	// shortest way
+			true	// nonblocking
+		);
+		
+		krpano.tween(krpano.view, {distortion:(Math.random() < 0.5 ? 0.0 : Math.random())});
+	}
+
+
+	function add_hotspot()
+	{
+		if (krpano)
+		{
+			// add a hotspot at the current looking position
+			var hs = krpano.addhotspot();
+			hs.url = "vtourskin_hotspot.png";
+			hs.ath = krpano.view.hlookat;
+			hs.atv = krpano.view.vlookat;
+			hs.distorted = true;
+
+			// add an intro animation
+			hs.scale = 2;
+			hs.alpha = 0;
+			hs.onloaded = function(){ krpano.tween(hs, {scale:1,alpha:1}); };
+
+			hs.onclick = function(hs){ alert('hotspot "' + hs.name + '" clicked'); }.bind(null,hs);
+		}
+	}
+
+
+	function add_hotspot_on_next_click()
+	{
+		krpano.events.addListener("onclick,once", function()
+		{
+			var hs = null;
+
+			if (krpano.display.havedepthmap && krpano.image.depthmap.hittest)
+			{
+				// is a depthmap or 3D-model image? look for a hit/intersection
+
+				var hit = krpano.actions.screenraycast(krpano.mouse.x, krpano.mouse.y);
+				if (hit)
+				{
+					hs = krpano.addhotspot();
+					hs.setvars({url:"vtourskin_hotspot.png",
+						distorted:true, depthbuffer:true, depthoffset:-200, depth:0, 
+						edge:"top", scale:0.2, rotationorder:"zxy",
+						tx:hit.x, ty:hit.y, tz:hit.z,
+						rx:hit.rx, ry:hit.ry, rz:hit.rz
+					});
+
+					// add an intro animation
+					{
+						var d = 50;
+						hs.tx = hit.x + d*hit.nx;
+						hs.ty = hit.y + d*hit.ny;
+						hs.tz = hit.z + d*hit.nz;
+						hs.tx = krpano.view.tx;
+						hs.ty = krpano.view.ty + 30;
+						hs.tz = krpano.view.tz;
+						hs.scale = 1;
+						hs.alpha = 0;
+						hs.onloaded = function(){ krpano.tween(hs, {tx:hit.x, ty:hit.y, tz:hit.z, scale:0.2, alpha:1}); };
+					}
+
+					// and an outro animation on clicking
+					hs.onclick = function()
+					{
+						krpano.tween(hs, {scale:0, alpha:0}, 0.5, "default", function(){ hs.remove(); });
+					}
+				}
+				else
+				{
+					alert("no hit");
+				}
+			}
+			else
+			{
+				// a 'normal' pano image
+				var p = krpano.screentosphere(krpano.mouse.x, krpano.mouse.y);
+
+				hs = krpano.addhotspot();
+				hs.setvars({url:"vtourskin_hotspot.png", edge:"top", distorted:true, ath:p.x, atv:p.y});
+
+				// add an intro animation
+				hs.scale = 2;
+				hs.alpha = 0;
+				hs.onloaded = function(){ krpano.tween(hs, {scale:1,alpha:1}); };
+				
+				// and an outro animation on clicking
+				hs.onclick = function()
+				{
+					krpano.tween(hs, {rx:80, scale:hs.scale*0.5, alpha:0}, 0.5, "default", function(){ hs.remove(); });
+				}
+			}
+		});
+	}
+
+
+	function add_poly_hotspot()
+	{
+		// a very simple polygonal hotspot creator
+
+		// when already there, remove it
+		if (krpano.polyeditor)
+		{
+			krpano.polyeditor.remove();
+			return;
+		}
+
+		var hs = null;
+		var pnt = null;
+		var starths = null;
+
+		function addpoint(pnt)
+		{
+			if (!pnt)
+				pnt = hs.point.createItem();
+
+			if (krpano.display.havedepthmap && krpano.image.depthmap.hittest)
+			{
+				var hit = krpano.actions.screenraycast(krpano.mouse.x, krpano.mouse.y);
+				if (hit)
+				{
+					pnt.x = hit.x;
+					pnt.y = hit.y;
+					pnt.z = hit.z;
+				}
+			}
+			else
+			{
+				var p = krpano.screentosphere(krpano.mouse.x, krpano.mouse.y);
+				pnt.ath = p.x;
+				pnt.atv = p.y;
+			}
+
+			return pnt;
+		}
+
+		function onclick()
+		{
+			if (hs == null)
+			{
+				// start a new poly
+				hs = krpano.addhotspot();
+
+				// disable it to avoid that it captures clicks
+				hs.enabled = false;
+
+				// draw only a line until connected
+				hs.polyline = true;
+
+				// optional: use SVG instead of WebGL for rendering
+				// this allows more complex shapes, but has no VR support and
+				// on iOS devices the rendering can be asynchronous/delayed
+				//hs.renderer = "svg";
+
+				// start point
+				pnt = addpoint();
+
+				starths = krpano.addhotspot();
+				starths.setvars({type:"text", renderer:"webgl", width:24, height:24, bgroundedge:14, bgcolor:0x00FF00, bgalpha:0.2, bgborder:"2 0x00FF00 1", bgcapture:true});
+				if (pnt.z != null)
+				{
+					starths.depth = 0;
+					starths.tx = pnt.x;
+					starths.ty = pnt.y;
+					starths.tz = pnt.z;
+				}
+				else
+				{
+					starths.ath = pnt.ath;
+					starths.atv = pnt.atv;
+				}
+
+				// clicking on the start hotspot will finish the polygon
+				starths.onclick = function()
+				{
+					// done with this poly
+					hs.enabled = true;
+					hs.polyline = false;
+
+					if (krpano.device.istouchevent == false)
+					{
+						// remove the point that was added by the last mouse click
+						hs.point.count -= 1;
+					}
+
+					// add xml code of the new hotspot to the list of hotspots
+					hotspotlist.html += krpano.functions.escapexml( hs.getxml() ) + "<br>";
+
+					// remove the hotspot with an animation when clicking on it
+					hs.onclick = function()
+					{
+						var hs = this;
+						krpano.tween(hs, {fillcolor:0xFFFF33, fillalpha:0, borderwidth:0, bordercolor:0xFFFF00, borderalpha:1}, 0.2, {fillalpha:"easeoutquint"}, function(){ hs.remove(); });
+					}.bind(hs);
+
+					hs = null;
+
+					starths.remove();
+					starths = null;
+				}
+
+				// when using mouse, constantly track the current mouse position
+				if (krpano.device.istouchevent == false)
+				{
+					// next point
+					pnt = addpoint();
+
+					krpano.actions.asyncloop(function()
+					{
+						if (hs && pnt)
+						{
+							// update the current point
+							addpoint(pnt);
+
+							// keep looping
+							return true;
+						}
+						// stop the loop
+						return false;
+					});
+				}
+			}
+			else
+			{
+				// add next point
+				pnt = addpoint();
+			}
+		}
+
+
+		var backup_onclick_events = krpano.events.listeners["onclick"];
+		krpano.events.listeners["onclick"] = [];
+
+		krpano.events.addListener("onclick", onclick);
+
+		var hotspotlist = krpano.addlayer("hotspotlist");
+		hotspotlist.setvars({
+			type:"html", css:"font-family:monospace;color:black;white-space:nowrap;padding:8px;",
+			html:"<div style='display:block;color:gray;user-select:none;padding-bottom:4px;'>Polygonal Hotspots (click or touch to drawn them):</div>",
+			align:"leftbottom",
+			x:20, y:20, width:-40, height:100, zorder:99,
+			bg:true, bgcolor:0xFFFFFF, bgalpha:1, bgborder:"1 0x333333 0.5", bgroundedge:5, bgshadow:"0 1 3 0x000000 0.3",
+			htmloverflow:"auto", selectable:true
+		});
+
+		var closebutton = krpano.addlayer();
+		closebutton.setvars({
+			type:"text", text:"X",
+			align:"righttop", edge:"center", textalign:"center",
+			width:24, height:24, bgroundedge:14, bgborder:"1 0x333333 0.5", bgshadow:"0 1 3 0x000000 0.3",
+			parent:hotspotlist.name,
+			onclick: function(){ krpano.polyeditor.remove(); }
+		});
+
+		krpano.polyeditor =
+		{
+			remove : function()
+			{
+				if (starths)
+				{
+					starths.remove();
+					starths = null;
+				}
+
+				if (hs)
+				{
+					hs.remove();
+					hs = null;
+				}
+
+				hotspotlist.remove();
+
+				krpano.events.removeListener("onclick", onclick);
+
+				if (backup_onclick_events)
+				{
+					krpano.events.listeners["onclick"] = backup_onclick_events;
+				}
+
+				delete krpano.polyeditor;
+			}
+		};
+
+		krpano.events.addListener("onremovepano,once", function()
+		{
+			if (krpano.polyeditor)
+			{
+				krpano.polyeditor.remove();
+			}
+
+		});
+	}
+
+
+	function remove_all_hotspots()
+	{
+		var hs_array = krpano.hotspot.getArray();
+
+		while (hs_array.length > 0)
+		{
+			hs_array[0].remove();
+		}
+	}
+
+
+	function textfield_template()
+	{
+		// https://krpano.com/plugins/textfield/#template
+
+		var l = krpano.addlayer();
+		l.setvars({
+			type:"text",
+			align:"lefttop", x:10, y:10,
+			css:"font-family:monospace;",
+			selectable:true,
+			padding:"2 4",
+			bgborder:"1 0x333333 0.5",
+			bgroundedge:5,
+			bgshadow:"0 1 3 0x000000 0.3",
+			zorder:99
+		});
+
+		l.template =
+			"hlookat=[dq]{{view.hlookat:roundval(adjust360(view.hlookat),2)}}[dq][br]"+
+			"vlookat=[dq]{{view.vlookat:roundval(view.vlookat,2)}}[dq][br]"+
+			"fov=[dq]{{view.fov:roundval(view.fov,2)}}[dq][br]";
+
+		if (krpano.display.havedepthmap)
+		{
+			l.template +=
+				"tx=[dq]{{view.tx:roundval(view.tx,2)}}[dq][br]"+
+				"ty=[dq]{{view.tx:roundval(view.ty,2)}}[dq][br]"+
+				"tz=[dq]{{view.tx:roundval(view.tz,2)}}[dq][br]";
+		}
+
+		l.onclick = function(){ l.remove(); };
+	}
+
+
+	function layers_colormixer_demo()
+	{
+		loadxmlstring();
+
+		// a simple color mixer as more complex layer demo
+		
+		// the start color (random)
+		var color = (Math.random() * 0xFFFFFF) | 0;
+		
+
+		function create_slider(startvalue)	// 0.0 to 1.0
+		{
+			var slider = krpano.addlayer();
+			slider.setvars({type:"container", bgcolor:0x777777, bgalpha:1.0, bgcapture:true,  bgroundedge:7, bgborder:"1 0x777777 0.5", width:"100%", height:20, visible:false});
+			slider.setvars({ bgshadow:"+3 +3 5 0 0xFFFFFF 1.0 inset, -3 -3 5 0 0x000000 0.5 inset, 0 1 2 0x000000 0.3" });
+
+			// a custom 'value' setting
+			slider.value = 0;
+			
+			// and when this 'value' gets changed, update the slider-grip position
+			krpano.addChangeListener(slider, "value", function(newvalue)
+			{
+				grip.x = ((grip.pixelwidth*0.5 + newvalue * (slider.pixelwidth - grip.pixelwidth)) / slider.pixelwidth) * 100 + "%";
+				grip.text = "" + ((newvalue * 255) | 0);
+
+				if (slider.onchange) slider.onchange();
+			});
+
+			var grip = krpano.addlayer();
+			grip.setvars({type:"text", bgcolor:0xEEEEEE, bgalpha:1.0, bgcapture:true, width:30, height:30, align:"left", edge:"center", textalign:"center", bgroundedge:9, bgborder:"1 0x777777 0.5"});
+			grip.setvars({bgborder:"1 0xFFFFFF 0.25", bgshadow:"+3 +3 7 0 0xFFFFFF 1.0 inset, -4 -4 7 0 0x000000 0.5 inset, 0 2 4 0x000000 0.3" });
+			grip.parent = slider.name;
+
+			// when ready (having the layout pixel sizes), update the slider-grip position with the initial value
+			grip.onloaded = function()
+			{
+				slider.value = startvalue;
+				slider.visible = true;
+			}
+
+			// click and drag the slider
+			grip.ondown = function()
+			{
+				krpano.asyncloop( function()
+				{
+					// relative/delta mouse tracking
+					//slider.value = krpano.clampNumber((grip.pixelx + krpano.mouse.dx*krpano.stagescale/grip.childscalex) / (slider.pixelwidth - grip.pixelwidth), 0.0, 1.0);
+					
+					// absolute/direct mouse tracking
+					slider.value = krpano.clampNumber(((krpano.mouse.stagex - slider.stagex)*krpano.stagescale/grip.childscalex - 0.5*grip.pixelwidth) / (slider.pixelwidth - grip.pixelwidth), 0.0, 1.0);
+					
+					return grip.pressed;
+				});
+			}
+
+			// when clicking anywhere on the slider, move animated there
+			slider.onclick = function()
+			{
+				var newvalue = krpano.clampNumber(((slider.hitx * slider.pixelwidth) - grip.pixelwidth*0.5) / (slider.pixelwidth - grip.pixelwidth), 0.0, 1.0);
+				krpano.tween(slider, {value:newvalue}, 0.5, "power");
+			}
+
+			return slider;
+		}
+
+		// a container for all layer elements
+		var container = krpano.addlayer();
+		container.setvars({type:"container", width:240, flowchildren:"v", childflowspacing:16, childmargin:16, align:"center", bgcolor:0xFFFFFF, bgalpha:0.5, bgcapture:true,
+			bgroundedge:13, bgblur:5, bgborder:"1 0xFFFFFF 0.5", bgshadow:"+5 +5 25 0 0xFFFFFF 1.0 inset, -5 -5 25 0 0x000000 0.5 inset, 2 4 16 0x000000 0.3"
+		});
+
+		// allow dragging the container
+		container.ondown = function(){
+			krpano.asyncloop(function(){
+				container.x = Number(container.x) + krpano.mouse.dx;
+				container.y = Number(container.y) + krpano.mouse.dy;
+				return container.pressed;
+			});
+		};
+
+		// the mixed-rgb layer
+		var rgb_layer = krpano.addlayer();
+		rgb_layer.setvars({type:"container", align:"center", width:"100%", height:200, bgalpha:1, bgroundedge:9, bgborder:"1 0x333333 0.5", bgshadow:"0 0 10 0 0x000000 0.2 inset"});
+		rgb_layer.parent = container.name;
+
+		// functions for extracting the RGB 0.0 to 1.0 values
+		function red(c){ return ((c >>> 16) & 255) / 255.0; }
+		function green(c){ return ((c >>> 8) & 255) / 255.0; }
+		function blue(c){ return ((c >>> 0) & 255) / 255.0; }
+
+		// the sliders
+		var r_slider = create_slider(red(color)).setvars({bgcolor:0xFF0000, parent:container.name});
+		var g_slider = create_slider(green(color)).setvars({bgcolor:0x00FF00, parent:container.name});
+		var b_slider = create_slider(blue(color)).setvars({bgcolor:0x0000FF, parent:container.name});
+
+		// a textfield with the resulting hex color
+		var textfield_hexvalue = krpano.addlayer();
+		textfield_hexvalue.setvars({type:"text", align:"center", width:"100%", height:24, textalign:"center", selectable:true, css:"font-family:monospace;",
+			bgcolor:0xFFFFFF, bgalpha:1, bgroundedge:7, bgborder:"1 0x777777 0.5", bgshadow:"0 0 10 0 0x000000 0.2 inset"
+		});
+		textfield_hexvalue.parent = container.name;
+
+		// make the textfield editable and allow entering a custom hex color value
+		textfield_hexvalue.editable = true;
+		textfield_hexvalue.oneditstop = function()
+		{
+			var color = parseInt(textfield_hexvalue.text);
+			if (isNaN(color)) color = 0x777777;
+
+			// animate the sliders to the new value
+			krpano.tween(r_slider, {value:red(color)});
+			krpano.tween(g_slider, {value:green(color)});
+			krpano.tween(b_slider, {value:blue(color)});
+		}
+
+		// when any slider changes, update the mixed-rgb layer
+		r_slider.onchange = g_slider.onchange = b_slider.onchange = function()
+		{
+			color = krpano.functions.rgb(r_slider.value*255, g_slider.value*255, b_slider.value*255);
+
+			rgb_layer.bgcolor = color;
+
+			// add some glow
+			var intensity = Math.pow(r_slider.value*0.35 + g_slider.value*0.5 + b_slider.value*0.15, 2.0);
+			rgb_layer.bgshadow = "0 0 "+(intensity*32)+" 0 "+ rgb_layer.bgcolor + " 1.0";
+
+			// update the hex value
+			textfield_hexvalue.text = krpano.functions.tohexcolor(rgb_layer.bgcolor);
+		}
+	}
+
+
+	function plugin_soundinterface_demo()
+	{
+		loadxmlstring();
+
+		if (!krpano.soundinterface)
+		{
+			// load the soundinterface plugin
+			var soundinterface = krpano.addplugin("soundinterface");
+			soundinterface.url = "%VIEWER%/plugins/soundinterface.js";
+			soundinterface.keep = true;
+			soundinterface.onloaded = soundinterface_ready;
+		}
+		else
+		{
+			soundinterface_ready();
+		}
+
+		function soundinterface_ready()
+		{
+			var bgsound = krpano.streamsound("bg", "https://krpano.com/panos/xmas/ding_dong_merrily_on_high.mp3|https://krpano.com/panos/xmas/ding_dong_merrily_on_high.ogg", 0);
+			bgsound.volume = 0.1;
+
+			for (var i=0; i < 11; i++)
+			{
+				var hs = krpano.addhotspot();
+				hs.url = "../directional3dsound/speaker.png";
+				hs.ath = (i-5) * 10;
+				hs.atv = 0;
+				hs.scale = 0.2;
+				hs.distorted = true;
+				hs.capture = false;
+				hs.onover = function(hs, speed)
+				{
+					var sound = krpano.playsound_at_hotspot("auto", "../directional3dsound/ping.mp3", hs);
+					sound.speed = speed;
+				}.bind(null, hs, 0.1 + 0.6*i);
+
+				if (krpano.device.touch)
+				{
+					hs.ondown = hs.onover;
+				}
+			}
+		}
+	}
+
+
+	function plugin_videoplayer_demo()
+	{
+		loadxmlstring();
+
+		var video = krpano.addlayer();
+		video.url = "%VIEWER%/plugins/videoplayer.js";
+		video.videourl = "../videohotspot/cats.mp4|../videohotspot/cats.webm";
+		video.loop = true;
+		video.align = "center";
+		video.bgborder = "3 0xFFFFFF 1.0";
+
+		video.onclick = function()
+		{
+			video.togglepause();
+		}
+
+		// add a close/remove button
+		var closebutton = krpano.addlayer();
+		closebutton.setvars({type:"text", text:"X", align:"righttop", edge:"center", textalign:"center", width:20, height:20, bgroundedge:10, bgborder:"1 0x333333", parent:video.path});
+
+		closebutton.onclick = function()
+		{
+			closebutton.remove();
+			video.stop();
+
+			krpano.tween(video, {height:0, width:video.pixelwidth*0.7, bgborder:"1 0xFFFFFF 1.0", alpha:0}, 0.5, {height:"power(10,0.1)", width:"power(6,0.6)"}, function()
+			{
+				video.remove();
+			});
+		}
+	}
+
+
+	function plugin_postprocessing_demo()
+	{
+		loadimage_mres();
+
+		// add the Light Postprocessing Plugin as demo
+		// https://krpano.com/plugins/postprocessing/#top
+
+		var pp = krpano.addplugin("pp");
+		pp.url = "%VIEWER%/plugins/pp_light.js";
+		pp.onloaded = function()
+		{
+			// some intro animation
+			krpano.delayedcall(0.7, function()
+			{
+				krpano.tween(pp, {lights:-0.5,shadows:+12}, 1.0);
+			});
+
+			// add buttons to change the settings
+			var button = krpano.style.createItem("button");
+			button.setvars({
+				type:"text",
+				align:"bottom",
+				width:100, height:24,
+				textalign:"center",
+				padding:"2 4",
+				bgborder:"1 0x333333 0.5",
+				bgroundedge:5,
+				bgshadow:"0 1 3 0x000000 0.3"
+			});
+
+			var lights = krpano.addlayer();
+			lights.loadstyle("button");
+			lights.y = 160;
+			lights.template = "Lights: {{plugin[pp].lights:roundval(plugin[pp].lights,2)}}";
+			lights.ondown = function()
+			{
+				krpano.actions.asyncloop(function()
+				{
+					pp.lights += krpano.mouse.dx * 0.1 + krpano.mouse.dy * 0.05;
+					return lights.pressed;
+				});
+			}
+			lights.onclick = function()
+			{
+				krpano.tween(pp, {lights:0.0}, 0.5);
+			}
+
+			var shadows = krpano.addlayer();
+			shadows.loadstyle("button");
+			shadows.y = 130;
+			shadows.template = "Shadows: {{plugin[pp].shadows:roundval(plugin[pp].shadows,2)}}";
+			shadows.ondown = function()
+			{
+				krpano.actions.asyncloop(function()
+				{
+					pp.shadows += krpano.mouse.dx * 0.1 + krpano.mouse.dy * 0.05;
+					return shadows.pressed;
+				});
+			}
+			shadows.onclick = function()
+			{
+				krpano.tween(pp, {shadows:0.0}, 0.5);
+			}
+
+			var infotext = krpano.addlayer();
+			infotext.setvars({
+				type:"text",
+				text:"click and drag on the buttons",
+				css:"color:white;",
+				txtshadow:"0 1 3 0x00000 1.0",
+				align:"bottom",
+				y:190,
+				bg:false,
+				enabled:false
+			});
+		}
+	}
+
+</script>
+
+</body>
+</html>

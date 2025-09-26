@@ -1,0 +1,3017 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<krpano version="1.23" title="Virtual Tour - tour-1-1">
+
+  <include url="skin/vtourskin.xml" />
+
+  <skin_settings maps="false"
+    maps_type="openstreetmaps"
+    maps_bing_api_key=""
+    maps_google_api_key=""
+    maps_zoombuttons="false"
+    maps_loadonfirstuse="true"
+    gyro="true"
+    gyro_keeplookingdirection="false"
+    webvr="true"
+    webvr_keeplookingdirection="true"
+    webvr_prev_next_hotspots="true"
+    autotour="false"
+    littleplanetintro="false"
+    followmousecontrol="false"
+    title="true"
+    thumbs="true"
+    thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+    thumbs_opened="false"
+    thumbs_text="false"
+    thumbs_dragging="true"
+    thumbs_onhoverscrolling="false"
+    thumbs_scrollbuttons="false"
+    thumbs_scrollindicator="false"
+    thumbs_loop="false"
+    tooltips_buttons="false"
+    tooltips_thumbs="false"
+    tooltips_hotspots="false"
+    tooltips_mapspots="false"
+    deeplinking="false"
+    loadscene_flags="MERGE"
+    loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+    loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+    loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
+    loadingtext=""
+    layout_width="100%"
+    layout_maxwidth="814"
+    controlbar_width="-24"
+    controlbar_height="40"
+    controlbar_offset="20"
+    controlbar_offset_closed="-40"
+    controlbar_overlap.no-fractionalscaling="10"
+    controlbar_overlap.fractionalscaling="0"
+    design_skin_images="vtourskin.png"
+    design_bgcolor="0x2D3E50"
+    design_bgalpha="0.8"
+    design_bgborder="0"
+    design_bgroundedge="1"
+    design_bgshadow="0 4 10 0x000000 0.3"
+    design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+    design_thumbborder_padding="2"
+    design_thumbborder_bgroundedge="0"
+    design_text_css="color:#FFFFFF; font-family:Arial;"
+    design_text_shadow="1"
+  />
+
+  <!--
+      For an alternative skin design either change the <skin_settings> values 
+      from above or optionally include one of the predefined designs from below.
+  -->
+  <!-- <include url="skin/vtourskin_design_flat_light.xml"  /> -->
+  <!-- <include url="skin/vtourskin_design_glass.xml"       /> -->
+  <!-- <include url="skin/vtourskin_design_ultra_light.xml" /> -->
+  <!-- <include url="skin/vtourskin_design_117.xml"         /> -->
+  <!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
+  <!-- <include url="skin/vtourskin_design_black.xml"       /> -->
+
+
+  <scene name="scene0" title="Bathtub C1M1 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene0/thumb.jpg" lat="" lng="" alt="" heading="">
+    <!-- <control bouncinglimits="calc:image.cube ? true : false" /> -->
+
+    		      <control
+          mousetype="drag2d"
+
+          mouseaccelerate="0.25"
+          mousespeed="2.2"
+          mousefriction="0.96"
+          touchfriction="0.965"
+
+          keybaccelerate="0.4"
+          keybspeed="35.0"
+          keybfriction="0.92"
+
+          mousefovchange="0.3"
+          fovspeed="1.0"
+          zoomtocursor="false"
+          pinchzoom="true"
+        />
+
+
+     <view projection="fisheye"
+              fisheye="1.2"
+              fovtype="MFOV"
+              fov="110"
+              fovmin="60"
+              fovmax="125"
+              maxpixelzoom="2.0"
+              limitview="auto" />
+    <!-- <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" /> -->
+    <preview url="scene0/preview.jpg" />
+    <image>
+      <cube url="scene0/panos/tour_1_1_scene0.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+  <scene name="scene1" title="Bathtub C1M1 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene1/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene1/preview.jpg" />
+    <image>
+      <cube url="scene1/panos/tour_1_1_scene1.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+  <scene name="scene2" title="Bathtub C1M1 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene2/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene2/preview.jpg" />
+    <image>
+      <cube url="scene2/panos/tour_1_1_scene2.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene3" title="Bathtub C1M1 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene3/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene3/preview.jpg" />
+    <image>
+      <cube url="scene3/panos/tour_1_1_scene3.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene4" title="Bathtub C1M1 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene4/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene4/preview.jpg" />
+    <image>
+      <cube url="scene4/panos/tour_1_1_scene4.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene5" title="Bathtub C1M1 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene5/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene5/preview.jpg" />
+    <image>
+      <cube url="scene5/panos/tour_1_1_scene5.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene6" title="Bathtub C1M1 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene6/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene6/preview.jpg" />
+    <image>
+      <cube url="scene6/panos/tour_1_1_scene6.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene7" title="Bathtub C1M1 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene7/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene7/preview.jpg" />
+    <image>
+      <cube url="scene7/panos/tour_1_1_scene7.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene8" title="Bathtub C1M1 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene8/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene8/preview.jpg" />
+    <image>
+      <cube url="scene8/panos/tour_1_1_scene8.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene9" title="Bathtub C1M1 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene9/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene9/preview.jpg" />
+    <image>
+      <cube url="scene9/panos/tour_1_1_scene9.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene10" title="Bathtub C1M1 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene10/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene10/preview.jpg" />
+    <image>
+      <cube url="scene10/panos/tour_1_1_scene10.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene11" title="Bathtub C1M1 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene11/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene11/preview.jpg" />
+    <image>
+      <cube url="scene11/panos/tour_1_1_scene11.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene12" title="Bathtub C1M1 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene12/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene12/preview.jpg" />
+    <image>
+      <cube url="scene12/panos/tour_1_1_scene12.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene13" title="Bathtub C1M1 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene13/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene13/preview.jpg" />
+    <image>
+      <cube url="scene13/panos/tour_1_1_scene13.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene14" title="Bathtub C1M1 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene14/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene14/preview.jpg" />
+    <image>
+      <cube url="scene14/panos/tour_1_1_scene14.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene15" title="Bathtub C1M1 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene15/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene15/preview.jpg" />
+    <image>
+      <cube url="scene15/panos/tour_1_1_scene15.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene16" title="Bathtub C1M1 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene16/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene16/preview.jpg" />
+    <image>
+      <cube url="scene16/panos/tour_1_1_scene16.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene17" title="Bathtub C1M1 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene17/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene17/preview.jpg" />
+    <image>
+      <cube url="scene17/panos/tour_1_1_scene17.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene18" title="Bathtub C1M1 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene18/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene18/preview.jpg" />
+    <image>
+      <cube url="scene18/panos/tour_1_1_scene18.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene19" title="Bathtub C1M1 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene19/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene19/preview.jpg" />
+    <image>
+      <cube url="scene19/panos/tour_1_1_scene19.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene20" title="Bathtub C1M1 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene20/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene20/preview.jpg" />
+    <image>
+      <cube url="scene20/panos/tour_1_1_scene20.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene21" title="Bathtub C1M1 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene21/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene21/preview.jpg" />
+    <image>
+      <cube url="scene21/panos/tour_1_1_scene21.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene22" title="Bathtub C1M1 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene22/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene22/preview.jpg" />
+    <image>
+      <cube url="scene22/panos/tour_1_1_scene22.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene23" title="Bathtub C1M1 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene23/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene23/preview.jpg" />
+    <image>
+      <cube url="scene23/panos/tour_1_1_scene23.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene24" title="Bathtub C1M1 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene24/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene24/preview.jpg" />
+    <image>
+      <cube url="scene24/panos/tour_1_1_scene24.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene25" title="Bathtub C1M1 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene25/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene25/preview.jpg" />
+    <image>
+      <cube url="scene25/panos/tour_1_1_scene25.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene26" title="Bathtub C1M1 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene26/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene26/preview.jpg" />
+    <image>
+      <cube url="scene26/panos/tour_1_1_scene26.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene27" title="Bathtub C1M1 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene27/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene27/preview.jpg" />
+    <image>
+      <cube url="scene27/panos/tour_1_1_scene27.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene28" title="Bathtub C1M1 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene28/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene28/preview.jpg" />
+    <image>
+      <cube url="scene28/panos/tour_1_1_scene28.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene29" title="Bathtub C1M1 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene29/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene29/preview.jpg" />
+    <image>
+      <cube url="scene29/panos/tour_1_1_scene29.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene30" title="Bathtub C1M1 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene30/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene30/preview.jpg" />
+    <image>
+      <cube url="scene30/panos/tour_1_1_scene30.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene31" title="Bathtub C1M1 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene31/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene31/preview.jpg" />
+    <image>
+      <cube url="scene31/panos/tour_1_1_scene31.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene32" title="Bathtub C1M1 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene32/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene32/preview.jpg" />
+    <image>
+      <cube url="scene32/panos/tour_1_1_scene32.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene33" title="Bathtub C1M1 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene33/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene33/preview.jpg" />
+    <image>
+      <cube url="scene33/panos/tour_1_1_scene33.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene34" title="Bathtub C1M1 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene34/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene34/preview.jpg" />
+    <image>
+      <cube url="scene34/panos/tour_1_1_scene34.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene35" title="Bathtub C1M1 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene35/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene35/preview.jpg" />
+    <image>
+      <cube url="scene35/panos/tour_1_1_scene35.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene36" title="Bathtub C1M1 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene36/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene36/preview.jpg" />
+    <image>
+      <cube url="scene36/panos/tour_1_1_scene36.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene37" title="Bathtub C1M1 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene37/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene37/preview.jpg" />
+    <image>
+      <cube url="scene37/panos/tour_1_1_scene37.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene38" title="Bathtub C1M1 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene38/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene38/preview.jpg" />
+    <image>
+      <cube url="scene38/panos/tour_1_1_scene38.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene39" title="Bathtub C1M1 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene39/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene39/preview.jpg" />
+    <image>
+      <cube url="scene39/panos/tour_1_1_scene39.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene40" title="Bathtub C1M1 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene40/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene40/preview.jpg" />
+    <image>
+      <cube url="scene40/panos/tour_1_1_scene40.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene41" title="Bathtub C1M1 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene41/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene41/preview.jpg" />
+    <image>
+      <cube url="scene41/panos/tour_1_1_scene41.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene42" title="Bathtub C1M1 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene42/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene42/preview.jpg" />
+    <image>
+      <cube url="scene42/panos/tour_1_1_scene42.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene43" title="Bathtub C1M1 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene43/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene43/preview.jpg" />
+    <image>
+      <cube url="scene43/panos/tour_1_1_scene43.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene44" title="Bathtub C1M1 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene44/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene44/preview.jpg" />
+    <image>
+      <cube url="scene44/panos/tour_1_1_scene44.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene45" title="Bathtub C1M1 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene45/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene45/preview.jpg" />
+    <image>
+      <cube url="scene45/panos/tour_1_1_scene45.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene46" title="Bathtub C1M1 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene46/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene46/preview.jpg" />
+    <image>
+      <cube url="scene46/panos/tour_1_1_scene46.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene47" title="Bathtub C1M1 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene47/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene47/preview.jpg" />
+    <image>
+      <cube url="scene47/panos/tour_1_1_scene47.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene48" title="Bathtub C1M1 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene48/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene48/preview.jpg" />
+    <image>
+      <cube url="scene48/panos/tour_1_1_scene48.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene49" title="Bathtub C1M1 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene49/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene49/preview.jpg" />
+    <image>
+      <cube url="scene49/panos/tour_1_1_scene49.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene50" title="Bathtub C1M1 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene50/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene50/preview.jpg" />
+    <image>
+      <cube url="scene50/panos/tour_1_1_scene50.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene51" title="Bathtub C1M1 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene51/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene51/preview.jpg" />
+    <image>
+      <cube url="scene51/panos/tour_1_1_scene51.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene52" title="Bathtub C1M1 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene52/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene52/preview.jpg" />
+    <image>
+      <cube url="scene52/panos/tour_1_1_scene52.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene53" title="Bathtub C1M1 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene53/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene53/preview.jpg" />
+    <image>
+      <cube url="scene53/panos/tour_1_1_scene53.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene54" title="Bathtub C1M1COL1 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene54/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene54/preview.jpg" />
+    <image>
+      <cube url="scene54/panos/tour_1_1_scene54.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene55" title="Bathtub C1M1COL1 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene55/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene55/preview.jpg" />
+    <image>
+      <cube url="scene55/panos/tour_1_1_scene55.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene56" title="Bathtub C1M1COL1 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene56/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene56/preview.jpg" />
+    <image>
+      <cube url="scene56/panos/tour_1_1_scene56.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene57" title="Bathtub C1M1COL1 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene57/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene57/preview.jpg" />
+    <image>
+      <cube url="scene57/panos/tour_1_1_scene57.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene58" title="Bathtub C1M1COL1 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene58/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene58/preview.jpg" />
+    <image>
+      <cube url="scene58/panos/tour_1_1_scene58.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene59" title="Bathtub C1M1COL1 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene59/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene59/preview.jpg" />
+    <image>
+      <cube url="scene59/panos/tour_1_1_scene59.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene60" title="Bathtub C1M1COL1 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene60/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene60/preview.jpg" />
+    <image>
+      <cube url="scene60/panos/tour_1_1_scene60.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene61" title="Bathtub C1M1COL1 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene61/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene61/preview.jpg" />
+    <image>
+      <cube url="scene61/panos/tour_1_1_scene61.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene62" title="Bathtub C1M1COL1 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene62/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene62/preview.jpg" />
+    <image>
+      <cube url="scene62/panos/tour_1_1_scene62.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene63" title="Bathtub C1M1COL1 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene63/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene63/preview.jpg" />
+    <image>
+      <cube url="scene63/panos/tour_1_1_scene63.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene64" title="Bathtub C1M1COL1 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene64/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene64/preview.jpg" />
+    <image>
+      <cube url="scene64/panos/tour_1_1_scene64.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene65" title="Bathtub C1M1COL1 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene65/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene65/preview.jpg" />
+    <image>
+      <cube url="scene65/panos/tour_1_1_scene65.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene66" title="Bathtub C1M1COL1 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene66/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene66/preview.jpg" />
+    <image>
+      <cube url="scene66/panos/tour_1_1_scene66.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene67" title="Bathtub C1M1COL1 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene67/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene67/preview.jpg" />
+    <image>
+      <cube url="scene67/panos/tour_1_1_scene67.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene68" title="Bathtub C1M1COL1 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene68/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene68/preview.jpg" />
+    <image>
+      <cube url="scene68/panos/tour_1_1_scene68.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene69" title="Bathtub C1M1COL1 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene69/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene69/preview.jpg" />
+    <image>
+      <cube url="scene69/panos/tour_1_1_scene69.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene70" title="Bathtub C1M1COL1 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene70/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene70/preview.jpg" />
+    <image>
+      <cube url="scene70/panos/tour_1_1_scene70.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene71" title="Bathtub C1M1COL1 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene71/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene71/preview.jpg" />
+    <image>
+      <cube url="scene71/panos/tour_1_1_scene71.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene72" title="Bathtub C1M1COL1 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene72/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene72/preview.jpg" />
+    <image>
+      <cube url="scene72/panos/tour_1_1_scene72.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene73" title="Bathtub C1M1COL1 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene73/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene73/preview.jpg" />
+    <image>
+      <cube url="scene73/panos/tour_1_1_scene73.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene74" title="Bathtub C1M1COL1 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene74/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene74/preview.jpg" />
+    <image>
+      <cube url="scene74/panos/tour_1_1_scene74.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene75" title="Bathtub C1M1COL1 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene75/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene75/preview.jpg" />
+    <image>
+      <cube url="scene75/panos/tour_1_1_scene75.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene76" title="Bathtub C1M1COL1 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene76/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene76/preview.jpg" />
+    <image>
+      <cube url="scene76/panos/tour_1_1_scene76.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene77" title="Bathtub C1M1COL1 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene77/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene77/preview.jpg" />
+    <image>
+      <cube url="scene77/panos/tour_1_1_scene77.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene78" title="Bathtub C1M1COL1 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene78/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene78/preview.jpg" />
+    <image>
+      <cube url="scene78/panos/tour_1_1_scene78.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene79" title="Bathtub C1M1COL1 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene79/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene79/preview.jpg" />
+    <image>
+      <cube url="scene79/panos/tour_1_1_scene79.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene80" title="Bathtub C1M1COL1 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene80/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene80/preview.jpg" />
+    <image>
+      <cube url="scene80/panos/tour_1_1_scene80.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene81" title="Bathtub C1M1COL2 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene81/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene81/preview.jpg" />
+    <image>
+      <cube url="scene81/panos/tour_1_1_scene81.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene82" title="Bathtub C1M1COL2 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene82/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene82/preview.jpg" />
+    <image>
+      <cube url="scene82/panos/tour_1_1_scene82.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene83" title="Bathtub C1M1COL2 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene83/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene83/preview.jpg" />
+    <image>
+      <cube url="scene83/panos/tour_1_1_scene83.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene84" title="Bathtub C1M1COL2 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene84/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene84/preview.jpg" />
+    <image>
+      <cube url="scene84/panos/tour_1_1_scene84.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene85" title="Bathtub C1M1COL2 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene85/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene85/preview.jpg" />
+    <image>
+      <cube url="scene85/panos/tour_1_1_scene85.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene86" title="Bathtub C1M1COL2 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene86/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene86/preview.jpg" />
+    <image>
+      <cube url="scene86/panos/tour_1_1_scene86.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene87" title="Bathtub C1M1COL2 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene87/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene87/preview.jpg" />
+    <image>
+      <cube url="scene87/panos/tour_1_1_scene87.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene88" title="Bathtub C1M1COL2 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene88/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene88/preview.jpg" />
+    <image>
+      <cube url="scene88/panos/tour_1_1_scene88.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene89" title="Bathtub C1M1COL2 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene89/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene89/preview.jpg" />
+    <image>
+      <cube url="scene89/panos/tour_1_1_scene89.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene90" title="Bathtub C1M1COL2 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene90/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene90/preview.jpg" />
+    <image>
+      <cube url="scene90/panos/tour_1_1_scene90.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene91" title="Bathtub C1M1COL2 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene91/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene91/preview.jpg" />
+    <image>
+      <cube url="scene91/panos/tour_1_1_scene91.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene92" title="Bathtub C1M1COL2 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene92/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene92/preview.jpg" />
+    <image>
+      <cube url="scene92/panos/tour_1_1_scene92.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene93" title="Bathtub C1M1COL2 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene93/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene93/preview.jpg" />
+    <image>
+      <cube url="scene93/panos/tour_1_1_scene93.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene94" title="Bathtub C1M1COL2 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene94/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene94/preview.jpg" />
+    <image>
+      <cube url="scene94/panos/tour_1_1_scene94.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene95" title="Bathtub C1M1COL2 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene95/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene95/preview.jpg" />
+    <image>
+      <cube url="scene95/panos/tour_1_1_scene95.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene96" title="Bathtub C1M1COL2 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene96/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene96/preview.jpg" />
+    <image>
+      <cube url="scene96/panos/tour_1_1_scene96.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene97" title="Bathtub C1M1COL2 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene97/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene97/preview.jpg" />
+    <image>
+      <cube url="scene97/panos/tour_1_1_scene97.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene98" title="Bathtub C1M1COL2 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene98/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene98/preview.jpg" />
+    <image>
+      <cube url="scene98/panos/tour_1_1_scene98.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene99" title="Bathtub C1M1COL2 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene99/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene99/preview.jpg" />
+    <image>
+      <cube url="scene99/panos/tour_1_1_scene99.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene100" title="Bathtub C1M1COL2 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene100/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene100/preview.jpg" />
+    <image>
+      <cube url="scene100/panos/tour_1_1_scene100.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene101" title="Bathtub C1M1COL2 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene101/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene101/preview.jpg" />
+    <image>
+      <cube url="scene101/panos/tour_1_1_scene101.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene102" title="Bathtub C1M1COL2 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene102/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene102/preview.jpg" />
+    <image>
+      <cube url="scene102/panos/tour_1_1_scene102.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene103" title="Bathtub C1M1COL2 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene103/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene103/preview.jpg" />
+    <image>
+      <cube url="scene103/panos/tour_1_1_scene103.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene104" title="Bathtub C1M1COL2 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene104/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene104/preview.jpg" />
+    <image>
+      <cube url="scene104/panos/tour_1_1_scene104.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene105" title="Bathtub C1M1COL2 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene105/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene105/preview.jpg" />
+    <image>
+      <cube url="scene105/panos/tour_1_1_scene105.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene106" title="Bathtub C1M1COL2 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene106/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene106/preview.jpg" />
+    <image>
+      <cube url="scene106/panos/tour_1_1_scene106.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene107" title="Bathtub C1M1COL2 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene107/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene107/preview.jpg" />
+    <image>
+      <cube url="scene107/panos/tour_1_1_scene107.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene108" title="Bathtub C1M1COL3 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene108/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene108/preview.jpg" />
+    <image>
+      <cube url="scene108/panos/tour_1_1_scene108.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene109" title="Bathtub C1M1COL3 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene109/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene109/preview.jpg" />
+    <image>
+      <cube url="scene109/panos/tour_1_1_scene109.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene110" title="Bathtub C1M1COL3 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene110/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene110/preview.jpg" />
+    <image>
+      <cube url="scene110/panos/tour_1_1_scene110.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene111" title="Bathtub C1M1COL3 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene111/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene111/preview.jpg" />
+    <image>
+      <cube url="scene111/panos/tour_1_1_scene111.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene112" title="Bathtub C1M1COL3 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene112/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene112/preview.jpg" />
+    <image>
+      <cube url="scene112/panos/tour_1_1_scene112.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene113" title="Bathtub C1M1COL3 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene113/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene113/preview.jpg" />
+    <image>
+      <cube url="scene113/panos/tour_1_1_scene113.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene114" title="Bathtub C1M1COL3 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene114/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene114/preview.jpg" />
+    <image>
+      <cube url="scene114/panos/tour_1_1_scene114.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene115" title="Bathtub C1M1COL3 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene115/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene115/preview.jpg" />
+    <image>
+      <cube url="scene115/panos/tour_1_1_scene115.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene116" title="Bathtub C1M1COL3 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene116/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene116/preview.jpg" />
+    <image>
+      <cube url="scene116/panos/tour_1_1_scene116.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene117" title="Bathtub C1M1COL3 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene117/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene117/preview.jpg" />
+    <image>
+      <cube url="scene117/panos/tour_1_1_scene117.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene118" title="Bathtub C1M1COL3 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene118/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene118/preview.jpg" />
+    <image>
+      <cube url="scene118/panos/tour_1_1_scene118.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene119" title="Bathtub C1M1COL3 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene119/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene119/preview.jpg" />
+    <image>
+      <cube url="scene119/panos/tour_1_1_scene119.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene120" title="Bathtub C1M1COL3 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene120/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene120/preview.jpg" />
+    <image>
+      <cube url="scene120/panos/tour_1_1_scene120.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene121" title="Bathtub C1M1COL3 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene121/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene121/preview.jpg" />
+    <image>
+      <cube url="scene121/panos/tour_1_1_scene121.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene122" title="Bathtub C1M1COL3 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene122/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene122/preview.jpg" />
+    <image>
+      <cube url="scene122/panos/tour_1_1_scene122.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene123" title="Bathtub C1M1COL3 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene123/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene123/preview.jpg" />
+    <image>
+      <cube url="scene123/panos/tour_1_1_scene123.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene124" title="Bathtub C1M1COL3 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene124/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene124/preview.jpg" />
+    <image>
+      <cube url="scene124/panos/tour_1_1_scene124.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene125" title="Bathtub C1M1COL3 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene125/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene125/preview.jpg" />
+    <image>
+      <cube url="scene125/panos/tour_1_1_scene125.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene126" title="Bathtub C1M1COL3 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene126/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene126/preview.jpg" />
+    <image>
+      <cube url="scene126/panos/tour_1_1_scene126.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene127" title="Bathtub C1M1COL3 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene127/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene127/preview.jpg" />
+    <image>
+      <cube url="scene127/panos/tour_1_1_scene127.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene128" title="Bathtub C1M1COL3 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene128/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene128/preview.jpg" />
+    <image>
+      <cube url="scene128/panos/tour_1_1_scene128.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene129" title="Bathtub C1M1COL3 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene129/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene129/preview.jpg" />
+    <image>
+      <cube url="scene129/panos/tour_1_1_scene129.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene130" title="Bathtub C1M1COL3 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene130/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene130/preview.jpg" />
+    <image>
+      <cube url="scene130/panos/tour_1_1_scene130.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene131" title="Bathtub C1M1COL3 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene131/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene131/preview.jpg" />
+    <image>
+      <cube url="scene131/panos/tour_1_1_scene131.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene132" title="Bathtub C1M1COL3 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene132/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene132/preview.jpg" />
+    <image>
+      <cube url="scene132/panos/tour_1_1_scene132.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene133" title="Bathtub C1M1COL3 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene133/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene133/preview.jpg" />
+    <image>
+      <cube url="scene133/panos/tour_1_1_scene133.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene134" title="Bathtub C1M1COL3 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene134/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene134/preview.jpg" />
+    <image>
+      <cube url="scene134/panos/tour_1_1_scene134.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene135" title="Bathtub C1M1 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene135/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene135/preview.jpg" />
+    <image>
+      <cube url="scene135/panos/tour_1_1_scene135.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene136" title="Bathtub C1M1 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene136/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene136/preview.jpg" />
+    <image>
+      <cube url="scene136/panos/tour_1_1_scene136.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene137" title="Bathtub C1M1 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene137/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene137/preview.jpg" />
+    <image>
+      <cube url="scene137/panos/tour_1_1_scene137.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene138" title="Bathtub C1M1 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene138/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene138/preview.jpg" />
+    <image>
+      <cube url="scene138/panos/tour_1_1_scene138.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene139" title="Bathtub C1M1 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene139/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene139/preview.jpg" />
+    <image>
+      <cube url="scene139/panos/tour_1_1_scene139.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene140" title="Bathtub C1M1 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene140/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene140/preview.jpg" />
+    <image>
+      <cube url="scene140/panos/tour_1_1_scene140.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene141" title="Bathtub C1M1 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene141/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene141/preview.jpg" />
+    <image>
+      <cube url="scene141/panos/tour_1_1_scene141.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene142" title="Bathtub C1M1 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene142/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene142/preview.jpg" />
+    <image>
+      <cube url="scene142/panos/tour_1_1_scene142.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene143" title="Bathtub C1M1 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene143/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene143/preview.jpg" />
+    <image>
+      <cube url="scene143/panos/tour_1_1_scene143.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene144" title="Bathtub C1M1 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene144/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene144/preview.jpg" />
+    <image>
+      <cube url="scene144/panos/tour_1_1_scene144.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene145" title="Bathtub C1M1 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene145/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene145/preview.jpg" />
+    <image>
+      <cube url="scene145/panos/tour_1_1_scene145.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene146" title="Bathtub C1M1 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene146/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene146/preview.jpg" />
+    <image>
+      <cube url="scene146/panos/tour_1_1_scene146.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene147" title="Bathtub C1M1 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene147/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene147/preview.jpg" />
+    <image>
+      <cube url="scene147/panos/tour_1_1_scene147.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene148" title="Bathtub C1M1 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene148/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene148/preview.jpg" />
+    <image>
+      <cube url="scene148/panos/tour_1_1_scene148.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene149" title="Bathtub C1M1 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene149/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene149/preview.jpg" />
+    <image>
+      <cube url="scene149/panos/tour_1_1_scene149.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene150" title="Bathtub C1M1 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene150/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene150/preview.jpg" />
+    <image>
+      <cube url="scene150/panos/tour_1_1_scene150.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene151" title="Bathtub C1M1 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene151/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene151/preview.jpg" />
+    <image>
+      <cube url="scene151/panos/tour_1_1_scene151.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene152" title="Bathtub C1M1 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene152/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene152/preview.jpg" />
+    <image>
+      <cube url="scene152/panos/tour_1_1_scene152.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene153" title="Bathtub C1M1 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene153/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene153/preview.jpg" />
+    <image>
+      <cube url="scene153/panos/tour_1_1_scene153.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene154" title="Bathtub C1M1 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene154/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene154/preview.jpg" />
+    <image>
+      <cube url="scene154/panos/tour_1_1_scene154.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene155" title="Bathtub C1M1 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene155/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene155/preview.jpg" />
+    <image>
+      <cube url="scene155/panos/tour_1_1_scene155.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene156" title="Bathtub C1M1 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene156/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene156/preview.jpg" />
+    <image>
+      <cube url="scene156/panos/tour_1_1_scene156.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene157" title="Bathtub C1M1 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene157/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene157/preview.jpg" />
+    <image>
+      <cube url="scene157/panos/tour_1_1_scene157.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene158" title="Bathtub C1M1 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene158/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene158/preview.jpg" />
+    <image>
+      <cube url="scene158/panos/tour_1_1_scene158.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene159" title="Bathtub C1M1 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene159/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene159/preview.jpg" />
+    <image>
+      <cube url="scene159/panos/tour_1_1_scene159.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene160" title="Bathtub C1M1 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene160/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene160/preview.jpg" />
+    <image>
+      <cube url="scene160/panos/tour_1_1_scene160.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene161" title="Bathtub C1M1 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene161/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene161/preview.jpg" />
+    <image>
+      <cube url="scene161/panos/tour_1_1_scene161.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene162" title="Bathtub C1M2 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene162/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene162/preview.jpg" />
+    <image>
+      <cube url="scene162/panos/tour_1_1_scene162.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene163" title="Bathtub C1M2 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene163/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene163/preview.jpg" />
+    <image>
+      <cube url="scene163/panos/tour_1_1_scene163.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene164" title="Bathtub C1M2 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene164/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene164/preview.jpg" />
+    <image>
+      <cube url="scene164/panos/tour_1_1_scene164.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene165" title="Bathtub C1M2 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene165/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene165/preview.jpg" />
+    <image>
+      <cube url="scene165/panos/tour_1_1_scene165.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene166" title="Bathtub C1M2 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene166/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene166/preview.jpg" />
+    <image>
+      <cube url="scene166/panos/tour_1_1_scene166.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene167" title="Bathtub C1M2 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene167/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene167/preview.jpg" />
+    <image>
+      <cube url="scene167/panos/tour_1_1_scene167.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene168" title="Bathtub C1M2 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene168/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene168/preview.jpg" />
+    <image>
+      <cube url="scene168/panos/tour_1_1_scene168.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene169" title="Bathtub C1M2 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene169/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene169/preview.jpg" />
+    <image>
+      <cube url="scene169/panos/tour_1_1_scene169.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene170" title="Bathtub C1M2 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene170/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene170/preview.jpg" />
+    <image>
+      <cube url="scene170/panos/tour_1_1_scene170.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene171" title="Bathtub C1M2 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene171/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene171/preview.jpg" />
+    <image>
+      <cube url="scene171/panos/tour_1_1_scene171.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene172" title="Bathtub C1M2 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene172/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene172/preview.jpg" />
+    <image>
+      <cube url="scene172/panos/tour_1_1_scene172.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene173" title="Bathtub C1M2 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene173/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene173/preview.jpg" />
+    <image>
+      <cube url="scene173/panos/tour_1_1_scene173.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene174" title="Bathtub C1M2 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene174/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene174/preview.jpg" />
+    <image>
+      <cube url="scene174/panos/tour_1_1_scene174.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene175" title="Bathtub C1M2 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene175/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene175/preview.jpg" />
+    <image>
+      <cube url="scene175/panos/tour_1_1_scene175.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene176" title="Bathtub C1M2 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene176/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene176/preview.jpg" />
+    <image>
+      <cube url="scene176/panos/tour_1_1_scene176.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene177" title="Bathtub C1M2 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene177/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene177/preview.jpg" />
+    <image>
+      <cube url="scene177/panos/tour_1_1_scene177.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene178" title="Bathtub C1M2 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene178/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene178/preview.jpg" />
+    <image>
+      <cube url="scene178/panos/tour_1_1_scene178.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene179" title="Bathtub C1M2 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene179/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene179/preview.jpg" />
+    <image>
+      <cube url="scene179/panos/tour_1_1_scene179.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene180" title="Bathtub C1M2 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene180/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene180/preview.jpg" />
+    <image>
+      <cube url="scene180/panos/tour_1_1_scene180.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene181" title="Bathtub C1M2 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene181/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene181/preview.jpg" />
+    <image>
+      <cube url="scene181/panos/tour_1_1_scene181.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene182" title="Bathtub C1M2 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene182/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene182/preview.jpg" />
+    <image>
+      <cube url="scene182/panos/tour_1_1_scene182.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene183" title="Bathtub C1M2 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene183/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene183/preview.jpg" />
+    <image>
+      <cube url="scene183/panos/tour_1_1_scene183.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene184" title="Bathtub C1M2 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene184/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene184/preview.jpg" />
+    <image>
+      <cube url="scene184/panos/tour_1_1_scene184.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene185" title="Bathtub C1M2 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene185/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene185/preview.jpg" />
+    <image>
+      <cube url="scene185/panos/tour_1_1_scene185.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene186" title="Bathtub C1M2 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene186/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene186/preview.jpg" />
+    <image>
+      <cube url="scene186/panos/tour_1_1_scene186.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene187" title="Bathtub C1M2 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene187/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene187/preview.jpg" />
+    <image>
+      <cube url="scene187/panos/tour_1_1_scene187.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene188" title="Bathtub C1M2 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene188/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene188/preview.jpg" />
+    <image>
+      <cube url="scene188/panos/tour_1_1_scene188.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene189" title="Bathtub C1M2 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene189/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene189/preview.jpg" />
+    <image>
+      <cube url="scene189/panos/tour_1_1_scene189.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene190" title="Bathtub C1M2 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene190/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene190/preview.jpg" />
+    <image>
+      <cube url="scene190/panos/tour_1_1_scene190.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene191" title="Bathtub C1M2 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene191/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene191/preview.jpg" />
+    <image>
+      <cube url="scene191/panos/tour_1_1_scene191.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene192" title="Bathtub C1M2 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene192/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene192/preview.jpg" />
+    <image>
+      <cube url="scene192/panos/tour_1_1_scene192.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene193" title="Bathtub C1M2 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene193/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene193/preview.jpg" />
+    <image>
+      <cube url="scene193/panos/tour_1_1_scene193.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene194" title="Bathtub C1M2 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene194/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene194/preview.jpg" />
+    <image>
+      <cube url="scene194/panos/tour_1_1_scene194.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene195" title="Bathtub C1M2 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene195/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene195/preview.jpg" />
+    <image>
+      <cube url="scene195/panos/tour_1_1_scene195.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene196" title="Bathtub C1M2 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene196/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene196/preview.jpg" />
+    <image>
+      <cube url="scene196/panos/tour_1_1_scene196.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene197" title="Bathtub C1M2 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene197/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene197/preview.jpg" />
+    <image>
+      <cube url="scene197/panos/tour_1_1_scene197.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene198" title="Bathtub C1M2 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene198/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene198/preview.jpg" />
+    <image>
+      <cube url="scene198/panos/tour_1_1_scene198.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene199" title="Bathtub C1M2 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene199/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene199/preview.jpg" />
+    <image>
+      <cube url="scene199/panos/tour_1_1_scene199.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene200" title="Bathtub C1M2 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene200/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene200/preview.jpg" />
+    <image>
+      <cube url="scene200/panos/tour_1_1_scene200.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene201" title="Bathtub C1M2 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene201/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene201/preview.jpg" />
+    <image>
+      <cube url="scene201/panos/tour_1_1_scene201.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene202" title="Bathtub C1M2 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene202/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene202/preview.jpg" />
+    <image>
+      <cube url="scene202/panos/tour_1_1_scene202.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene203" title="Bathtub C1M2 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene203/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene203/preview.jpg" />
+    <image>
+      <cube url="scene203/panos/tour_1_1_scene203.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene204" title="Bathtub C1M2 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene204/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene204/preview.jpg" />
+    <image>
+      <cube url="scene204/panos/tour_1_1_scene204.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene205" title="Bathtub C1M2 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene205/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene205/preview.jpg" />
+    <image>
+      <cube url="scene205/panos/tour_1_1_scene205.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene206" title="Bathtub C1M2 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene206/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene206/preview.jpg" />
+    <image>
+      <cube url="scene206/panos/tour_1_1_scene206.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene207" title="Bathtub C1M2 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene207/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene207/preview.jpg" />
+    <image>
+      <cube url="scene207/panos/tour_1_1_scene207.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene208" title="Bathtub C1M2 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene208/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene208/preview.jpg" />
+    <image>
+      <cube url="scene208/panos/tour_1_1_scene208.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene209" title="Bathtub C1M2 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene209/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene209/preview.jpg" />
+    <image>
+      <cube url="scene209/panos/tour_1_1_scene209.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene210" title="Bathtub C1M2 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene210/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene210/preview.jpg" />
+    <image>
+      <cube url="scene210/panos/tour_1_1_scene210.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene211" title="Bathtub C1M2 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene211/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene211/preview.jpg" />
+    <image>
+      <cube url="scene211/panos/tour_1_1_scene211.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene212" title="Bathtub C1M2 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene212/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene212/preview.jpg" />
+    <image>
+      <cube url="scene212/panos/tour_1_1_scene212.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene213" title="Bathtub C1M2 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene213/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene213/preview.jpg" />
+    <image>
+      <cube url="scene213/panos/tour_1_1_scene213.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene214" title="Bathtub C1M2 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene214/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene214/preview.jpg" />
+    <image>
+      <cube url="scene214/panos/tour_1_1_scene214.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene215" title="Bathtub C1M2 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene215/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene215/preview.jpg" />
+    <image>
+      <cube url="scene215/panos/tour_1_1_scene215.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene216" title="Bathtub C1M2 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene216/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene216/preview.jpg" />
+    <image>
+      <cube url="scene216/panos/tour_1_1_scene216.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene217" title="Bathtub C1M2 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene217/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene217/preview.jpg" />
+    <image>
+      <cube url="scene217/panos/tour_1_1_scene217.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene218" title="Bathtub C1M2 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene218/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene218/preview.jpg" />
+    <image>
+      <cube url="scene218/panos/tour_1_1_scene218.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene219" title="Bathtub C1M2 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene219/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene219/preview.jpg" />
+    <image>
+      <cube url="scene219/panos/tour_1_1_scene219.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene220" title="Bathtub C1M2 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene220/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene220/preview.jpg" />
+    <image>
+      <cube url="scene220/panos/tour_1_1_scene220.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene221" title="Bathtub C1M2 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene221/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene221/preview.jpg" />
+    <image>
+      <cube url="scene221/panos/tour_1_1_scene221.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene222" title="Bathtub C1M2 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene222/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene222/preview.jpg" />
+    <image>
+      <cube url="scene222/panos/tour_1_1_scene222.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene223" title="Bathtub C1M2 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene223/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene223/preview.jpg" />
+    <image>
+      <cube url="scene223/panos/tour_1_1_scene223.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene224" title="Bathtub C1M2 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene224/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene224/preview.jpg" />
+    <image>
+      <cube url="scene224/panos/tour_1_1_scene224.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene225" title="Bathtub C1M2 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene225/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene225/preview.jpg" />
+    <image>
+      <cube url="scene225/panos/tour_1_1_scene225.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene226" title="Bathtub C1M2 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene226/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene226/preview.jpg" />
+    <image>
+      <cube url="scene226/panos/tour_1_1_scene226.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene227" title="Bathtub C1M2 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene227/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene227/preview.jpg" />
+    <image>
+      <cube url="scene227/panos/tour_1_1_scene227.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene228" title="Bathtub C1M2 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene228/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene228/preview.jpg" />
+    <image>
+      <cube url="scene228/panos/tour_1_1_scene228.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene229" title="Bathtub C1M2 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene229/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene229/preview.jpg" />
+    <image>
+      <cube url="scene229/panos/tour_1_1_scene229.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene230" title="Bathtub C1M2 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene230/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene230/preview.jpg" />
+    <image>
+      <cube url="scene230/panos/tour_1_1_scene230.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene231" title="Bathtub C1M2 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene231/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene231/preview.jpg" />
+    <image>
+      <cube url="scene231/panos/tour_1_1_scene231.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene232" title="Bathtub C1M2 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene232/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene232/preview.jpg" />
+    <image>
+      <cube url="scene232/panos/tour_1_1_scene232.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene233" title="Bathtub C1M2 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene233/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene233/preview.jpg" />
+    <image>
+      <cube url="scene233/panos/tour_1_1_scene233.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene234" title="Bathtub C1M2 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene234/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene234/preview.jpg" />
+    <image>
+      <cube url="scene234/panos/tour_1_1_scene234.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene235" title="Bathtub C1M2 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene235/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene235/preview.jpg" />
+    <image>
+      <cube url="scene235/panos/tour_1_1_scene235.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene236" title="Bathtub C1M2 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene236/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene236/preview.jpg" />
+    <image>
+      <cube url="scene236/panos/tour_1_1_scene236.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene237" title="Bathtub C1M2 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene237/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene237/preview.jpg" />
+    <image>
+      <cube url="scene237/panos/tour_1_1_scene237.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene238" title="Bathtub C1M2 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene238/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene238/preview.jpg" />
+    <image>
+      <cube url="scene238/panos/tour_1_1_scene238.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene239" title="Bathtub C1M2 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene239/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene239/preview.jpg" />
+    <image>
+      <cube url="scene239/panos/tour_1_1_scene239.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene240" title="Bathtub C1M2 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene240/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene240/preview.jpg" />
+    <image>
+      <cube url="scene240/panos/tour_1_1_scene240.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene241" title="Bathtub C1M2 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene241/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene241/preview.jpg" />
+    <image>
+      <cube url="scene241/panos/tour_1_1_scene241.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene242" title="Bathtub C1M2 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene242/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene242/preview.jpg" />
+    <image>
+      <cube url="scene242/panos/tour_1_1_scene242.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene243" title="Bathtub C1M3 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene243/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene243/preview.jpg" />
+    <image>
+      <cube url="scene243/panos/tour_1_1_scene243.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene244" title="Bathtub C1M3 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene244/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene244/preview.jpg" />
+    <image>
+      <cube url="scene244/panos/tour_1_1_scene244.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene245" title="Bathtub C1M3 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene245/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene245/preview.jpg" />
+    <image>
+      <cube url="scene245/panos/tour_1_1_scene245.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene246" title="Bathtub C1M3 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene246/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene246/preview.jpg" />
+    <image>
+      <cube url="scene246/panos/tour_1_1_scene246.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene247" title="Bathtub C1M3 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene247/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene247/preview.jpg" />
+    <image>
+      <cube url="scene247/panos/tour_1_1_scene247.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene248" title="Bathtub C1M3 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene248/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene248/preview.jpg" />
+    <image>
+      <cube url="scene248/panos/tour_1_1_scene248.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene249" title="Bathtub C1M3 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene249/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene249/preview.jpg" />
+    <image>
+      <cube url="scene249/panos/tour_1_1_scene249.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene250" title="Bathtub C1M3 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene250/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene250/preview.jpg" />
+    <image>
+      <cube url="scene250/panos/tour_1_1_scene250.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene251" title="Bathtub C1M3 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene251/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene251/preview.jpg" />
+    <image>
+      <cube url="scene251/panos/tour_1_1_scene251.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene252" title="Bathtub C1M3 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene252/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene252/preview.jpg" />
+    <image>
+      <cube url="scene252/panos/tour_1_1_scene252.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene253" title="Bathtub C1M3 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene253/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene253/preview.jpg" />
+    <image>
+      <cube url="scene253/panos/tour_1_1_scene253.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene254" title="Bathtub C1M3 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene254/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene254/preview.jpg" />
+    <image>
+      <cube url="scene254/panos/tour_1_1_scene254.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene255" title="Bathtub C1M3 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene255/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene255/preview.jpg" />
+    <image>
+      <cube url="scene255/panos/tour_1_1_scene255.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene256" title="Bathtub C1M3 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene256/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene256/preview.jpg" />
+    <image>
+      <cube url="scene256/panos/tour_1_1_scene256.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene257" title="Bathtub C1M3 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene257/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene257/preview.jpg" />
+    <image>
+      <cube url="scene257/panos/tour_1_1_scene257.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene258" title="Bathtub C1M3 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene258/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene258/preview.jpg" />
+    <image>
+      <cube url="scene258/panos/tour_1_1_scene258.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene259" title="Bathtub C1M3 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene259/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene259/preview.jpg" />
+    <image>
+      <cube url="scene259/panos/tour_1_1_scene259.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene260" title="Bathtub C1M3 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene260/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene260/preview.jpg" />
+    <image>
+      <cube url="scene260/panos/tour_1_1_scene260.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene261" title="Bathtub C1M3 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene261/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene261/preview.jpg" />
+    <image>
+      <cube url="scene261/panos/tour_1_1_scene261.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene262" title="Bathtub C1M3 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene262/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene262/preview.jpg" />
+    <image>
+      <cube url="scene262/panos/tour_1_1_scene262.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene263" title="Bathtub C1M3 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene263/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene263/preview.jpg" />
+    <image>
+      <cube url="scene263/panos/tour_1_1_scene263.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene264" title="Bathtub C1M3 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene264/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene264/preview.jpg" />
+    <image>
+      <cube url="scene264/panos/tour_1_1_scene264.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene265" title="Bathtub C1M3 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene265/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene265/preview.jpg" />
+    <image>
+      <cube url="scene265/panos/tour_1_1_scene265.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene266" title="Bathtub C1M3 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene266/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene266/preview.jpg" />
+    <image>
+      <cube url="scene266/panos/tour_1_1_scene266.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene267" title="Bathtub C1M3 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene267/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene267/preview.jpg" />
+    <image>
+      <cube url="scene267/panos/tour_1_1_scene267.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene268" title="Bathtub C1M3 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene268/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene268/preview.jpg" />
+    <image>
+      <cube url="scene268/panos/tour_1_1_scene268.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene269" title="Bathtub C1M3 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene269/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene269/preview.jpg" />
+    <image>
+      <cube url="scene269/panos/tour_1_1_scene269.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene270" title="Bathtub C1M3 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene270/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene270/preview.jpg" />
+    <image>
+      <cube url="scene270/panos/tour_1_1_scene270.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene271" title="Bathtub C1M3 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene271/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene271/preview.jpg" />
+    <image>
+      <cube url="scene271/panos/tour_1_1_scene271.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene272" title="Bathtub C1M3 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene272/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene272/preview.jpg" />
+    <image>
+      <cube url="scene272/panos/tour_1_1_scene272.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene273" title="Bathtub C1M3 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene273/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene273/preview.jpg" />
+    <image>
+      <cube url="scene273/panos/tour_1_1_scene273.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene274" title="Bathtub C1M3 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene274/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene274/preview.jpg" />
+    <image>
+      <cube url="scene274/panos/tour_1_1_scene274.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene275" title="Bathtub C1M3 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene275/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene275/preview.jpg" />
+    <image>
+      <cube url="scene275/panos/tour_1_1_scene275.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene276" title="Bathtub C1M3 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene276/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene276/preview.jpg" />
+    <image>
+      <cube url="scene276/panos/tour_1_1_scene276.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene277" title="Bathtub C1M3 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene277/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene277/preview.jpg" />
+    <image>
+      <cube url="scene277/panos/tour_1_1_scene277.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene278" title="Bathtub C1M3 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene278/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene278/preview.jpg" />
+    <image>
+      <cube url="scene278/panos/tour_1_1_scene278.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene279" title="Bathtub C1M3 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene279/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene279/preview.jpg" />
+    <image>
+      <cube url="scene279/panos/tour_1_1_scene279.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene280" title="Bathtub C1M3 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene280/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene280/preview.jpg" />
+    <image>
+      <cube url="scene280/panos/tour_1_1_scene280.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene281" title="Bathtub C1M3 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene281/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene281/preview.jpg" />
+    <image>
+      <cube url="scene281/panos/tour_1_1_scene281.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene282" title="Bathtub C1M3 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene282/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene282/preview.jpg" />
+    <image>
+      <cube url="scene282/panos/tour_1_1_scene282.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene283" title="Bathtub C1M3 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene283/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene283/preview.jpg" />
+    <image>
+      <cube url="scene283/panos/tour_1_1_scene283.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene284" title="Bathtub C1M3 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene284/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene284/preview.jpg" />
+    <image>
+      <cube url="scene284/panos/tour_1_1_scene284.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene285" title="Bathtub C1M3 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene285/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene285/preview.jpg" />
+    <image>
+      <cube url="scene285/panos/tour_1_1_scene285.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene286" title="Bathtub C1M3 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene286/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene286/preview.jpg" />
+    <image>
+      <cube url="scene286/panos/tour_1_1_scene286.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene287" title="Bathtub C1M3 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene287/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene287/preview.jpg" />
+    <image>
+      <cube url="scene287/panos/tour_1_1_scene287.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene288" title="Bathtub C1M3 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene288/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene288/preview.jpg" />
+    <image>
+      <cube url="scene288/panos/tour_1_1_scene288.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene289" title="Bathtub C1M3 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene289/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene289/preview.jpg" />
+    <image>
+      <cube url="scene289/panos/tour_1_1_scene289.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene290" title="Bathtub C1M3 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene290/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene290/preview.jpg" />
+    <image>
+      <cube url="scene290/panos/tour_1_1_scene290.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene291" title="Bathtub C1M3 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene291/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene291/preview.jpg" />
+    <image>
+      <cube url="scene291/panos/tour_1_1_scene291.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene292" title="Bathtub C1M3 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene292/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene292/preview.jpg" />
+    <image>
+      <cube url="scene292/panos/tour_1_1_scene292.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene293" title="Bathtub C1M3 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene293/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene293/preview.jpg" />
+    <image>
+      <cube url="scene293/panos/tour_1_1_scene293.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene294" title="Bathtub C1M3 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene294/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene294/preview.jpg" />
+    <image>
+      <cube url="scene294/panos/tour_1_1_scene294.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene295" title="Bathtub C1M3 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene295/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene295/preview.jpg" />
+    <image>
+      <cube url="scene295/panos/tour_1_1_scene295.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene296" title="Bathtub C1M3 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene296/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene296/preview.jpg" />
+    <image>
+      <cube url="scene296/panos/tour_1_1_scene296.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene297" title="Bathtub C1M3 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene297/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene297/preview.jpg" />
+    <image>
+      <cube url="scene297/panos/tour_1_1_scene297.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene298" title="Bathtub C1M3 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene298/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene298/preview.jpg" />
+    <image>
+      <cube url="scene298/panos/tour_1_1_scene298.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene299" title="Bathtub C1M3 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene299/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene299/preview.jpg" />
+    <image>
+      <cube url="scene299/panos/tour_1_1_scene299.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene300" title="Bathtub C1M3 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene300/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene300/preview.jpg" />
+    <image>
+      <cube url="scene300/panos/tour_1_1_scene300.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene301" title="Bathtub C1M3 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene301/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene301/preview.jpg" />
+    <image>
+      <cube url="scene301/panos/tour_1_1_scene301.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene302" title="Bathtub C1M3 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene302/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene302/preview.jpg" />
+    <image>
+      <cube url="scene302/panos/tour_1_1_scene302.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene303" title="Bathtub C1M3 + Sink C2M4 + Floor C3M7" onstart="" thumburl="scene303/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene303/preview.jpg" />
+    <image>
+      <cube url="scene303/panos/tour_1_1_scene303.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene304" title="Bathtub C1M3 + Sink C2M4 + Floor C3M8" onstart="" thumburl="scene304/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene304/preview.jpg" />
+    <image>
+      <cube url="scene304/panos/tour_1_1_scene304.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene305" title="Bathtub C1M3 + Sink C2M4 + Floor C3M9" onstart="" thumburl="scene305/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene305/preview.jpg" />
+    <image>
+      <cube url="scene305/panos/tour_1_1_scene305.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene306" title="Bathtub C1M3 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene306/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene306/preview.jpg" />
+    <image>
+      <cube url="scene306/panos/tour_1_1_scene306.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene307" title="Bathtub C1M3 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene307/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene307/preview.jpg" />
+    <image>
+      <cube url="scene307/panos/tour_1_1_scene307.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene308" title="Bathtub C1M3 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene308/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene308/preview.jpg" />
+    <image>
+      <cube url="scene308/panos/tour_1_1_scene308.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene309" title="Bathtub C1M3 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene309/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene309/preview.jpg" />
+    <image>
+      <cube url="scene309/panos/tour_1_1_scene309.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene310" title="Bathtub C1M3 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene310/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene310/preview.jpg" />
+    <image>
+      <cube url="scene310/panos/tour_1_1_scene310.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene311" title="Bathtub C1M3 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene311/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene311/preview.jpg" />
+    <image>
+      <cube url="scene311/panos/tour_1_1_scene311.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene312" title="Bathtub C1M3 + Sink C2M5 + Floor C3M7" onstart="" thumburl="scene312/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene312/preview.jpg" />
+    <image>
+      <cube url="scene312/panos/tour_1_1_scene312.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene313" title="Bathtub C1M3 + Sink C2M5 + Floor C3M8" onstart="" thumburl="scene313/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene313/preview.jpg" />
+    <image>
+      <cube url="scene313/panos/tour_1_1_scene313.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene314" title="Bathtub C1M3 + Sink C2M5 + Floor C3M9" onstart="" thumburl="scene314/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene314/preview.jpg" />
+    <image>
+      <cube url="scene314/panos/tour_1_1_scene314.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene315" title="Bathtub C1M3 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene315/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene315/preview.jpg" />
+    <image>
+      <cube url="scene315/panos/tour_1_1_scene315.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene316" title="Bathtub C1M3 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene316/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene316/preview.jpg" />
+    <image>
+      <cube url="scene316/panos/tour_1_1_scene316.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene317" title="Bathtub C1M3 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene317/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene317/preview.jpg" />
+    <image>
+      <cube url="scene317/panos/tour_1_1_scene317.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene318" title="Bathtub C1M3 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene318/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene318/preview.jpg" />
+    <image>
+      <cube url="scene318/panos/tour_1_1_scene318.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene319" title="Bathtub C1M3 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene319/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene319/preview.jpg" />
+    <image>
+      <cube url="scene319/panos/tour_1_1_scene319.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene320" title="Bathtub C1M3 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene320/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene320/preview.jpg" />
+    <image>
+      <cube url="scene320/panos/tour_1_1_scene320.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene321" title="Bathtub C1M3 + Sink C2M6 + Floor C3M7" onstart="" thumburl="scene321/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene321/preview.jpg" />
+    <image>
+      <cube url="scene321/panos/tour_1_1_scene321.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene322" title="Bathtub C1M3 + Sink C2M6 + Floor C3M8" onstart="" thumburl="scene322/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene322/preview.jpg" />
+    <image>
+      <cube url="scene322/panos/tour_1_1_scene322.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene>
+
+    <scene name="scene323" title="Bathtub C1M3 + Sink C2M6 + Floor C3M9" onstart="" thumburl="scene323/thumb.jpg" lat="" lng="" alt="" heading="">
+    <control bouncinglimits="calc:image.cube ? true : false" />
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <preview url="scene323/preview.jpg" />
+    <image>
+      <cube url="scene323/panos/tour_1_1_scene323.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+    </image>
+  </scene> 
+
+</krpano>

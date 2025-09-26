@@ -1,0 +1,48 @@
+<krpano bgcolor="0xFFFFFF">
+	
+	<style name="item" type="text" bgborder="1 0xAAAAAA" 
+		onclick="switch(scale,1,2);"
+		/>
+	
+	<layer type="container" bgcolor="0xFAFAFA" bgalpha="1" bgborder="1 0xFF0000" x="10" y="10" flowchildren="v" childmargin="10" childflowspacing="10">
+		
+		<layer type="text" text="
+			[u]Automatic Layouts[/u][br]
+			Test the automatic arrangement and sizing of layers.[br]
+			Click the layers to toggle their size.[br]"
+			bgalpha="0"
+			/>
+	
+		<layer type="text" text="Full dynamic:" bgalpha="0" flowspacing="10 0 0" />
+		<layer type="container" bgborder="1 0x00AA00" flowchildren="h" childmargin="5" childflowspacing="5" flowspacing="0 0 10">
+			<layer style="item" text="Test1" />
+			<layer style="item" text="Test2" />
+			<layer style="item" text="Test3" />
+			<layer style="item" text="Test4" />
+		</layer>
+		
+		<layer type="text" text="Fixed width and flowoverflow:" bgalpha="0" flowspacing="10 0 0" />
+		<layer type="container" bgborder="1 0x0000FF" width="100" flowchildren="h" flowoverflow="true" childmargin="5" childflowspacing="5" flowspacing="0 0 10">
+			<layer style="item" text="Test1" />
+			<layer style="item" text="Test2" />
+			<layer style="item" text="Test3" />
+		</layer>
+		
+		<layer type="text" text="Fixed width and flowchildrenexpand:" bgalpha="0" flowspacing="10 0 0" />
+		<layer type="container" bgborder="1 0x0000FF" xwidth="100" flowchildren="v" flowchildrenexpand="true" childmargin="5" childflowspacing="5" flowspacing="0 0 10">
+			<layer style="item" text="1" />
+			<layer style="item" text="2222" />
+			<layer style="item" text="33333333" />
+			<layer style="item" text="44" />
+		</layer>
+		
+		<layer type="text" text="Fixed height and flowexpand:" bgalpha="0" flowspacing="10 0 0" />
+		<layer type="container" bgborder="1 0x0000FF" height="200" flowchildren="v" flowoverflow="true" childmargin="5" childflowspacing="5" flowspacing="0 0 10">
+			<layer style="item" text="Test" />
+			<layer style="item" text="Expand[br]vertical" flowexpand="true" />
+			<layer style="item" text="Test" />
+		</layer>
+	
+	</layer>
+
+</krpano>

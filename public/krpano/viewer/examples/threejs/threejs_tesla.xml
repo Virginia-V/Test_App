@@ -1,0 +1,311 @@
+<krpano>
+
+	<include url="%VIEWER%/plugins/combobox.xml" />
+
+	<include url="%VIEWER%/plugins/webvr.xml" />
+	<webvr postracking="true" />
+	<events webvr_onentervr="copyattributes(get(view), get(view_walk));" webvr_onexitvr="view.oz=0;" />
+
+	<include url="%VIEWER%/plugins/controls3d.xml" />
+	<controls collision="link:event.webvr_onentervr|event.webvr_onexitvr:webvr.isenabled AND !webvr.isfake" groundcollision="true" usevrfloorlevel="true" touchmode="move" />
+
+
+	<plugin api="threejs" url="%VIEWER%/plugins/threejs_krpanoplugin.js" keep="true" />
+
+	<threejs
+		shadowmap="pcf"
+		ambientlight="0.0"
+		shadowfloor="true"
+		shadowfloorlevel="133.5"
+		shadowflooralpha="0.5"
+		envmapurl="preview"
+		/>
+
+	<!-- render all from 3cm to 120m -->
+	<display depthnear="3" depthfar="12000" />
+
+	<style name="sun"
+		type="threejslight"
+		mode="sun"
+		atview="false"
+		intensity="1.0"
+		castshadow="true"
+		shadowmaprange="500"
+		shadowmapnear="50"
+		shadowmapfar="50000"
+		shadowmapbias="0.0001"
+		shadowmapnormalbias="0.01"
+		shadowmapres="2048"
+		helper="false"
+		/>
+
+
+	<scene name="cloudy" autoload="true" title="Cloudy">
+
+		<image objectsize="0">
+			<preview url="https://krpano.com/examples/threejs/tesla/preview.jpg" />
+			<sphere url="https://krpano.com/examples/threejs/tesla/panoh.jpg" />
+			<depthmap url="models/dome.stl" axis="+Z+Y+X" subdiv="0" scale="400" origin="0|-1.9|0" rendermode="3dmodel" hittest="true" />
+		</image>
+
+		<hotspot name="sun" style="sun" ath="30" atv="-16" colortemperature="5000" />
+
+	</scene>
+
+
+	<scene name="day" title="Daylight">
+
+		<image objectsize="0">
+			<preview url="https://krpano.com/examples/threejs/tesla/pano_day2_preview.jpg" />
+			<sphere url="https://krpano.com/examples/threejs/tesla/pano_day2_s.jpg" />
+			<depthmap url="models/dome.stl" axis="+Z+Y+X" subdiv="0" scale="400" origin="0|-1.9|0" rendermode="3dmodel" hittest="true" />
+		</image>
+
+		<hotspot name="sun" style="sun" ath="81.5" atv="-40.5" colortemperature="6500" />
+	</scene>
+
+	<scene name="sunset" title="Sunset">
+
+		<image objectsize="0">
+			<preview url="https://krpano.com/examples/threejs/tesla/pano_evening_preview.jpg" />
+			<sphere url="https://krpano.com/examples/threejs/tesla/pano_evening_s.jpg" />
+			<depthmap enabled="true" url="models/dome.stl" axis="+Z+Y+X" subdiv="0" scale="400" origin="0|-1.9|0" rendermode="3dmodel" hittest="true" />
+		</image>
+
+		<hotspot name="sun" style="sun" ath="-90" atv="-4" colortemperature="1900" />
+
+	</scene>
+
+
+	<!-- startup view -->
+	<view
+		tx="0" ty="40" tz="0"
+		hlookat="133" vlookat="13"
+		fov="72" fovmin="30" fovmax="150"
+		oz="600"
+		limitview="lookat" vlookatmin="-5" vlookatmax="90"
+		/>
+
+	<!-- other views -->
+	<view_car   tx="-50"  ty="26"  tz="26"  hlookat="0"   vlookat="0"  fov="90" oz="0" />
+	<view_walk  tx="-180" ty="-16" tz="340" hlookat="145" vlookat="15" fov="84" oz="0" />
+	<view_model tx="0"    ty="40"  tz="0"   hlookat="324" vlookat="9"  fov="72" oz="600" />
+
+
+	<hotspot name="car" keep="true"
+		type="threejs"
+		url="https://krpano.com/examples/threejs/tesla/tesla_2018_model_3.glb"
+		enabled="false"
+		hittest="false"
+		depth="0"
+		scale="0.0095"
+		ty="67"
+		windowtint="0.6"
+		windowtint.onchange="set_car_material('glass.*', 0xFFFFFF, 0.0, 0.0, get(windowtint));"
+		color="0xD1D1D1"
+		color.onchange="set_car_material('primary*', get(color), get(roughness), get(metalness));"
+		metalness="0.0"
+		metalness.onchange="set_car_material('primary*', get(color), get(roughness), get(metalness));"
+		roughness="0.28"
+		roughness.onchange="set_car_material('primary*', get(color), get(roughness), get(metalness));"
+		interiorcolor="0xFFFFFF"
+		interiorcolor.onchange="set_car_material('Seat_Leather_white.*', get(interiorcolor), 0.5, 0.0); set_car_material('Putih.*', get(interiorcolor), 0.5, 0.0);"
+		rimscolor="0xFFFFFF"
+		rimscolor.onchange="set_car_material('wheels.6', get(rimscolor), 0.2, 0.5);"
+		onloaded="removehotspot(car_loadprogress); improve_car_materials();"
+		/>
+
+	<action name="improve_car_materials">
+		set_car_material('glass.*', 0xFFFFFF, 0.0, 0.0, get(windowtint));
+		set_car_material('wheels.6', 0xFFFFFF, 0.2, 0.5);
+		set_car_material('tembus_red.*', 0xFFFFFF, 0.0, 0.0, 0.2, 0xFFFFFF);
+		set_car_material('movsteer_1.0.0', 0xFFFFFF, 0.7, 0.0);
+	</action>
+
+
+	<hotspot name="car_loadprogress" keep="true"
+		type="text"
+		template="Loading{{hotspot[car].bytesloaded:hotspot[car].bytestotal GT 0 ? ' ' + roundval(hotspot[car].bytesloaded*100 / hotspot[car].bytestotal,0) + '%' : '...'}}"
+		css="font-size:20px;color:#FFFFFF;" bg="false" txtshadow="0 1 2 0x000000 1.0"
+		scale="0.5"
+		renderer.safari.or.ios="webgl"
+		zoom="true"
+		depth="0"
+		ty="32"
+		/>
+
+
+	<layer type="container" flowchildren="v" align="leftbottom" x="20" y="20" childflowspacing="8" keep="true">
+		<layer style="button" text="Look Inside"
+			onclick="tween(hotspot[car].windowtint,0.1); adjusthlookat(get(view_car.hlookat)); tween(get(view), get(view_car), 1.0, smooth, view.limitview='auto';);"
+			/>
+		<layer style="button" text="Walk Outside"
+			onclick="tween(hotspot[car].windowtint,0.6); adjusthlookat(get(view_walk.hlookat)); tween(get(view), get(view_walk), 1.0, smooth, view.limitview='auto';);"
+			/>
+		<layer style="button" text="Pan Around"
+			onclick="tween(hotspot[car].windowtint,0.6); adjusthlookat(get(view_model.hlookat)); tween(get(view), get(view_model), 1.0, smooth, view.limitview='lookat'; view.vlookatmin=-5; view.vlookatmax=90;);"
+			/>
+	</layer>
+
+	<layer type="container" flowchildren="v" align="left" x="20" y="20" childflowspacing="8" keep="true" visible="link:event.onresize:stagewidth GE 800 AND stageheight GE 500">
+		<layer style="text" text="Customize" bg="false" enabled="false" flowspacing="8 0 4" />
+		<layer style="button|colorpicker" vartext="Paint" var="hotspot[car].color" />
+		<layer style="button" template="Metalness: {{hotspot[car].metalness:roundval(hotspot[car].metalness,2)}}" cursor="col-resize"
+			ondown="asyncloop(pressed, hotspot[car].metalness=clamp(hotspot[car].metalness+(mouse.dx+mouse.dy)*0.002, 0,2); );"
+			/>
+		<layer style="button" template="Roughness: {{hotspot[car].roughness:roundval(hotspot[car].roughness,2)}}" cursor="col-resize"
+			ondown="asyncloop(pressed, hotspot[car].roughness=clamp(hotspot[car].roughness+(mouse.dx+mouse.dy)*0.002, 0,1); );"
+			/>
+		<layer style="button|colorpicker" vartext="Interior" var="hotspot[car].interiorcolor" />
+		<layer style="button|colorpicker" vartext="Rims" var="hotspot[car].rimscolor"/>
+		<layer style="button" flowspacing="0 0 8" template="Window Tint: {{hotspot[car].windowtint:roundval(hotspot[car].windowtint,2)}}" cursor="col-resize"
+			ondown="asyncloop(pressed, hotspot[car].windowtint=clamp(hotspot[car].windowtint+(mouse.dx+mouse.dy)*0.002, 0,1); );"
+			onclick="tween(hotspot[car].windowtint, (hotspot[car].windowtint LT 0.3 ? 0.6 : 0.1));"
+			/>
+		<layer style="text" text="Panorama" bg="false" enabled="false" flowspacing="8 0 4" />
+		<layer style="button" flowspacing="0 0 8" template="Depthmap: {{image.depthmap.enabled|event.onxmlcomplete:image.depthmap.enabled ? 'On' : 'Off'}}"
+			onclick="switch(image.depthmap.enabled); invalidatescreen();"
+			/>
+	</layer>
+
+	<layer type="container" flowchildren="v" align="lefttop" x="20" y="14" flowchildrenexpand="true" keep="true">
+		<layer style="text" text="Environment" bg="false" enabled="false" />
+		<layer style="combobox" name="cbscenes" design="editor" width="80" onloaded="add_scene_items();" />
+		<action name="add_scene_items" scope="local">
+			for(set(i,0), i LT scene.count, inc(i),
+				caller.additem(get(scene[get(i)].title), calc('loadscene('+i+',null,MERGE,SLIDEBLEND(1.0))') );
+			);
+		</action>
+
+		<layer style="text" text="Car Paint" bg="false" enabled="false"  flowspacing="8 0 0" />
+		<layer style="combobox" name="carcolors" design="editor" width="80">
+	    	<item name="white"  caption="White"    onclick="tween(hotspot[car], color=0xD1D1D1, metalness=0.00, roughness=0.28);" />
+			<item name="black"  caption="Black"    onclick="tween(hotspot[car], color=0x000000, metalness=0.25, roughness=0.05);" />
+			<item name="red"    caption="Red"      onclick="tween(hotspot[car], color=0xC20000, metalness=0.25, roughness=0.05);" />
+			<item name="blue"   caption="Blue"     onclick="tween(hotspot[car], color=0x2C2E63, metalness=0.88, roughness=0.05);" />
+			<item name="gray"   caption="Gray"     onclick="tween(hotspot[car], color=0x4B4F62, metalness=0.66, roughness=0.05);" />
+			<item name="silver" caption="Silver"   onclick="tween(hotspot[car], color=0xEEEEEE, metalness=0.84, roughness=0.18);" />
+			<item name="chrome" caption="Chrome"   onclick="tween(hotspot[car], color=0xFFFFFF, metalness=1.00, roughness=0.00);" />
+			<item name="gold"   caption="Gold"     onclick="tween(hotspot[car], color=0xFFD500, metalness=0.90, roughness=0.10);" />
+			<item name="dgold"  caption="DarkGold" onclick="tween(hotspot[car], color=0x705E00, metalness=1.15, roughness=0.20); tween(hotspot[car].rimscolor, 0x705E00);" />
+			<item name="lineart" caption="LineArt" onclick="tween(hotspot[car], color=0xFFFFFF, metalness=2.00, roughness=0.87);" />
+		</layer>
+
+		<layer style="text" text="Interior" bg="false" enabled="false"  flowspacing="8 0 0" />
+		<layer style="combobox" name="interiorcolors" design="editor" width="80">
+	    	<item name="white" caption="White"  onclick="tween(hotspot[car].interiorcolor, 0xFFFFFF);" />
+			<item name="black" caption="Black"  onclick="tween(hotspot[car].interiorcolor, 0x333333);" />
+			<item name="beige" caption="Beige"  onclick="tween(hotspot[car].interiorcolor, 0xC19A57);" />
+		</layer>
+
+		<layer style="text" text="Rims" bg="false" enabled="false"  flowspacing="8 0 0" />
+		<layer style="combobox" name="rimscolor" design="editor" width="80">
+	    	<item name="silver" caption="Silver" onclick="tween(hotspot[car].rimscolor, 0xFFFFFF);" />
+			<item name="gray"   caption="Gray"   onclick="tween(hotspot[car].rimscolor, 0x666666);" />
+			<item name="black"  caption="Black"  onclick="tween(hotspot[car].rimscolor, 0x333333);" />
+			<item name="gold"   caption="Gold"   onclick="tween(hotspot[car].rimscolor, 0xC2A200);" />
+		</layer>
+	</layer>
+
+
+	<style name="text" type="text"
+		css="color:white;"
+		txtshadow="0 1 1 0x000000 1"
+		/>
+
+	<style name="button"
+		type="text"
+		width="140" textalign="center" padding="4 4"
+		css="color:#333;" bg="true" bgcolor="0xFFFFFF" bgborder="1 0xCCCCCC 1" bgroundedge="1"
+		ondown.addevent="set(bgcolor,0xDDDDDD);"
+		onup.addevent="if(!hovering,set(bgcolor,0xFFFFFF),set(bgcolor,0xEEEEEE));"
+		onover.addevent="if(!pressed,set(bgcolor,0xEEEEEE));"
+		onout.addevent="if(!pressed,set(bgcolor,0xFFFFFF));"
+		/>
+
+	<style name="colorpicker" type="text"
+		width="140" textalign="center" padding="4 8"
+		css="color:#333;" bg="true" bgcolor="0xFFFFFF" bgborder="1 0xCCCCCC 1"
+		oncreate.addevent="colorpicker_oncreate()"
+		/>
+
+	<action name="colorpicker_oncreate" type="js"><![CDATA[
+
+		function updatetext()
+		{
+			caller.text = caller.vartext + ": " + krpano.functions.tohexcolor( krpano.get( caller.var ) | 0 );
+		}
+
+		var inputcolor = null;
+
+		caller.addevent("ondown", function()
+		{
+			if (inputcolor == null)
+			{
+				inputcolor = document.createElement("input");
+				inputcolor.type = "color";
+				inputcolor.style.width = inputcolor.style.height = 0;
+				inputcolor.style.opacity = 1/255;
+				caller.sprite.appendChild(inputcolor);
+				inputcolor.oninput = function()
+				{
+					var color = "0x" + inputcolor.value.slice(1).toUpperCase();
+					krpano.set(caller.var, color);
+				};
+			}
+
+			inputcolor.value = krpano.functions.tohexcolor( krpano.get( caller.var ), '#');
+
+			try
+			{
+				if (!krpano.device.safari) inputcolor.focus();
+				inputcolor.showPicker();
+			}
+			catch(err)
+			{
+				krpano.actions.nexttick( function(){ inputcolor.click(); });
+			}
+
+		});
+
+		krpano.addChangeListener(caller.var, updatetext);
+		updatetext();
+
+	]]></action>
+
+
+	<action name="set_car_material" type="js" args="name, color, roughness, metalness, opacity, emissive"><![CDATA[
+		var hs_car = krpano.get("hotspot[car]");
+		if (hs_car && hs_car.threejsobject)
+		{
+			hs_car.threejsobject.traverse( function(child)
+			{
+				if (child.isMesh)
+				{
+					var materials = Array.isArray(child.material) ? child.material : [child.material];
+					materials.forEach( function(material)
+					{
+						if ( krpano.utils.wildcmp(name,material.name) )
+						{
+							if (color != null) material.color.setHex(1*color);
+							if (roughness != null) material.roughness = Number(roughness);
+							if (metalness != null) material.metalness = Number(metalness);
+							if (opacity != null) material.opacity = Number(opacity);
+							if (emissive != null) material.emissive.setHex(1*emissive);
+						}
+					});
+				}
+			});
+			krpano.view.haschanged = true;	// request a redraw
+		}
+	]]></action>
+
+
+	<!-- original source of the 3D-model, but no longer available...
+	<layer name="credits" keep="true"
+		type="text" css="color:#FFFFFF;" bg="false" txtshadow="0 1 2 0x000000 1.0" align="righttop" x="2" y="2" handcursor="false" capture="false"
+		text="Tesla Model 3 by [a href='https://skfb.ly/prwHq' target='_blank']WARENTERTAINMENT™[/a]"
+		/>
+	-->
+
+</krpano>

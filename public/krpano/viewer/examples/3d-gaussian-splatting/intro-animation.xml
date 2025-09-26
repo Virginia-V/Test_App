@@ -1,0 +1,132 @@
+<krpano>
+	
+	<!-- use the default splats examples file -->
+	<include url="splats-examples.xml" />
+	
+	
+	<!-- use a custom unveil shader as intro effect -->
+	<data name="splats_unveil_shader">
+
+		uniform float unveil_range;
+		uniform float unveil_blendrange;
+		uniform float unveil_progress;
+			
+		void splatshader (inout vec4 pos, inout mat3 mx, inout vec4 color)
+		{
+			// distance from the world/model center
+			float d = length(pos.xyz);
+			
+			// distance-based blend factor
+			float blend = 1.0 - clamp((d - unveil_progress * (unveil_range + unveil_blendrange) + unveil_blendrange) / unveil_blendrange, 0.0, 1.0);
+			
+			// scale the splats, but not to zero
+			mx *= max(blend, 0.000001);
+		}
+		
+	</data>
+	
+	
+	<style name="introtext"
+		type="text"
+		enabled="false"
+		bg="false"
+		width="90%"
+		css="color:white; font-size:40px; font-weight:bold; text-align:center;"
+		txtshadow="2 4 2 0x000000 0.5, 4 10 20 0x000000 0.7"
+		alpha="0"
+		onloaded="tween(alpha, 1.0, 1.0);"
+		/>
+	
+
+	<!-- and do a custom scripted animations with it -->
+	<action name="intro_animation" autorun="onstart" type="js"><![CDATA[
+		
+		// move all current UI elements into a sub-layer 
+		// to be able to hide them together
+		var ui = krpano.addlayer("ui");
+		ui.keep = true;
+		ui.type = "container";
+		ui.width = "100%";
+		ui.height = "100%";
+		ui.zorder = 1;
+		ui.alpha = 0.0;
+		ui.enabled = false;
+		
+		krpano.layer.getArray().forEach( function(layer)
+		{
+			if (layer.parent == null && layer.name != "ui" && krpano.BOOLEAN(layer.vr) != true)
+			{
+				layer.parent = ui.path;
+			}
+		});
+		
+		
+		// add the splats shader
+		// - it will scale-down the splats to points to have the impression of a point-cloud
+		// - the progress will reduce that scale-down from center to outside
+		krpano.image.splats.shader = krpano.data.getItem("splats_unveil_shader").content;
+		krpano.image.splats.unveil_range = 2500.0;
+		krpano.image.splats.unveil_blendrange = 250.0;
+		krpano.image.splats.unveil_progress = 0.0;
+		
+		// use a larger antialias setting at startup to increase the size of the points
+		// therefore link antialias to the unveil_progress value
+		krpano.actions.link(krpano.image.splats, "antialias", "image.splats.unveil_progress:mix(0.7,0.3,image.splats.unveil_progress)");
+		
+		// set the startup view
+		krpano.view.hlookat = 0;
+		krpano.view.vlookat = 0;
+		krpano.view.fov = 120
+		krpano.view.oz = 260;
+		krpano.view.oy = 110;
+		
+		var txt1, txt2;
+		
+		krpano.image.splats.onloaded = function()
+		{
+			// still wait a bit after loading
+			krpano.delayedcall(1.0, function()
+			{
+				txt1 = krpano.addlayer();
+				txt1.loadstyle("introtext");
+				txt1.text = "krpano 1.23"
+				txt1.align = "center";
+				txt1.edge = "bottom";
+				txt1.y = -6;
+			});
+			
+			krpano.delayedcall(5.0, function()
+			{
+				txt2 = krpano.addlayer();
+				txt2.loadstyle("introtext");
+				txt2.text = "3D Gaussian Splatting Support"
+				txt2.align = "center";
+				txt2.edge = "top";
+				txt2.y = +0;
+			});
+			
+			// intro animation
+			// - rotate and pan the view
+			// - run the unveil animation
+			krpano.delayedcall(3.0, function()
+			{
+				krpano.tween(krpano.view, {hlookat:360, vlookat:10, fov:100, oy:0, oz:0}, 5.0, "smoother");
+				krpano.tween(krpano.image.splats, {unveil_progress:1.0}, 10.0, "smoother");
+			});
+			
+			// done 
+			// - hide the texts
+			// - and show the default UI elements
+			krpano.delayedcall(9.0, function()
+			{
+				krpano.tween(txt1, {alpha:0}, 0.5, "default", function(){ txt1.remove(); });
+				krpano.tween(txt2, {alpha:0}, 0.5, "default", function(){ txt2.remove(); });
+				
+				ui.enabled = true;
+				krpano.tween(ui, {alpha:1});
+			});
+		}
+		
+	]]></action>
+	
+</krpano>

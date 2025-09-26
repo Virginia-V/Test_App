@@ -1,0 +1,421 @@
+<krpano>
+	
+	<!-- krpano 3D Gaussian Splatting - Shader Demo -->
+	
+	<set var="splatspath" val="'https://krpano.com/examples/gsplats'" />
+	
+	<include url="contextmenu3d.xml" />
+	<include url="%VIEWER%/plugins/webvr.xml" />
+	<include url="%VIEWER%/plugins/iphone_fullscreen_swipe.xml" />
+	<include url="%VIEWER%/plugins/controls3d.xml" />
+	<include url="%VIEWER%/plugins/vr_and_anaglyph_buttons.xml" />
+	
+	<!-- adjust the joypad position depending on the screen size to avoid overlapping UI -->
+	<layer name="joypad" oy="link:stagewidth:stagewidth LT 560 ? -40 : 0" />
+	<layer name="joypad_levelcontrol" oy="link:stagewidth:stagewidth LT 560 ? -40 : 0" />
+
+	
+	<include url="splattools.xml" />
+
+	<!-- perf opt: use a lower rendering resolution on hi-dpi mobile/tablet devices -->
+	<display framebufferscale="calc:max(0.66,1.0 / device.pixelratio)" devices="mobile.or.tablet" />
+	
+	<webvr postracking="true" webvr_foveationlevel="3" />
+	<view fovtype="VFOV" vfov="120" />
+	<display depthbuffer="true" depthnear="1" depthfar="1000000" />
+	
+	<action name="startup" autorun="onstart">
+		if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
+		loadscene(get(startscene));
+	</action>
+	
+	<style name="infolink"
+		type="text"
+		css="font-size:12px; font-style:italic; color:#FFFFFF;"
+		bg="false"
+		txtshadow="0 1 1 0, 1 0 1 0"
+		align="leftbottom"
+		zorder="10"
+		/>
+		
+	<include url="%VIEWER%/plugins/combobox.xml" />
+	<combobox name="cbscenes" design="splattools" align="bottom" x.mobile="10" y="26"
+		onloaded="forall(scene, s, addnameditem(get(s.name), (s.title ? s.title : s.name), ('loadscene('+s.name+',null,MERGE,BLEND(0.5))') )); selectitembyname(get(xml.scene));"
+		/>
+	
+	
+	<scene name="unveileffects" title="Unveil Effects">
+		
+		<view hlookat="0" vlookat="0" tx="0" ty="0" tz="0" oz="0" fov="120" />
+		
+		<image vrfloorlevel="160">
+			<splats
+				url="%$splatspath%/central2_splat3_1_00.compressed_copyright.ply"
+				scale="0.62"
+				tx="233.2" ty="183.7" tz="145.1"
+				rx="0" ry="64.3" rz="0"
+				shader="get:data[splats_unveil_shader_default].content"
+				unveil_range="2500"
+				unveil_blendrange="200"
+				unveil_time.number="3.0"
+				unveil_progress="0"
+				antialias="link:unveil_progress:mix(1.0,0.3,unveil_progress)"
+				onloaded="tween(unveil_progress,1,get(image.splats.unveil_time),smoother, layer[playbutton].text='Play'; );"
+				/>
+		</image>
+		
+		
+		<layer name="unveileffects" style="link:window" align="bottom" y="80" width="170" zorder="2">
+			<layer style="panel">
+				<layer style="link:subtitle" text="Unveil Effects" />
+				<layer style="control" 
+					currenteffect=""
+					template="Effect: [span style='color:#FFFF00;']{{currenteffect:replace(substr(currenteffect,20),'_',' ')}}[/span]" 
+					onloaded="build_effect_control();"
+					/>
+				
+				<action name="build_effect_control">
+					onclick = 'switch(currenteffect';
+					forall(data,d,
+						if(contains(d.name,'splats_unveil_shader'),
+							onclick += ',' + d.name;
+							if(d.content == image.splats.shader, currenteffect = d.name; );
+						);
+					);
+					onclick += ');';
+					onclick += 'image.splats.shader = data[get(currenteffect)].content;';
+					onclick += 'layer[playbutton].text = "Play"; image.splats.unveil_progress = 0; callwith(layer[playbutton], onclick() );';
+				</action>
+					
+				<layer style="dragcontrol" value="image.splats.unveil_range" dragscale="10" valuemin="0.0" valuereset="4000" template="Range: {{image.splats.unveil_range:roundval(image.splats.unveil_range)}}" />
+				<layer style="dragcontrol" value="image.splats.unveil_blendrange" dragscale="4" valuemin="0.0" valuereset="500" template="Blendrange: {{image.splats.unveil_blendrange:roundval(image.splats.unveil_blendrange)}}" />
+				<layer style="dragcontrol" value="image.splats.unveil_time" dragscale="0.1" valuemin="0.5" valuereset="3" template="Duration: {{image.splats.unveil_time:roundval(image.splats.unveil_time,-1)}}" />
+				<layer style="dragcontrol" value="image.splats.unveil_progress" valuemin="0.0" valuemax="1" valuereset="0" template="Progress: {{image.splats.unveil_progress:roundval(image.splats.unveil_progress,-3)}}" ondown="stoptween(image.splats.unveil_progress); layer[playbutton].text='Play';" />
+				<layer name="playbutton" style="control" text="Pause" onclick="playbutton_onclick()" />
+				
+				<action name="playbutton_onclick">
+					if(text == 'Pause',
+						text = 'Play';
+						stoptween(image.splats.unveil_progress);
+					  ,
+						text = 'Pause';
+						if(image.splats.unveil_progress GT 0.9,
+							image.splats.unveil_progress = 0;
+						);
+						tween(image.splats.unveil_progress,1,('distance(1,'+image.splats.unveil_time+')'),smoother, 
+							text = 'Play';
+						);
+					);
+				</action>
+
+			</layer>
+		</layer>
+
+
+		<data name="splats_unveil_shader_default"><![CDATA[
+
+			uniform float unveil_range;
+			uniform float unveil_blendrange;
+			uniform float unveil_progress;
+				
+			void splatshader (inout vec4 pos, inout mat3 mx, inout vec4 color)
+			{
+				// distance from the world/model center
+				float d = length(pos.xyz);
+				
+				// distance-based blend factor
+				float blend = 1.0 - clamp((d - unveil_progress * (unveil_range + unveil_blendrange) + unveil_blendrange) / unveil_blendrange, 0.0, 1.0);
+				
+				// scale the splats, but not to zero
+				mx *= max(blend, 0.000001);
+			}
+			
+		]]></data>
+		
+		<data name="splats_unveil_shader_with_light_effect"><![CDATA[
+
+			uniform float unveil_range;
+			uniform float unveil_blendrange;
+			uniform float unveil_progress;
+				
+			void splatshader (inout vec4 pos, inout mat3 mx, inout vec4 color)
+			{
+				// distance from the world/model center
+				float d = length(pos.xyz);
+				
+				// distance-based blend factor
+				float blend = 1.0 - clamp((d - unveil_progress * (unveil_range + unveil_blendrange) + unveil_blendrange) / unveil_blendrange, 0.0, 1.0);
+				
+				// scale the splats, but not to zero
+				mx *= max(blend, 0.000001);
+				
+				// add an light effect at the unveil edge
+				float effect = exp(-pow(abs((d / unveil_range) - unveil_progress) / 0.01, 2.0));
+				color.rgb += effect * vec3(1.0,1.0,1.0);
+			}
+			
+		]]></data>
+		
+		<data name="splats_unveil_shader_with_rainbow_effect"><![CDATA[
+
+			uniform float unveil_range;
+			uniform float unveil_blendrange;
+			uniform float unveil_progress;
+			
+			vec3 hue2rgb (float h)
+			{
+				h = mod(h, 1.0);
+				float r = abs(h * 6.0 - 3.0) - 1.0;
+				float g = 2.0 - abs(h * 6.0 - 2.0);
+				float b = 2.0 - abs(h * 6.0 - 4.0);
+				return clamp(vec3(r,g,b), 0.0, 1.0);
+			}
+				
+			void splatshader (inout vec4 pos, inout mat3 mx, inout vec4 color)
+			{
+				// distance from the world/model center
+				float d = length(pos.xyz);
+				
+				// distance-based blend factor
+				float blend = 1.0 - clamp((d - unveil_progress * (unveil_range + unveil_blendrange) + unveil_blendrange) / unveil_blendrange, 0.0, 1.0);
+				
+				// scale the splats, but not to zero
+				mx *= max(blend, 0.000001);
+				
+				// add an rainbow-light effect at the unveil edge
+				float effect = exp(-pow(abs((d / unveil_range) - unveil_progress) / 0.01, 2.0));
+				color.rgb += effect * 1.5 * hue2rgb((d / unveil_range) * 10.0);
+			}
+			
+		]]></data>
+		
+		<data name="splats_unveil_shader_dark_to_light"><![CDATA[
+
+			uniform float unveil_range;
+			uniform float unveil_blendrange;
+			uniform float unveil_progress;
+				
+			void splatshader (inout vec4 pos, inout mat3 mx, inout vec4 color)
+			{
+				// distance from the world/model center
+				float d = length(pos.xyz);
+				
+				// distance-based blend factor
+				float blend = 1.0 - clamp((d - unveil_progress * (unveil_range + unveil_blendrange) + unveil_blendrange) / unveil_blendrange, 0.0, 1.0);
+				
+				// blend from dark-grayscale
+				float y = color.r * 0.299 + color.g * 0.587 + color.b * 0.114; 
+				color.rgb = mix(vec3(0.3 * y), color.rgb, blend);
+			}
+			
+		]]></data>
+		
+		<data name="splats_unveil_shader_with_distortion"><![CDATA[
+
+			uniform float unveil_range;
+			uniform float unveil_blendrange;
+			uniform float unveil_progress;
+			
+			vec3 hue2rgb (float h)
+			{
+				h = mod(h, 1.0);
+				float r = abs(h * 6.0 - 3.0) - 1.0;
+				float g = 2.0 - abs(h * 6.0 - 2.0);
+				float b = 2.0 - abs(h * 6.0 - 4.0);
+				return clamp(vec3(r,g,b), 0.0, 1.0);
+			}
+				
+			void splatshader (inout vec4 pos, inout mat3 mx, inout vec4 color)
+			{
+				// distance from the world/model center
+				float d = length(pos.xyz);
+				
+				// distance-based blend factor
+				float blend = 1.0 - clamp((d - unveil_progress * (unveil_range + unveil_blendrange) + unveil_blendrange) / unveil_blendrange, 0.0, 1.0);
+				
+				// scale the splats, but not to zero
+				mx *= max(blend, 0.000001);
+				
+				// add an arbitrary distortion 
+				float effect = exp(-pow(abs((d / unveil_range) - unveil_progress) / 0.04, 2.0));
+				pos.xyz += -100.0 * effect * normalize(pos.zxy);
+			}
+			
+		]]></data>
+		
+		<layer style="infolink" text="Model provided by [a href='https://www.360images.fr/' target='_blank']360images.fr[/a]" />
+		
+	</scene>
+	
+	
+	<scene name="lighteffects" title="Light Effects">
+		
+		<view hlookat="0" vlookat="0" tx="0" ty="0" tz="0" oz="0" fov="120" />
+		
+		<image vrfloorlevel="160">
+			<splats
+				url="%$splatspath%/central2_splat3_1_00.compressed_copyright.ply"
+				scale="0.62"
+				tx="233.2" ty="183.7" tz="145.1"
+				rx="0" ry="64.3" rz="0"
+				shader="get:data[splats_light_effect].content"
+				light_x="link:view.tx"
+				light_y="link:view.ty"
+				light_z="link:view.tz"
+				light_range="250"
+				light_falloff="50"
+				light_darklevel="0.3"
+				/>
+		</image>
+		
+		<data name="splats_light_effect"><![CDATA[
+
+			uniform float light_x, light_y, light_z;
+			uniform float light_range;
+			uniform float light_falloff;
+			uniform float light_darklevel;
+				
+			void splatshader (inout vec4 pos, inout mat3 mx, inout vec4 color)
+			{
+				// distance splat to the light
+				float d = length(pos.xyz - vec3(light_x, light_y, light_z));
+				
+				// fadeout factor
+				float fadeout = clamp((d - light_range) / light_falloff, 0.0, 1.0);
+				
+				// blend from dark-grayscale
+				float y = color.r * 0.299 + color.g * 0.587 + color.b * 0.114; 
+				color.rgb = mix(color.rgb, vec3(light_darklevel * y), fadeout);
+			}
+			
+		]]></data>
+		
+		<set var="lightfollow" val="true" />
+		
+		<layer name="lighteffects" style="link:window" align="bottom" y="80" width="170" zorder="2">
+			<layer style="panel">
+				<layer style="link:subtitle" text="Light Effects" />
+				<layer style="control" template="Follow: {{lightfollow}}" onclick="switch(lightfollow); setlightfollow( get(lightfollow) );" />
+				
+				<action name="setlightfollow" args="setfollow" scope="local">
+					if(setfollow,
+						lightfollow = true; 
+						link(image.splats.light_x, view.tx); 
+						link(image.splats.light_y, view.ty); 
+						link(image.splats.light_z, view.tz);
+					  ,
+						lightfollow = false;
+						unlink(image.splats.light_x);
+						unlink(image.splats.light_y);
+						unlink(image.splats.light_z);
+					);
+				</action>
+					
+				<layer style="dragcontrol" value="image.splats.light_x" dragscale="0.5" template="X: {{image.splats.light_x:roundval(image.splats.light_x,1)}}" ondown="setlightfollow(false);" />
+				<layer style="dragcontrol" value="image.splats.light_y" dragscale="0.5" template="Y: {{image.splats.light_y:roundval(image.splats.light_y,1)}}" ondown="setlightfollow(false);" />
+				<layer style="dragcontrol" value="image.splats.light_z" dragscale="0.5" template="Z: {{image.splats.light_z:roundval(image.splats.light_z,1)}}" ondown="setlightfollow(false);" />
+				<layer style="dragcontrol" value="image.splats.light_range" dragscale="4" valuemin="0.0" valuereset="500" template="Range: {{image.splats.light_range:roundval(image.splats.light_range)}}" />
+				<layer style="dragcontrol" value="image.splats.light_falloff" dragscale="4" valuemin="0.0" valuereset="100" template="Falloff: {{image.splats.light_falloff:roundval(image.splats.light_falloff)}}" />
+				<layer style="dragcontrol" value="image.splats.light_darklevel" dragscale="0.01" valuemin="0.0" valuemax="1.0" valuereset="0.3" template="Darklevel: {{image.splats.light_darklevel:roundval(image.splats.light_darklevel,-2)}}" />
+			</layer>
+		</layer>
+		
+		<layer style="infolink" text="Model provided by [a href='https://www.360images.fr/' target='_blank']360images.fr[/a]" />
+		
+	</scene>
+	
+	
+	<scene name="rgb_cube" title="Adjust (RGB Cube)">
+			
+		<control dollydistance="5.0" />
+		<view hlookat="45" vlookat="33" tx="0" ty="0" tz="0" oz="1100" fov="100" />
+		
+		<image>
+			<splats 
+				url="rgb_cube.splat"
+				shader="get:data[splats_adjust_shader].content"
+				brightness="0.0"
+				contrast="1.0"
+				gamma="1.0"
+				saturate="1.0"
+				intensity="1.0"
+				alpha="1.0"
+				splatscalex="1.0"
+				splatscaley="1.0"
+				splatscalez="1.0"
+				/>
+		</image>
+		
+		<data name="splats_adjust_shader"><![CDATA[
+			
+			uniform float splatscalex, splatscaley, splatscalez;
+			uniform float brightness, contrast, gamma, saturate, intensity;
+			uniform float alpha;
+			
+			void splatshader (inout vec4 pos, inout mat3 mx, inout vec4 color)
+			{
+				mx[0] *= splatscalex;
+				mx[1] *= splatscaley;
+				mx[2] *= splatscalez;
+				
+				color.rgb += brightness;
+				color.rgb = (color.rgb - 0.5) * contrast + 0.5;
+				color.rgb = clamp(color.rgb, 0.0, 1.0);
+				color.rgb = pow(color.rgb, vec3(1.0 / gamma));
+				color.rgb = mix(color.rgb, vec3(color.r * 0.299 + color.g * 0.587 + color.b * 0.114), 1.0 - saturate);
+				color.rgb *= intensity;
+
+				color.a *= alpha;
+			}
+			
+		]]></data>
+		
+		<layer style="link:window" align="bottom" y="80" width="170" zorder="2">
+			<layer style="panel">
+				<layer style="link:subtitle" text="Adjust Splats" onclick="switch(image.splats.shader, '', get(data[splats_adjust_shader].content)); switch(bgcolor, get(splattools.accentcolor), get(splattools.bgcolor_button_ondown));" />
+				<layer style="dragcontrol" value="image.splats.brightness" dragscale="0.002" valuemin="-1" valuemax="10" valuereset="0" template="Brightness: {{image.splats.brightness:roundval(image.splats.brightness,-3)}}" />
+				<layer style="dragcontrol" value="image.splats.contrast" dragscale="0.002" valuemin="0.01" valuemax="100" valuereset="1" template="Contrast: {{image.splats.contrast:roundval(image.splats.contrast,-3)}}" />
+				<layer style="dragcontrol" value="image.splats.gamma" dragscale="0.002" valuemin="0.01" valuemax="100" valuereset="1" template="Gamma: {{image.splats.gamma:roundval(image.splats.gamma,-3)}}" />
+				<layer style="dragcontrol" value="image.splats.saturate" dragscale="0.002" valuemin="0.0" valuemax="10" valuereset="1" template="Saturate: {{image.splats.saturate:roundval(image.splats.saturate,-3)}}" />
+				<layer style="dragcontrol" value="image.splats.intensity" dragscale="0.002" valuemin="0.01" valuemax="10" valuereset="1" template="Intensity: {{image.splats.intensity:roundval(image.splats.intensity,-3)}}" />
+				<layer style="dragcontrol" value="image.splats.alpha" dragscale="0.002" valuemin="0.01" valuemax="1" valuereset="1" template="Alpha: {{image.splats.alpha:roundval(image.splats.alpha,-3)}}" />
+				<layer style="dragcontrol" value="image.splats.splatscalex" valuemin="0.01" valuemax="10" valuereset="1" template="Scale X: {{image.splats.splatscalex:roundval(image.splats.splatscalex,-3)}}" />
+				<layer style="dragcontrol" value="image.splats.splatscaley" valuemin="0.01" valuemax="10" valuereset="1" template="Scale Y: {{image.splats.splatscaley:roundval(image.splats.splatscaley,-3)}}" />
+				<layer style="dragcontrol" value="image.splats.splatscalez" valuemin="0.01" valuemax="10" valuereset="1" template="Scale Z: {{image.splats.splatscalez:roundval(image.splats.splatscalez,-3)}}" />
+				<layer name="testmodel" style="control" text="Model: RGB Cube" onclick="switch_testmodel();" />
+				
+				<action name="switch_testmodel" scope="local">
+					if(contains(image.splats.url, 'rgb_cube'),
+						caller.text = 'Model: Centrale 2';
+						image.reset(copy);
+						image.splats.url = '%$splatspath%/central2_splat3_1_00.compressed_copyright.ply';
+						loadpanoimage(KEEPALL, BLEND(0.5));
+						set(view, vlookat=0, tx=283, ty=-217, tz=-384, oz=0, fov=100);
+					  ,
+						caller.text = 'Model: RGB Cube';
+						image.reset(copy);
+						image.splats.url = '%CURRENTXML%/rgb_cube.splat';
+						loadpanoimage(KEEPALL, BLEND(0.5));
+						set(view, vlookat=35, tx=0, ty=0, tz=0, oz=1100, fov=100);
+					);
+				</action>
+			</layer>
+		</layer>
+
+	</scene>
+
+
+	<layer name="introtext" keep="true"
+		type="text"
+		text="krpano 3D Gaussian Splatting[br]Shader Demo"
+		align="center"
+		enabled="false"
+		bg="false"
+		width="90%"
+		css="color:white; font-size:30px; font-weight:bold; text-align:center;"
+		txtshadow="2 4 2 0x000000 1, 4 10 20 0x000000 1"
+		alpha="0"
+		onloaded="tween(alpha, 1.0, 1.0); delayedcall(3.0, tween(alpha,0,1.0,remove()));"
+		/>
+
+</krpano>

@@ -1,0 +1,27 @@
+{
+  "sceneId": "scene140",
+  "title": "Bathtub C1M1 + Sink C2M4 + Floor C3M9",
+  "signature": "panorama-1_base-1_bathtub-C1_M1_MAT3_COLx_sink-C2_M4_MAT11_floor-C3_M9_MATx.png",
+  "tilesPath": "/tours/tour-1-1/scene140/panos",
+  "previewPath": "/tours/tour-1-1/scene140/preview.jpg",
+  "thumbnailPath": "/tours/tour-1-1/scene140/thumb.jpg",
+  "metadata": {
+    "panorama_id": "1",
+    "base_asset_id": "1",
+    "bathtub": {
+      "category": "1",
+      "model": "1",
+      "material": null,
+      "color": null
+    },
+    "sink": {
+      "category": "2",
+      "model": "4",
+      "material": null
+    },
+    "floor": {
+      "category": "3",
+      "model": "9"
+    }
+  }
+}

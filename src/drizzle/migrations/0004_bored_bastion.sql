@@ -1,0 +1,1 @@
+ALTER TABLE "assets" ALTER COLUMN "s3_key" SET NOT NULL;

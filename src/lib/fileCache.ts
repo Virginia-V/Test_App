@@ -21,11 +21,13 @@ class SimpleFileCache {
   private readonly ttl: number;
   private readonly maxFileSize: number;
 
-  constructor(options: CacheOptions = {
-    maxItems: 1000,
-    ttl: 1000 * 60 * 60 * 2, // 2 hours
-    maxFileSize: 1024 * 1024 * 5 // 5MB
-  }) {
+  constructor(
+    options: CacheOptions = {
+      maxItems: 1000,
+      ttl: 1000 * 60 * 60 * 2, // 2 hours
+      maxFileSize: 1024 * 1024 * 5 // 5MB
+    }
+  ) {
     this.maxItems = options.maxItems;
     this.ttl = options.ttl;
     this.maxFileSize = options.maxFileSize;
@@ -48,23 +50,24 @@ class SimpleFileCache {
     if (this.cache.size >= this.maxItems) {
       let oldestKey: string | null = null;
       let oldestTime = Infinity;
-      
+
       for (const [key, value] of this.cache.entries()) {
         if (value.cachedAt < oldestTime) {
           oldestTime = value.cachedAt;
           oldestKey = key;
         }
       }
-      
+
       if (oldestKey) {
         this.cache.delete(oldestKey);
       }
     }
   }
 
-  set(key: string, metadata: Omit<CachedFileMetadata, 'cachedAt'>): void {
+  set(key: string, metadata: Omit<CachedFileMetadata, "cachedAt">): void {
     // Cleanup expired items periodically
-    if (Math.random() < 0.01) { // 1% chance
+    if (Math.random() < 0.01) {
+      // 1% chance
       this.cleanup();
     }
 
@@ -72,6 +75,7 @@ class SimpleFileCache {
     let cacheData = { ...metadata, cachedAt: Date.now() };
     if (metadata.data && metadata.data.length > this.maxFileSize) {
       // Store metadata only, without data
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { data, ...metadataOnly } = cacheData;
       cacheData = metadataOnly;
     }
@@ -83,24 +87,24 @@ class SimpleFileCache {
   get(key: string): CachedFileMetadata | undefined {
     const item = this.cache.get(key);
     if (!item) return undefined;
-    
+
     if (this.isExpired(item)) {
       this.cache.delete(key);
       return undefined;
     }
-    
+
     return item;
   }
 
   has(key: string): boolean {
     const item = this.cache.get(key);
     if (!item) return false;
-    
+
     if (this.isExpired(item)) {
       this.cache.delete(key);
       return false;
     }
-    
+
     return true;
   }
 
@@ -116,15 +120,24 @@ class SimpleFileCache {
     this.cleanup();
     return {
       size: this.cache.size,
-      maxItems: this.maxItems,
+      maxItems: this.maxItems
     };
   }
 
   // Check if file should be cached based on extension and size
-  shouldCache(key: string, size?: number): boolean {
-    const cacheableExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.mp4', '.webm', '.pdf', '.svg'];
-    const ext = key.toLowerCase().substring(key.lastIndexOf('.'));
-    
+  shouldCache(key: string): boolean {
+    const cacheableExtensions = [
+      ".jpg",
+      ".jpeg",
+      ".png",
+      ".webp",
+      ".mp4",
+      ".webm",
+      ".pdf",
+      ".svg"
+    ];
+    const ext = key.toLowerCase().substring(key.lastIndexOf("."));
+
     if (!cacheableExtensions.includes(ext)) {
       return false;
     }

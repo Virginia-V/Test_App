@@ -1,0 +1,156 @@
+<krpano>
+	
+	<image>
+		<preview url="../webvr/panos/intro/preview.jpg" />
+		<cube url="../webvr/panos/intro/pano_%s.jpg" />
+	</image>
+
+
+	<layer
+		type="text"
+		text.desktop="[span style='font-size:20px;font-weight:bold;']Responsive Layers Examples[/span][br]Resize the Browser Window"
+		text.mobile.or.tablet="[span style='font-size:20px;font-weight:bold;']Responsive Layers Examples[/span][br]Rotate the Device"
+		css="color:white; text-align:center; font-size:14px; line-height:150%;"
+		txtshadow="0 1 2 0x000000 1.0"
+		align="top" y="100"
+		enabled="false"
+		bgalpha="0"
+		zorder="2"
+		/>
+
+	<layer
+		type="text"
+		template="Size: {{stagewidth}} x {{stageheight}}"
+		css="color:white; font-size:16px; font-weight:bold;"
+		txtshadow="0 1 2 0x000000 1.0"
+		align="center"
+		enabled="false"
+		bgalpha="0"
+		zorder="3"
+		/>
+
+
+	<!-- Example 1: Change the scale automatically depending on the window width in two steps. -->
+	<layer
+		url="krpano.svg"
+		align="right"
+		x="10" y="-160"
+		scale="link:stagewidth:stagewidth LT 700 ? 0.5 : 1.0"
+		/>
+
+
+	<!-- Example 2: Change the scale automatically depending on the window width in three steps. -->
+	<layer
+		url="krpano.svg"
+		align="right"
+		x="10" y="-80"
+		scale="link:stagewidth:stagewidth LT 500 ? 0.5 : (stagewidth LT 800 ? 0.7 : 1.0)"
+		/>
+		
+		
+	<!-- Example 3: Change the scale relative to the window width within given limits. -->
+	<layer
+		url="krpano.svg"
+		align="right"
+		x="10" y="0"
+		scale="link:stagewidth:clamp(stagewidth / 1000, 0.5, 2.0)"
+		/>
+
+
+	<!-- Example 4: Change the scale using the onresize event. -->
+	<layer
+		name="case4"
+		url="krpano.svg"
+		align="right"
+		x="10" y="+80"
+		scale="1.0"
+		/>
+
+	<events name="case4" keep="true" onresize="case4_onresize()" />
+
+	<action name="case4_onresize">
+		layer[case4].scale = stagewidth LT 600 ? 0.5 : 1.0;
+	</action>
+
+
+	<!-- Example 5: Change the scale animated using the onresize event. -->
+	<layer
+		name="case5"
+		url="krpano.svg"
+		align="right"
+		x="10" y="+160"
+		scale="1.0"
+		/>
+
+	<events name="case5" keep="true" onresize="case5_onresize()" />
+
+	<action name="case5_onresize">
+		tween(layer[case5].scale, (stagewidth LT 600 ? 0.5 : 1.0));
+	</action>
+
+
+	<!-- Example 6: Make elements visible depending on portrait or landscape mode. -->
+	<layer
+		type="text"
+		text="This element is only visible in landscape mode."
+		width="180"
+		css="color:white;"
+		padding="8"
+		bgcolor="0x00000"
+		bgalpha="0.5"
+		bgblur="5"
+		align="leftbottom" x="10" y="10"
+		visible="link:event.onresize:stagewidth GT stageheight"
+		/>
+
+	<layer
+		type="text"
+		text="This element is only visible in portrait mode."
+		width="180"
+		css="color:white;"
+		padding="8"
+		bgcolor="0x00000"
+		bgalpha="0.5"
+		bgblur="5"
+		align="lefttop" x="10" y="10"
+		visible="link:event.onresize:stagewidth LT stageheight"
+		/>
+		
+		
+	<!-- Example 7: Select three different layouts depending on the window width. -->
+	<layer name="case7_info"
+		type="text"
+		css="color:white;"
+		txtshadow="0 1 2 0x000000 1.0"
+		align="left" x="20"
+		enabled="false"
+		bgalpha="0"
+		zorder="2"
+		/>
+
+	<events name="case7" keep="true" onresize="case7_onresize()" />
+
+	<!-- Layout 1: <600, Layout 2: 600-1000, Layout 3: >1000 -->
+	<action name="case7_onresize" scope="private:CASE7">
+		newlayout = global.stagewidth LT 600 ? 1 : (global.stagewidth LT 1000 ? 2 : 3);
+		if(newlayout != oldlayout,
+			oldlayout = newlayout;
+			case7_setup_layout(get(newlayout));
+		);
+	</action>
+	
+	<action name="case7_setup_layout" scope="local" args="layout">
+		if(layout == 1,
+			// do several layout settings here...
+			layer[case7_info].text = "Layout 1: Small";
+		  ,layout == 2,
+			// do several layout settings here...
+			layer[case7_info].text = "Layout 2: Middle";
+		  ,layout == 3,
+			// do several layout settings here...
+			layer[case7_info].text = "Layout 3: Large";
+		);
+	</action>
+	
+
+</krpano>

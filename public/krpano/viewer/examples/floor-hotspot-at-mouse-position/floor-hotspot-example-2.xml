@@ -1,0 +1,91 @@
+﻿<krpano>
+	
+	<!--
+		Example 2: 
+		Show the floorspot when hovering a polygonal hotspot (that e.g. defines a door).
+	-->
+
+	<!--
+		For the demo: a grid pano
+	-->
+	<preview type="grid()" />
+	<view hlookat="55" vlookat="8" fov="100" />
+	
+	
+	<!-- show the floorspot only when hovering these polygonal hotspots -->
+	<style name="htsp"
+		capture="false" handcursor="false" 
+		onover="place_floorspot_at_mouse_pos_onover();"
+		ondown="tween(fillcolor, 0x0077AA, 0.1);"
+		onup="tween(fillcolor, 0xAAAAAA, 0.1);"
+		/> 
+		
+	<hotspot name="hs1" style="htsp">
+		<point ath="14.081477055206904" atv="-13.757849912596749" />
+		<point ath="45.04793122747043" atv="-9.98528040024051" />
+		<point ath="45.04793122747043" atv="19.631177164786102" />
+		<point ath="63.41275041048095" atv="24.1620876534652" />
+		<point ath="-33.42353436352465" atv="39.53411891746139" />
+		<point ath="14.189651777548875" atv="25.913812258341544" />
+	</hotspot>		
+	
+	<hotspot name="hs2" style="htsp">
+		<point ath="134.90589442393681" atv="-10.00552497827169" />
+		<point ath="166.29317552708477" atv="-13.527900157014999" />
+		<point ath="165.6583561256555" atv="35.881366085399584" />
+		<point ath="134.88094998723807" atv="27.996720993128616" />
+	</hotspot>		
+	
+	
+	<!--
+		The hotspot placed at a 'virtual' floorheight of 160cm.
+		Using an Unicode arrow icon.
+	-->
+	<hotspot name="floorspot" devices="mouse"
+		type="text"
+		html="⬆"
+		css="font-size:120px;text-align:center;" vcenter="true"
+		width="200" height="200" scale="0.2"
+		bgalpha="0.5" bgroundedge="100" bgborder="2 0x000000 1" bgshadow="0 0 5 0xFFFFFF 1.0"
+		oversampling="2" mipmapping="true" zorder="1"
+		distorted="true" depth="0" depthbuffer="true"
+		torigin="world" rotationorder="xyz" rx="-90"
+		enabled="false"
+		autoalpha="true"
+		floorheight_cm="160"
+		/>
+	
+	<!--
+		Calculate the 3d position where the mouse cursor is pointing at the floor.
+	-->
+	<action name="place_floorspot_at_mouse_pos" scope="local" args="targeths, floorhs">
+		set(d,1);
+		screentosphere(mouse.x,mouse.y, h,v);
+		spheretospace(h,v,d, x,y,z);
+		calc(fh, floorhs.floorheight_cm - view.ty);
+		calc(x, x*fh/y);
+		calc(z, z*fh/y);
+		set(floorhs, tx=calc(view.tx + x), tz=calc(view.tz + z), ty=calc(view.ty + fh));
+		
+		<!-- optionally rotate the floorspot toward the target-hotspot -->
+		targeths.getcenter(target_h, target_v);
+		calc(floorhs.ry, target_h + 0);
+	</action>
+
+	<!--
+		Show the floorspot as long as hovering the target-hotspot.
+	-->
+	<action name="place_floorspot_at_mouse_pos_onover" scope="local">
+		copy(hs, hotspot[floorspot]);
+		tween(hs.alpha, 1);
+		asyncloop(caller.hovering,
+			place_floorspot_at_mouse_pos(get(caller), get(hs));
+		  ,
+			<!-- fadeout when outside, keep moving during fadeout -->
+			tween(hs.alpha, 0, 0.2, default, null,
+				place_floorspot_at_mouse_pos(get(caller), get(hs))
+			);
+		);
+	</action>
+
+</krpano>

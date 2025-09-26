@@ -1,0 +1,107 @@
+<krpano>
+	
+	<preview type="grid" />
+	
+	<cssstyles>
+		.button{ background:white; color:black!important; text-decoration:none; text-shadow:none; padding:0px 4px; border-radius:4px; }
+		.button:hover{ background:#EEEEEE; }
+	</cssstyles>
+	
+	<layer
+		name="example"
+		type="text"
+		align="center"
+		template="
+			Drag Me[br]
+			[div style='font-family:monospace; font-size:11px; text-align:left; line-height:15px;']
+				x={{x}}[br]
+				y={{y}}[br]
+				align={{align:padright(align,11,'&#160;')}} [a href='krpano:example_changealign();' class='button']click to change[/a][br]
+				edge={{edge:padright(edge,12,'&#160;')}} [a href='krpano:example_changeedge();' class='button']click to change[/a][br]
+			[/div]"
+		css="color:white;"
+		txtshadow="0 1 2 0x000000 1"
+		textalign="center"
+		padding="10 20"
+		bgalpha="0.5"
+		bgroundedge="3"
+		bgblur="1"
+		zorder="2"
+		ondown="drag();"
+		/>
+	
+	
+	<!--
+		the dragging action
+		- just add the mouse delta movements
+		- but if aligned right/bottom, the direction needs to be reversed
+	-->
+	<action name="drag">
+		asyncloop(pressed,
+			x += mouse.dx * (contains(align,'right') ? -1 : +1);
+			y += mouse.dy * (contains(align,'bottom') ? -1 : +1);
+		);
+	</action>
+	
+	
+	<!--
+		acttions and layers for changing the align and edge settings
+		- to show how they are related to each other
+	-->
+	
+	<action name="example_changealign" scope="local">
+		copy(newalign, caller.align);
+		switch(newalign, left,lefttop,top,righttop,right,rightbottom,bottom,leftbottom,center);
+		caller.changealign(get(newalign),get(caller.edge));
+	</action>
+	
+	<action name="example_changeedge" scope="local">
+		switch(caller.edge, null,left,lefttop,top,righttop,right,rightbottom,bottom,leftbottom,center);
+	</action>
+	
+	
+	<layer
+		name="align_visualizer"
+		type="container"
+		width="17" height="17" bgroundedge="17"
+		bgalpha="0"
+		bgborder="2 0xFFFF00"
+		gridfit="false"
+		align="link:layer[example].align"
+		edge="center"
+		enabled="false"
+		zorder="1"
+		/>
+	
+	<layer
+		name="edge_visualizer"
+		parent="layer[example]"
+		type="container"
+		width="11" height="11" bgroundedge="11"
+		bgalpha="0"
+		bgborder="2 0x00FF00"
+		gridfit="false"
+		align="link:layer[example].align|layer[example].edge:layer[example].edge == null ? layer[example].align : layer[example].edge"
+		edge="center"
+		enabled="false"
+		zorder="3"
+		/>
+	
+	<layer
+		name="align_to_edge_line_visualizer"
+		type="container"
+		bgcolor="0xFF00FF"
+		bgalpha="0.5"
+		bgroundedge="9"
+		height="3"
+		gridfit="false"
+		align="link:layer[example].align"
+		edge="left"
+		width="link:layer[example].x|layer[example].y:sqrt(layer[example].x^2 + layer[example].y^2)"
+		rotate="link:layer[example].x|layer[example].y|layer[example].align:atan2(layer[example].y*(contains(layer[example].align,'bottom') ? -1 : +1),layer[example].x*(contains(layer[example].align,'right') ? -1 : +1))*180/Math.PI"
+		enabled="false"
+		zorder="0"
+		/>
+
+	
+</krpano>

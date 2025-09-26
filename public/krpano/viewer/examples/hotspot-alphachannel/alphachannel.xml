@@ -1,0 +1,67 @@
+<krpano>
+	
+	<include url="%VIEWER%/plugins/contextmenu.xml" />
+	<include url="%VIEWER%/plugins/iphone_fullscreen_swipe.xml" devices="iphone" />
+	
+	<preview url="../animated-hotspots/preview.jpg" />
+	
+	<!-- example image source: https://commons.wikimedia.org/wiki/File:PNG_transparency_demonstration_1.png -->
+	<hotspot name="sbs" 
+		url="alphachannel_sbs.jpg" 
+		alphachannel="SBS"
+		alphahittest="0.5"
+		distorted="true"
+		capture="false"
+		ath="-15"
+		scale="0.5"
+		/>
+			
+	<!-- example video source: https://codepen.io/lerayfle/pen/PozNmer -->
+	<hotspot name="video"
+		url="%VIEWER%/plugins/videoplayer.js"
+		videourl="spaceships_tb_alpha.mp4"
+		alphachannel="TB"
+		alphahittest="0.5"
+		pausedonstart="false"
+		onclick="togglepause();"
+		loop="true"
+		distorted="true"
+		capture="false"
+		ath="18"
+		scale="0.7"
+		/>
+			
+
+	<layer name="example_info"
+		type="text"
+		align="center" y="25%"
+		html="[u]Example Info[/u][br]Using images or videos with an extra alpha/transparency-channel stored as extra Side-by-Side- or Top-Bottom-image."
+		bg="false"
+		width="270"
+		css="font-size:14px;color:#FFFFFF;text-align:center;"
+		txtshadow="1 1 2.0 0x000000 0.5"
+		enabled="false"
+		/>
+		
+
+	<layer name="sbs"
+		url="alphachannel_sbs.jpg"
+		align="leftbottom"
+		bgborder="1 0xFFFFFF 0.8"
+		bgshadow="1 1 2.0 0x000000 0.5"
+		bgroundedge="5"
+		width="200" height="prop"
+		x="10" y="10"
+		enabled="false"
+		/>
+			
+	<layer name="sbs_info" parent="sbs"
+		type="text"
+		align="lefttop" edge="leftbottom"
+		html="Source Image:"
+		bg="false"
+		css="color:#FFFFFF;"
+		txtshadow="1 1 2.0 0x000000 0.5"
+		/>
+	
+</krpano>

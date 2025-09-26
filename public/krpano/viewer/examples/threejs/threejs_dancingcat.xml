@@ -1,0 +1,148 @@
+<krpano>
+	
+	<include url="%VIEWER%/plugins/webvr.xml" />
+	<include url="%VIEWER%/plugins/iphone_fullscreen_swipe.xml" />
+	<include url="%VIEWER%/plugins/controls3d.xml" />
+	<include url="%VIEWER%/plugins/vr_and_anaglyph_buttons.xml" />
+	
+	<plugin api="threejs" url="%VIEWER%/plugins/threejs_krpanoplugin.js" />
+	
+	<threejs
+		shadowmap="pcf"
+		ambientlight="0.1"
+		shadowfloor="true"
+		shadowfloorlevel="148"
+		/>
+	
+	<display
+		depthbuffer="true"
+		depthrange="5,100000"
+		/>
+	
+
+	<threejs envmapurl="../depthmap/depthmap-textured/envmap.jpg" />
+	
+	<image>
+		<preview url="../depthmap/depthmap-textured/texture_preview.jpg" />
+		<model url="../depthmap/depthmap-textured/tourmodel.obj" texurl="../depthmap/depthmap-textured/texture.jpg" scale="100" hittest="true" />
+	</image>
+	
+	
+	<hotspot name="light"
+		type="threejslight"
+		mode="sun"
+		ath="180.0"
+		atv="-60.0"
+		colortemperature="6500"
+		intensity="1.0"
+		castshadow="true"
+		shadowmapres="2048"
+		/>
+	
+	
+	<hotspot name="cat"
+		type="threejs"
+		url="models/dancingcat.glb"
+		depth="0"
+		tz="250"
+		ty="148"
+		onloaded="animations[idle].play(); cat_look_to_mouse();"
+		onclick="cat_onclick();"
+		/>
+	
+	
+	<action name="cat_onclick" type="js"><![CDATA[
+		var nextani = null;
+		while(1)
+		{
+			nextani = caller.animations.getItem( Math.floor( caller.animations.count * Math.random() ) );
+			if (nextani && nextani.name != "idle" && nextani != caller.activeanimation)
+				break;
+		}
+		nextani.play("once", 0.5, true, function()
+		{
+			caller.animations.getItem("idle").play("repeat", 0.5, true);
+		});
+	]]></action>
+
+	
+	<action name="cat_look_to_mouse" type="js"><![CDATA[
+		
+		var M_DEGTORAD = Math.PI / 180.0;
+		var M_RADTODEG = 180.0 / Math.PI;
+		
+		var THREE = krpano.threejs.THREE;
+		var neck, waist;
+		
+		// get the neck and waist bones
+		caller.threejsobject.traverse(function(o)
+		{
+			if (o.isBone && (o.name === 'mixamorigNeck' || o.name === 'Neck'))
+			{
+				neck = o;
+			}
+			else if (o.isBone && (o.name === 'mixamorigSpine' || o.name === 'Spine' ))
+			{
+				waist = o;
+			}
+		});
+		
+		// adjust the bone rotations
+		krpano.events.addListener("threejs_onbeforerender", function()
+		{
+			var view = krpano.view;
+			var mouse = krpano.mouse;
+			
+			var cat_eye_level = 100;
+	
+			var dx = caller.tx - view.tx;
+			var dy = (caller.ty - cat_eye_level) - view.ty;
+			var dz = caller.tz - view.tz;
+	
+			// rotate the whole model toward the camera
+			caller.ry = Math.atan2(dx,dz) * M_RADTODEG;
+			
+			var h=0, v=0;
+
+			if (krpano.webvr && krpano.webvr.isenabled)
+			{
+				// VR: rotate the neck and waist toward the camera
+
+				v = Math.atan2(-dy, Math.sqrt(dx*dx+dz*dz) ) * M_RADTODEG + 7.0;
+			}
+			else
+			{
+				if (krpano.device.touchdevice)
+				{
+					// skip on touch devices (no mouse cursor)
+				}
+				else
+				{
+					// non-VR: rotate the neck and waist toward the mouse-cursor
+					var d = 0.1*Math.sqrt(dx*dx + dy*dy + dz*dz);
+					var p = view.unproject(mouse.x, mouse.y, d, true);
+						
+					h = Math.atan2(p.x,p.z) * M_RADTODEG - caller.ry;
+					v = Math.atan2(p.y, Math.sqrt(p.x*p.x+p.z*p.z) ) * M_RADTODEG - 9.0;
+				}
+			}
+				
+			if (h < -180) h += 360;
+			if (h > +180) h -= 360;
+			
+			h = krpano.clampNumber(h,-30,+30);
+			v = krpano.clampNumber(v,-20,+20);
+
+			neck.rotation.y = waist.rotation.y = h * M_DEGTORAD;
+			neck.rotation.x = waist.rotation.x = v * M_DEGTORAD;
+	
+		});
+		
+	]]></action>
+	
+	
+	<layer name="info" type="text" css="color:#FFFFFF;" bg="false" txtshadow="0 1 2 0x000000 1.0" align="righttop" x="2" y="2" handcursor="false" capture="false"
+		text="Cat 3D-Model provided by [a href='https://www.hdmedia.fr/' target='_blank' style='color:#FFFFFF;']www.hdmedia.fr[/a]"
+		/>
+	
+</krpano>

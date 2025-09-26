@@ -1,0 +1,163 @@
+﻿<krpano>
+
+	<!-- use a grid preview pano as background -->
+	<preview type="grid(cube,64,64,1024,0xCCCCCC,0xF6F6F6,0x999999);" />
+
+	<!-- view settings -->
+	<view hlookat="0" vlookat="0" fovtype="VFOV" fov="100" fovmin="60" fovmax="150" />
+
+	<!-- a style for a simple textfield element -->
+	<style name="text"
+	       type="text"
+	       bg="false"
+	       css="color:#FFFFFF;"
+	       enabled="false"
+	       />
+
+	<!--
+		the dragging action
+		- just add the mouse delta movements
+		- but if aligned right/bottom, the direction needs to be reversed
+	-->
+	<action name="draglayer">
+		asyncloop(pressed,
+			x += mouse.dx * (contains(align,'right') ? -1 : +1);
+			y += mouse.dy * (contains(align,'bottom') ? -1 : +1);
+		);
+	</action>
+
+
+	<!-- a special action for dragging a layer only within its parent layer -->
+	<action name="draglayer_within_parent" scope="local">
+		start_layer_x = caller.x;
+		start_layer_y = caller.y;
+		start_mouse_x = mouse.x;
+		start_mouse_y = mouse.y;
+		x_max_scroll_range = (caller.parentobject.pixelwidth - caller.pixelwidth);
+		y_max_scroll_range = (caller.parentobject.pixelheight - caller.pixelheight);
+		x_scroll_min = contains(caller.align,'left') ? x_max_scroll_range : (contains(caller.align,'right') ? 0 : -x_max_scroll_range/2);
+		x_scroll_max = contains(caller.align,'left') ? 0 : (contains(caller.align,'right') ? -x_max_scroll_range : +x_max_scroll_range/2);
+		y_scroll_min = contains(caller.align,'top') ? y_max_scroll_range : (contains(caller.align,'bottom') ? 0 : -y_max_scroll_range/2);
+		y_scroll_max = contains(caller.align,'top') ? 0 : (contains(caller.align,'bottom') ? -y_max_scroll_range : +y_max_scroll_range/2);
+		asyncloop(caller.pressed,
+			caller.x = clamp(start_layer_x + (mouse.x - start_mouse_x), x_scroll_min, x_scroll_max);
+			caller.y = clamp(start_layer_y + (mouse.y - start_mouse_y), y_scroll_min, y_scroll_max);
+		);
+	</action>
+
+
+	<!-- the example layers -->
+	<layer type="container" align="lefttop" x="50" y="50" width="250" height="250" bgcolor="0x000000" bgalpha="0.5" bgcapture="true" maskchildren="true" ondown="draglayer();">
+		<layer style="text" text="Drag Me" align="lefttop" />
+		<layer type="container" align="center" x="0" y="0" width="100" height="100" bgcolor="0x44AADD" bgalpha="1.0" bgcapture="true" ondown="draglayer();">
+			<layer style="text" text="Drag Me" align="center" />
+		</layer>
+		<layer style="text" text="maskchildren=true" align="leftbottom" />
+	</layer>
+	
+	<layer type="container" align="leftbottom" x="50" y="50" width="250" height="250" bgcolor="0x000000" bgalpha="0.5" bgcapture="true" maskchildren="true" ondown="draglayer();">
+		<layer style="text" text="Drag Me" align="lefttop" />
+		<layer type="container" align="center" x="0" y="0" width="100" height="100" bgcolor="0xDD4477" bgalpha="1.0" bgcapture="true" ondown="draglayer_within_parent();">
+			<layer style="text" text="Drag Me" align="center" />
+		</layer>
+		<layer style="text" text="Drag only within the parent layer." align="leftbottom" />
+	</layer>
+
+	<layer type="container" align="rightbottom" x="50" y="150" width="300" height="200" bgcolor="0x0033FF" bgalpha="0.5" bgcapture="true" maskchildren="false" ondown="draglayer();">
+		<layer style="text" text="Drag Me" align="lefttop" />
+		<layer type="container" align="center" x="0" y="0" width="100" height="100" bgcolor="0x33FF33" bgalpha="0.7" bgcapture="true" ondown="draglayer();">
+			<layer style="text" text="Drag Me" align="center" />
+		</layer>
+		<layer style="text" text="maskchildren=false" align="leftbottom" />
+	</layer>
+
+	<layer type="container" align="center" x="0" y="0" width="480" height="400" bgcolor="0x333333" bgalpha="0.7" bgcapture="true" ondown="draglayer();">
+		<layer style="text" align="top" y="5" width="100%" css="text-align:center; color:#FFFFFF; font-family:Arial; font-weight:bold; font-size:14px;" text="Drag Me" />
+		<layer type="container" align="lefttop" x="10" y="30" width="-20" height="-40" bgcolor="0xFFFFFF" bgalpha="1.0" maskchildren="true">
+			<layer style="text" enabled="true" align="lefttop" x="0" y="0" width="100%" autoheight="true" css="text-align:left; color:#333333; font-family:Arial; font-size:13.2px;" padding="8" text="data:testtext" ondown="draglayer_within_parent();" capturewheel="true" onwheel="onwheel_scrolling()" />
+		</layer>
+	</layer>
+	
+	
+	<!--for this example here a simple action to allow also scrolling the text by the mouse-wheel,
+		but for real scrolling textfields, the 'scrollarea' layer should be used instead.
+	-->
+	<action name="onwheel_scrolling" scope="local">
+		caller.y = clamp(caller.y + wheeldelta_raw*100, caller.parentobject.pixelheight - caller.pixelheight, 0);
+	</action>
+	
+	<!-- optionally also with animated smooth scrolling -->
+	<action name="onwheel_scrolling_smooth" scope="local">
+		if(caller.scrollimpuls, 
+			caller.scrollimpuls += wheeldelta_raw*10;
+		  ,
+			caller.scrollimpuls = wheeldelta_raw*10;
+			asyncloop(caller.scrollimpuls != 0,
+				caller.y += caller.scrollimpuls;
+				if(caller.y LE caller.parentobject.pixelheight - caller.pixelheight,
+					caller.y = caller.parentobject.pixelheight - caller.pixelheight;
+					caller.scrollimpuls = 0;
+				 , caller.y GE 0,
+					caller.y = 0;
+					caller.scrollimpuls = 0;
+				 ,
+					caller.scrollimpuls *= 0.95;
+					if (abs(caller.scrollimpuls) LT 0.05, caller.scrollimpuls = 0; );
+				);
+			);
+		);
+	</action>
+
+
+	<!-- the example text -->
+	<cssstyles>
+		li{ margin:10px; }
+	</cssstyles>
+	
+	<data name="testtext"><![CDATA[
+		<div style="font-size:20px; font-weight:bold; text-align:center;">Drag Me</div>
+		<br>
+		<b>krpano</b> is a small and very flexible high-performance software for showing all kind of panoramic images on the web.
+		It can be used for very detailed high-resolution images, for interactive virtual tours, custom designed user-interfaces and many things more.
+		<br>
+		<br>
+		Some key-features of krpano:
+		<ul style="padding-left:10px;">
+			<li><u>Image Quality</u> - the image-generation-algorithms of the krpano tools and the 
+				rendering-algorithms of the krpano viewer are trying to present the images in the 
+				best possible image-quality, with high details and sharpness.
+			</li>
+			<li><u>Performance</u> - optimized for fast image-rendering and quick loading 
+				while trying to use as few system resources as possible.
+			</li>
+			<li><u>Cross-Device / Cross-Browser support</u> - krpano supports the most common browsers and devices
+				and even provides special solutions for certain device-limitations and workarounds for browser-bugs.
+				Older systems and browser-versions are also very well supported.
+			</li>
+			<li><u>Flexible and Customizable</u> - 
+				krpano provides a built-in <u>layout</u>- and <u>scripting</u>-system
+				and also several APIs for external custom solutions. The viewer can be fully customized,
+				there are settings and interfaces for almost everything.
+			</li>
+			<li>Supports many <u>Panoramic Images Formats</u> - Spherical, Cubical, Cylindrical, Flat-images,
+				the direct use of Fisheye-images. 
+				The images can be tiled and multi-resolution for faster and more efficient loading and memory-management.
+				<u>Videos</u> can be also used as source for the panoramic images.
+			</li>
+			<li>Different interactive <u>Viewing Projections</u> (e.g. a Little Planet View) - allows exploring and viewing the panoramic-images in new interesting ways.
+			</li>
+			<li>Almost <u>No Limitations</u>, use images as high-resolution as possible and load as many panoramic-images as you want.
+			</li>
+			<li><u>VR Support</u> - built-in and seamless VR-support. Switching to VR is anytime possible, no extra viewer or software is required.
+				Especially also optimized for mobile devices.
+			</li>
+			<li><u>Small file-sizes</u> - even with a lot of functionality there are constant optimizations to keep the
+				file-sizes as small as possible, for faster loading and quicker startups. 
+			</li>
+			<li><u>Stable APIs</u> - krpano is designed to be upward-compatible. Content created with older versions should work in the most cases without any changes also in newer versions.
+			</li>
+			<li><u>No external dependencies</u> - all code is developed and maintained in-house.</li>
+		</ul>
+	]]></data>
+
+</krpano>

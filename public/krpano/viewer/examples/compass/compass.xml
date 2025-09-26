@@ -1,0 +1,89 @@
+﻿<!--
+	krpano - compass example
+	- it rotates images accordingly to the viewing direction
+-->
+
+<krpano>
+	
+	<!-- grid preview pano -->
+	<preview type="grid(cube,16,16,512,0xCCCCCC,0xFFFFFF,0x999999);" />
+
+	<!-- vignetting image -->
+	<layer name="mask" url="vignetting.png" width="100%" height="100%" safearea="false" enabled="false" zorder="1" alpha="0" onloaded="tween(alpha,1);" />
+	
+	<!-- optional autorotation -->
+	<!-- <autorotate enabled="true" waittime="3.0" accel="0.5" speed="3" horizon="0" tofov="100" /> -->
+	
+
+	<!-- compass with rotating pointer -->
+	<layer name="compass1" url="compass_bg.png" align="lefttop" x="10" y="10" zorder="2" children="false" scalechildren="true" destscale="1.0" onclick="switch(destscale,1.0,0.5);tween(scale,get(destscale));">
+		<layer name="compass1_plate"   url="compass_plate.png"   align="center"  zorder="1" />
+		<layer name="compass1_pointer" url="compass_pointer.png" align="center"  zorder="2" />
+		<layer name="compass1_ring"    url="compass_ring.png"    align="lefttop" zorder="3" />
+	</layer>
+	
+	<!-- compass with rotating plate -->
+	<layer name="compass2" url="compass_bg.png" align="righttop" x="10" y="10" zorder="2" children="false" scalechildren="true" destscale="1.0" onclick="switch(destscale,1.0,0.5);tween(scale,get(destscale));">
+		<layer name="compass2_plate"   url="compass_plate.png"   align="center"  zorder="1" />
+		<layer name="compass2_pointer" url="compass_pointer.png" align="center"  zorder="2" />
+		<layer name="compass2_ring"    url="compass_ring.png"    align="lefttop" zorder="3" />
+	</layer>
+	
+	<!-- compass as hotspot -->
+	<hotspot name="compass3" url="compass_bg.png" distorted="true" atv="90" />
+	<hotspot name="compass3_plate"   url="compass_plate.png"   distorted="true" zorder="1" ath="get:hotspot[compass3].ath" atv="get:hotspot[compass3].atv" />
+	<hotspot name="compass3_pointer" url="compass_pointer.png" distorted="true" zorder="2" ath="get:hotspot[compass3].ath" atv="get:hotspot[compass3].atv"/>
+	<hotspot name="compass3_ring"    url="compass_ring.png"    distorted="true" zorder="3" ath="get:hotspot[compass3].ath" atv="get:hotspot[compass3].atv"/>
+	
+
+
+	<!-- view changing eeent -->
+	<events name="compass_events" onviewchange="compass_update_rotate();" />
+
+	<!-- update the rotation values -->
+	<action name="compass_update_rotate">
+		set(global_heading, 0);
+		calc(layer[compass1_pointer].rotate, global_heading - (view.hlookat + view.camroll) );
+		calc(layer[compass2_plate].rotate,  global_heading - (view.hlookat + view.camroll) );
+		calc(hotspot[compass3_plate].rotate,  (view.hlookat + view.camroll) - global_heading);
+	</action>
+
+
+	<!-- add some hotspots -->
+	<action name="add_compass_spots" autorun="onstart">
+		addspot(n,  0,     0|0| 76|76, 1.0);
+		addspot(no, 45,   78|0|118|76, 0.5);
+		addspot(o,  90,  202|0| 71|76, 1.0);
+		addspot(so, 135, 281|0|109|76, 0.5);
+		addspot(s,  180, 400|0| 69|76, 1.0);
+		addspot(sw, 225, 469|0|134|76, 0.5);
+		addspot(w,  270, 603|0| 86|76, 1.0);
+		addspot(nw, 315, 689|0|141|76, 0.5);
+	</action>
+	
+	<action name="addspot" scope="local" args="hotspotname, direction, crop, scale">
+		addhotspot(get(hotspotname),hs);
+		hs.url = '%CURRENTXML%/hotspots.png';
+		hs.crop = crop;
+		hs.ath = direction;
+		hs.atv = 0;
+		hs.scale = scale;
+		hs.scale1 = scale;
+		hs.scale2 = scale * 2.0;
+		hs.zoom = true;
+		hs.onover = 'tween(scale,get(scale2))';
+		hs.onout = 'tween(scale,get(scale1))';
+		if(device.desktop,
+			hs.onclick = 'lookto(get(ath),get(atv),90)';
+		);
+	</action>
+	
+	<!-- include also the gyro plugin with absolute-tracking mode enabled -->
+	<plugin name="gyro" devices="mobile.or.tablet"
+	        url="%VIEWER%/plugins/gyro2.js"
+	        enabled="true"
+	        absolute="true"
+	        north="0"
+	        />
+
+</krpano>

@@ -1,0 +1,66 @@
+<krpano>
+	
+	<!-- intro / info-screen -->
+	
+	<layer name="intro" type="text" align="center" zorder="999"
+		style="webvr_button_style"
+		bgcapture="true"
+		bgroundedge="15"
+		padding="18 30"
+		css="color:#FFFFFF; font-size:30px; text-align:center;" 
+		txtshadow="0 1 2 0x000000 1.0"
+		html="data:infoscreen"
+		onclick="hide_introscreen();"
+		/>
+
+	<action name="hide_introscreen">
+		if(device.mobilevr AND webvr.isavailable,
+			<!-- on vr-devices directly enter the VR mode -->
+			layer[intro].remove();
+			webvr.enterVR();
+		  ,
+			set(layer[intro].enabled,false);
+			tween(layer[intro].alpha, 0.0, 0.2, default, layer[intro].remove(); );
+		);
+	</action>
+	
+	
+	<cssstyles devices="desktop">    .device-desktop{}                </cssstyles>
+	<cssstyles devices="no-desktop"> .device-desktop{ display:none; } </cssstyles>
+
+	<data name="infoscreen"><![CDATA[
+		<div style="font-size:24px;font-weight:bold;">Tuscany</div>
+		<div style="font-size:14px;display:inline-block;max-width:420px;">
+			<br>
+			<div>
+				A krpano tech-demo for:
+				<ul style="text-align:left;padding:0;">
+					<li>OBJ/MTL with Multiple Textures</li>
+					<li>Collision Detection (Walking, Stairs)</li>
+					<li>Real Physical Heights in VR</li>
+					<li>Various 3D Navigation Methods</li>
+				</ul>
+			</div>
+			<div style="font-size:11px;text-align:center;" class="device-desktop">
+				Keyboard Controls:<br>
+				<ul style="display:inline-block;text-align:left;padding:0;margin-top:2px;">
+					<li>Arrows or WASD -  Moving</li>
+					<li>SHIFT - Moving faster</li>
+					<li>Q or SPACE - Jumping</li>
+					<li>Y or Z - Crouching</li>
+					<li>C - toggle Collision On / Off</li>
+					<li>F - toggle Walking / Flying</li>
+				</ul>
+			</div>
+			<div style="font-size:11px;">
+			Credits:<br>
+			<div style="margin-top:2px;">
+				The 3D-Model and the textures are from<br> the Oculus VR SDK 'Oculus World Demo'.
+			</div>
+			</div>
+
+			<div style="text-align:center;font-size:18px;padding-top:28px;cursor:pointer;">Click/Touch to start</div>
+		</div>
+	]]></data>
+
+</krpano>

@@ -1,0 +1,115 @@
+<krpano>
+	
+	<!--
+		An example for using a HTML5 Canvas as pano-image or as webgl-hotspot.
+		See the canvas.js for details.
+	-->
+	
+	<!-- a custom variable to control if drawing is enabled or disabled -->
+	<set var="drawing" val="false" />
+	
+	<!-- when drawing is enabled, disable the pano-moving with the left-mouse-button (but allow moving the middle or right buttons) -->
+	<control panomousebuttons="link:drawing:drawing ? 6 : 7" devices="desktop.or.mouse" />
+	<control usercontrol="link:drawing:drawing ? 'off' : 'all'" devices="touch" />
+	
+	<!-- a button to enable or disable the drawing mode -->
+	<layer name="draw"
+		type="text"
+		css="color:#0000AA; font-size:20px;"
+		padding="4 8"
+		bgborder="1 0x3355AA"
+		bgshadow="0 2 10 0x000000 0.3"
+		align="top" y="20%"
+		template="{{drawing:drawing ? 'Stop Drawing' : 'Start Drawing'}}"
+		onclick="switch(drawing);"
+		/>
+	
+	<!-- include the canvas.js plugin as pano-image -->
+	<plugin name="canvas" url="canvas.js" onloaded="setsize(2048,1024);" />
+
+	<image>
+		<sphere url="plugin:canvas" />
+	</image>
+	
+	
+	<events ondown="if(drawing, draw(); );" />
+		
+	<action name="draw" type="js"><![CDATA[
+		
+		var mouse = krpano.mouse;
+		var plugin = krpano.get("plugin[canvas]");
+		var color = 0x0000AA;
+		var linewidth = 3.0;
+		
+		if (mouse.leftbutton)
+		{
+			var p1 = krpano.screentosphere(mouse.x, mouse.y);
+			
+			krpano.asyncloop(function()
+			{
+				var x1,y1, x2,y2;
+			
+				var p2 = krpano.screentosphere(mouse.x, mouse.y);
+				
+				x1 = p1.x;
+				y1 = p1.y;
+				x2 = p2.x;
+				y2 = p2.y;
+				
+				// check and fix pano warparounds
+				var d1 = Math.abs(x2 - x1);
+				var d2 = Math.abs(x2 + 360 - x1);
+				var d3 = Math.abs(x2 - 360 - x1);
+				
+				if      (d2 < d1 && d2 < d3) x2 += 360;
+				else if (d3 < d1 && d3 < d2) x2 -= 360;
+				
+				// draw from left to right
+				if (x2 < x1)
+				{
+					var xT = x1;
+					x1 = x2;
+					x2 = xT;
+					y1 = p2.y;
+					y2 = p1.y;
+				}
+				
+				// map to 0.0 - 1.0 range
+				x1 = (x1 + 180) / 360.0;
+				y1 = (y1 + 90) / 180.0;
+				x2 = (x2 + 180) / 360.0;
+				y2 = (y2 + 90) / 180.0;
+				
+				if (x1 >= 0.0 && x2 <= 1.0)
+				{
+					plugin.drawline(x1,y1, x2,y2, color, linewidth);
+				}
+				else if (x1 < 0.0)
+				{
+					var yX = y1 + ((y2-y1) / (x2-x1)) * (0.0 - x1);
+					
+					plugin.drawline(0.0,yX, x2,y2, color, linewidth);
+					plugin.drawline(1.0 + x1,y1, 1.0,yX, color, linewidth);
+				}
+				else if (x2 > 1.0)
+				{
+					var yX = y1 + ((y2-y1) / (x2-x1)) * (1.0 - x1);
+					
+					plugin.drawline(x1,y1, 1.0,yX, color, linewidth);
+					plugin.drawline(0.0,yX, x2 - 1.0,y2, color, linewidth);
+				}
+				
+				p1 = p2;
+		
+				// loop as long the mouse is pressed
+				return mouse.leftbutton;
+			});
+		}
+		
+	]]></action>
+	
+	
+	<!-- include a contextmenu with different projection settings -->
+	<include url="%VIEWER%/plugins/contextmenu.xml" />
+	
+</krpano>

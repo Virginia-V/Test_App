@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "paths": {} // disable Next.js path aliases for the script run
+  },
+  "include": ["src/scripts/**/*", "src/lib/**/*"]
+}

@@ -1,0 +1,67 @@
+<krpano>
+	
+	<!-- use the chromakey video as layer -->
+		
+	<preview type="grid(cube,32,32,512,0xCCCCCC,0xFFFFFF,0x999999);" />
+	
+	<layer name="chromakey"
+		type="krpano"
+		align="leftbottom" width="250" height="500"
+		capture="false"
+		videourl="video.mp4|video.webm"
+		onloaded="chromakey_layer()"
+		/>
+	
+	<action name="chromakey_layer" type="Javascript"><![CDATA[
+		var view = caller.krpano;
+		view.fovtype = "VFOV";
+		view.fov = view.fovmin = view.fovmax = 90;
+		
+		var hs = caller.krpano.addhotspot("chromakey","webgl");
+		hs.url = "%VIEWER%/plugins/videoplayer.js";
+		hs.videourl = caller.videourl;
+		hs.loop = true;
+		hs.chromakey = "0x238E54|0.294|0.133";
+		hs.alphahittest = 0.5;
+		hs.flying = 1;
+		hs.width = "100%";
+		hs.height = "100%";
+		hs.capture = false;
+		hs.pausedonstart = true;
+		
+		hs.onclick = function()
+		{
+			hs.togglepause();
+		}
+		
+		function updatesize()
+		{
+			if (hs.videoheight > 0 && caller.pixelheight > 0)
+			{
+				var aspect = (hs.videowidth / hs.videoheight) / (caller.pixelwidth / caller.pixelheight);
+
+				// the resize mode
+				if (1)
+				{
+					// fully fit inside the layer
+					hs.width = aspect > 1.0 ? "100%" : (100*aspect) + "%";
+					hs.height = aspect < 1.0 ? "100%" : (100/aspect) + "%";
+				}
+				else
+				{
+					// fully fill the layer
+					hs.width = aspect < 1.0 ? "100%" : (100*aspect) + "%";
+					hs.height = aspect > 1.0 ? "100%" : (100/aspect) + "%";
+				}
+			}
+		}
+		
+		caller.addevent("onresize",  updatesize);
+		
+		hs.onvideoready = function()
+		{
+			updatesize();
+		}
+	]]></action>
+	
+</krpano>

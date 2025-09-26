@@ -1,0 +1,149 @@
+﻿<krpano>
+	
+	<plugin name="gyro"
+	        url="%VIEWER%/plugins/gyro2.js"
+	        enabled="true"
+	        onavailable="gyro_onavailable();"
+	        onunavailable="showinfo('No Gyroscope available');"
+	        ondenied="showinfo('Gyroscope usage denied');"
+	        absolute="false"
+	        north="0"
+	        />
+	
+	<image>
+		<preview url="preview.jpg" />
+		<cube url="pano_%s.jpg" />
+	</image>
+	
+	<view fovtype="DFOV" fov="140" />
+	
+	<layer name="info" type="text"
+		width="100%"
+		css="text-align:center;color:#FFFFFF;font-size:16px;font-weight:bold;"
+		txtshadow="0 2 2 0x000000 0.5"
+		align="top" y="20"
+		bgalpha="0"
+		enabled="false"
+		/>
+	
+	<action name="showinfo" scope="local" args="msg">
+		layer[info].text = "gyro2.js[br]" + msg;
+	</action>
+	
+	<action name="gyro_onavailable" scope="local">
+		showinfo(('Sensor: ' + caller.sensor + '[br]' + (caller.sensor == 0 ? 'DeviceOrientationEvent' : 'DeviceMotionEvent')));
+		
+		layer[absolutemode].visible = true;
+	
+		if(1,	// show option to change the sensor mode
+			includexml('%VIEWER%/plugins/combobox.xml',
+				addlayer('gyro_sensor_mode_info');
+				set(layer[gyro_sensor_mode_info], type='container', align='rightbottom', x=20, y=20, flowchildren='v', childflowspacing=4);
+				
+				addlayer('gyro_sensor_mode_label');
+				set(layer[gyro_sensor_mode_label], type='text', parent='gyro_sensor_mode_info', text='Sensor Mode:', css='color:white;', bgalpha=0, txtshadow='0 1 1 0x000000 0.5');
+				
+				addComboboxLayer('gyro_sensor_mode_combobox');
+				callwith(layer[gyro_sensor_mode_combobox],
+					parent = 'gyro_sensor_mode_info';
+					addnameditem(0, '0 / Direct', plugin[gyro].sensor_mode=0; );
+					addnameditem(1, '1 / Smooth', plugin[gyro].sensor_mode=1; );
+					addnameditem(2, '2 / Fast-1', plugin[gyro].sensor_mode=2; );
+					addnameditem(3, '3 / Fast-2', plugin[gyro].sensor_mode=3; );
+					addnameditem(4, '4 / Faster-1', plugin[gyro].sensor_mode=4; );
+					addnameditem(5, '5 / Faster-2', plugin[gyro].sensor_mode=5; );
+					selectitembyname( get(plugin[gyro].sensor_mode) );
+				);
+			);
+		);
+	</action>
+	
+	
+	<!-- absolute tracking / compass mode -->
+	<style name="button" type="text" textalign="center" padding="4 8" bgborder="0 0xFFFFFF 1" bgroundedge="1" bgshadow="0 1 4 0x000000 1.0" 
+		onover="if(!pressed,set(bgcolor, 0xEEEEEE));" onout="if(!pressed,set(bgcolor, 0xFFFFFF));"
+		ondown="set(bgcolor, 0xDDDDDD);" onup="set(bgcolor, (hovering ? 0xEEEEEE : 0xFFFFFF));" 
+		/>
+		
+	<layer name="absolutemode"
+		style="button"
+		text="Absolute Mode"
+		align="leftbottom" x="20" y="20" padding="8 10" 
+		onloaded="css=plugin[gyro].absolute ? 'text-decoration:underline' : '';"
+		onclick="absolutemode_onclick()"
+		visible="false"
+		/>
+		
+	<action name="absolutemode_onclick">
+		switch(plugin[gyro].absolute);
+		onloaded();
+		if(plugin[gyro].absolute,
+			add_direction_lines();
+		  ,
+			forall(hotspot, hs, 
+				if(hs.is_direction_line, 
+					hs.remove(); 
+				); 
+			);
+		);
+	</action>
+		
+	<action name="add_direction_lines">
+		add_direction_line(0, "North", "0xff3a3d");
+		add_direction_line(-90, "East", "0xffff79");
+		add_direction_line(+90, "West", "0xff56f0");
+		add_direction_line(180, "South", "0x78ff41");
+	</action>
+
+	<action type="js" autorun="preinit"><![CDATA[
+		
+		krpano.actions.add_direction_line = function(direction, label, color)
+		{
+			// direction: 0=N, 90=O, 180=S, 270=W
+			var pnts = [];
+			var i,cnt=100,d=1000;
+			var a,x,y,z;
+			var a_dir = ((1*direction + 90) / 180) * Math.PI;
+			
+			for (i=0; i <= cnt; i++)
+			{
+				a = (i/cnt - 0.5) * Math.PI;
+				
+				var ca = Math.cos(a);
+				var cb = Math.cos(a_dir);
+				var sa = Math.sin(a);
+				var sb = Math.sin(a_dir);
+
+				x = d * ca*cb;
+				y = d * sa;
+				z = d * ca*sb;
+				
+				pnts.push(x,y,z);
+			}
+			
+			var hs = krpano.addhotspot("auto","webgl");
+			hs.is_direction_line = true;
+			hs.polyline = true;
+			hs.borderwidth = 10;
+			hs.points3d = pnts.join(",");
+			hs.bordergradient = "0xFF000000|"+color+"|0xFF000000|2.0";
+			hs.zorder = 1;
+			hs.enabled = false;
+			
+			var hs2 = krpano.addhotspot("auto","webgl");
+			hs2.is_direction_line = true;
+			hs2.torigin = hs.torigin;
+			hs2.type = "text";
+			hs2.text = label;
+			hs2.bgborder = "1 0x777777 0.5";
+			hs2.bgroundedge = 3;
+			hs2.depth = 0;
+			hs2.tx = pnts[(cnt >> 1)*3+0];
+			hs2.ty = pnts[(cnt >> 1)*3+1];
+			hs2.tz = pnts[(cnt >> 1)*3+2];
+			hs2.zorder = 2;
+			hs2.enabled = false;
+		}
+	]]></action>
+
+</krpano>

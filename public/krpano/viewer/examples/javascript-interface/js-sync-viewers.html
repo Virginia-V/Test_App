@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>krpano Javascript Sync Example</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="x-ua-compatible" content="IE=edge" />
+	<style>
+		html { height:100%; }
+		body { height:100%; overflow:hidden; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#FFFFFF; background-color:#000000; }
+	</style>
+</head>
+<body>
+
+	<script src="../../krpano.js"></script>
+	
+	<div id="container" style="position:absolute; left:0; top:0; width:100%; height:100%;">
+		<div id="krpano1" style="position:absolute; left:0%;  top:0; width:50%; height:100%;"></div>
+		<div id="krpano2" style="position:absolute; left:50%; top:0; width:50%; height:100%;"></div>
+	</div>
+	
+	<script>
+		var krpano1 = null;
+		var krpano2 = null;
+		
+		embedpano({target:"krpano1", xml:"sync1.xml", onready:function(krpano){ krpano1=krpano; install_sync_viewers(krpano1); }});
+		embedpano({target:"krpano2", xml:"sync2.xml", onready:function(krpano){ krpano2=krpano; install_sync_viewers(krpano2); }});
+		
+		function install_sync_viewers(krpano)
+		{
+			var sync_events = krpano.events.createItem("sync_viewers");
+			sync_events.keep = true;
+			sync_events.onmousedown =
+			sync_events.onmousewheel =
+			sync_events.onviewchange =
+			sync_events.oncontextmenu = sync_viewers;
+			
+			// use the container as fullscreen element
+			krpano.display.customFullscreenElement = document.getElementById("container");
+		}
+		
+		function sync_viewers()
+		{
+			if (krpano1 && krpano2)
+			{
+				if (krpano1.lastuserinteraction > krpano2.lastuserinteraction)
+				{
+					// krpano1 is active - copy the view from krpano1 to krpano2:
+					krpano2.view.syncto(krpano1.view);
+				}
+				else
+				{
+					// krpano2 is active - copy the view from krpano2 to krpano1:
+					krpano1.view.syncto(krpano2.view);
+				}
+			}
+		}
+	</script>
+
+</body>
+</html>

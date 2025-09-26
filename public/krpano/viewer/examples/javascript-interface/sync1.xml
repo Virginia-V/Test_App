@@ -1,0 +1,20 @@
+<krpano>
+	
+	<include url="%VIEWER%/plugins/contextmenu.xml" />
+
+	<image>
+		<cube url="../splitscreen/pano1_%s.jpg" if="browser.domain != 'krpano.com'" />
+		<cube url="https://krpano.com/panos/splitscreen/before.tiles/pano_%s.jpg" if="browser.domain == 'krpano.com'" />
+	</image>
+	
+	<layer name="info"
+		type="text"
+		text="Before"
+		css="font-size:24px; color:#FFFFFF;"
+		bg="false"
+		txtshadow="0 2 4 0x000000 1.0"
+		align="bottom" y="50"
+		enabled="false"
+		/>
+
+</krpano>

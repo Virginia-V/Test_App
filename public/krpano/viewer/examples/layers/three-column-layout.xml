@@ -1,0 +1,30 @@
+<krpano>
+	
+	<!--
+		layout example for a three columns layout
+		- the left and right layers have a fixed size
+		- and the middle layer will automatically adopt its size by using flowexpand=true to fill the parent area
+		- the main pano viewing area will be inside the middle layer
+	-->
+	
+	<view fovtype="HFOV" fov="90" />
+	<preview type="grid" />
+	
+	<layer name="three_column_layout" type="container" width="100%" height="100%" flowchildren="h" safearea="false" maskchildren="true">
+		<layer name="left_bar"   type="container" bgcolor="0xFFFFFF" bgalpha="0.5" bgblur="3" bgcapture="true" width="100" height="100%" flow="true"                   onclick="switch(width,100,200);" />
+		<layer name="middle_bar" type="container" bgcolor="0x000000" bgalpha="0.0"                             width="50%" height="100%" flow="true" flowexpand="true" zorder="2" onresize="update_safearea()" />
+		<layer name="right_bar"  type="container" bgcolor="0xFFFFFF" bgalpha="0.5" bgblur="3" bgcapture="true" width="100" height="100%" flow="true"                   onclick="tween(width,(width LT 150 ? 200 : 100));" />
+	</layer>
+	
+	<layer name="infotext" type="text" enabled="false" align="center" html="Three Column Layout Example" css="color:white;" bgalpha="0" />
+	
+	<!-- use the display.safearea setting to move the main pano view into the middle-bar layer -->
+	<action name="update_safearea" scope="local">
+		display.safearea = 'test:' + 
+							caller.stagey + " " + 
+							(display.viewerwidth - caller.stagex - caller.pixelwidth) + " " +
+							(display.viewerheight - caller.stagey - caller.pixelheight) + " " +
+							caller.stagex;
+	</action>
+	
+</krpano>

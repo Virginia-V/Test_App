@@ -1,0 +1,206 @@
+<krpano>
+	
+	<!--
+		ThreeJS: Tuscany - a comparison between the krpano and ThreeJS renderers.
+		
+		- Both renderers are using the same OBJ+MTL textured 3D Model.
+		
+		- The krpano renderer should be typically the faster one (in terms of 
+		  loading, decoding, rendering and raycasting/hittesting performance).
+		  This should be especially noticable in VR devices or on slower systems.
+		  
+		- The ThreeJS renderer on the other hand can therefore optionally use
+		  lights and shadows and supports more 3D file formats (glb, gltf).
+	-->
+	
+	<include url="%VIEWER%/plugins/webvr.xml" />
+	<include url="%VIEWER%/plugins/controls3d.xml" />
+	<include url="%VIEWER%/plugins/iphone_fullscreen_swipe.xml" />
+	<include url="%VIEWER%/plugins/combobox.xml" />
+	<include url="%VIEWER%/plugins/cursor3d.xml" />
+
+	<webvr postracking="true" />
+	<control collision="true" groundcollision="true" usevrfloorlevel="true" />
+	
+	<view fovmin="20" fovmax="150" />
+	
+	<plugin api="threejs" url="%VIEWER%/plugins/threejs_krpanoplugin.js" keep="true"  />
+	
+	<threejs
+		shadowmap="pcf"
+		ambientlight="0.2"
+		/>
+	
+	<!-- use a reduced depthbuffer range for better rendering accuracy -->
+	<display depthrange="5,200000" />
+	
+	
+	<!-- some info texts -->
+	<style name="info"
+		type="text"
+		bg="false"
+		css="font-family:monospace; white-space:pre; color:#FFFFFF; font-size:12px;"
+		trimwhitespace="true"
+		txtshadow="-1 0 2 0x000000 1.0, +1 0 3 0x000000 1.0, 0 +1 4 0x000000 1.0"
+		align="lefttop" x="20" y="80"
+		onclick="set(enabled,false); tween(alpha,0,0.5,default,remove());"
+		/>
+	
+	<data name="info_krpano">
+		Renderer: krpano
+			
+		Advantages:
+		- optimized for photogrammetry captures
+		- faster loading with multi-threaded decoding
+		- faster and more efficient rendering
+		- faster hit-testing / raycasting
+
+		Disadvantages:
+		- no lighting, no shadows
+		- limited file-format support
+	</data>
+	
+	<data name="info_threejs">
+		Renderer: ThreeJS
+		
+		Advantages:
+		- supports light and shadows
+		- supports more 3D file-formats
+
+		Disadvantages:
+		- slower rendering
+		- slower hit-testing / raycasting
+		- slower loading
+	</data>
+	
+	
+	<!-- the krpano renderer - load the 3D Model using the depthmap-support -->
+	<scene name="krpano">
+		
+		<image>
+			<model url="../depthmap/tuscany/tuscany.obj"
+				backgroundurl="../depthmap/tuscany/sky.jpg"
+				subdiv="0"
+				axis="-y+x+z"
+				scale="1.0"
+				origin="-214,10863,14603"
+				hittest="true"
+				/>
+		</image>
+		
+		<layer style="info" text="data:info_krpano" />
+		
+	</scene>
+	
+	
+	<!-- the ThreeJS renderer - load the 3D Model as hotspot, use only the sky as normal pano -->
+	<scene name="threejs" autoload="true">
+		
+		<image objectsize="infinity">
+			<sphere url="../depthmap/tuscany/sky.jpg" />
+		</image>
+		
+		<hotspot name="tuscany"
+			type="threejs"
+			url="../depthmap/tuscany/tuscany.obj"
+			convertmaterials="all-to-lambert"
+			enabled="false"
+			depth="0"
+			scale="0.01"
+			rx="-90"
+			tx="-214" ty="10863" tz="14603"
+			hittest="true"
+			castshadow="true"
+			receiveshadow="true"
+			/>
+			
+		<hotspot name="light"
+			type="threejslight" 
+			mode="sun" 
+			castshadow="true"
+			intensity="2.0"
+			sundistance="20000"
+			colortemperature="5000"
+			ath="-87" atv="-16"
+			shadowmapnear="10000"
+			shadowmapfar="30000"
+			shadowmapbias="0.0"
+			shadowmapnormalbias="0.005"
+			shadowmaprange="3000"
+			shadowmapres="4096"
+			helper="false"
+			/>
+		
+		<layer style="info" text="data:info_threejs" />
+		
+	</scene>
+	
+	
+	<!-- a combobox/selectbox to switch between krpano and ThreeJS with different materials/shaders -->
+	<combobox name="selectrenderer" design="default" align="lefttop" x="20" y="36" keep="true" onloaded="selectItemByName(threejs_lambert);">
+		<item name="krpano"           caption="krpano"             onclick="loadscene(krpano,null,                                              MERGE|KEEPMOVING|KEEPLIMITS,SLIDEBLEND(2));" />
+		<item name="threejs_basic"    caption="ThreeJS (Basic)"    onclick="loadscene(threejs,hotspot[tuscany].convertmaterials=all-to-basic,   MERGE|KEEPMOVING|KEEPLIMITS,SLIDEBLEND(2));" />
+		<item name="threejs_lambert"  caption="ThreeJS (Lambert)"  onclick="loadscene(threejs,hotspot[tuscany].convertmaterials=all-to-lambert, MERGE|KEEPMOVING|KEEPLIMITS,SLIDEBLEND(2));" />
+		<item name="threejs_phong"    caption="ThreeJS (Phong)"    onclick="loadscene(threejs,hotspot[tuscany].convertmaterials=all-to-phong,   MERGE|KEEPMOVING|KEEPLIMITS,SLIDEBLEND(2));" />
+		<item name="threejs_standard" caption="ThreeJS (Standard)" onclick="loadscene(threejs,hotspot[tuscany].convertmaterials=all-to-standard,MERGE|KEEPMOVING|KEEPLIMITS,SLIDEBLEND(2));" />
+		<item name="threejs_physical" caption="ThreeJS (Physical)" onclick="loadscene(threejs,hotspot[tuscany].convertmaterials=all-to-physical,MERGE|KEEPMOVING|KEEPLIMITS,SLIDEBLEND(2));" />
+		<item name="threejs_toon"     caption="ThreeJS (Toon)"     onclick="loadscene(threejs,hotspot[tuscany].convertmaterials=all-to-toon,    MERGE|KEEPMOVING|KEEPLIMITS,SLIDEBLEND(2));" />
+	</combobox>
+		
+		
+	<!-- UI -->
+	
+	<include url="%VIEWER%/plugins/vr_and_anaglyph_buttons.xml" />
+	
+	<layer name="mouse_3d_cursor" keep="true" devices="desktop" 
+		type="text" text="[span style='font-size:12px']3D[/span][br]Cursor"
+		css="font-size:9px;"  textalign="center" align="leftbottom" x="23" width="34" y="97" bgroundedge="5" bgborder="1 0x000000 0.5" bgshadow="0 0 1 0x000000 0.5" 
+		bgcolor="link:cursor3d.enabled:cursor3d.enabled ? 0x60FF90 : 0xEEEEEE" 
+		onclick="switch(cursor3d.enabled);"
+		/>
+		
+	<style name="button" type="text" css="text-align:center;" padding="4 8" bgborder="0 0xFFFFFF 1" bgroundedge="1" bgshadow="0 1 4 0x000000 1.0" 
+		onover="if(!pressed,set(bgcolor, 0xEEEEEE));" onout="if(!pressed,set(bgcolor, 0xFFFFFF));"
+		ondown="set(bgcolor, 0xDDDDDD);" onup="set(bgcolor, (hovering ? 0xEEEEEE : 0xFFFFFF));" 
+		/>
+	
+	<layer type="container" flowchildren="v" childflowspacing="10" align="bottom" y="20" bgcapture="true" handcursor="false" keep="true">
+		<layer name="dollhouse" style="button" text="Dollhouse"  width="80" onclick="dollhouse_view();" />
+		<layer name="resetview" style="button" text="Reset View" width="80" onclick="resetview();" />
+	</layer>
+	
+	<action name="resetview">
+		control.wheelmode = "zoom";
+		tween(view.oz,0);
+		view.limitview = "auto";
+		oninterrupt( stoplookto(); stoptween(view.tx|view.ty|view.tz); );
+		lookto(0,0,90,tween("default",1.0),true,true);
+		tween(view.tx|view.ty|view.tz, 0|0|0, 1.0, default, WAIT);
+	</action>
+	
+	<action name="dollhouse_view">
+		if(view.oz GT 0,
+			resetview();
+		,
+			control.wheelmode = "distance";
+			lookto(270,50,90,default,true,true);
+			tween(view.oz, 3000.0);
+			view.limitview = "lookat";
+			view.vlookatmin = 0;
+			view.vlookatmax = 90;
+			tween(view.tx|view.ty|view.tz, 50|15|1600);
+		);
+	</action>
+	
+	
+	<!-- a simple FPS (frames-per-second) meter -->
+	<layer name="fpsmeter" keep="true"
+		type="text"
+		template="FPS: {{display.currentfps:roundval(display.currentfps)}}"
+		css="color:white;"
+		bgcolor="0x000000"
+		align="lefttop"
+		enabled="false"
+		/>
+	
+</krpano>

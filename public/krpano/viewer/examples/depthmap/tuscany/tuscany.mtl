@@ -1,0 +1,152 @@
+newmtl distance1
+map_Kd -clamp on textures\distance1.png
+
+newmtl vase
+map_Kd textures\vase.png
+
+newmtl distance3
+map_Kd -clamp on textures\distance3.png
+
+newmtl distance2
+map_Kd -clamp on textures\distance2.png
+
+newmtl water
+map_Kd textures\water.jpg
+
+newmtl yard1
+map_Kd textures\yard1.jpg
+
+newmtl yard_plain
+map_Kd textures\yard_plain.jpg
+
+newmtl yard2
+map_Kd textures\yard2.jpg
+
+newmtl yard3
+map_Kd textures\yard3.jpg
+
+newmtl yard_patio1
+map_Kd textures\yard_patio1.jpg
+
+newmtl yard_patio2
+map_Kd textures\yard_patio2.jpg
+
+newmtl stonewall
+map_Kd textures\stonewall.jpg
+
+newmtl concrete1
+map_Kd textures\concrete1.jpg
+
+newmtl concrete2
+map_Kd textures\concrete2.jpg
+
+newmtl village_houses
+map_Kd textures\village_houses.jpg
+
+newmtl treeskinny
+map_Kd textures\treeskinny.jpg
+
+newmtl distance_tree
+map_Kd -clamp on textures\distance_tree.png
+
+newmtl rocks
+map_Kd textures\rocks.jpg
+
+newmtl bench
+map_Kd textures\bench.jpg
+
+newmtl barrel
+map_Kd textures\barrel.jpg
+
+newmtl chair2
+map_Kd textures\chair2.jpg
+
+newmtl fountain
+map_Kd textures\fountain.jpg
+
+newmtl table1
+map_Kd textures\table1.jpg
+
+newmtl chair1
+map_Kd textures\chair1.jpg
+
+newmtl picture2
+map_Kd textures\picture2.jpg
+
+newmtl picture3
+map_Kd textures\picture3.jpg
+
+newmtl hutch
+map_Kd textures\hutch.jpg
+
+newmtl book
+map_Kd textures\book.jpg
+
+newmtl iron
+map_Kd textures\iron.jpg
+
+newmtl table2
+map_Kd textures\table2.jpg
+
+newmtl picture1
+map_Kd textures\picture1.jpg
+
+newmtl firewood
+map_Kd textures\firewood.jpg
+
+newmtl floor
+map_Kd textures\floor.jpg
+
+newmtl interiorfront
+map_Kd textures\interiorfront.jpg
+
+newmtl woodplankssmall
+map_Kd textures\woodplankssmall.jpg
+
+newmtl interiorleft
+map_Kd textures\interiorleft.jpg
+
+newmtl interiorback
+map_Kd textures\interiorback.jpg
+
+newmtl woodplanks
+map_Kd textures\woodplanks.jpg
+
+newmtl chimneybrick
+map_Kd textures\chimneybrick.jpg
+
+newmtl terrain_ground2
+map_Kd textures\terrain_ground2.jpg
+
+newmtl terrain_ground1
+map_Kd textures\terrain_ground1.jpg
+
+newmtl terrain_ground3
+map_Kd textures\terrain_ground3.jpg
+
+newmtl mossconcrete
+map_Kd textures\mossconcrete.jpg
+
+newmtl housefront
+map_Kd textures\housefront.jpg
+
+newmtl houseleft
+map_Kd textures\houseleft.jpg
+
+newmtl houseright
+map_Kd textures\houseright.jpg
+
+newmtl houseback
+map_Kd textures\houseback.jpg
+
+newmtl roofshingles
+map_Kd textures\roofshingles.jpg
+
+newmtl metalrusty
+map_Kd textures\metalrusty.jpg
+
+newmtl window
+map_Kd textures\window.jpg
+
+newmtl shutter
+map_Kd textures\shutter.jpg

@@ -1,0 +1,1 @@
+ALTER TABLE "renderedPanoramas" ADD COLUMN "s3_key" text;

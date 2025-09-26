@@ -1,4 +1,3 @@
-import React from "react";
 import * as THREE from "three";
 
 export function sphericalToCartesian(
@@ -22,13 +21,13 @@ export function cartesianToSpherical(position: THREE.Vector3): {
   return { yaw, pitch };
 }
 
-type HotspotProps = {
-  radius: number;
-  yaw: number;
-  pitch: number;
-  onClick?: () => void;
-  color?: string;
-};
+// type HotspotProps = {
+//   radius: number;
+//   yaw: number;
+//   pitch: number;
+//   onClick?: () => void;
+//   color?: string;
+// };
 
 // export const Hotspot: React.FC<HotspotProps> = ({
 //   radius,

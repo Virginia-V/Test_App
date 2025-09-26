@@ -1,0 +1,34 @@
+<krpano>
+	
+	<!--
+		layout example for a dynamic grid layout
+		- the sizes of the layers around will be determined by their content
+		- and the middle layer will adjust itself to use the remaining space
+	-->
+	
+	<view fovtype="VFOV" fov="90" />
+	<preview type="grid" />
+		
+	<layer name="grid_layout" type="container" width="100%" height="100%" flowchildren="v" safearea="false">
+		<layer name="header" type="text" html="header" css="color:white;" textalign="center" bgcolor="0x00FF00" bgalpha="0.5" bgblur="5" bgcapture="true" width="100%" flow="true" onclick="html += '[br]test';" />
+		<layer name="middle" type="container" width="100%" height="100%" flow="true" flowexpand="true" flowchildren="h" bgcolor="0x777777" bgalpha="0.2">
+			<layer name="left_bar" type="text" html="left bar" css="color:white;" textalign="center" bgcolor="0xFF0000" bgalpha="0.5" bgblur="5" bgcapture="true" height="100%" flow="true" onclick="html += ' test';"/>
+			<layer name="middle_bar" type="container" width="100%" height="100%" flow="true" flowexpand="true" onresize="update_safearea()" />
+			<layer name="right_bar" type="text" html="right bar" css="color:white;" textalign="center" bgcolor="0x0000FF" bgalpha="0.5" bgblur="5" bgcapture="true" height="100%" flow="true" onclick="html += ' test';" />
+		</layer>
+		<layer name="footer" type="text" html="footer" css="color:white;" textalign="center" bgcolor="0xFFFF00" bgalpha="0.5" bgblur="5" bgcapture="true" width="100%" flow="true" onclick="html += '[br]test';" />
+	</layer>
+	
+	<layer name="infotext" type="text" enabled="false" align="center" html="Grid Layout Example" css="color:white;" bgalpha="0" />
+	
+	<!-- use the display.safearea setting to move the main pano view into the middle-bar layer -->
+	<action name="update_safearea" scope="local">
+		display.safearea = 'test:' + 
+							caller.stagey + " " + 
+							(display.viewerwidth - caller.stagex - caller.pixelwidth) + " " +
+							(display.viewerheight - caller.stagey - caller.pixelheight) + " " +
+							caller.stagex;
+	</action>
+	
+</krpano>
+

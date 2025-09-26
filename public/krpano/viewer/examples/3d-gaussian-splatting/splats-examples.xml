@@ -1,0 +1,537 @@
+<krpano>
+	
+	<!-- krpano 3D Gaussian Splatting Support -->
+
+	<set var="splatspath" val="'https://krpano.com/examples/gsplats'" />
+	
+	<include url="contextmenu3d.xml" />
+	<include url="%VIEWER%/plugins/webvr.xml" />
+	<include url="%VIEWER%/plugins/iphone_fullscreen_swipe.xml" />
+	<include url="%VIEWER%/plugins/controls3d.xml" />
+	<include url="%VIEWER%/plugins/vr_and_anaglyph_buttons.xml" />
+	
+	<!-- adjust the joypad position depending on the screen size to avoid overlapping UI -->
+	<layer name="joypad" oy="link:stagewidth:stagewidth LT 560 ? -40 : 0" />
+	<layer name="joypad_levelcontrol" oy="link:stagewidth:stagewidth LT 560 ? -40 : 0" />
+	
+	<control showinfos="true" />
+
+	
+	<include url="splattools.xml" />
+
+	<!-- perf opt: use a lower rendering resolution on hi-dpi mobile/tablet devices -->
+	<display framebufferscale="calc:max(0.66,1.0 / device.pixelratio)" devices="mobile.or.tablet" />
+	
+	<webvr postracking="true" webvr_foveationlevel="3" />
+	<view fovtype="VFOV" />
+	<display depthbuffer="true" depthnear="1" depthfar="1000000" />
+	
+	<blendmodes name="simple crossblending" blend="BLEND(1.0, easeInCubic)" />
+	<blendmodes name="black-out"            blend="COLORBLEND(1.0, 0x000000, easeOutSine)" />
+	<blendmodes name="white-flash"          blend="LIGHTBLEND(1.0, 0xFFFFFF, 2.0, linear)" />
+	<blendmodes name="right-to-left"        blend="SLIDEBLEND(1.0, 0.0, 0.3, linear)" />
+	<blendmodes name="top-to-bottom"        blend="SLIDEBLEND(1.0, 90.0, 0.3, linear)" />
+	<blendmodes name="diagonal"             blend="SLIDEBLEND(1.0, 135.0, 0.4, linear)" />
+	<blendmodes name="circle open"          blend="OPENBLEND(1.0, 0.0, 0.2, 0.0, linear)" />
+	<blendmodes name="vertical open"        blend="OPENBLEND(1.0, 1.0, 0.1, 0.0, linear)" />
+	<blendmodes name="horizontal open"      blend="OPENBLEND(1.0, -1.0, 0.3, 0.0, linear)" />
+
+
+	<action name="loadscene_with_random_blend" scope="local" args="scenename">
+		loadscene(get(scenename),null,MERGE,get(blendmodes[(roundval(random * (blendmodes.count-1)))].blend));
+	</action>
+
+	<include url="%VIEWER%/plugins/combobox.xml" />
+	<combobox name="cbscenes" design="splattools" align="bottom" x.mobile="10" y="26"
+		onloaded="forall(scene, s, addnameditem(get(s.name), (s.title ? s.title : s.name), ('loadscene_with_random_blend('+s.name+')') )); selectitembyname(get(xml.scene));"
+		/>
+	
+	<events name="splat_examples" keep="true"
+		onnewscene="layer[cbscenes].selectitembyname(get(xml.scene));"
+		onkeydown="
+			if(keyboard.keyname == 'PageUp', loadscene_with_random_blend(((xml.sceneindex-1+scene.count) MOD scene.count));
+			  ,keyboard.keyname == 'PageDown', loadscene_with_random_blend(((xml.sceneindex+1) MOD scene.count));
+			);
+		"
+		/>
+
+		
+	<cssstyles devices="normal">
+		.rendermodeinfo
+		{
+			font-size:11px;
+			text-align:left;
+			padding-top:5px;
+		}
+	</cssstyles>
+	
+	<cssstyles devices="mobile">
+		.rendermodeinfo
+		{
+			display:none;
+		}
+	</cssstyles>
+
+	
+	<layer name="compare_rendermode" keep="true"
+		width.normal="170" zorder="2"
+		align.normal="bottom" x.normal="0" y.normal="70" 
+		align.mobile="bottom" edge.mobile="leftbottom" x.mobile="-92" y.mobile="60" 
+		type="text"
+		bgborder="link:splattools.bgborder"
+		bgcolor="link:splattools.bgcolor"
+		bgalpha="link:splattools.bgalpha"
+		bgshadow="link:splattools.bgshadow"
+		bgroundedge="link:splattools.bgroundedge"
+		padding="8"
+		bgnormcolor="0x333333"
+		bgovercolor="0x707070"
+		bgdowncolor="0x555555"
+		txtshadow="link:splattools.txtshadow"
+		onloaded="bgcolor=bgnormcolor;"
+		ondown.addevent="bgcolor=bgdowncolor;"
+		onup.addevent="bgcolor=hovering?bgovercolor:bgnormcolor;"
+		onover.addevent="if(!pressed AND !pressedelement,bgcolor=bgovercolor);"
+		onout.addevent="if(!pressed AND !pressedelement,bgcolor=bgnormcolor);"
+		css="color:#FFFFFF;"
+		ondown="splattools_dragtool();"
+		textalign="center"
+		template="{{display.splats.rendermode:
+			'Mode: ' + (display.splats.rendermode == 'perspective'
+			? '[span style=[sq]background:#4284FF;padding:2px;[sq]]krpano[/span][br][div class=[sq]rendermodeinfo[sq]]• Perspective Projection[br]• Distance Sorting[br]• Fewer artifacts, more stable[br]• No FOV limit[br]• Fisheye Projections[/div]' 
+			: '[span style=[sq]background:#FF8442;padding:2px;[sq]]Standard[/span][br][div class=[sq]rendermodeinfo[sq]]• Common Gaussian Splatting[br]• Depth Sorting[br]• More flickering, less stable[br]• Limited FOV, no wide-angle[br]• No other projections[/div]')}}"
+		onclick="switch(display.splats.rendermode,'perspective','standard'); display.splats.sortmode = (display.splats.rendermode == 'perspective' ? 'distance' : 'depth');"
+		/>
+		
+	<action name="startup" autorun="onstart">
+		if(startscene === null OR !scene[get(startscene)],
+			if(device.mobilevr,
+				// use the kitchen3 scene by default for VR as it has fewer splats and fewer overdraw and performs better there
+				startscene = 'kitchen3';	
+			  ,
+				startscene = scene[0].name;
+			);
+		);
+		
+		loadscene(get(startscene));
+	</action>
+	
+	<style name="infolink"
+		type="text"
+		css="font-size:12px; font-style:italic; color:#FFFFFF;"
+		bg="false"
+		txtshadow="0 1 1 0, 1 0 1 0"
+		align="leftbottom"
+		zorder="10"
+		/>
+
+
+
+	<scene name="central2" title="Centrale 2 [small style='opacity:0.7;'](15.3 MB, compressed ply)[/small]">
+		
+		<control wheelmode="zoom" dollydistance="0.5" />
+		<view hlookat="0" vlookat="0" tx="0" ty="40" tz="0" oz="0" fov="105" />
+		
+		<image vrfloorlevel="160">
+			<splats devices="no-mobilevr"
+				url="%$splatspath%/central2_splat3_1_00.compressed_copyright.ply"
+				scale="0.62"
+				tx="233.2" ty="183.7" tz="145.1"
+				rx="0" ry="64.3" rz="0"
+				/>
+			<!-- use an alternative model with fewer 'overdraw' for better performance in VR -->
+			<splats devices="mobilevr"
+				url="%$splatspath%/Centrale2_MCMC_1000ks_Selected_frames.compressed.ply"
+				scale="0.88"
+				tx="81.58" ty="-29.1" tz="-50.70"
+				rx="0" ry="122.9" rz="0"
+				/>
+		</image>
+
+		<splattools viewpointsplayspeed="0.5" />
+		<viewpoint name="viewpoint 1" tx="0.0" ty="40.0" tz="0.0" oz="0.0" hlookat="0.0" vlookat="0.0" fov="105.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 2" tx="-193.42" ty="-221.82" tz="482.37" oz="0.0" hlookat="-24.48" vlookat="-0.04" fov="101.01" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 3" tx="-302.34" ty="-221.82" tz="745.75" oz="0.0" hlookat="-24.65" vlookat="-0.21" fov="97.69" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 4" tx="-503.35" ty="-23.23" tz="687.97" oz="0.0" hlookat="-37.19" vlookat="10.64" fov="97.69" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 5" tx="-408.18" ty="-23.23" tz="844.98" oz="0.0" hlookat="57.56" vlookat="3.55" fov="97.69" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 6" tx="213.36" ty="-23.23" tz="1129.03" oz="0.0" hlookat="77.65" vlookat="6.41" fov="97.69" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 7" tx="599.12" ty="-23.23" tz="874.01" oz="0.0" hlookat="151.37" vlookat="4.57" fov="88.2" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 8" tx="239.99" ty="28.56" tz="443.03" oz="0.0" hlookat="171.31" vlookat="11.82" fov="83.49" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 9" tx="444.98" ty="-20.87" tz="403.52" oz="0.0" hlookat="40.27" vlookat="7.2" fov="83.49" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 10" tx="489.13" ty="54.79" tz="244.07" oz="0.0" hlookat="-108.68" vlookat="29.22" fov="83.49" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 11" tx="191.18" ty="61.4" tz="-289.49" oz="238.0" hlookat="198.63" vlookat="9.05" fov="83.49" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 12" tx="200.37" ty="73.01" tz="-352.35" oz="421.74" hlookat="85.55" vlookat="38.54" fov="65.26" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 13" tx="200.37" ty="73.01" tz="-352.35" oz="235.68" hlookat="-32.66" vlookat="6.58" fov="97.77" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 14" tx="345.98" ty="47.87" tz="-332.4" oz="0.0" hlookat="-174.97" vlookat="2.35" fov="97.77" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 15" tx="218.53" ty="-7.26" tz="-816.53" oz="0.0" hlookat="-205.05" vlookat="10.06" fov="97.77" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 16" tx="345.41" ty="24.93" tz="-1056.41" oz="0.0" hlookat="-294.86" vlookat="13.34" fov="74.16" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 17" tx="673.36" ty="-222.2" tz="-1370.08" oz="0.0" hlookat="-362.25" vlookat="25.79" fov="74.16" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 18" tx="347.68" ty="-434.67" tz="-506.07" oz="0.0" hlookat="-382.01" vlookat="22.25" fov="74.16" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 19" tx="82.25" ty="-250.62" tz="-46.03" oz="0.0" hlookat="68.89" vlookat="90.0" fov="103.26" fisheye="1.0" architectural="0.0" />
+		<viewpoint name="viewpoint 20" tx="273.71" ty="-123.14" tz="-124.91" oz="0.0" hlookat="550.57" vlookat="37.89" fov="93.88" fisheye="1.0" architectural="0.0" />
+		<viewpoint name="viewpoint 21" tx="126.08" ty="-9.88" tz="-112.15" oz="0.0" hlookat="-23.51" vlookat="6.56" fov="83.5" fisheye="0.0" architectural="0.0" />
+
+		<layer style="infolink" text="Model provided by [a href='https://www.360images.fr/' target='_blank']360images.fr[/a]" />
+		
+	</scene>
+	
+
+	<scene name="kitchen3" title="Kitchen [small style='opacity:0.7;'](7.5 MB, splat)[/small]">
+		
+		<control wheelmode="zoom" dollydistance="0.5" />
+		<view hlookat="0" vlookat="0" tx="0" ty="25" tz="0" oz="0" fov="105" />
+		
+		<image vrfloorlevel="160">
+			<splats
+				url="%$splatspath%/kitchen_250.splat" 
+				scale="0.15" 
+				tx="144.5" ty="177" tz="-79.0" 
+				/>
+		</image>
+		
+		<splattools viewpointsplayspeed="0.5" />
+		<viewpoint name="viewpoint 1" tx="0.0" ty="25.0" tz="0.0" oz="0.0" hlookat="0.0" vlookat="0.0" fov="105.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 2" tx="2.54" ty="25.0" tz="184.66" oz="0.0" hlookat="15.73" vlookat="-18.9" fov="90.92" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 3" tx="2.54" ty="25.0" tz="184.66" oz="0.0" hlookat="33.14" vlookat="17.87" fov="90.92" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 4" tx="-60.37" ty="20.0" tz="97.46" oz="0.0" hlookat="267.04" vlookat="31.1" fov="90.92" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 5" tx="-74.68" ty="7.51" tz="61.25" oz="0.0" hlookat="259.5" vlookat="-6.05" fov="90.92" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 6" tx="-59.36" ty="15.01" tz="-18.75" oz="0.0" hlookat="259.79" vlookat="11.4" fov="90.92" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 8" tx="123.34" ty="15.01" tz="-65.34" oz="0.0" hlookat="132.61" vlookat="28.28" fov="86.21" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 9" tx="123.83" ty="-1.72" tz="-167.57" oz="0.0" hlookat="87.01" vlookat="36.6" fov="76.82" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 10" tx="123.61" ty="-13.72" tz="-253.74" oz="0.0" hlookat="85.85" vlookat="24.77" fov="59.26" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 11" tx="123.61" ty="-13.72" tz="-253.74" oz="0.0" hlookat="135.24" vlookat="24.32" fov="59.26" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 12" tx="54.17" ty="-13.72" tz="-286.02" oz="0.0" hlookat="289.29" vlookat="23.72" fov="59.26" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 13" tx="-41.56" ty="-13.72" tz="-250.89" oz="0.0" hlookat="344.88" vlookat="27.57" fov="59.26" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 14" tx="-15.11" ty="23.92" tz="-7.21" oz="0.0" hlookat="443.41" vlookat="89.24" fov="112.4" fisheye="1.0" architectural="0.0" />
+		<viewpoint name="viewpoint 15" tx="28.28" ty="23.92" tz="-50.1" oz="0.0" hlookat="557.5" vlookat="34.23" fov="100.0" fisheye="0.83" architectural="0.0" />
+
+		<layer style="infolink" text="Model provided by [a href='https://www.360images.fr/' target='_blank']360images.fr[/a]" />
+
+	</scene>
+	
+	
+	<scene name="eglise_chenille" title="Eglise Chenille [small style='opacity:0.7;'](62 MB, compressed ply)[/small]">
+		
+		<control wheelmode="zoom" dollydistance="0.5" />
+		<view hlookat="0" vlookat="0" tx="0" ty="-170.0" tz="0" oz="0" fov="98" />
+		
+		<image>
+			<splats
+				url="%$splatspath%/eglise_chenille_3840_4000_210.compressed.ply"
+				scale="1.0" 
+				tx="0.0" ty="160.0" tz="0.0" 
+				ry="-92.7"
+				/>
+		</image>
+		
+		<splattools viewpointsplayspeed="0.61" />
+		<viewpoint name="viewpoint 1" tx="0.0" ty="-170.0" tz="0.0" oz="0.0" hlookat="0.0" vlookat="0.0" fov="98.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 2" tx="153.4" ty="-207.94" tz="684.75" oz="0.0" hlookat="-42.16" vlookat="13.13" fov="98.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 3" tx="169.35" ty="-281.86" tz="1226.0" oz="0.0" hlookat="-153.2" vlookat="10.48" fov="98.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 4" tx="-260.94" ty="-281.86" tz="1150.74" oz="0.0" hlookat="-205.76" vlookat="19.25" fov="98.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 5" tx="-58.77" ty="-138.1" tz="621.44" oz="0.0" hlookat="-248.18" vlookat="15.55" fov="98.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 6" tx="387.28" ty="-138.09" tz="328.35" oz="0.0" hlookat="-330.66" vlookat="9.11" fov="93.37" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 7" tx="564.74" ty="-84.08" tz="296.96" oz="0.0" hlookat="-369.78" vlookat="-1.18" fov="93.37" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 8" tx="677.43" ty="-84.08" tz="237.32" oz="0.0" hlookat="-488.69" vlookat="12.84" fov="93.37" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 9" tx="578.55" ty="-424.06" tz="-262.42" oz="0.0" hlookat="-532.94" vlookat="-41.41" fov="93.37" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 10" tx="319.97" ty="-892.12" tz="-1138.48" oz="0.0" hlookat="-386.52" vlookat="35.97" fov="93.37" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 11" tx="-354.69" ty="-813.96" tz="-1200.66" oz="0.0" hlookat="-331.8" vlookat="36.74" fov="83.99" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 12" tx="32.2" ty="-187.57" tz="-224.34" oz="0.0" hlookat="-159.21" vlookat="64.38" fov="137.33" fisheye="1.0" architectural="0.0" />
+		<viewpoint name="viewpoint 13" tx="32.2" ty="-187.57" tz="-224.34" oz="0.0" hlookat="0.7" vlookat="80.0" fov="137.33" fisheye="1.0" architectural="0.0" />
+		<viewpoint name="viewpoint 14" tx="250.72" ty="-174.92" tz="-291.18" oz="0.0" hlookat="155.77" vlookat="22.24" fov="102.52" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 15" tx="204.35" ty="-128.87" tz="-783.79" oz="0.0" hlookat="328.28" vlookat="11.3" fov="102.52" fisheye="0.0" architectural="0.0" />
+
+		<layer style="infolink" text="Model provided by [a href='https://www.360images.fr/' target='_blank']360images.fr[/a]" />
+
+	</scene>
+	
+	
+	<scene name="garden_splat" title="Garden [small style='opacity:0.7;'](178 MB, splat)[/small]">
+		
+		<control wheelmode="zoom" dollydistance="0.5" />
+		<view hlookat="0" vlookat="23" tx="-66" ty="118" tz="142" oz="260" fov="75" />
+		
+		<image>
+			<splats
+				url="%$splatspath%/garden.splat" 
+				scale="1.0" 
+				tx="-87" ty="-50" tz="177.5"
+				rx="0" ry="90" rz="30" 
+				/>
+		</image>
+		
+		<viewpoint name="viewpoint 1" tx="-66.0" ty="118.0" tz="142.0" oz="260.0" hlookat="0.0" vlookat="23.0" fov="75.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 2" tx="-66.0" ty="118.0" tz="142.0" oz="260.0" hlookat="92.41" vlookat="11.51" fov="75.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 3" tx="-66.0" ty="118.0" tz="142.0" oz="260.0" hlookat="169.43" vlookat="2.77" fov="75.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 4" tx="-66.0" ty="118.0" tz="142.0" oz="260.0" hlookat="251.99" vlookat="29.82" fov="75.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 5" tx="-66.0" ty="118.0" tz="142.0" oz="255.11" hlookat="304.63" vlookat="8.33" fov="75.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 6" tx="-66.0" ty="118.0" tz="142.0" oz="748.05" hlookat="304.05" vlookat="13.73" fov="29.33" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 7" tx="-66.0" ty="118.0" tz="142.0" oz="748.05" hlookat="335.79" vlookat="41.6" fov="29.33" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 8" tx="-66.0" ty="118.0" tz="142.0" oz="748.05" hlookat="413.58" vlookat="58.63" fov="29.33" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 9" tx="-66.0" ty="118.0" tz="142.0" oz="748.05" hlookat="480.34" vlookat="30.15" fov="29.33" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 10" tx="-66.0" ty="118.0" tz="142.0" oz="748.05" hlookat="502.99" vlookat="7.16" fov="29.33" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 11" tx="-266.6" ty="76.15" tz="408.09" oz="0.0" hlookat="502.99" vlookat="7.16" fov="68.17" fisheye="0.96" architectural="0.0" />
+		<viewpoint name="viewpoint 12" tx="-150.66" ty="114.66" tz="263.39" oz="0.0" hlookat="499.02" vlookat="2.77" fov="68.17" fisheye="0.96" architectural="0.0" />
+		<viewpoint name="viewpoint 13" tx="-70.52" ty="115.24" tz="157.53" oz="0.0" hlookat="479.38" vlookat="-3.28" fov="68.17" fisheye="0.96" architectural="0.0" />
+		<viewpoint name="viewpoint 14" tx="54.72" ty="115.24" tz="81.99" oz="0.0" hlookat="479.38" vlookat="-3.28" fov="90.7" fisheye="0.96" architectural="0.0" />
+		<viewpoint name="viewpoint 15" tx="242.67" ty="5.83" tz="-31.74" oz="0.0" hlookat="648.46" vlookat="20.1" fov="81.36" fisheye="0.96" architectural="0.0" />
+		
+		<layer style="infolink" text="Model source: [a href='https://github.com/antimatter15/splat?tab=readme-ov-file#examples' target='_blank']antimatter15[/a]" />
+
+	</scene>
+	
+	
+	<scene name="garden_compressed_ply" title="Garden [small style='opacity:0.7;'](91 MB, compressed ply)[/small]">
+		
+		<control wheelmode="zoom" dollydistance="0.5" />
+		<view hlookat="0" vlookat="23" tx="-66" ty="118" tz="142" oz="260" fov="75" />
+		
+		<image>
+			<splats
+				url="%$splatspath%/garden.compressed.ply" 
+				scale="1.0" 
+				tx="-87" ty="-50" tz="177.5"
+				rx="0" ry="90" rz="30" 
+				/>
+		</image>
+		
+		<layer style="infolink" text="Model source: [a href='https://github.com/antimatter15/splat?tab=readme-ov-file#examples' target='_blank']antimatter15[/a]" />
+		
+	</scene>
+	
+	
+	<scene name="bicycle" title="Bicycle [small style='opacity:0.7;'](187 MB, splat)[/small]" >
+		
+		<control wheelmode="distance" dollydistance="0.5" />
+		<view hlookat="160" vlookat="21" tx="10" ty="82" tz="-5" oz="150" fov="97" />
+		
+		<image>
+			<splats url="%$splatspath%/bicycle.splat" scale="1.0" ry="90" rz="13" />
+		</image>
+		
+		<viewpoint name="viewpoint 1" tx="10.0" ty="82.0" tz="-5.0" oz="150.0" hlookat="160.0" vlookat="21.0" fov="97.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 2" tx="26.65" ty="100.69" tz="-50.76" oz="534.43" hlookat="160.0" vlookat="21.0" fov="46.3" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 3" tx="26.65" ty="100.69" tz="-50.76" oz="534.43" hlookat="207.66" vlookat="14.6" fov="46.3" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 4" tx="26.65" ty="100.69" tz="-50.76" oz="534.43" hlookat="238.38" vlookat="14.99" fov="46.3" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 5" tx="26.65" ty="100.69" tz="-50.76" oz="534.43" hlookat="270.9" vlookat="15.58" fov="46.3" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 6" tx="26.65" ty="100.69" tz="-50.76" oz="534.43" hlookat="308.12" vlookat="16.76" fov="46.3" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 7" tx="26.65" ty="100.69" tz="-50.76" oz="354.13" hlookat="360.55" vlookat="14.49" fov="65.66" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 8" tx="26.65" ty="100.69" tz="-50.76" oz="300.64" hlookat="412.03" vlookat="12.12" fov="74.47" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 9" tx="26.65" ty="100.69" tz="-50.76" oz="276.83" hlookat="430.54" vlookat="0.01" fov="79.07" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 10" tx="-120.06" ty="100.63" tz="-102.59" oz="0.0" hlookat="430.54" vlookat="0.01" fov="108.51" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 11" tx="-75.91" ty="100.63" tz="-86.99" oz="0.0" hlookat="430.54" vlookat="0.01" fov="108.51" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 12" tx="36.89" ty="100.63" tz="-47.14" oz="0.0" hlookat="430.54" vlookat="0.01" fov="108.51" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 13" tx="126.72" ty="100.63" tz="-15.41" oz="0.0" hlookat="430.54" vlookat="0.01" fov="108.51" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 14" tx="239.15" ty="90.62" tz="61.99" oz="0.0" hlookat="271.95" vlookat="5.89" fov="108.51" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 15" tx="149.98" ty="89.95" tz="52.72" oz="84.0" hlookat="199.11" vlookat="11.08" fov="101.6" fisheye="0.0" architectural="0.0" />
+		
+		<layer style="infolink" text="Model source: [a href='https://github.com/antimatter15/splat?tab=readme-ov-file#examples' target='_blank']antimatter15[/a]" />
+
+	</scene>
+	
+	
+	<scene name="landscape" title="Landscape [small style='opacity:0.7;'](40 MB, splat)[/small]">
+		
+		<control wheelmode="zoom" dollydistance="0.5" />
+		<view hlookat="0" vlookat="0" tx="400" ty="-400" tz="-800" oz="0" fov="100" />
+		
+		<image>
+			<splats url="%$splatspath%/storysplat-1733219369847.splat" scale="4.0" ry="90" ty="500" />
+		</image>
+		
+		<splattools viewpointsplayspeed="0.58" />
+		<viewpoint name="viewpoint 1" tx="425.11" ty="86.73" tz="-1044.53" oz="2053.0" hlookat="-4.17" vlookat="26.79" fov="100.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 2" tx="425.11" ty="86.73" tz="-1044.53" oz="2053.0" hlookat="-88.69" vlookat="31.9" fov="100.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 3" tx="-443.67" ty="238.42" tz="-650.93" oz="2053.0" hlookat="-170.48" vlookat="39.88" fov="100.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 4" tx="-1461.01" ty="-580.58" tz="-911.9" oz="2053.0" hlookat="-279.55" vlookat="55.12" fov="100.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 5" tx="925.57" ty="-7861.19" tz="-375.33" oz="2053.0" hlookat="-411.11" vlookat="78.52" fov="100.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 6" tx="579.25" ty="-12345.59" tz="71.97" oz="2053.0" hlookat="-476.82" vlookat="80.4" fov="100.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 7" tx="-1940.19" ty="-3360.53" tz="3874.25" oz="0.0" hlookat="-565.21" vlookat="77.23" fov="100.0" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 8" tx="-902.43" ty="-201.0" tz="1373.49" oz="0.0" hlookat="-589.11" vlookat="45.4" fov="95.32" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 9" tx="-180.31" ty="230.01" tz="760.69" oz="0.0" hlookat="-582.87" vlookat="11.28" fov="95.34" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 10" tx="751.9" ty="230.01" tz="-95.95" oz="0.0" hlookat="-587.04" vlookat="5.92" fov="95.34" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 11" tx="1209.67" ty="230.01" tz="-912.13" oz="0.0" hlookat="-427.97" vlookat="5.8" fov="95.34" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 12" tx="588.64" ty="329.97" tz="-925.17" oz="0.0" hlookat="-428.33" vlookat="4.57" fov="95.34" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 13" tx="-76.28" ty="342.91" tz="-454.05" oz="0.0" hlookat="-408.61" vlookat="3.96" fov="95.34" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 14" tx="-1056.59" ty="321.13" tz="434.5" oz="0.0" hlookat="-408.61" vlookat="3.96" fov="95.34" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 15" tx="-1657.97" ty="125.78" tz="657.32" oz="0.0" hlookat="-447.26" vlookat="-24.26" fov="95.34" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 16" tx="-3854.23" ty="-582.75" tz="483.36" oz="0.0" hlookat="-620.86" vlookat="43.5" fov="95.34" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 17" tx="-936.51" ty="-4.77" tz="-1526.1" oz="2053.0" hlookat="50.26" vlookat="45.79" fov="90.56" fisheye="0.0" architectural="0.0" />
+
+		
+		<layer style="infolink" text="Model source: [a href='https://storysplat.com/loran-3d?sceneId=1733219369847' target='_blank']storysplat[/a]" />
+		
+	</scene>
+	
+	
+	<scene name="house_gaussian" title="House [small style='opacity:0.7;'](34 MB, splat)[/small]">
+		
+		<control wheelmode="distance" dollydistance="5.0" />
+		<view hlookat="-55" vlookat="7" tx="0" ty="0" tz="0" oz="2000" fov="100" />
+		
+		<image>
+			<splats url="%$splatspath%/house-cmp/model.splat" scale="9.728" ry="90" tx="26.5" ty="-38.5" tz="-14.5" />
+		</image>
+		
+		<viewpoint name="viewpoint 1" tx="0.0" ty="0.0" tz="0.0" oz="2000.0" hlookat="-55.0" vlookat="7.0" fov="76.73" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 2" tx="0.0" ty="0.0" tz="0.0" oz="2000.0" hlookat="-21.57" vlookat="-7.71" fov="76.73" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 3" tx="0.0" ty="0.0" tz="0.0" oz="2000.0" hlookat="16.61" vlookat="-1.11" fov="76.73" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 4" tx="0.0" ty="0.0" tz="0.0" oz="2000.0" hlookat="44.95" vlookat="21.17" fov="76.73" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 5" tx="0.0" ty="0.0" tz="0.0" oz="2000.0" hlookat="81.95" vlookat="15.98" fov="76.73" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 6" tx="0.0" ty="0.0" tz="0.0" oz="2000.0" hlookat="116.45" vlookat="1.27" fov="76.73" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 7" tx="0.0" ty="0.0" tz="0.0" oz="2000.0" hlookat="145.23" vlookat="-8.69" fov="76.73" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 8" tx="0.0" ty="0.0" tz="0.0" oz="2000.0" hlookat="182.22" vlookat="-2.84" fov="76.73" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 9" tx="0.0" ty="0.0" tz="0.0" oz="2000.0" hlookat="210.13" vlookat="12.19" fov="76.73" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 10" tx="0.0" ty="0.0" tz="0.0" oz="2000.0" hlookat="239.23" vlookat="22.25" fov="76.73" fisheye="0.0" architectural="0.0" />
+		<viewpoint name="viewpoint 11" tx="0.0" ty="0.0" tz="0.0" oz="2000.0" hlookat="270.82" vlookat="18.47" fov="76.73" fisheye="0.0" architectural="0.0" />
+		
+		<layer style="infolink" text="Model provided by [a href='https://www.virtualtuur.com/' target='_blank']virtualtuur.com[/a]" />
+
+	</scene>
+	
+	
+	
+
+
+	<scene name="central2_threejs" title="Centrale 2 with ThreeJS models">
+		
+		<control wheelmode="zoom" dollydistance="0.5" />
+		<include url="%VIEWER%/plugins/drag3d.xml" />
+		
+		<view hlookat="0" vlookat="0" tx="0" ty="40" tz="0" oz="0" fov="105" />
+		
+		<image objectsize="0" vrfloorlevel="160">
+			<preview type="cubestrip" url="envmap.jpg" />
+			<splats
+				url="%$splatspath%/central2_splat3_1_00.compressed_copyright.ply"
+				scale="0.62"
+				tx="233.2" ty="183.7" tz="145.1"
+				rx="0" ry="64.3" rz="0"
+				/>
+		</image>
+		
+		<plugin api="threejs" url="%VIEWER%/plugins/threejs_krpanoplugin.js" />
+	
+		<threejs
+			envmapurl="preview"
+			ambientlight="1.0"
+			/>
+			
+		<!-- show shadows using a virtual floor and an invisible light -->
+		<threejs shadowfloor="true" shadowfloorlevel="155" shadowflooralpha="0.3" />
+		<hotspot name="floorshadowlight" type="threejslight" mode="sun" intensity="0.0" castshadow="true" shadowmapres="1024" ath="0" atv="-90" keep="true" />
+
+		<!-- add a rotating light -->
+		<hotspot name="light" 
+			type="threejslight"
+			mode="sun"
+			intensity="3.0"
+			color="0xFFFFFF"
+			ath="0" atv="-30"
+			onloaded="asyncloop(loaded, ath=timertick*0.02);"
+			/>
+		
+		<!-- some 3D Models to show the environment-based lighting and coloring -->
+		<hotspot name="helmet" 
+			type="threejs"
+			url="../threejs/models/damagedhelmet.glb"
+			scale="0.35"
+			depth="0"
+			tx="0" ty="40" tz="150"
+			ondown="drag3d();"
+			/>
+			
+		<hotspot name="box" 
+			type="threejs"
+			url="../threejs/models/cube.glb"
+			scale="0.25"
+			depth="0"
+			tx="-100" ty="40" tz="150"
+			ondown="drag3d();"
+			/>
+
+		<hotspot name="steelball" 
+			type="threejs"
+			url="../threejs/models/steelball.glb"
+			scale="0.015"
+			depth="0"
+			tx="100" ty="40" tz="150"
+			onloaded="centermodel();"
+			ondown="drag3d();"
+			/>
+			
+		<layer style="infolink" text="Model provided by [a href='https://www.360images.fr/' target='_blank']360images.fr[/a]" />
+			
+	</scene>
+	
+	
+	<cssstyles>
+		a{text-decoration:none;}
+		a:hover{text-decoration:underline;}
+	</cssstyles>
+	
+	<layer name="backlink" style="infolink" keep="true"
+		text="[a href='https://krpano.com']krpano.com[/a]"
+		align="rightbottom"
+		/>
+		
+	
+		
+	<!-- file-drop support - a little tool for quickly testing own splat models -->
+	<action name="splatexamples_drop_in_support" autorun="onstart" type="js"><![CDATA[
+
+		function preventDefault(e)
+		{
+			if (e.type == "dragover") e.dataTransfer.dropEffect = "copy";
+			e.preventDefault();
+			e.stopPropagation();
+		}
+
+		function enable_drop_in_support()
+		{
+			document.addEventListener("dragenter", preventDefault);
+			document.addEventListener("dragover", preventDefault);
+			document.addEventListener("dragleave", preventDefault);
+
+			document.addEventListener("drop", function(e)
+			{
+				preventDefault(e);
+
+				var file = e.dataTransfer.files[0];
+				if (!file)
+					return;
+				
+				var urlinfo = krpano.utils.spliturl(file.name);
+
+				// only .splat and .ply files are supported
+				var fileext = urlinfo.ext.toLowerCase();
+				if (fileext != "splat" && fileext != "ply")
+					return;
+				
+				// create a URL object
+				var fileURL = URL.createObjectURL(file);
+
+				// krpano will take the text after the '#' as filename for blob-urls
+				var bloburl_with_filename = fileURL + "#" + file.name;
+
+				// load the dropped splat model
+				krpano.image.reset();
+				krpano.image.splats.url = bloburl_with_filename;
+				krpano.actions.loadpanoimage();
+				
+				// reset the view
+				krpano.view.reset();
+
+				// remove the URL object when leaving the pano
+				krpano.events.addListener("onremovepano|once", function()
+				{
+					URL.revokeObjectURL(fileURL);
+				});
+			});
+		}
+
+		enable_drop_in_support();
+
+	]]></action>
+
+</krpano>

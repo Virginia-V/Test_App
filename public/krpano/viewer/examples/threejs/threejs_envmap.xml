@@ -1,0 +1,159 @@
+<krpano>
+
+	<data name="infotext">
+		Environment Maps<br/>
+		<br/>
+		With Environment Maps the 3D Models can use Reflections and Ambient Lighting
+		and based on the Colors of the surrounding environment.
+		This immediately improves the seamless integration of the 3D Model into the scene.
+	</data>
+
+
+	<include url="%VIEWER%/plugins/webvr.xml" devices="mobilevr" />
+	<webvr postracking="true" />
+	
+	<include url="%VIEWER%/plugins/iphone_fullscreen_swipe.xml" />
+
+	<include url="%VIEWER%/plugins/controls3d.xml" />
+	<control collision="false" />
+	
+	<include url="%VIEWER%/plugins/drag3d.xml" />
+
+
+	<!-- use a reduced depthbuffer range for better rendering accuracy -->
+	<display depthrange="5,10000" />
+
+
+	<plugin api="threejs" keep="true" url="%VIEWER%/plugins/threejs_krpanoplugin.js" />
+	
+	<threejs
+		ambientlight="1.0"
+		/>
+
+
+	<!-- add a rotating light -->
+	<hotspot name="light" keep="true"
+		type="threejslight"
+		mode="sun"
+		intensity="3.0"
+		color="0xFFFFFF"
+		ath="0" atv="-30"
+		onloaded="asyncloop(loaded, ath=timertick*0.02);"
+		/>
+
+
+	<!-- show shadows using a virtual floor and an invisible light -->
+	<threejs shadowfloor="true" shadowfloorlevel="148" shadowflooralpha="0.15" />
+	<hotspot name="floorshadowlight" type="threejslight" mode="sun" intensity="0.0" castshadow="true" shadowmapres="1024" ath="0" atv="-90" keep="true" />
+
+
+	<!-- some 3D Models to show the environment-based lighting and coloring -->
+	<hotspot name="helmet" keep="true"
+		type="threejs"
+		url="models/damagedhelmet.glb"
+		scale="0.5"
+		depth="0"
+		tx="0" ty="0" tz="0"
+		ondown="drag3d();"
+		/>
+		
+	<hotspot name="box" keep="true"
+		type="threejs"
+		url="models/cube.glb"
+		scale="0.25"
+		depth="0"
+		tx="-100" ty="0" tz="0"
+		ondown="drag3d();"
+		/>
+
+	<hotspot name="steelball" keep="true"
+		type="threejs"
+		url="models/steelball.glb"
+		scale="0.014"
+		depth="0"
+		tx="100" ty="0" tz="0"
+		onloaded="centermodel();"
+		ondown="drag3d();"
+		/>
+
+
+
+	<!-- the startup view -->
+	<view hlookat="0" vlookat="0" fov.normal="95" fov.mobile="105" tx="0" ty="0" tz="-160" />
+
+
+	<!-- some example scenes -->
+	<scene name="s1" autoload="true">
+		<threejs envmapurl="preview" />
+		<image objectsize="infinity">
+			<preview url="../webvr/panos/intro/preview.jpg" />
+			<cube url="../webvr/panos/intro/pano_%s.jpg" />
+		</image>
+	</scene>
+
+	<scene name="s2">
+		<threejs envmapurl="preview" />
+		<image objectsize="infinity">
+			<preview url="../demotour-corfu/panos/canaldemure5.tiles/preview.jpg" />
+			<cube url="../demotour-corfu/panos/canaldemure5.tiles/mobile_%s.jpg" if="browser.domain != 'krpano.com'" />
+			<cube url="https://krpano.com/tours/corfu/panos/canaldemure5.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,768,1536,2816" if="browser.domain == 'krpano.com'" />
+		</image>
+	</scene>
+
+	<scene name="s3">
+		<threejs envmapurl="../depthmap/depthmap-textured/envmap.jpg" />
+		<image>
+			<preview url="../depthmap/depthmap-textured/texture_preview.jpg" />
+			<depthmap url="../depthmap/depthmap-textured/tourmodel.obj" texurl="../depthmap/depthmap-textured/texture.jpg" scale="100" hittest="true" />
+		</image>
+	</scene>
+
+	<scene name="s4">
+		<threejs envmapurl="../depthmap/depthmap-helper-tool/envmap.jpg" />
+
+		<image>
+			<sphere   url="../depthmap/depthmap-helper-tool/habitacio_01.jpg" />
+			<depthmap url="../depthmap/depthmap-helper-tool/habitacio_01_depthmap.jpg" enabled="true" mapmode="1" scale="0.5" offset="0.293" curve="1.0" hittest="true" />
+		</image>
+	</scene>
+
+
+	<!-- thumbs for scene switching -->
+	<settings loadflags="MERGE|KEEPMOVING" blending="SLIDEBLEND(1.5)" />
+
+	<style name="thumb" bgborder="3 0xFFFFFF 1" bgshadow="0 0 1 0 0x000000 1.0 inset,0 3 4 0x000000 0.5" width="relink:stagewidth:stagewidth LT 550 ? 40 : 60" height="relink:stagewidth:stagewidth LT 550 ? 40 : 60" />
+
+	<layer keep="true" type="container" width="100%" align="bottom" y="20">
+		<layer type="scrollarea" align="top" direction="h" flowchildren="h" childflowspacing="16" childmargin="16" onresize="parentobject.height=height;">
+			<layer style="thumb" type="text" text="X" textalign="center" bgcolor="0xAAAAAA" onclick="remove_envmap();" />
+			<layer style="thumb" url="../webvr/panos/intro/thumb.jpg" onclick="loadscene(s1, null, get(settings.loadflags), get(settings.blending));" />
+			<layer style="thumb" url="../demotour-corfu/panos/canaldemure5.tiles/mobile_f.jpg" onclick="loadscene(s2, null, get(settings.loadflags), get(settings.blending));" />
+			<layer style="thumb" url="../depthmap/depthmap-textured/thumb.jpg" onclick="loadscene(s3, null, get(settings.loadflags), get(settings.blending));" />
+			<layer style="thumb" url="../depthmap/depthmap-helper-tool/thumb.jpg" onclick="loadscene(s4, null, get(settings.loadflags), get(settings.blending));" />
+		</layer>
+	</layer>
+
+
+	<!-- remove the environment by reloading the current image and setting envmapurl to null -->
+	<action name="remove_envmap">
+		image.reset(copy);
+		loadpanoimage(get(settings.loadflags), get(settings.blending));
+		threejs.envmapurl=null;
+	</action>
+
+
+	<layer name="info" keep="true"
+		type="text"
+		text="data:infotext"
+		width="320"
+		bg="false"
+		css="color:#FFFFFF; font-size:14px; text-align:center; line-height:18px;"
+		txtshadow="0 1 4 0x000000 1.0"
+		align="top"
+		y="100"
+		onclick="set(enabled,false); tween(alpha,0,0.5,default,remove());"
+		onloaded="delayedcall(12, onclick() );"
+		/>
+
+
+</krpano>

@@ -1,0 +1,61 @@
+﻿<krpano>
+
+	<include url="%VIEWER%/plugins/controls3d.xml" />
+		
+	<!--
+		For the demo: a grid pano, but 'moved down' to place the
+		cube bottom face at the demo 'floorheight' of 160cm.
+	-->
+	<preview type="grid()" />
+	<image oy="calc:-1000+160" />
+		
+	<!--
+		The hotspot placed at a 'virtual' floorheight of 160cm.
+		For the demo: the view will move toward the spot position 
+		in 3d-space when clicking, but for normal/non-depthmapped panos
+		this wouldn't be sensefull!
+	-->
+	<hotspot name="floorspot" devices="mouse"
+		type="text"
+		html=""
+		css="font-size:80px;text-align:center;" vcenter="true"
+		width="200" height="200" scale="0.2"
+		bgalpha="0.5" bgroundedge="100" bgborder="2 0x000000 1" bgshadow="0 0 5 0xFFFFFF 1.0"
+		oversampling="2" mipmapping="true" zorder="1"
+		distorted="true" depth="0" depthbuffer="true"
+		torigin="world" rotationorder="xyz" rx="-90"
+		capture="false" handcursor="false"
+		autoalpha="true"
+		floorheight_cm="160"
+		onloaded="place_floorspot_at_mouse_pos();"
+		onclick="tween(view.tx, get(tx)); tween(view.tz, get(tz));"
+		/>
+	
+	<!--
+		Calculate the 3d position where the mouse cursor is pointing at the floor.
+		Do this here as long as the hotspot is loaded, but that could be also done
+		in many other ways, e.g. when hovering another hotspot that defines the
+		location or area where the floor hotspot should appear.
+	-->
+	<action name="place_floorspot_at_mouse_pos" scope="local">
+		d = 1;
+		asyncloop(caller.loaded,
+			screentosphere(mouse.x,mouse.y, h,v);
+			spheretospace(h,v,d, x,y,z);
+			fh = caller.floorheight_cm - view.ty + view.oy_rotated;
+			x = x*fh/y;
+			z = z*fh/y;
+			caller.tx = view.tx - view.ox_rotated + x;
+			caller.tz = view.tz - view.oz_rotated + z;
+			caller.ty = view.ty - view.oy_rotated + fh;
+			<!-- optionally rotate the hotspot toward the target direction (e.g. for image-arrow-spots):
+			caller.ry = atan2(x,z) * 180/Math.PI;
+			-->
+			<!-- optionally fade out the spot when too far away:
+			distance = sqrt(x*x + z*z);
+			caller.alpha = distance LT 1000 ? 1.0 : 1.0-(distance-1000)/100;
+			-->
+		);
+	</action>
+
+</krpano>

@@ -1,0 +1,25 @@
+<krpano>
+	
+	<!--
+		An example for using a HTML5 Canvas as pano-image or as webgl-hotspot.
+		See the canvas.js for details.
+	-->
+	
+	<preview type="grid" />
+
+	<hotspot url="canvas.js" distorted="true" ath="10" atv="10" scale="0.7" ondown="drawing();" />
+		
+	<action name="drawing">
+		copy(lastx, hitx);
+		copy(lasty, hity);
+		asyncloop(pressed,
+			drawline(get(lastx), get(lasty), get(hitx), get(hity), 0x0000AA);
+			copy(lastx, hitx);
+			copy(lasty, hity);
+		);
+	</action>
+	
+	<!-- include a contextmenu with different projection settings -->
+	<include url="%VIEWER%/plugins/contextmenu.xml" />
+	
+</krpano>

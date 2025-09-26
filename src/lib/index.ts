@@ -5,6 +5,7 @@ export * from "./furniture-images";
 export * from "./inventory-images";
 export * from "./product_icons";
 export * from "./menu_preview_images";
+export * from "./panorama-organizer"
 
 /**
  * Get all material keys for a given object type from a data object (MENU_IMAGES or PANORAMAS).

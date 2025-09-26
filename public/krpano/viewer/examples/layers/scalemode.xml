@@ -1,0 +1,48 @@
+<krpano>
+	
+	<preview type="grid" />
+	
+	<style name="box"
+		type="container" bgcolor="0x777777" bgborder="5 0xFFFF00 0.5" bgalpha="1" bgcapture="true" width="40" height="40"
+		onwheel="calc(scale,scale*(1+wheeldelta_raw/20));"
+		scalemode="scale"
+		capturewheel="true"
+		/>
+		
+	<layer name="paddingtest" type="container" align="center" x="10" y="10" bgcolor="0xAAAADD" bgalpha="0.75" 
+		width="300" 
+		height="300" 
+		childmargin="10" 
+		bgcapture="true"
+		bgroundedge="10"
+		bgborder="4 0xFF0000 0.7" 
+		bgshadow="10 10 5 5 0xFFFFFF 0.2"
+		scalechildren="true"
+		scalemode="scale"
+		onclick="switch(scalemode, 'scale', 'resize');"
+		onwheel="calc(scale,scale*(1+wheeldelta_raw/20));"
+		capturewheel="true"
+	>
+		
+		<layer name="red1"   style="box" bgcolor="0xFF0000" align="lefttop" />
+		<layer name="green1" style="box" bgcolor="0x00FF00" align="top" />
+		<layer name="blue1"  style="box" bgcolor="0x0000FF" align="righttop" />
+		
+		<layer name="red2"   style="box" bgcolor="0xFF0000" align="left" />
+		<layer name="blue2"  style="box" bgcolor="0x0000FF" align="right" />
+		
+		<layer name="red3"   style="box" bgcolor="0xFF0000" align="leftbottom" />
+		<layer name="green3" style="box" bgcolor="0x00FF00" align="bottom" />
+		<layer name="blue3"  style="box" bgcolor="0x0000FF" align="rightbottom" />
+		
+		<layer name="info" type="text"
+			html="Use the mouse-wheel to scale...[br]Click to change the scalemode..."
+			css="color:white;"
+			bgalpha="0"
+			align="center"
+			enabled="false"
+			/>
+			
+	</layer>
+		
+</krpano>

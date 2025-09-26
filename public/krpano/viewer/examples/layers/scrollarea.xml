@@ -1,0 +1,53 @@
+<krpano>
+	
+	<!-- another scrollarea example -->
+	
+	<preview type="grid" />
+	
+	<view fovmin="60" fovmax="140" limitview="lookat" vlookatmin="-60" vlookatmax="+60" />
+	
+	<style name="item" type="text" width="100%" bgcolor="0xBBBBBB" bgalpha="1.0" bgborder="1 0xFFFFFF" 
+		onloaded="if(bgcolor==0xBBBBBB AND (index BAND 1)==1, bgcolor=0x999999);"
+		/>
+	
+	<layer name="box" type="container"
+		align="center" width="200" height="300"
+		bgcolor="0x777777" bgalpha="1.0" bgborder="2 0xAAAAAA 1.0" bgcapture="true" capturewheel="true"
+	>
+		<layer name="scrollarea"
+			type="scrollarea"
+			align="lefttop" 
+			width="100%"
+			flowchildren="v"
+			childflowspacing="6"
+			childmargin="4"
+			scrolltype="smooth"
+			direction="v"
+			draggable="true"
+			mwheel="true"
+		>
+			<layer style="item" text="Top" />
+			<layer style="item" bgcolor="0xFFFFFF" template="scrolltype={{layer[scrollarea].scrolltype}} [span style='font-size:9px;color:gray;'](click to change)[/span]" onclick="switch(layer[scrollarea].scrolltype, smooth, inertia, step)" />
+			<layer style="item" text="Test Lines[br]Test" />
+			<layer style="item" text="Test Lines[br]Test" />
+			<layer style="item" text="Test Lines[br]Test" />
+			<layer style="item" text="Test Lines[br]Test" />
+			<layer style="item" text="NO WHEEL SCROLL HERE" padding="20 0" bgcolor="0x2288AA" capturewheel="true" textalign="center" onclick="text+=' click';" />
+			<layer style="item" text="Test Lines[br]Test" />
+			<layer style="item" text="Test Lines[br]Test" />
+			<layer style="item" text="Test Lines[br]Test" />
+			<layer style="item" text="Test Lines[br]Test" />
+			<layer style="item" text="Test Lines[br]Test" />
+			<layer style="item" text="Test Lines[br]Test" />
+			<layer style="item" text="Test Lines[br]Test" />
+			<layer style="item" text="Test Lines[br]Test" />
+			<layer style="item" text="Test Lines[br]Test" />
+			<layer style="item" text="Test Lines[br]Test" />
+			<layer style="item" bgcolor="0xFFFFFF" text="Scroll to top" onclick="layer[scrollarea].scrolltocenter(0,0);" />
+			<layer style="item" text="Last line..." />
+			
+		</layer>
+	</layer>
+	
+	
+</krpano>

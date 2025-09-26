@@ -1,0 +1,67 @@
+<krpano>
+	
+	<include url="%VIEWER%/plugins/webvr.xml" />
+	<include url="%VIEWER%/plugins/controls3d.xml" />
+	<include url="%VIEWER%/plugins/cursor3d.xml" devices="desktop" />
+	<include url="%VIEWER%/plugins/iphone_fullscreen_swipe.xml" devices="iphone" />
+	
+	<!-- adjust the webvr buttons style (and use that style also in the intro.xml) -->
+	<style name="webvr_button_style" bgroundedge="5" bgcolor="0x2D3E50" bgalpha="0.8" bgborder="1 0xFFFFFF 0.5" bgshadow="0 4 10 0x000000 0.3" bgblur="5" />
+	
+	<include url="intro.xml" />
+	
+	<control collision="true" groundcollision="true" usevrfloorlevel="true" />
+	<view fovmin="20" fovmax="150" />
+	<display depthrange="5,100000" />
+
+
+	<image>
+		<depthmap url="tuscany.obj" backgroundurl="sky.jpg" subdiv="0" axis="-y+x+z" scale="1.0" origin="-214,10863,14603" hittest="true" />
+	</image>
+	
+	
+	<!-- UI -->
+	
+	<include url="%VIEWER%/plugins/vr_and_anaglyph_buttons.xml" />
+	
+	<layer name="mouse_3d_cursor" keep="true" devices="desktop" 
+		type="text" text="[span style='font-size:12px']3D[/span][br]Cursor"
+		css="font-size:9px;"  textalign="center" align="leftbottom" x="23" width="34" y="97" bgroundedge="5" bgborder="1 0x000000 0.5" bgshadow="0 0 1 0x000000 0.5" 
+		bgcolor="link:cursor3d.enabled:cursor3d.enabled ? 0x60FF90 : 0xEEEEEE" 
+		onclick="switch(cursor3d.enabled);"
+		/>
+		
+	<style name="button" type="text" css="text-align:center;" padding="4 8" bgborder="0 0xFFFFFF 1" bgroundedge="1" bgshadow="0 1 4 0x000000 1.0" 
+		onover="if(!pressed,set(bgcolor, 0xEEEEEE));" onout="if(!pressed,set(bgcolor, 0xFFFFFF));"
+		ondown="set(bgcolor, 0xDDDDDD);" onup="set(bgcolor, (hovering ? 0xEEEEEE : 0xFFFFFF));" 
+		/>
+	
+	<layer type="container" flowchildren="v" childflowspacing="10" align="bottom" y="20" bgcapture="true" handcursor="false" keep="true">
+		<layer name="dollhouse" style="button" text="Dollhouse"  width="80" onclick="dollhouse_view();" />
+		<layer name="resetview" style="button" text="Reset View" width="80" onclick="resetview();" />
+	</layer>
+	
+	<action name="resetview">
+		control.wheelmode = "zoom";
+		tween(view.oz,0);
+		view.limitview = "auto";
+		oninterrupt( stoplookto(); stoptween(view.tx|view.ty|view.tz); );
+		lookto(0,0,90,tween("default",1.0),true,true);
+		tween(view.tx|view.ty|view.tz, 0|0|0, 1.0, default, WAIT);
+	</action>
+	
+	<action name="dollhouse_view">
+		if(view.oz GT 0,
+			resetview();
+		,
+			control.wheelmode = "distance";
+			lookto(270,50,90,default,true,true);
+			tween(view.oz, 3000.0);
+			view.limitview = "lookat";
+			view.vlookatmin = 0;
+			view.vlookatmax = 90;
+			tween(view.tx|view.ty|view.tz, 50|15|1600);
+		);
+	</action>
+
+</krpano>

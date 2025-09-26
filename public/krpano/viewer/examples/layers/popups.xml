@@ -1,0 +1,299 @@
+<krpano>
+
+	<include url="%VIEWER%/plugins/contextmenu.xml" />
+	<include url="%VIEWER%/plugins/iphone_fullscreen_swipe.xml" />
+	
+
+	<view hlookat="0" vlookat="0" fov="90" fovtype="MFOV" />
+
+	<image>
+		<preview url="../custom-contextmenu/preview.jpg" />
+		<cube url="../custom-contextmenu/mobile_%s.jpg" />
+	</image>
+
+
+	<style name="infospot"
+		type="text"
+		renderer="webgl"
+		css="color:#FFFFFF; font-size:16px; font-weight:bold; text-align:center;"
+		textalign="center"
+		width="80" height="80"
+		bgroundedge="100"
+		bgcolor="0x555555" 
+		bgalpha="0.8" 
+		bgborder="1 0xFFFFFF 1"
+		bgshadow="0 0 16 0x000000 1"
+		txtshadow="0 0 1 0x000000 1.0"
+		oversampling="2"
+		mipmapping="true"
+		zoom="true"
+		distorted="true"
+		capture="false"
+		/>
+
+	<style name="circlespot"
+		ox="0"
+		oy="0"
+		scale="0"
+		alpha="0"
+		enabled="false"
+		onover="tween(scale,1.1)"
+		onout="tween(scale,1.0)"
+		ondown="onover()"
+		onup="onout()"
+		/>
+
+	
+	<hotspot name="showexamples" style="infospot"
+		text="Popup[br]Examples"
+		width="100" height="100"
+		ath="0" atv="0"
+		onclick="show_examples()"
+		/>
+		
+	<hotspot name="hideexamples"
+		url="closex.png" renderer="webgl" distorted="true" scale="0.0" autoalpha="true" alpha="0" enabled="false"
+		ath="0" atv="0"
+		onover="tween(scale,0.6);"
+		onout="tween(scale,0.5);"
+		onclick="hide_examples()"
+		/>
+	
+	<action name="show_examples" scope="local">
+		callwith(hotspot[showexamples],
+			enabled=false;
+			tween(alpha|scale, 0|0);
+		);
+		callwith(hotspot[hideexamples],
+			tween(alpha|scale, 1|0.5, 0.5, default, enabled=true);
+		);
+		
+		<!-- first count the hotspots -->
+		n = 0;
+		forall(hotspot, h, if(contains(h.style,'circlespot'), inc(n); ));
+		
+		<!-- and then arrange them in a circle -->
+		i = 0;
+		d = style[infospot].width + 10;
+		a = Math.PI/n;
+		r = d/2 * (1 + (1 - sin(a)) / sin(a));
+		forall(hotspot, h,
+			if(contains(h.style,'circlespot'),
+				a = i/n * Math.PI * 2.0  + Math.PI/2;
+				inc(i);
+				callwith(h,
+					tween(ox|oy|scale|alpha, (join('|',-r * cos(a),-r * sin(a),1,1)), 0.5, default, enabled=true);
+				);
+			);
+		);
+	</action>
+	
+	<action name="hide_examples" scope="local">
+		callwith(hotspot[showexamples],
+			tween(alpha|scale, 1|1, 0.5, default, enabled=true);
+		);
+		callwith(hotspot[hideexamples],
+			enabled=false;
+			tween(alpha|scale, 0|0);
+		);
+		forall(hotspot, h,
+			if(contains(h.style,'circlespot'),
+				h.enabled = false;
+				callwith(h,
+					tween(ox|oy|scale|alpha, 0|0|0.0|0);
+				);
+			);
+		);
+	</action>
+	
+	
+
+	<hotspot name="spot1" style="infospot|circlespot"
+		text="HTML"
+		ath="0" atv="0"
+		onclick="popup('html', get(data[data_html_example].content), 600, 300, true);"
+		/>
+
+	<hotspot name="spot2" style="infospot|circlespot"
+		text="Web"
+		ath="0" atv="0"
+		onclick="popup('iframe', 'https://krpano.com/', 800, 600, true);"
+		/>
+
+	<hotspot name="spot3" style="infospot|circlespot"
+		text="VTour"
+		ath="0" atv="0"
+		onclick="popup('iframe', 'examples/demotour-corfu/index.html', 800, 600, false);"
+		/>
+
+	<hotspot name="spot4" style="infospot|circlespot"
+		text="Youtube"
+		ath="0" atv="0"
+		onclick="popup('iframe', 'https://www.youtube.com/embed/uPtbSTrZYDU?rel=0&amp;hd=1&amp;vq=hd1080&amp;showinfo=0&amp;autoplay=1', 900, 506, false);"
+		/>
+
+	<hotspot name="spot5" style="infospot|circlespot"
+		text="Image 2"
+		ath="0" atv="0"
+		onclick="popup('image', '%CURRENTXML%/../hotspot-alphachannel/alphachannel_sbs.jpg');"
+		/>
+
+	<hotspot name="spot6" style="infospot|circlespot"
+		text="Image 1"
+		ath="0" atv="0"
+		onclick="popup('image', '%CURRENTXML%/../maps-comparison/pano_f.jpg');"
+		/>
+	
+
+
+	<action name="popup" scope="private:POPUP" args="type, content, width, height, scrollbars, onclose_callback"><![CDATA[
+		if(popup, break(); );
+		
+		addlayer('popup_bg', popup_bg);
+		linkeventscope(popup_bg);
+		set(popup_bg,
+			type=container,
+			align=lefttop, 
+			width=100%, 
+			height=100%,
+			zorder=99,
+			handcursor=false,
+			bgcapture=true,
+			capture=false,
+			bgblur=0,
+			bgcolor=0xFFFF00,
+			bgalpha=0.0,
+			onloaded='tween(caller.bgblur,15); tween(caller.bgalpha,0.0);',		// bgalpha > 0 => colorize the background
+			onclick='popup_close()'
+		);
+			
+		
+		addlayer('popup', popup);
+		set(popup,
+			type=container,
+			parent='popup_bg',
+			popupwidth=get(width),
+			popupheight=get(height),
+			popupaspect=0,
+			width=get(width),
+			height=get(height),
+			align=center,
+			bgborder='1 0x555555 1',
+			bgcolor=0x555555,
+			bgalpha=0.7,
+			bgshadow='0 10 20 0x000000 0.5',
+			bgcapture=true,
+			maskchildren=false,
+			capture=true,
+			handcursor=false,
+			alpha=0,
+			htmllinkcolor='',
+		);
+	
+		if(type == 'html',
+			set(popup.type, html);
+			copy(popup.html, content);
+			copy(popup.htmlscrollbars, scrollbars);
+
+		  ,type == 'iframe',
+			set(popup.type, iframe);
+			copy(popup.iframeurl, content);
+
+		  ,type == 'image',
+		 	set(popup,
+		 		bgcolor=0xFFFFFF,
+		 		bgalpha=1,
+		 	);
+			addlayer("popup_image", img);
+			set(img,
+				url=get(content),
+				align=center,
+				width=-20, height=-20,
+				parent=get(popup.name),
+				onloaded='parentobject.popupwidth=imagewidth+40; parentobject.popupheight=imageheight+40; parentobject.popupaspect=imagewidth/imageheight; parentobject.parentobject.triggerevent(onresize);'
+			);
+		);
+		
+		
+		
+		popup_bg.onresize = '
+			maxw = global.stagewidth*0.9;
+			maxh = global.stageheight*0.9;
+			if((popup.popupwidth GT 0) AND (popup.popupheight GT 0),
+			
+				if((popup.popupaspect != 0) AND (maxh GT 0),
+					aspect = (maxw/maxh) / (popup.popupwidth/popup.popupheight);
+					if(aspect LT 1,
+						popup.width = min(popup.popupwidth,maxw);
+						popup.height = popup.width / popup.popupaspect;
+					  ,
+						popup.height = min(popup.popupheight,maxh);
+						popup.width = popup.height * popup.popupaspect;
+					);
+				  ,
+					popup.width = min(popup.popupwidth,maxw);
+					popup.height = min(popup.popupheight,maxh);
+				);
+			);
+		';
+
+		delayedcall(0.2, tween(global.layer[popup].alpha, 1.0); );
+
+		// events when the popup should get closed automatically
+		set(global.events[popup].onremovepano, popup_close() );
+	]]></action>
+	
+	
+	<action name="popup_close" scope="private:POPUP">
+		if (onclose_callback,
+			callback = onclose_callback;
+			onclose_callback = null;
+			scope(global, get(callback) );
+		);
+		
+		set(global.plugin[popup_bg].enabled, false);
+		set(global.events[popup].name, null);
+		tween(global.layer[popup_bg].bgblur, 0.0, 0.25);
+		tween(global.layer[popup_bg].bgalpha, 0.0, 0.25);
+		tween(global.layer[popup].alpha, 0.0, 0.25, default,
+			removelayer('popup_bg', true);
+			scope(private:POPUP, delete(popup); );
+		);
+	</action>
+
+	
+
+	<cssstyles>
+		.data_html_example ul { padding-left: 20px; margin:0; }
+		.data_html_example a { color:yellow; font-weight:bold; }
+	</cssstyles>
+
+	<data name="data_html_example"><![CDATA[
+
+		<div style="padding:10px;" class="data_html_example">
+
+			<h2>This is HTML and CSS inside krpano...</h2>
+			<hr style="border:0;border-top:1px solid white;">
+			<ul>
+				<li>Fully integrated into krpano as &lt;layer&gt; element.</li>
+				<li>With support for browser-based-scrolling by mouse-wheel, scroll-bars and touch-controls.</li>
+			</ul>
+			<br>
+			Test Links:<br>
+			<ul>
+				<li>Here a normal <a href="https://krpano.com" target="_blank">link</a> for testing browser events.</li>
+				<li>Here a krpano <a href="krpano:tween(layer[popup].x,(layer[popup].x LT 200 ? 200 : 0));">link</a> for testing the krpano Actions API.</li>
+				<li>Here a krpano Javascript <a href="js:krpano.tween(caller, {y:caller.y < 200 ? 200 :0});">link</a> for testing the krpano Javascript API.</li>
+			</ul>
+			<br>
+			And here some text to scroll:<br>
+			Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br>
+			<br>
+			Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br>
+			<br>
+
+		</div>
+
+	]]></data>
+
+</krpano>
