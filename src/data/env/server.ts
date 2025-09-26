@@ -15,11 +15,7 @@ export const env = createEnv({
         "Must be a valid Hetzner endpoint URL"
       ),
     HETZNER_S3_BUCKET: z.string().min(1),
-    HETZNER_S3_REGION: z.string().default("nbg1"),
-    API_BASE_URL: z.string().url().describe("Base URL for API requests"),
-    KRPANO_PATH: z.string().min(1).describe("Path to krpano executable")
+    HETZNER_S3_REGION: z.string().default("nbg1")
   },
   experimental__runtimeEnv: process.env
 });
-
-
