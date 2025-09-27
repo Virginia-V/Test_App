@@ -19,7 +19,7 @@ export const s3 = new S3Client({
     accessKeyId: env.HETZNER_S3_ACCESS_KEY,
     secretAccessKey: env.HETZNER_S3_SECRET_KEY
   },
-  forcePathStyle: false,
+  forcePathStyle: true,
   requestHandler: new NodeHttpHandler({
     httpsAgent,
     requestTimeout: 30000, // 30s request timeout
