@@ -101,6 +101,21 @@
   </image>
 </scene>
 
+
+<scene name="test" title="Bathtub C1M1 + Sink C2M4 + Floor C3M7" onstart=""
+  thumburl="example/test_pano_wood_025852_copy.tiles/thumb.jpg" lat="" lng="" alt="" heading="" preload="true">
+
+  <control bouncinglimits="calc:image.cube ? true : false" />
+
+  <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+  <preview url="example/test_pano_wood_025852_copy.tiles/preview.jpg" />
+
+  <image>
+    <cube url="example/test_pano_wood_025852_copy.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1280,2624,5248" />
+  </image>
+</scene>
+
 <scene name="scene1" title="Bathtub C1M1 + Sink C2M4 + Floor C3M7" onstart=""
   thumburl="https://pub-f8c8c146ca47443e8eab15da50a51ecf.r2.dev/tours/tour-1-1/scene1/thumb.jpg" lat="" lng="" alt="" heading="">
 
