@@ -134,5 +134,5 @@ export default function KrpanoViewer({
     };
   }, [xmlUrl, viewerScriptUrl, containerId]);
 
-  return <div id={containerId} style={{ width: "100%", height: "100vh" }} />;
+  return <div id={containerId} style={{ width: "100%", height: "100svh" }} />;
 }
