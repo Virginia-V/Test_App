@@ -33,9 +33,9 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <QueryClientProviderWrapper>
-          <NextIntlClientProvider messages={messages}>
+          {/* <NextIntlClientProvider messages={messages}> */}
             <PanoramaProvider>{children}</PanoramaProvider>
-          </NextIntlClientProvider>
+          {/* </NextIntlClientProvider> */}
         </QueryClientProviderWrapper>
       </body>
     </html>
