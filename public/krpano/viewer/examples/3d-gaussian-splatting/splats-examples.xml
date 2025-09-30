@@ -513,14 +513,23 @@
 
 				// krpano will take the text after the '#' as filename for blob-urls
 				var bloburl_with_filename = fileURL + "#" + file.name;
-
+				
 				// load the dropped splat model
 				krpano.image.reset();
 				krpano.image.splats.url = bloburl_with_filename;
-				krpano.actions.loadpanoimage();
 				
-				// reset the view
-				krpano.view.reset();
+				// keep the current view?
+				if (0)	// yes
+				{
+					krpano.actions.loadpanoimage('KEEPVIEW|PRELOAD', 'BLEND(0.1)');
+				}
+				else	// no
+				{
+					krpano.actions.loadpanoimage();
+
+					// reset the view
+					krpano.view.reset();
+				}
 
 				// remove the URL object when leaving the pano
 				krpano.events.addListener("onremovepano|once", function()

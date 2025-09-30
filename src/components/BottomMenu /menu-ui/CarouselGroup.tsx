@@ -7,12 +7,12 @@ type CarouselGroupProps = {
   modelImages?: Array<{ src: string }>;
   destinationImages?: Array<{ src: string }>;
   colorImages?: Array<{ src: string }>; // <-- NEW
-  selectedMaterialIndex: number;
+  selectedMaterialIndex?: number;
   setSelectedMaterialIndex: (index: number) => void;
-  selectedModelIndex: number;
+  selectedModelIndex?: number;
   onModelSelect: (index: number) => void;
-  selectedDestinationIndex: number;
-  onDestinationSelect: (index: number) => void;
+  selectedDestinationIndex?: number;
+  onDestinationSelect?: (index: number) => void;
   selectedColorIndex?: number; // <-- NEW
   onColorSelect?: (index: number) => void; // <-- NEW
   isLoading?: boolean;

@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet" type="text/css" href="docu/design.css"/>
+	<title>krpano Documentation</title>
+	<script>
+		function toggle_mobile_nav(){var t=document,n=t.getElementById("krpano_contentnav"),m=t.getElementById("krpano_mobile_menu_bg");t=n.state!=2;n.state=t?2:1;n.style.height=t?"auto":"24px";m.style.display=t?"block":"none";t=t?"add":"remove";n.classList[t]("krpano_contentnav_opened");t+="EventListener";n[t]("click",toggle_mobile_nav,false);m[t]("mousedown",toggle_mobile_nav,false);}
+	</script>
+</head>
+<body>
+	<div id="krpano_root">
+		<div id="krpano_headerwrapper">
+			<div id="krpano_header">
+				<div id="krpano_mainmenu">
+					krpano 1.23.2 <span class="smallcomment">(build 2025-09-22)</span>
+				</div>
+			</div>
+			<div id="krpano_imagebar"></div>
+			
+			<div id="krpano_logo_container">
+				<a id="krpano_logo" href="https://krpano.com"><span>krpano.com</span></a>
+			</div>
+			
+			<div id="krpano_imagebar_links">
+				Documentation
+			</div>
+		</div>
+		
+		<div id="krpano_contentwrapper">
+			<div id="krpano_mobile_menuicon" onclick="toggle_mobile_nav();"><span class="burgermenu"></span></div>
+			<div id="krpano_mobile_menu_bg"></div>
+			<div id="krpano_content">
+				<div id="krpano_contentnav">
+					
+					<h2 class="sidemenu_title" onclick="toggle_section('doc_section');">Documentation</h2>
+					<ul class="sidemenu_section " id="doc_section">
+						<li><a href="docu/embedpano.html#top">Embedding</a></li>
+						<li><a href="docu/xml.html#top">XML Reference</a>
+							<ul>
+								<li class="lisd"><a href="docu/textfield.html#top">Textfield</a></li>
+								<li class="lisd"><a href="docu/plugins/scrollarea.html#top">ScrollArea</a></li>
+							</ul>
+						</li>
+						<li><a href="docu/actions.html#top">Actions / Scripting</a></li>
+						<li><a href="docu/js_api.html#top">Javascript Interface</a></li>
+						<li><a href="docu/localusage.html#top">Local / Offline Usage</a></li>
+						<li><a href="docu/coordinates.html#top">Coordinate Systems</a></li>
+						<li><a href="license.html#top">License Agreement</a></li>
+						<li><a href="docu/releasenotes.html#top">Release Notes</a></li>
+					</ul>
+					
+					<h2 class="sidemenu_title" onclick="toggle_section('plugins_section');">Plugins</h2>
+					<ul class="sidemenu_section hidden" id="plugins_section">
+						<li><a href="docu/plugins/bingmaps.html#top">Bing Maps</a></li>
+						<li><a href="docu/plugins/googlemaps.html#top">Google Maps</a></li>
+						<li><a href="docu/plugins/gyro2.html#top">Gyro2</a></li>
+						<li><a href="docu/plugins/krpanomaps.html#top">krpano Maps</a></li>
+						<li><a href="docu/plugins/postprocessing.html#top">Postprocessing</a></li>
+						<li><a href="docu/plugins/radar.html#top">Radar</a></li>
+						<li><a href="docu/plugins/snow.html#top">Snow / Rain</a></li>
+						<li><a href="docu/plugins/soundinterface.html#top">Soundinterface</a></li>
+						<li><a href="docu/plugins/threejs.html#top">ThreeJS</a></li>
+						<li><a href="docu/plugins/videoplayer.html#top">Videoplayer</a></li>
+						<li><a href="docu/plugins/webvr.html#top">WebVR</a></li>
+					</ul>
+					
+					<h2 class="sidemenu_title" onclick="toggle_section('xmlext_section');">XML Extensions</h2>
+					<ul class="sidemenu_section hidden" id="xmlext_section">
+						<li><a href="docu/plugins/xml_extensions.html#controls3d">controls3d.xml</a></li>
+						<li><a href="docu/plugins/xml_extensions.html#cursor3d">cursor3d.xml</a></li>
+						<li><a href="docu/plugins/combobox.html#top">combobox.xml</a></li>
+						<li><a href="docu/plugins/xml_extensions.html#contextmenu">contextmenu.xml</a></li>
+						<li><a href="docu/plugins/xml_extensions.html#copy_to_clipboard">copy_to_clipboard.xml</a></li>
+						<li><a href="docu/plugins/xml_extensions.html#drag3d">drag3d.xml</a></li>
+						<li><a href="docu/plugins/xml_extensions.html#measure3d">measure3d.xml</a></li>
+						<li><a href="docu/plugins/xml_extensions.html#fps">fps.xml</a></li>
+						<li><a href="docu/plugins/xml_extensions.html#ios_iframe_fullscreen">ios_iframe_fullscreen.xml</a></li>
+						<li><a href="docu/plugins/xml_extensions.html#iphone_fullscreen_swipe">iphone_fullscreen_swipe.xml</a></li>
+						<li><a href="docu/plugins/xml_extensions.html#minimap_zoomrect">minimap_zoomrect.xml</a></li>
+						<li><a href="docu/plugins/showtext.html#top">showtext.xml</a></li>
+						<li><a href="docu/plugins/xml_extensions.html#stateurls">stateurls.xml</a></li>
+						<li><a href="docu/plugins/xml_extensions.html#vr_and_anaglyph_buttons">vr_and_anaglyph_buttons.xml</a></li>
+						<li><a href="docu/plugins/xml_extensions.html#wakelock">wakelock.xml</a></li>
+						<li><a href="docu/plugins/xml_extensions.html#webvr">webvr.xml</a></li>
+						<li><a href="docu/plugins/xml_extensions.html#webvr_autozoom">webvr_autozoom.xml</a></li>
+					</ul>
+					
+					<h2 class="sidemenu_title" onclick="toggle_section('tools_section');">Tools</h2>
+					<ul class="sidemenu_section hidden" id="tools_section">
+						<li><a href="docu/tools/krpanotools.html#makepano">Makepano</a><br>
+							<ul><li><a href="docu/tools/config.html#top">Config File Reference</a></li></ul>
+						</li>
+						<li><a href="docu/tools/krpanotools.html#maketiles">Maketiles</a></li>
+						<li><a href="docu/tools/krpanotools.html#makepreview">Makepreview</a></li>
+						<li><a href="docu/tools/krpanotools.html#spheretocube">SphereToCube</a></li>
+						<li><a href="docu/tools/krpanotools.html#cubetosphere">CubeToSphere</a></li>
+						<li><a href="docu/tools/krpanotools.html#protect">Protect Tool</a></li>
+						<li><a href="docu/tools/krpanotools.html#encrypt">Encrypt Tool</a></li>
+						<li><a href="docu/tools/krpanotools.html#register">Registration Tool</a></li>
+						<li><a href="docu/tools/testingserver.html#top">krpano Testing Server</a></li>
+					</ul>
+					
+					<h2 class="sidemenu_title" onclick="toggle_section('examples_section');">Examples</h2>
+					<ul class="sidemenu_section hidden" id="examples_section">
+						<li><a href="docu/examples.html#top">Show All</a></li>
+						<li><a href="docu/examples.html?vtour#top">Virtual Tours</a></li>
+						<li><a href="docu/examples.html?3d#top">3D Examples</a></li>
+						<li><a href="docu/examples.html?splats#top">Gaussian Splatting</a></li>
+						<li><a href="docu/examples.html?depthmap#top">Depthmap</a></li>
+						<li><a href="docu/examples.html?threejs#top">ThreeJS</a></li>
+						<li><a href="docu/examples.html?multires#top">Multiresolution</a></li>
+						<li><a href="docu/examples.html?layers#top">Layers</a></li>
+						<li><a href="docu/examples.html?plugins#top">Plugins</a></li>
+						<li><a href="docu/examples.html?hotspots#top">Hotspots</a></li>
+						<li><a href="docu/examples.html?maps#top">Maps</a></li>
+						<li><a href="docu/examples.html?video#top">Video</a></li>
+						<li><a href="docu/examples.html?webvr#top">WebVR</a></li>
+						<li><a href="docu/examples.html?js#top">Javascript</a></li>
+					</ul>
+				</div>
+				<a name="top" class="toplink">&nbsp;</a>
+				<div id="krpano_contenttext">
+
+					<noscript>
+						<table style="width:100%; height:400px; position:fixed; left:95px; top:220px;"><tr valign="middle"><td><center><h1>
+							<span style="color:#FFFFFF; background:#FF0000; padding:15px;">
+								Javascript must be activated for this page!
+							</span>
+						</h1></center></td></tr></table>
+					</noscript>
+					
+					<script>
+						function toggle_section(id)
+						{
+							var element = document.getElementById(id);
+							if (element)
+							{
+								element.classList.toggle("hidden")
+							}
+						}
+					</script>
+
+					
+
+	<h1>krpano License Agreement</h1>
+
+	<h3>Terms and Conditions</h3>
+
+	<ol>
+		<li>
+			All copyrights to krpano are exclusively owned by the krpano GmbH.
+		</li>
+
+		<li>
+			The krpano software is protected by copyright laws and international
+			copyright treaties, as well as other intellectual property laws and
+			treaties.
+		</li>
+
+		<li>
+			This license is a legal and binding agreement between you and the krpano
+			GmbH. Using the krpano software signifies that you have read, understand
+			and accept the terms and conditions of this license agreement. Any
+			unauthorized use of krpano shall result in immediate termination of this
+			license and may result in criminal and/or civil prosecution.
+		</li>
+
+		<li>
+			You may not modify, clone, decompile, disassemble, reverse engineer or
+			create derivative works based upon krpano.
+		</li>
+
+		<li>
+			Your krpano license grants you the right to sell and distribute projects
+			containing your licensed version of krpano.
+		</li>
+
+		<li>
+			Third parties may not use your licensed version of krpano to create new
+			projects, including modified versions of your projects.
+		</li>
+
+		<li>
+			You may not rent, lease, lend or sublicense krpano.
+		</li>
+
+		<li>
+			Offering your licensed krpano version to third parties on a hosting 
+			platform is not permitted without a "Krpano Hosting License".
+		</li>
+
+		<li>
+			The krpano entry in the context menu may not be removed, suppressed,
+			altered, disabled or covered in any way without owning the additional
+			"krpano Branding Free License".
+		</li>
+		
+		<li>Refund Policy - 
+			there is a fully functional demo version of the software for evaluation purposes.
+			Please evaluate the demo version carefully before purchasing.
+			All purchases are final, no refunds are given.
+		</li>
+
+		<li>
+			krpano is provided "As Is" without warranty of any kind, either express
+			or implied, including any warranty of quality, merchantability, or
+			fitness for a particular purpose. In no event will the krpano GmbH be
+			liable for loss of data, costs of procurement of substitute goods or
+			services or any special, consequential or incidental damages, under any
+			cause of action and regardless of whether or not the krpano GmbH have
+			been advised of the possibility of such damage. This limitation will
+			apply notwithstanding any failure of essential purpose of any limited
+			remedy provided herein. In any event the krpano GmbH will have liability
+			arising out of this agreement.
+		</li>
+
+		<li>
+			All rights not expressly granted here are reserved by the krpano GmbH.
+		</li>
+	</ol>
+	
+	<br>
+	<br>
+	<br>
+
+
+
+				</div>
+			</div>
+		</div>
+		<div id="krpano_footerwrapper">
+			<div id="krpano_footer">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td align="right">Copyright &copy; 2025 krpano.com</td></tr></tbody></table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,5 +1,5 @@
 /*
-	krpano 1.23.1 Radar Plugin (build 2025-07-21)
+	krpano 1.23.2 Radar Plugin (build 2025-09-22)
 	https://krpano.com/plugins/radar/
 */
 var krpanoplugin=function(){function K(f,c){function b(a){return"rgb("+(a>>16&255)+","+(a>>8&255)+","+(a&255)+")"}var a=document.createElementNS("http://www.w3.org/2000/svg","svg");a.setAttribute("width",f);a.setAttribute("height",c);a.style.position="absolute";a.style.left="0px";a.style.top="0px";var g=document.createElementNS("http://www.w3.org/2000/svg","path");a.appendChild(g);var d={};d.svg=a;d.path=g;d.setstyle=function(a,c,f,d,e){g.setAttribute("stroke",b(a));g.setAttribute("stroke-width",

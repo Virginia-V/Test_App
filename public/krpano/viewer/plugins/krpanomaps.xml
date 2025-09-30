@@ -878,6 +878,7 @@
 				radar_hs.visible = radar.visible;
 				radar_hs.ath = spot.hs.ath;
 				radar_hs.atv = spot.hs.atv;
+				radar_hs.heading = spot.heading;
 			}
 			else
 			{

@@ -1,0 +1,7130 @@
+[
+  {
+    "sceneId": "scene0",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene1",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene2",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene3",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene4",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene5",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene6",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene7",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene8",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene9",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene10",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene11",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene12",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene13",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene14",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene15",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene16",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene17",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene18",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene19",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene20",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene21",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene22",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene23",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene24",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene25",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene26",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 1,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene27",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene28",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene29",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene30",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene31",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene32",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene33",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene34",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene35",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene36",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene37",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene38",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene39",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene40",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene41",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene42",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene43",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene44",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene45",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene46",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene47",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene48",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene49",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene50",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene51",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene52",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene53",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 2,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene54",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene55",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene56",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene57",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene58",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene59",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene60",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene61",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene62",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene63",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene64",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene65",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene66",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene67",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene68",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene69",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene70",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene71",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene72",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene73",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene74",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene75",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene76",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene77",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene78",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene79",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene80",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 1
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene81",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene82",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene83",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene84",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene85",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene86",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene87",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene88",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene89",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene90",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene91",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene92",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene93",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene94",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene95",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene96",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene97",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene98",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene99",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene100",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene101",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene102",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene103",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene104",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene105",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene106",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene107",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 2
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene108",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene109",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene110",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene111",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene112",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene113",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene114",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene115",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene116",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene117",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene118",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene119",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene120",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene121",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene122",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene123",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene124",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene125",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene126",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene127",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene128",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene129",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene130",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene131",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene132",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene133",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene134",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": 3
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene135",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene136",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene137",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene138",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene139",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene140",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene141",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene142",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene143",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene144",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene145",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene146",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene147",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene148",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene149",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene150",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene151",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene152",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene153",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene154",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene155",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene156",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene157",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene158",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene159",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene160",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene161",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 1,
+        "materialId": 3,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene162",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene163",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene164",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene165",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene166",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene167",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene168",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene169",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene170",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene171",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene172",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene173",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene174",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene175",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene176",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene177",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene178",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene179",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene180",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene181",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene182",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene183",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene184",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene185",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene186",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene187",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene188",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 4,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene189",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene190",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene191",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene192",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene193",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene194",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene195",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene196",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene197",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene198",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene199",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene200",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene201",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene202",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene203",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene204",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene205",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene206",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene207",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene208",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene209",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene210",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene211",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene212",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene213",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene214",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene215",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 5,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene216",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene217",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene218",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene219",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene220",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene221",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene222",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene223",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene224",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene225",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene226",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene227",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene228",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene229",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene230",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene231",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene232",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene233",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene234",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene235",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene236",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene237",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene238",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene239",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene240",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene241",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene242",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 2,
+        "materialId": 6,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene243",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene244",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene245",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene246",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene247",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene248",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene249",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene250",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene251",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene252",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene253",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene254",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene255",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene256",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene257",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene258",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene259",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene260",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene261",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene262",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene263",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene264",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene265",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene266",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene267",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene268",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene269",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 7,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene270",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene271",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene272",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene273",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene274",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene275",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene276",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene277",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene278",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene279",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene280",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene281",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene282",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene283",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene284",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene285",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene286",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene287",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene288",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene289",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene290",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene291",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene292",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene293",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene294",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene295",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene296",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 8,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene297",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene298",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene299",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 10
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene300",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene301",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene302",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 11
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene303",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene304",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene305",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 4,
+        "materialId": 12
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene306",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene307",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene308",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 13
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene309",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene310",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene311",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 14
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene312",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene313",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene314",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 5,
+        "materialId": 15
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene315",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene316",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene317",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 16
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene318",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene319",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene320",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 17
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  },
+  {
+    "sceneId": "scene321",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 7
+      }
+    }
+  },
+  {
+    "sceneId": "scene322",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 8
+      }
+    }
+  },
+  {
+    "sceneId": "scene323",
+    "metadata": {
+      "panorama_id": 1,
+      "base_asset_id": 1,
+      "bathtub": {
+        "categoryId": 1,
+        "modelId": 3,
+        "materialId": 9,
+        "colorId": null
+      },
+      "sink": {
+        "categoryId": 2,
+        "modelId": 6,
+        "materialId": 18
+      },
+      "floor": {
+        "categoryId": 3,
+        "modelId": 9
+      }
+    }
+  }
+]

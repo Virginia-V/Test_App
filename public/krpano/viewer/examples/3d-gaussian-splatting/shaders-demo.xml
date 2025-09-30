@@ -337,8 +337,13 @@
 				brightness="0.0"
 				contrast="1.0"
 				gamma="1.0"
+				blacklevel="0.0"
+				whitelevel="1.0"
 				saturate="1.0"
+				vibrance="0.0"
 				intensity="1.0"
+				temp="0.0"
+				tint="0.0"
 				alpha="1.0"
 				splatscalex="1.0"
 				splatscaley="1.0"
@@ -349,23 +354,48 @@
 		<data name="splats_adjust_shader"><![CDATA[
 			
 			uniform float splatscalex, splatscaley, splatscalez;
-			uniform float brightness, contrast, gamma, saturate, intensity;
+			uniform float brightness, contrast, gamma, blacklevel, whitelevel, saturate, vibrance, intensity;
+			uniform float temp, tint;
 			uniform float alpha;
 			
+			// CYT colorspace (by krpano): colortemperature(x) / luminance(y) / tint(z) 
+			// - a rotated and scaled YUV colorspace: YUV => UYV + rotated and scaled UV:
+			//   - the U(x) axis is for colortemperature changes
+			//   - the Y(y) axis is for luminance changes
+			//   - the V(z) axis is for tint changes
+			// - note: the tint axis is scaled 0.5x of the colortemperature axis
+			const mat3 rgb2cyt = mat3(2.295031, -0.745666, -1.549365, 0.299, 0.587, 0.114, 2.614040, -4.702415, 2.088374);
+			const mat3 cyt2rgb = mat3(0.199272, 1.0, 0.093252, -0.036937, 1.0, -0.082049, -0.332435, 1.0, 0.177597);
+			const mat3 skintones = mat3(1.76777, -3.53553, 0.02298, 1.76777, 3.53553, -2.19026, 0.0, 0.0, 0.0);
+	
 			void splatshader (inout vec4 pos, inout mat3 mx, inout vec4 color)
 			{
+				// convert to CYT colorspace: x=colortemperature, y=luminance, z=tint
+				vec3 c = color.rgb * rgb2cyt;
+				
+				// adjust luminance
+				c.y += brightness;
+				c.y = (c.y - 0.5) * contrast + 0.5;
+				c.y = pow(c.y, 1.0 / gamma);
+				c.y += blacklevel * (1.0 - c.y)*(1.0 - c.y);
+				c.y += (whitelevel - 1.0) * c.y*c.y;
+				c.y *= intensity;
+				
+				// adjust colors
+				c.xz *= max(0.0, saturate + vibrance * smoothstep(1.0, 3.0, length(vec3(c.xz,1) * skintones)) * smoothstep(0.0, 1.0, 1.0 - length(c.xz * vec2(0.4,0.2))));
+				c.x += temp;
+				c.z += tint;
+			
+				// convert back to RGB, and avoid negative color values (important for some GPUs)
+				color.rgb = max(c * cyt2rgb, 0.0);
+
+				// adjust alpha/transparency 
+				color.a *= alpha;
+				
+				// adjust scale
 				mx[0] *= splatscalex;
 				mx[1] *= splatscaley;
 				mx[2] *= splatscalez;
-				
-				color.rgb += brightness;
-				color.rgb = (color.rgb - 0.5) * contrast + 0.5;
-				color.rgb = clamp(color.rgb, 0.0, 1.0);
-				color.rgb = pow(color.rgb, vec3(1.0 / gamma));
-				color.rgb = mix(color.rgb, vec3(color.r * 0.299 + color.g * 0.587 + color.b * 0.114), 1.0 - saturate);
-				color.rgb *= intensity;
-
-				color.a *= alpha;
 			}
 			
 		]]></data>
@@ -373,15 +403,24 @@
 		<layer style="link:window" align="bottom" y="80" width="170" zorder="2">
 			<layer style="panel">
 				<layer style="link:subtitle" text="Adjust Splats" onclick="switch(image.splats.shader, '', get(data[splats_adjust_shader].content)); switch(bgcolor, get(splattools.accentcolor), get(splattools.bgcolor_button_ondown));" />
+				
 				<layer style="dragcontrol" value="image.splats.brightness" dragscale="0.002" valuemin="-1" valuemax="10" valuereset="0" template="Brightness: {{image.splats.brightness:roundval(image.splats.brightness,-3)}}" />
 				<layer style="dragcontrol" value="image.splats.contrast" dragscale="0.002" valuemin="0.01" valuemax="100" valuereset="1" template="Contrast: {{image.splats.contrast:roundval(image.splats.contrast,-3)}}" />
 				<layer style="dragcontrol" value="image.splats.gamma" dragscale="0.002" valuemin="0.01" valuemax="100" valuereset="1" template="Gamma: {{image.splats.gamma:roundval(image.splats.gamma,-3)}}" />
-				<layer style="dragcontrol" value="image.splats.saturate" dragscale="0.002" valuemin="0.0" valuemax="10" valuereset="1" template="Saturate: {{image.splats.saturate:roundval(image.splats.saturate,-3)}}" />
+				<layer style="dragcontrol" value="image.splats.blacklevel" dragscale="0.002" valuemin="-1" valuemax="1" valuereset="0" template="blacklevel: {{image.splats.blacklevel:roundval(image.splats.blacklevel,-3)}}" />
+				<layer style="dragcontrol" value="image.splats.whitelevel" dragscale="0.002" valuemin="-1" valuemax="2" valuereset="1" template="whitelevel: {{image.splats.whitelevel:roundval(image.splats.whitelevel,-3)}}" />
 				<layer style="dragcontrol" value="image.splats.intensity" dragscale="0.002" valuemin="0.01" valuemax="10" valuereset="1" template="Intensity: {{image.splats.intensity:roundval(image.splats.intensity,-3)}}" />
+				
+				<layer style="dragcontrol" value="image.splats.saturate" dragscale="0.002" valuemin="0.0" valuemax="2" valuereset="1" template="Saturate: {{image.splats.saturate:roundval(image.splats.saturate,-3)}}" />
+				<layer style="dragcontrol" value="image.splats.vibrance" dragscale="0.002" valuemin="-2.0" valuemax="+2.0" valuereset="0" template="Vibrance: {{image.splats.vibrance:roundval(image.splats.vibrance,-3)}}" />
+				<layer style="dragcontrol" value="image.splats.temp" dragscale="0.002" valuemin="-1" valuemax="+1" valuereset="0" template="Temperature: {{image.splats.temp:(image.splats.temp GT 0 ? '+' : '') + roundval(image.splats.temp,-2)}}" />
+				<layer style="dragcontrol" value="image.splats.tint" dragscale="0.002" valuemin="-1" valuemax="+1" valuereset="0" template="Tint: {{image.splats.tint:(image.splats.tint GT 0 ? '+' : '') + roundval(image.splats.tint,-2)}}" />
+				
 				<layer style="dragcontrol" value="image.splats.alpha" dragscale="0.002" valuemin="0.01" valuemax="1" valuereset="1" template="Alpha: {{image.splats.alpha:roundval(image.splats.alpha,-3)}}" />
 				<layer style="dragcontrol" value="image.splats.splatscalex" valuemin="0.01" valuemax="10" valuereset="1" template="Scale X: {{image.splats.splatscalex:roundval(image.splats.splatscalex,-3)}}" />
 				<layer style="dragcontrol" value="image.splats.splatscaley" valuemin="0.01" valuemax="10" valuereset="1" template="Scale Y: {{image.splats.splatscaley:roundval(image.splats.splatscaley,-3)}}" />
 				<layer style="dragcontrol" value="image.splats.splatscalez" valuemin="0.01" valuemax="10" valuereset="1" template="Scale Z: {{image.splats.splatscalez:roundval(image.splats.splatscalez,-3)}}" />
+				
 				<layer name="testmodel" style="control" text="Model: RGB Cube" onclick="switch_testmodel();" />
 				
 				<action name="switch_testmodel" scope="local">
@@ -389,12 +428,28 @@
 						caller.text = 'Model: Centrale 2';
 						image.reset(copy);
 						image.splats.url = '%$splatspath%/central2_splat3_1_00.compressed_copyright.ply';
+						set(image.splats, tx=0, ty=0, tz=0, rx=0, ry=0, rz=0);
 						loadpanoimage(KEEPALL, BLEND(0.5));
 						set(view, vlookat=0, tx=283, ty=-217, tz=-384, oz=0, fov=100);
+					  ,contains(image.splats.url, 'central2'),
+						caller.text = 'Model: Eglise Chenille';
+						image.reset(copy);
+						image.splats.url = '%$splatspath%/eglise_chenille_3840_4000_210.compressed.ply';
+						set(image.splats, tx=0, ty=160, tz=0, rx=0, ry=-92.7, rz=0);
+						loadpanoimage(KEEPALL, BLEND(0.5));
+						set(view, vlookat=0, tx=0, ty=-170, tz=0, oz=0, fov=100);
+					  ,contains(image.splats.url, 'eglise'),
+						caller.text = 'Model: Garden';
+						image.reset(copy);
+						image.splats.url = '%$splatspath%/garden.compressed.ply';
+						set(image.splats, tx=-87, ty=-50, tz=177.5, rx=0, ry=90, rz=30);
+						loadpanoimage(KEEPALL, BLEND(0.5));
+						set(view, vlookat=0, tx=0, ty=-170, tz=0, oz=0, fov=100);
 					  ,
 						caller.text = 'Model: RGB Cube';
 						image.reset(copy);
 						image.splats.url = '%CURRENTXML%/rgb_cube.splat';
+						set(image.splats, tx=0, ty=0, tz=0, rx=0, ry=0, rz=0);
 						loadpanoimage(KEEPALL, BLEND(0.5));
 						set(view, vlookat=35, tx=0, ty=0, tz=0, oz=1100, fov=100);
 					);
@@ -417,5 +472,64 @@
 		alpha="0"
 		onloaded="tween(alpha, 1.0, 1.0); delayedcall(3.0, tween(alpha,0,1.0,remove()));"
 		/>
+		
+	
+	
+	<!-- file-drop support - a little tool for quickly testing own splat models -->
+	<action name="splatexamples_drop_in_support" autorun="onstart" type="js"><![CDATA[
+
+		function preventDefault(e)
+		{
+			if (e.type == "dragover") e.dataTransfer.dropEffect = "copy";
+			e.preventDefault();
+			e.stopPropagation();
+		}
+
+		function enable_drop_in_support()
+		{
+			document.addEventListener("dragenter", preventDefault);
+			document.addEventListener("dragover", preventDefault);
+			document.addEventListener("dragleave", preventDefault);
+
+			document.addEventListener("drop", function(e)
+			{
+				preventDefault(e);
+
+				var file = e.dataTransfer.files[0];
+				if (!file)
+					return;
+				
+				var urlinfo = krpano.utils.spliturl(file.name);
+
+				// only .splat and .ply files are supported
+				var fileext = urlinfo.ext.toLowerCase();
+				if (fileext != "splat" && fileext != "ply")
+					return;
+				
+				// create a URL object
+				var fileURL = URL.createObjectURL(file);
+
+				// krpano will take the text after the '#' as filename for blob-urls
+				var bloburl_with_filename = fileURL + "#" + file.name;
+
+				// load the dropped splat model
+				krpano.image.reset('copy');
+				krpano.image.splats.url = bloburl_with_filename;
+				krpano.actions.loadpanoimage('KEEPALL');
+				
+				// reset the view
+				krpano.view.reset();
+
+				// remove the URL object when leaving the pano
+				krpano.events.addListener("onremovepano|once", function()
+				{
+					URL.revokeObjectURL(fileURL);
+				});
+			});
+		}
+
+		enable_drop_in_support();
+
+	]]></action>
 
 </krpano>
