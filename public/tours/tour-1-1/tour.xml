@@ -94,7 +94,7 @@
 
   <!-- ===== Overlay Panel (above skin) ===== -->
 
- <display autofullscreen="true"
+ <!-- <display autofullscreen="true"
          stereo="false"
          stereooverlap="0.0"
          stereoscale="1.0"
@@ -120,7 +120,7 @@
          wireocclusion="true"
          wirecolor="0x00FF00"
          chromesubpixelantialiasing="false"
-         />
+         /> -->
 
 <scene
     name="scene0"
@@ -201,47 +201,8 @@
       globally="true"
     /> -->
 
- <hotspot
-    name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
-    ath="215"
-    atv="31"
-    scale="0.2"
-      renderer="webgl"           
-  distorted="false"          
-  preload="true"             
-  zorder="1000"  
-/> 
 
-<hotspot
-    name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
-    ath="0"
-    atv="88.7"
-    scale="0.2"
-          renderer="webgl"           
-  distorted="false"          
-  preload="true"             
-  zorder="1000"  
-/>
-
- <hotspot
-    name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
-    ath="60"
-    atv="30"
-    scale="0.2"
-          renderer="webgl"           
-  distorted="false"          
-  preload="true"             
-  zorder="1000"  
-/> 
-
-
-
-
-
-<!-- <hotspot
+    <!-- <hotspot
       name="floor"
       type="threejs"
       url="3D-images/3D_LOGO_FLOOR_01.glb"
@@ -266,6 +227,42 @@
       envmapintensity="1.2"
       globally="true"
     /> -->
+
+ <hotspot
+    name="bathtub"
+    url="hotspots/BLACK_HOTSPOT_6.png"
+    ath="215"
+    atv="31"
+    scale="0.15"
+  zoom="false"
+  renderer="webgl" distorted="false" preload="true" zorder="1000"
+/> 
+
+<hotspot
+    name="floor"
+    url="hotspots/BLACK_HOTSPOT_5.png"
+    ath="0"
+    atv="88.7"
+    scale="0.15"
+  zoom="false"
+  renderer="webgl" distorted="false" preload="true" zorder="1000"
+/>
+
+ <hotspot
+    name="sink"
+    url="hotspots/BLACK_HOTSPOT_3.png"
+    ath="60"
+    atv="30"
+    scale="0.15"
+  zoom="false"
+  renderer="webgl" distorted="false" preload="true" zorder="1000"
+/> 
+
+
+
+
+
+
 </scene>
 
 <scene
