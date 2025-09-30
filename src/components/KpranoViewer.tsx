@@ -357,7 +357,6 @@
 //   );
 // }
 
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
@@ -432,8 +431,8 @@ export default function KrpanoViewer({
   const forcedFinishRef = useRef(false);
 
   // ring params
-  const size = 120;
-  const stroke = 10;
+  const size = 60;
+  const stroke = 4;
   const radius = (size - stroke) / 2;
   const circumference = 2 * Math.PI * radius;
   const dashoffset = circumference * (1 - percent / 100);
@@ -515,9 +514,7 @@ export default function KrpanoViewer({
         targetPctRef.current = Math.max(targetPctRef.current, 100);
       }
 
-      const r = forcedFinishRef.current
-        ? finishResponsiveness
-        : responsiveness;
+      const r = forcedFinishRef.current ? finishResponsiveness : responsiveness;
 
       const current = percentRef.current;
 
@@ -567,7 +564,8 @@ export default function KrpanoViewer({
 
     // safety: if events mis-order, force finish shortly after both gates are true
     const armSafety = () => {
-      if (safetyTimeoutRef.current) window.clearTimeout(safetyTimeoutRef.current);
+      if (safetyTimeoutRef.current)
+        window.clearTimeout(safetyTimeoutRef.current);
       safetyTimeoutRef.current = window.setTimeout(() => {
         maybeStop();
       }, 350);
@@ -763,7 +761,7 @@ export default function KrpanoViewer({
                 cx={size / 2}
                 cy={size / 2}
                 r={radius}
-                stroke="white"
+                stroke="#39FF14"
                 strokeWidth={stroke}
                 strokeLinecap="round"
                 fill="none"
@@ -781,9 +779,9 @@ export default function KrpanoViewer({
                 inset: 0,
                 display: "grid",
                 placeItems: "center",
-                fontSize: 20,
+                fontSize: 12,
                 fontWeight: 600,
-                color: "#fff",
+                color: "#39FF14",
                 textShadow: "0 1px 2px rgba(0,0,0,0.6)",
                 pointerEvents: "none"
               }}
