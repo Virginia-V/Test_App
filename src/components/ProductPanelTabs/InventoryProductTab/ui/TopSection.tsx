@@ -31,7 +31,7 @@ const CategoryChip: React.FC<CategoryChipProps> = ({
   ];
 
   const variantClasses = isSelected
-    ? "bg-green-500 hover:bg-green-500 shadow text-white"
+    ? "bg-[#5EAC24] hover:bg-[#5EAC24] shadow text-white"
     : "bg-[#8F4B27] hover:bg-[#8F4B27] text-white";
 
   const renderIcon = () => {

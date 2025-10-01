@@ -79,7 +79,7 @@ export const CarouselSelector = ({
             <div
               className={`relative flex items-center justify-center overflow-hidden ${itemWidthClass} ${itemHeightClass} ${itemMarginClass} rounded-full cursor-pointer transition-shadow ${itemClassName} ${
                 selectable && selectedIdx === index
-                  ? "ring-4 ring-[#39FF14] ring-opacity-100 shadow-[0_0_12px_rgba(0,0,0,0.1)]"
+                  ? "ring-4 ring-[#5EAC24] ring-opacity-100 shadow-[0_0_12px_rgba(0,0,0,0.1)]"
                   : ""
               }`}
               onClick={

@@ -403,7 +403,7 @@ export default function KrpanoViewer({
                 cx={size / 2}
                 cy={size / 2}
                 r={radius}
-                stroke="#39FF14"
+                stroke="#5EAC24"
                 strokeWidth={stroke}
                 strokeLinecap="round"
                 fill="none"
@@ -421,9 +421,9 @@ export default function KrpanoViewer({
                 inset: 0,
                 display: "grid",
                 placeItems: "center",
-                fontSize: 12,
+                fontSize: 13,
                 fontWeight: 600,
-                color: "#39FF14",
+                color: "#5EAC24",
                 textShadow: "0 1px 2px rgba(0,0,0,0.6)",
                 pointerEvents: "none"
               }}

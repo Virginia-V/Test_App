@@ -72,7 +72,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
   ];
 
   const variantClasses = isSelected
-    ? "bg-green-500 hover:bg-green-500 shadow text-white"
+    ? "bg-[#5EAC24] hover:bg-[#5EAC24] shadow text-white"
     : "bg-white hover:bg-gray-50 text-gray-800 border border-gray-200";
 
   return (
