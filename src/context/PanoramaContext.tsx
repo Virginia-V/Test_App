@@ -355,18 +355,24 @@ export function PanoramaProvider({ children }: PropsWithChildren) {
 
   const setMenuOpen = useCallback(
     (type: "bathtub" | "sink" | "floor", open: boolean) => {
-      setPanoramas((prev) => ({
-        ...prev,
-        [type]: { ...prev[type], menuOpen: open }
-      }));
-
-      // Remove this line that automatically opens the panel:
-      // if (open) setPanelVisible(true);
-
       if (open) {
+        // When opening a menu, close all other menus first
+        setPanoramas((prev) => ({
+          ...prev,
+          bathtub: { ...prev.bathtub, menuOpen: type === "bathtub" },
+          sink: { ...prev.sink, menuOpen: type === "sink" },
+          floor: { ...prev.floor, menuOpen: type === "floor" }
+        }));
         setOpenMenuType(type);
-      } else if (openMenuType === type) {
-        setOpenMenuType(null);
+      } else {
+        // When closing, only close the specific menu
+        setPanoramas((prev) => ({
+          ...prev,
+          [type]: { ...prev[type], menuOpen: false }
+        }));
+        if (openMenuType === type) {
+          setOpenMenuType(null);
+        }
       }
     },
     [openMenuType]
