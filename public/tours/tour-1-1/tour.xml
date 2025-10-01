@@ -12,13 +12,11 @@
 <!-- <plugin
     name="threejs"
     url="plugins/threejs_krpanoplugin.js"
-    useembeddedthreejs="true"
-    antialias="true"
     keep="true"
-  />
+  /> -->
 
 
- <threejs
+ <!-- <threejs
     ambientlight="1.0"
     envmapurl="preview"
     shadowmap="pcfsoft"
@@ -179,10 +177,10 @@
       shadowmapheight="2048"
       envmapintensity="1.2"
       globally="true"
-    /> -->
+    />  -->
 
 
-<!-- <hotspot
+ <!-- <hotspot
       name="bathtub"
       type="threejs"
       url="3D-images/3D_LOGO_BATHTUB.glb"
@@ -199,10 +197,10 @@
       shadowmapheight="2048"
       envmapintensity="1.2"
       globally="true"
-    /> -->
+    /> 
 
 
-    <!-- <hotspot
+ <hotspot
       name="floor"
       type="threejs"
       url="3D-images/3D_LOGO_FLOOR_01.glb"
@@ -226,43 +224,29 @@
       shadowmapheight="2048"
       envmapintensity="1.2"
       globally="true"
-    /> -->
-
- <hotspot
-    name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
-    ath="215"
-    atv="31"
-    scale="0.15"
-  zoom="false"
-  renderer="webgl" distorted="false" preload="true" zorder="1000"
-/> 
+    />  -->
 
 <hotspot
+    name="bathtub"
+    url="skin/antena.png"
+    ath="215"
+    atv="31"
+    scale="0.1"
+/>
+<hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.15"
-  zoom="false"
-  renderer="webgl" distorted="false" preload="true" zorder="1000"
+    scale="0.1"
 />
-
- <hotspot
+<hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.15"
-  zoom="false"
-  renderer="webgl" distorted="false" preload="true" zorder="1000"
-/> 
-
-
-
-
-
-
+    scale="0.1"
+/>
 </scene>
 
 <scene
@@ -366,24 +350,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -486,24 +470,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -605,24 +589,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -724,24 +708,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -843,24 +827,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -962,24 +946,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -1081,24 +1065,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -1200,24 +1184,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -1319,24 +1303,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -1438,24 +1422,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -1557,24 +1541,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -1676,24 +1660,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -1795,24 +1779,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -1914,24 +1898,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -2033,24 +2017,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -2152,24 +2136,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -2271,24 +2255,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -2390,24 +2374,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -2509,24 +2493,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -2628,24 +2612,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -2747,24 +2731,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -2866,24 +2850,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -2985,24 +2969,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -3104,24 +3088,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -3223,24 +3207,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -3342,24 +3326,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -3461,24 +3445,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -3580,24 +3564,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -3699,24 +3683,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -3818,24 +3802,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -3937,24 +3921,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -4056,24 +4040,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -4175,24 +4159,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -4294,24 +4278,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -4413,24 +4397,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -4532,24 +4516,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -4651,24 +4635,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -4770,24 +4754,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -4889,24 +4873,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -5008,24 +4992,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -5127,24 +5111,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -5246,24 +5230,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -5365,24 +5349,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -5484,24 +5468,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -5603,24 +5587,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -5722,24 +5706,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -5841,24 +5825,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -5960,24 +5944,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -6079,24 +6063,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -6198,24 +6182,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -6317,24 +6301,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -6436,24 +6420,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -6555,24 +6539,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -6674,24 +6658,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -6793,24 +6777,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -6912,24 +6896,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -7031,24 +7015,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -7150,24 +7134,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -7269,24 +7253,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -7388,24 +7372,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -7507,24 +7491,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -7626,24 +7610,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -7745,24 +7729,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -7864,24 +7848,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -7983,24 +7967,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -8102,24 +8086,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -8221,24 +8205,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -8340,24 +8324,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -8459,24 +8443,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -8578,24 +8562,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -8697,24 +8681,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -8816,24 +8800,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -8935,24 +8919,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -9054,24 +9038,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -9173,24 +9157,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -9292,24 +9276,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -9411,24 +9395,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -9530,24 +9514,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -9649,24 +9633,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -9768,24 +9752,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -9887,24 +9871,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -10006,24 +9990,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -10125,24 +10109,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -10244,24 +10228,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -10363,24 +10347,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -10482,24 +10466,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -10601,24 +10585,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -10720,24 +10704,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -10839,24 +10823,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -10958,24 +10942,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -11077,24 +11061,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -11196,24 +11180,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -11315,24 +11299,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -11434,24 +11418,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -11553,24 +11537,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -11672,24 +11656,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -11791,24 +11775,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -11910,24 +11894,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -12029,24 +12013,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -12148,24 +12132,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -12267,24 +12251,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -12386,24 +12370,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -12505,24 +12489,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -12624,24 +12608,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -12743,24 +12727,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -12862,24 +12846,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -12981,24 +12965,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -13100,24 +13084,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -13219,24 +13203,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -13338,24 +13322,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -13457,24 +13441,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -13576,24 +13560,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -13695,24 +13679,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -13814,24 +13798,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -13933,24 +13917,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -14052,24 +14036,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -14171,24 +14155,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -14290,24 +14274,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -14409,24 +14393,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -14528,24 +14512,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -14647,24 +14631,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -14766,24 +14750,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -14885,24 +14869,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -15004,24 +14988,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -15123,24 +15107,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -15242,24 +15226,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -15361,24 +15345,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -15480,24 +15464,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -15599,24 +15583,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -15718,24 +15702,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -15837,24 +15821,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -15956,24 +15940,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -16075,24 +16059,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -16194,24 +16178,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -16313,24 +16297,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -16432,24 +16416,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -16551,24 +16535,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -16670,24 +16654,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -16789,24 +16773,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -16908,24 +16892,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -17027,24 +17011,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -17146,24 +17130,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -17265,24 +17249,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -17384,24 +17368,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -17503,24 +17487,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -17622,24 +17606,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -17741,24 +17725,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -17860,24 +17844,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -17979,24 +17963,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -18098,24 +18082,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -18217,24 +18201,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -18336,24 +18320,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -18455,24 +18439,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -18574,24 +18558,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -18693,24 +18677,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -18812,24 +18796,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -18931,24 +18915,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -19050,24 +19034,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -19169,24 +19153,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -19288,24 +19272,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -19407,24 +19391,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -19526,24 +19510,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -19645,24 +19629,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -19764,24 +19748,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -19883,24 +19867,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -20002,24 +19986,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -20121,24 +20105,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -20240,24 +20224,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -20359,24 +20343,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -20478,24 +20462,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -20597,24 +20581,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -20716,24 +20700,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -20835,24 +20819,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -20954,24 +20938,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -21073,24 +21057,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -21192,24 +21176,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -21311,24 +21295,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -21430,24 +21414,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -21549,24 +21533,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -21668,24 +21652,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -21787,24 +21771,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -21906,24 +21890,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -22025,24 +22009,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -22144,24 +22128,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -22263,24 +22247,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -22382,24 +22366,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -22501,24 +22485,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -22620,24 +22604,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -22739,24 +22723,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -22858,24 +22842,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -22977,24 +22961,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -23096,24 +23080,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -23215,24 +23199,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -23334,24 +23318,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -23453,24 +23437,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -23572,24 +23556,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -23691,24 +23675,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -23810,24 +23794,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -23929,24 +23913,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -24048,24 +24032,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -24167,24 +24151,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -24286,24 +24270,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -24405,24 +24389,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -24524,24 +24508,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -24643,24 +24627,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -24762,24 +24746,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -24881,24 +24865,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -25000,24 +24984,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -25119,24 +25103,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -25238,24 +25222,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -25357,24 +25341,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -25476,24 +25460,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -25595,24 +25579,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -25714,24 +25698,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -25833,24 +25817,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -25952,24 +25936,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -26071,24 +26055,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -26190,24 +26174,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -26309,24 +26293,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -26428,24 +26412,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -26547,24 +26531,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -26666,24 +26650,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -26785,24 +26769,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -26904,24 +26888,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -27023,24 +27007,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -27142,24 +27126,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -27261,24 +27245,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -27380,24 +27364,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -27499,24 +27483,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -27618,24 +27602,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -27737,24 +27721,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -27856,24 +27840,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -27975,24 +27959,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -28094,24 +28078,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -28213,24 +28197,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -28332,24 +28316,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -28451,24 +28435,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -28570,24 +28554,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -28689,24 +28673,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -28808,24 +28792,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -28927,24 +28911,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -29046,24 +29030,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -29165,24 +29149,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -29284,24 +29268,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -29403,24 +29387,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -29522,24 +29506,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -29641,24 +29625,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -29760,24 +29744,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -29879,24 +29863,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -29998,24 +29982,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -30117,24 +30101,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -30236,24 +30220,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -30355,24 +30339,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -30474,24 +30458,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -30593,24 +30577,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -30712,24 +30696,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -30831,24 +30815,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -30950,24 +30934,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -31069,24 +31053,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -31188,24 +31172,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -31307,24 +31291,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -31426,24 +31410,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -31545,24 +31529,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -31664,24 +31648,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -31783,24 +31767,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -31902,24 +31886,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -32021,24 +32005,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -32140,24 +32124,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -32259,24 +32243,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -32378,24 +32362,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -32497,24 +32481,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -32616,24 +32600,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -32735,24 +32719,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -32854,24 +32838,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -32973,24 +32957,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -33092,24 +33076,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -33211,24 +33195,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -33330,24 +33314,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -33449,24 +33433,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -33568,24 +33552,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -33687,24 +33671,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -33806,24 +33790,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -33925,24 +33909,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -34044,24 +34028,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -34163,24 +34147,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -34282,24 +34266,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -34401,24 +34385,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -34520,24 +34504,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -34639,24 +34623,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -34758,24 +34742,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -34877,24 +34861,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -34996,24 +34980,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -35115,24 +35099,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -35234,24 +35218,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -35353,24 +35337,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -35472,24 +35456,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -35591,24 +35575,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -35710,24 +35694,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -35829,24 +35813,24 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 </scene>
 
@@ -35948,26 +35932,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -36070,26 +36054,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -36192,26 +36176,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -36314,25 +36298,25 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -36435,26 +36419,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -36557,26 +36541,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -36679,26 +36663,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -36801,26 +36785,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -36923,26 +36907,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -37045,26 +37029,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -37167,26 +37151,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -37289,26 +37273,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -37411,26 +37395,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -37533,26 +37517,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -37655,26 +37639,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -37777,26 +37761,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -37899,26 +37883,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -38021,26 +38005,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -38143,26 +38127,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -38265,26 +38249,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -38387,26 +38371,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -38509,26 +38493,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -38631,26 +38615,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene>
@@ -38753,26 +38737,26 @@
     /> -->
 <hotspot
     name="bathtub"
-    url="hotspots/BLACK_HOTSPOT_6.png"
+    url="skin/antena.png"
     ath="215"
     atv="31"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="floor"
-    url="hotspots/BLACK_HOTSPOT_5.png"
+    url="skin/antena.png"
     ath="0"
     atv="88.7"
-    scale="0.2"
+    scale="0.1"
 />
 
 <hotspot
     name="sink"
-    url="hotspots/BLACK_HOTSPOT_3.png"
+    url="skin/antena.png"
     ath="60"
     atv="30"
-    scale="0.2"
+    scale="0.1"
 />
 
 </scene> 
