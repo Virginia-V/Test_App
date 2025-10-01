@@ -1,70 +1,70 @@
-// "use client";
-// import * as THREE from "three";
-// import React, { Suspense, useEffect, useMemo } from "react";
-// import { Canvas } from "@react-three/fiber";
-// import { OrbitControls, Environment, Center, useGLTF } from "@react-three/drei";
+"use client";
+import * as THREE from "three";
+import React, { Suspense, useEffect, useMemo } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Environment, Center, useGLTF } from "@react-three/drei";
 
-// import { GLTF } from "three-stdlib";
-// import { PanoramaType } from "@/context/PanoramaContext";
-// import { get3DPreviewFor } from "@/lib";
+import { GLTF } from "three-stdlib";
 
-// interface Model3DViewerProps {
-//   onLoad?: () => void;
-//   panoramaType: PanoramaType;
-//   modelIndex: number;
-// }
+import { get3DPreviewFor } from "@/lib";
 
-// function GLBPrimitive({ url, onReady }: { url: string; onReady?: () => void }) {
-//   const gltf = useGLTF(url) as GLTF;
+interface Model3DViewerProps {
+  onLoad?: () => void;
+  panoramaType: "bathtub" | "sink" | "floor";
+  modelIndex: number;
+}
 
-//   useEffect(() => {
-//     onReady?.();
-//   }, [onReady]);
+function GLBPrimitive({ url, onReady }: { url: string; onReady?: () => void }) {
+  const gltf = useGLTF(url) as GLTF;
 
-//   return (
-//     <Center top>
-//       {/* key forces a remount when URL changes, avoiding stale cached scene */}
-//       <primitive key={url} object={gltf.scene as THREE.Object3D} />
-//     </Center>
-//   );
-// }
-// // useGLTF.preload?.("");
+  useEffect(() => {
+    onReady?.();
+  }, [onReady]);
 
-// export const Model3DViewer: React.FC<Model3DViewerProps> = ({
-//   onLoad,
-//   panoramaType,
-//   modelIndex
-// }) => {
-//   const url = useMemo(() => {
-//     if (panoramaType !== "bathtub" && panoramaType !== "sink") return null;
-//     return get3DPreviewFor(panoramaType, modelIndex);
-//   }, [panoramaType, modelIndex]);
+  return (
+    <Center top>
+      {/* key forces a remount when URL changes, avoiding stale cached scene */}
+      <primitive key={url} object={gltf.scene as THREE.Object3D} />
+    </Center>
+  );
+}
+// useGLTF.preload?.("");
 
-//   console.log("url" + url);
+export const Model3DViewer: React.FC<Model3DViewerProps> = ({
+  onLoad,
+  panoramaType,
+  modelIndex
+}) => {
+  const url = useMemo(() => {
+    if (panoramaType !== "bathtub" && panoramaType !== "sink") return null;
+    return get3DPreviewFor(panoramaType, modelIndex);
+  }, [panoramaType, modelIndex]);
 
-//   return (
-//     <div style={{ height: 400, width: 400, position: "relative" }}>
-//       <Canvas
-//         camera={{ position: [0, 1.2, 3.6], fov: 45 }}
-//         style={{ height: "100%", width: "100%", background: "transparent" }}
-//         dpr={[1, 2]}
-//       >
-//         <ambientLight intensity={0.6} />
-//         <directionalLight position={[4, 6, 6]} intensity={1.1} castShadow />
-//         <Environment preset="park" />
+  console.log("url" + url);
 
-//         <OrbitControls
-//           enablePan={false}
-//           enableZoom={false}
-//           minPolarAngle={0}
-//           maxPolarAngle={Math.PI}
-//           target={[0, 0.4, 0]}
-//         />
+  return (
+    <div style={{ height: 400, width: 400, position: "relative" }}>
+      <Canvas
+        camera={{ position: [0, 1.2, 3.6], fov: 45 }}
+        style={{ height: "100%", width: "100%", background: "transparent" }}
+        dpr={[1, 2]}
+      >
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[4, 6, 6]} intensity={1.1} castShadow />
+        <Environment preset="park" />
 
-//         <Suspense fallback={null}>
-//           {url ? <GLBPrimitive url={url} onReady={onLoad} /> : null}
-//         </Suspense>
-//       </Canvas>
-//     </div>
-//   );
-// };
+        <OrbitControls
+          enablePan={false}
+          enableZoom={false}
+          minPolarAngle={0}
+          maxPolarAngle={Math.PI}
+          target={[0, 0.4, 0]}
+        />
+
+        <Suspense fallback={null}>
+          {url ? <GLBPrimitive url={url} onReady={onLoad} /> : null}
+        </Suspense>
+      </Canvas>
+    </div>
+  );
+};

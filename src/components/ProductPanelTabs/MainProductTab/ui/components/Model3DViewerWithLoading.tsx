@@ -1,55 +1,57 @@
-// "use client";
+"use client";
 
-// import React, { useState, useMemo } from "react";
-// import { useGLTF } from "@react-three/drei";
-// import { Model3DViewer } from "@/components/shared";
-// import { LoadingIndicator } from "./LoadingIndicator";
-// import { CategoryType } from "@/helpers";
-// import { get3DPreviewFor } from "@/lib";
+import React, { useState, useMemo } from "react";
+import { useGLTF } from "@react-three/drei";
 
-// interface Model3DViewerWithLoadingProps {
-//   categoryType: CategoryType;
-//   modelIndex: number;
-//   onLoad?: () => void;
-// }
+import { LoadingIndicator } from "./LoadingIndicator";
+import { CategoryType } from "@/helpers";
+import { get3DPreviewFor } from "@/lib";
+import { Model3DViewer } from "@/components/shared/3D/Model3DViewer";
 
-// // GLB preload utility function
-// export function preloadGLB(url?: string | null) {
-//   if (url) useGLTF.preload(url);
-// }
 
-// export const Model3DViewerWithLoading: React.FC<
-//   Model3DViewerWithLoadingProps
-// > = ({ categoryType, modelIndex, onLoad }) => {
-//   const [loading, setLoading] = useState(false);
+interface Model3DViewerWithLoadingProps {
+  categoryType: CategoryType;
+  modelIndex: number;
+  onLoad?: () => void;
+}
 
-//   const canShow3D = categoryType === "bathtub" || categoryType === "sink";
-//   const modelUrl = useMemo(
-//     () => (canShow3D ? get3DPreviewFor(categoryType, modelIndex) : null),
-//     [canShow3D, categoryType, modelIndex]
-//   );
+// GLB preload utility function
+export function preloadGLB(url?: string | null) {
+  if (url) useGLTF.preload(url);
+}
 
-//   const handle3DLoaded = () => {
-//     setLoading(false);
-//     onLoad?.();
-//   };
+export const Model3DViewerWithLoading: React.FC<
+  Model3DViewerWithLoadingProps
+> = ({ categoryType, modelIndex, onLoad }) => {
+  const [loading, setLoading] = useState(false);
 
-//   if (!canShow3D || !modelUrl) {
-//     return (
-//       <div className="flex items-center justify-center h-full">
-//         <span>No 3D model available</span>
-//       </div>
-//     );
-//   }
+  const canShow3D = categoryType === "bathtub" || categoryType === "sink";
+  const modelUrl = useMemo(
+    () => (canShow3D ? get3DPreviewFor(categoryType, modelIndex) : null),
+    [canShow3D, categoryType, modelIndex]
+  );
 
-//   return (
-//     <>
-//       {loading && <LoadingIndicator />}
-//       <Model3DViewer
-//         onLoad={handle3DLoaded}
-//         panoramaType={categoryType}
-//         modelIndex={modelIndex}
-//       />
-//     </>
-//   );
-// };
+  const handle3DLoaded = () => {
+    setLoading(false);
+    onLoad?.();
+  };
+
+  if (!canShow3D || !modelUrl) {
+    return (
+      <div className="flex items-center justify-center h-full">
+        <span>No 3D model available</span>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {loading && <LoadingIndicator />}
+      <Model3DViewer
+        onLoad={handle3DLoaded}
+        panoramaType={categoryType}
+        modelIndex={modelIndex}
+      />
+    </>
+  );
+};

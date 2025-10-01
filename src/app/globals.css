@@ -4,6 +4,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-caramel: var(--caramel);
+  --color-wood: var(--wood);
+  --color-tabs-bg: var(--tabs-bg);
+  --color-tabs-active: var(--tabs-active);
+  --color-tabs-list: var(--tabs-list);
+  --color-divider: var(--divider);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -44,6 +50,13 @@
 }
 
 :root {
+  --color-caramel: #8f4b27;
+  --color-wood: #8b693f;
+  --color-tabs-bg: #d6d6d6;
+  --tabs-active: #edeceb;
+  --tabs-list: #e1e0de;
+  --color-divider: rgba(143, 75, 39, 0.1);
+  --icon-color: #fff;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
@@ -79,6 +92,13 @@
 }
 
 .dark {
+  --color-caramel: #8f4b27;
+  --color-wood: #8b693f;
+  --color-tabs-bg: #d6d6d6;
+  --tabs-active: #edeceb;
+  --tabs-list: #e1e0de;
+  --color-divider: rgba(143, 75, 39, 0.1);
+  --icon-color: #fff;
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.208 0.042 265.755);

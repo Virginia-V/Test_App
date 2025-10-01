@@ -3,9 +3,8 @@
 import React, { useState } from "react";
 import { ReactZoomPanPinchRef } from "react-zoom-pan-pinch";
 import { ZoomControls } from "./ZoomControls";
-
-import { ZoomableContentViewer } from "./components";
 import { useProductData } from "@/hooks/useProductData";
+import { ZoomableContentViewer } from "./components";
 
 interface ImagePlaceholderProps {
   panoramaType?: string;
@@ -36,14 +35,14 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   const renderZoomControls = (
     transformRef: React.RefObject<ReactZoomPanPinchRef | null>,
     show3D: boolean,
-    onToggle3D?: () => void
+    onToggle3D: () => void
   ) => (
     <ZoomControls
       onZoomIn={() => transformRef.current?.zoomIn()}
       onZoomOut={() => transformRef.current?.zoomOut()}
       onReset={() => transformRef.current?.resetTransform()}
-      // show3D={show3D}
-      // onToggle3D={onToggle3D ?? u}
+      show3D={show3D}
+      onToggle3D={onToggle3D}
     />
   );
 

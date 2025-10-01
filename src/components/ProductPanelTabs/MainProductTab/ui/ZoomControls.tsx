@@ -20,8 +20,8 @@ interface ZoomControlsProps {
   onZoomIn: () => void;
   onZoomOut: () => void;
   onReset: () => void;
-  show3D?: boolean;
-  // onToggle3D: () => void;
+  show3D: boolean;
+  onToggle3D: () => void;
 }
 
 const buttonBase =
@@ -37,8 +37,8 @@ export const ZoomControls: React.FC<ZoomControlsProps> = ({
   onZoomIn,
   onZoomOut,
   onReset,
-  // show3D,
-  // onToggle3D
+  show3D,
+  onToggle3D
 }) => (
   <div className="flex flex-row gap-3 items-center">
     <Button
@@ -75,16 +75,16 @@ export const ZoomControls: React.FC<ZoomControlsProps> = ({
         <Button
           variant="ghost"
           size="icon"
-          // onClick={onToggle3D}
+          onClick={onToggle3D}
           className={toggleButton}
-          // aria-label={show3D ? "Show 2D Image" : "Show 3D Model"}
+          aria-label={show3D ? "Show 2D Image" : "Show 3D Model"}
         >
-          {/* {show3D ? <TwoDIcon /> : <ThreeDRotationIcon fontSize="small" />} */}
+          {show3D ? <TwoDIcon /> : <ThreeDRotationIcon fontSize="small" />}
         </Button>
       </TooltipTrigger>
-      {/* <TooltipContent side="top">
+      <TooltipContent side="top">
         {show3D ? "Show 2D Image" : "Show 3D Model"}
-      </TooltipContent> */}
+      </TooltipContent>
     </Tooltip>
   </div>
 );

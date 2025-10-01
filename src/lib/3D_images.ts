@@ -68,21 +68,20 @@ export const previews3D: {
   }
 };
 
-// export type PreviewPanoramaType = "bathtub" | "sink";
+export type PreviewPanoramaType = "bathtub" | "sink";
 
-// Safe, index-clamped accessor that only supports bathtub | sink
-// export const get3DPreviewFor = (
-//   type: Exclude<PanoramaType, "floor">,
-//   modelIndex: number
-// ): string | null => {
-//   const list = previews3D[type]?.models ?? [];
-//   if (!list.length) return null;
-//   const idx = Math.max(0, Math.min(modelIndex ?? 0, list.length - 1));
-//   return list[idx]?.file ?? null;
-// };
+export const get3DPreviewFor = (
+  type: Exclude<"bathtub" | "sink", "floor">,
+  modelIndex: number
+): string | null => {
+  const list = previews3D[type]?.models ?? [];
+  if (!list.length) return null;
+  const idx = Math.max(0, Math.min(modelIndex ?? 0, list.length - 1));
+  return list[idx]?.file ?? null;
+};
 
-// export const get3DPreviewForId = (
-//   type: Exclude<PanoramaType, "floor">,
-//   modelId: string
-// ): string | null =>
-//   previews3D[type]?.models.find((m) => m.modelId === modelId)?.file ?? null;
+export const get3DPreviewForId = (
+  type: Exclude<"bathtub" | "sink", "floor">,
+  modelId: string
+): string | null =>
+  previews3D[type]?.models.find((m) => m.modelId === modelId)?.file ?? null;

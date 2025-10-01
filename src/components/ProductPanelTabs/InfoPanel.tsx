@@ -14,7 +14,6 @@ import {
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { BookServiceForm } from "./BookServiceFormTab";
 import { getTabIcons } from "@/helpers";
-// import { PanoramaType } from "@/context/PanoramaContext";
 import { TabsComponent } from "./Tabs";
 
 interface InfoPanelProps {

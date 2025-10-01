@@ -203,8 +203,6 @@
 //   );
 // }
 
-
-
 "use client";
 
 import React, {
@@ -213,7 +211,8 @@ import React, {
   useMemo,
   useState,
   useEffect,
-  PropsWithChildren
+  PropsWithChildren,
+  useCallback
 } from "react";
 
 import {
@@ -350,41 +349,28 @@ export function PanoramaProvider({ children }: PropsWithChildren) {
 
   /* --------------------------- Menu open/close ---------------------------- */
 
-  const setMenuOpen = (part: "bathtub" | "sink" | "floor", open: boolean) => {
-    setPanoramas((prev) => {
-      // exclusive behavior: opening one closes the others
-      const next: PanoramaState = {
-        bathtub: { ...prev.bathtub, menuOpen: false },
-        sink: { ...prev.sink, menuOpen: false },
-        floor: { ...prev.floor, menuOpen: false }
-      };
-      next[part].menuOpen = open;
-      return next;
-    });
+  const [openMenuType, setOpenMenuType] = useState<
+    "bathtub" | "sink" | "floor" | null
+  >(null);
 
-    // tie panel visibility to whether any menu is open
-    if (open) {
-      setPanelVisible(true);
-    } else {
-      // check if any other menu remains open in the current snapshot
-      const anyOtherOpen =
-        (part !== "bathtub" && panoramas.bathtub.menuOpen) ||
-        (part !== "sink" && panoramas.sink.menuOpen) ||
-        (part !== "floor" && panoramas.floor.menuOpen);
-      if (!anyOtherOpen) setPanelVisible(false);
-    }
-  };
+  const setMenuOpen = useCallback(
+    (type: "bathtub" | "sink" | "floor", open: boolean) => {
+      setPanoramas((prev) => ({
+        ...prev,
+        [type]: { ...prev[type], menuOpen: open }
+      }));
 
-  const openMenuType: "bathtub" | "sink" | "floor" | null = useMemo(() => {
-    if (panoramas.bathtub.menuOpen) return "bathtub";
-    if (panoramas.sink.menuOpen) return "sink";
-    if (panoramas.floor.menuOpen) return "floor";
-    return null;
-  }, [
-    panoramas.bathtub.menuOpen,
-    panoramas.sink.menuOpen,
-    panoramas.floor.menuOpen
-  ]);
+      // Remove this line that automatically opens the panel:
+      // if (open) setPanelVisible(true);
+
+      if (open) {
+        setOpenMenuType(type);
+      } else if (openMenuType === type) {
+        setOpenMenuType(null);
+      }
+    },
+    [openMenuType]
+  );
 
   /* --------------------- Selection → SceneId side-effect -------------------- */
 

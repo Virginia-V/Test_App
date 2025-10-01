@@ -7,20 +7,20 @@ import {
   TransformWrapper
 } from "react-zoom-pan-pinch";
 import { ZoomableImage } from "./ZoomableImage";
-// import {
-//   Model3DViewerWithLoading,
-//   preloadGLB
-// } from "./Model3DViewerWithLoading";
+import {
+  Model3DViewerWithLoading,
+  preloadGLB
+} from "./Model3DViewerWithLoading";
 import { CategoryType } from "@/helpers";
-// import { get3DPreviewFor } from "@/lib";
+import { get3DPreviewFor } from "@/lib";
 
 interface ZoomableContentViewerProps {
   categoryType: CategoryType;
   modelIndex: number;
   imageSrc: string;
-  show3D?: boolean;
-  onToggle3D?: () => void;
-  renderZoomControls?: (
+  show3D: boolean;
+  onToggle3D: () => void;
+  renderZoomControls: (
     transformRef: React.RefObject<ReactZoomPanPinchRef | null>,
     show3D: boolean,
     onToggle3D: () => void
@@ -38,15 +38,15 @@ export const ZoomableContentViewer: React.FC<ZoomableContentViewerProps> = ({
   const transformRef = useRef<ReactZoomPanPinchRef | null>(null);
 
   const canShow3D = categoryType === "bathtub" || categoryType === "sink";
-  // const modelUrl = useMemo(
-  //   () => (canShow3D ? get3DPreviewFor(categoryType, modelIndex) : null),
-  //   [canShow3D, categoryType, modelIndex]
-  // );
+  const modelUrl = useMemo(
+    () => (canShow3D ? get3DPreviewFor(categoryType, modelIndex) : null),
+    [canShow3D, categoryType, modelIndex]
+  );
 
-  // const handleToggle3D = () => {
-  //   if (canShow3D && modelUrl) preloadGLB(modelUrl);
-  //   onToggle3D();
-  // };
+  const handleToggle3D = () => {
+    if (canShow3D && modelUrl) preloadGLB(modelUrl);
+    onToggle3D();
+  };
 
   return (
     <div className="relative w-full h-full">
@@ -64,22 +64,22 @@ export const ZoomableContentViewer: React.FC<ZoomableContentViewerProps> = ({
           alignmentAnimation={{ animationTime: 200 }}
         >
           <TransformComponent>
-            {/* {show3D ? (
+            {show3D ? (
               <Model3DViewerWithLoading
                 categoryType={categoryType}
                 modelIndex={modelIndex}
               />
-            ) : ( */}
+            ) : (
               <ZoomableImage src={imageSrc} />
-            {/* )} */}
+            )}
           </TransformComponent>
         </TransformWrapper>
       </div>
 
       {/* Zoom controls positioned absolutely on top of the content */}
-      {/* <div className="absolute top-4 left-4 z-10">
-        {renderZoomControls(transformRef)}
-      </div> */}
+      <div className="absolute top-4 left-4 z-10">
+        {renderZoomControls(transformRef, show3D, handleToggle3D)}
+      </div>
     </div>
   );
 };

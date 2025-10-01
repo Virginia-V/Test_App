@@ -1,13 +1,13 @@
 import { useMemo } from "react";
 import { ArrowLeft, ArrowRight } from "@/assets";
 
+import { usePanoramaContext } from "@/context/PanoramaContext";
 import {
   CategoryType,
   getCategoryModelImages,
   getEffectiveCategoryType
 } from "@/helpers";
 import { CarouselSelector } from "@/components/CarouselSelector";
-import { usePanoramaContext } from "@/context/PanoramaContext";
 
 type ProductImageGalleryProps = {
   panoramaType?: string;
@@ -43,7 +43,6 @@ export const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
         itemWidthClass="w-[150px]"
         itemHeightClass="h-[150px]"
         itemMarginClass="m-2"
-
       />
     </div>
   );
