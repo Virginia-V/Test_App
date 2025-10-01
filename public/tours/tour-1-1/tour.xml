@@ -354,6 +354,8 @@
     ath="215"
     atv="31"
     scale="0.1"
+    flying="0"
+    distorted="true"  
 />
 <hotspot
     name="floor"
@@ -361,6 +363,8 @@
     ath="0"
     atv="88.7"
     scale="0.1"
+    flying="0"
+    distorted="true"  
 />
 <hotspot
     name="sink"
@@ -368,6 +372,8 @@
     ath="60"
     atv="30"
     scale="0.1"
+    flying="0"
+    distorted="true"  
 />
 </scene>
 
