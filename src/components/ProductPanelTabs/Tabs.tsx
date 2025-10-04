@@ -27,14 +27,19 @@ export const TabsComponent: React.FC<TabsComponentProps> = ({
       onValueChange={handleChange}
       className="w-full h-full flex flex-col"
     >
-      <TabsList className="absolute -top-[50.1px] left-1/2 transform -translate-x-1/2 flex-shrink-0">
+      <TabsList className="absolute -top-[50.1px] left-1/2 transform -translate-x-1/2 flex-shrink-0 !border-none !shadow-none !outline-none">
         {tabs.map((tab, index) => (
           <TabsTrigger
             key={tab.id ?? index}
             value={index.toString()}
             aria-controls={`simple-tabpanel-${index}`}
             id={`simple-tab-${index}`}
-            className="focus:outline-none focus:ring-0 border-none shadow-none data-[state=active]:border-none data-[state=active]:shadow-none"
+            className="!border-none !shadow-none !outline-none focus:!outline-none focus:!ring-0 focus-visible:!outline-none data-[state=active]:!border-none data-[state=active]:!shadow-none data-[state=active]:!outline-none data-[state=inactive]:!border-none data-[state=inactive]:!shadow-none data-[state=inactive]:!outline-none hover:!outline-none"
+            style={{
+              border: "none",
+              boxShadow: "none",
+              outline: "none"
+            }}
           >
             {tab.icon}
           </TabsTrigger>
