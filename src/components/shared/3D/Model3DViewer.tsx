@@ -22,7 +22,7 @@ function GLBPrimitive({ url, onReady }: { url: string; onReady?: () => void }) {
   }, [onReady]);
 
   return (
-    <Center top>
+    <Center>
       {/* key forces a remount when URL changes, avoiding stale cached scene */}
       <primitive key={url} object={gltf.scene as THREE.Object3D} />
     </Center>
