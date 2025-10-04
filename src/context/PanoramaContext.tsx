@@ -311,9 +311,9 @@ function findIndicesByIds(
 
 // Initial state (matches required IDs: Bathtub C1M1Mat1, Sink C2M4Mat10, Floor C3M7)
 const initialState: PanoramaState = {
-  bathtub: { ...findIndicesByIds("bathtub", 1, 1, null), menuOpen: false },
-  sink: { ...findIndicesByIds("sink", 4, 10), menuOpen: false },
-  floor: { ...findIndicesByIds("floor", 7), menuOpen: false }
+  bathtub: { ...findIndicesByIds("bathtub", 2, 4, null), menuOpen: false },
+  sink: { ...findIndicesByIds("sink", 5, 13), menuOpen: false },
+  floor: { ...findIndicesByIds("floor", 9), menuOpen: false }
 };
 
 export function PanoramaProvider({ children }: PropsWithChildren) {
@@ -451,6 +451,34 @@ export function PanoramaProvider({ children }: PropsWithChildren) {
     }),
     [panoramas, currentSceneId, panelVisible]
   );
+
+  // Add this debug code temporarily
+  useEffect(() => {
+    console.log("=== DEBUG: Available models ===");
+    console.log(
+      "Bathtub models:",
+      menu_preview_images.bathtub.models.map((m) => ({
+        modelId: m.modelId,
+        materials: m.materials?.map((mat) => ({
+          materialId: mat.materialId,
+          colors: mat.colors?.map((c) => c.colorId)
+        }))
+      }))
+    );
+    console.log(
+      "Sink models:",
+      menu_preview_images.sink.models.map((m) => ({
+        modelId: m.modelId,
+        materials: m.materials?.map((mat) => mat.materialId)
+      }))
+    );
+    console.log(
+      "Floor models:",
+      menu_preview_images.floor.models.map((m) => ({
+        modelId: m.modelId
+      }))
+    );
+  }, []);
 
   return (
     <PanoramaContext.Provider value={value}>

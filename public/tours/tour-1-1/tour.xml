@@ -121,10 +121,10 @@
          /> -->
 
 <scene
-    name="scene0"
+    name="scene173"
     title="Bathtub C1M1 + Sink C2M4 + Floor C3M7"
     onstart=""
-    thumburl="https://pub-f8c8c146ca47443e8eab15da50a51ecf.r2.dev/tours/tour-1-1/scene0/thumb.jpg"
+    thumburl="https://pub-f8c8c146ca47443e8eab15da50a51ecf.r2.dev/tours/tour-1-1/scene173/thumb.jpg"
     lat=""
     lng=""
     alt=""
@@ -150,12 +150,17 @@
   <view projection="fisheye" fisheye="1.2" fovtype="MFOV" fov="110" fovmin="60" fovmax="125" maxpixelzoom="2.0" limitview="auto" />
 
   <preview
-      url="https://pub-f8c8c146ca47443e8eab15da50a51ecf.r2.dev/tours/tour-1-1/scene0/preview.jpg"
+      url="https://pub-f8c8c146ca47443e8eab15da50a51ecf.r2.dev/tours/tour-1-1/scene173/preview.jpg"
     />
 
   <image>
-    <cube
+    <!-- <cube
         url="https://pub-f8c8c146ca47443e8eab15da50a51ecf.r2.dev/tours/tour-1-1/scene0/panos/tour_1_1_scene0.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg"
+        multires="512,640,1280,2624,5248"
+      /> -->
+
+            <cube
+        url="https://pub-f8c8c146ca47443e8eab15da50a51ecf.r2.dev/tours/tour-1-1/scene173/panos/tour_1_1_scene173.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg"
         multires="512,640,1280,2624,5248"
       />
   </image>
@@ -21760,10 +21765,10 @@
 </scene>
 
     <scene
-    name="scene173"
+    name="scene0"
     preload="true"    title="Bathtub C1M2 + Sink C2M5 + Floor C3M9"
     onstart=""
-    thumburl="https://pub-f8c8c146ca47443e8eab15da50a51ecf.r2.dev/tours/tour-1-1/scene173/thumb.jpg"
+    thumburl="https://pub-f8c8c146ca47443e8eab15da50a51ecf.r2.dev/tours/tour-1-1/scene0/thumb.jpg"
     lat=""
     lng=""
     alt=""
@@ -21785,11 +21790,15 @@
   />
     <view projection="fisheye" fisheye="1.2" fovtype="MFOV" fov="110" fovmin="60" fovmax="125" maxpixelzoom="2.0" limitview="auto" />
     <preview
-      url="https://pub-f8c8c146ca47443e8eab15da50a51ecf.r2.dev/tours/tour-1-1/scene173/preview.jpg"
+      url="https://pub-f8c8c146ca47443e8eab15da50a51ecf.r2.dev/tours/tour-1-1/scene0/preview.jpg"
     />
     <image>
-      <cube
+      <!-- <cube
         url="https://pub-f8c8c146ca47443e8eab15da50a51ecf.r2.dev/tours/tour-1-1/scene173/panos/tour_1_1_scene173.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg"
+        multires="512,640,1280,2624,5248"
+      /> -->
+          <cube
+        url="https://pub-f8c8c146ca47443e8eab15da50a51ecf.r2.dev/tours/tour-1-1/scene0/panos/tour_1_1_scene0.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg"
         multires="512,640,1280,2624,5248"
       />
     </image>

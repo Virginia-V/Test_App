@@ -50,6 +50,8 @@ export default function KrpanoViewer({
   const krpanoRef = useRef<any | null>(null);
   const detachersRef = useRef<Array<() => void>>([]);
 
+  console.log(currentSceneId);
+
   // loader state
   const [loading, setLoading] = useState(false);
   const [percent, setPercent] = useState(0);
