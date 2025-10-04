@@ -15,7 +15,7 @@ export interface SocialIcon {
   height: number;
   opacity?: string;
 }
-const ICON_SIZE = 35;
+const ICON_SIZE = 24;
 
 export const companyBasics = {
   denomination: "artenova",
