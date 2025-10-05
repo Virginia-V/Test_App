@@ -3,8 +3,8 @@ import { ReactImageTurntable } from "react-image-turntable";
 
 export default function Product360() {
   const images = Array.from(
-    { length: 60 },
-    (_, i) => `360-images/BATH_B_${String(i + 1).padStart(4, "0")}.jpg`
+    { length: 120 },
+    (_, i) => `360-images-1/BATH_A_${String(i + 1).padStart(4, "0")}.jpg`
   );
 
   return (
