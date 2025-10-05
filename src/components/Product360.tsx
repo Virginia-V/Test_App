@@ -12,7 +12,7 @@ export default function Product360() {
       images={images}
       initialImageIndex={0}
       movementSensitivity={0.5}
-      autoRotate={{ disabled: false, interval: 1000 }}
+      autoRotate={{ disabled: false, interval: 50}}
     />
   );
 }
