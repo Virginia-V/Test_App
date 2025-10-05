@@ -21,6 +21,7 @@ interface ZoomableContentViewerProps {
   imageSrc: string;
   show3D: boolean;
   show360: boolean;
+  show2D: boolean;
   onToggle3D: () => void;
   renderZoomControls: (
     transformRef: React.RefObject<ReactZoomPanPinchRef | null>,
@@ -34,6 +35,7 @@ export const ZoomableContentViewer: React.FC<ZoomableContentViewerProps> = ({
   modelIndex,
   imageSrc,
   show3D,
+  show2D,
   show360,
   onToggle3D,
   renderZoomControls
@@ -75,10 +77,24 @@ export const ZoomableContentViewer: React.FC<ZoomableContentViewerProps> = ({
             </TransformComponent>
           </TransformWrapper>
         ) : show360 ? (
-          // Show 360° view without zoom/pan
-          <div className="w-full h-full flex items-center justify-center">
-            <Product360 />
-          </div>
+          // Show 360° view with zoom functionality but disabled panning
+          <TransformWrapper
+            ref={transformRef}
+            initialScale={1}
+            minScale={1}
+            maxScale={6}
+            doubleClick={{ disabled: true }}
+            wheel={{ step: 0.1 }}
+            pinch={{ step: 5 }}
+            panning={{ disabled: true }} // Disable panning for 360° view
+            centerZoomedOut
+            zoomAnimation={{ animationTime: 200, animationType: "linear" }}
+            alignmentAnimation={{ animationTime: 200 }}
+          >
+            <TransformComponent>
+              <Product360 />
+            </TransformComponent>
+          </TransformWrapper>
         ) : (
           // Show regular image with zoom/pan
           <TransformWrapper
@@ -90,6 +106,7 @@ export const ZoomableContentViewer: React.FC<ZoomableContentViewerProps> = ({
             wheel={{ step: 0.1 }}
             pinch={{ step: 5 }}
             centerZoomedOut
+            panning={{ disabled: true }} // Disable panning for 360° view
             zoomAnimation={{ animationTime: 200, animationType: "linear" }}
             alignmentAnimation={{ animationTime: 200 }}
           >
