@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import { usePanoramaContext } from "@/context/PanoramaContext";
 import { attachHotspotOnclick } from "@/helpers/hotspotOnclick";
+import { ALL_MENU_IMAGE_URLS } from "@/lib/menu_preview_images";
 
 declare global {
   interface Window {
@@ -66,6 +67,7 @@ export default function KrpanoViewer({
   const tilesLoadedRef = useRef(false); // pano tiles ready
   const blendedRef = useRef(true); // transition finished (or none)
   const safetyTimeoutRef = useRef<number | null>(null);
+  const menuImagesLoadedRef = useRef(false); // menu images preloaded
 
   // RAF/smoothing refs
   const rafRef = useRef<number | null>(null);
@@ -101,9 +103,39 @@ export default function KrpanoViewer({
     setLoading(false);
   };
 
+  // Preload menu images
+  const preloadMenuImages = (): Promise<void> => {
+    return new Promise((resolve) => {
+      if (ALL_MENU_IMAGE_URLS.length === 0) {
+        resolve();
+        return;
+      }
+
+      let loadedCount = 0;
+      const totalImages = ALL_MENU_IMAGE_URLS.length;
+
+      ALL_MENU_IMAGE_URLS.forEach((src) => {
+        const img = new Image();
+        img.onload = img.onerror = () => {
+          loadedCount++;
+          if (loadedCount === totalImages) {
+            menuImagesLoadedRef.current = true;
+            resolve();
+          }
+        };
+        img.src = src;
+      });
+    });
+  };
+
   const maybeStop = () => {
     if (finishingRef.current) return;
-    if (!tilesLoadedRef.current || !blendedRef.current) return;
+    if (
+      !tilesLoadedRef.current ||
+      !blendedRef.current ||
+      !menuImagesLoadedRef.current
+    )
+      return;
     // allow 100% — RAF loop will glide to it
     finishingRef.current = true;
     forcedFinishRef.current = true;
@@ -118,9 +150,13 @@ export default function KrpanoViewer({
     blendedRef.current = true; // will flip false on blend start
     finishingRef.current = false;
     forcedFinishRef.current = false;
+    menuImagesLoadedRef.current = false;
     targetPctRef.current = 0;
 
     clearTimers();
+
+    // Start preloading menu images immediately
+    preloadMenuImages();
 
     // smoothing parameters
     const minUpspeedPerSec = 22; // min visible rate (pct/sec) to avoid "freeze"
@@ -152,8 +188,12 @@ export default function KrpanoViewer({
         Math.min(99, Math.max(0, krProgress))
       );
 
-      // when both conditions pass, allow 100
-      if (tilesLoadedRef.current && blendedRef.current) {
+      // when all conditions pass, allow 100
+      if (
+        tilesLoadedRef.current &&
+        blendedRef.current &&
+        menuImagesLoadedRef.current
+      ) {
         targetPctRef.current = Math.max(targetPctRef.current, 100);
       }
 
@@ -176,8 +216,14 @@ export default function KrpanoViewer({
 
       next = Math.min(current + maxStep, next);
 
-      // gate at 99 until both ready
-      if (!(tilesLoadedRef.current && blendedRef.current)) {
+      // gate at 99 until all ready
+      if (
+        !(
+          tilesLoadedRef.current &&
+          blendedRef.current &&
+          menuImagesLoadedRef.current
+        )
+      ) {
         next = Math.min(next, 99);
       }
 
@@ -205,7 +251,7 @@ export default function KrpanoViewer({
 
     rafRef.current = requestAnimationFrame(tick);
 
-    // safety: if events mis-order, force finish shortly after both gates are true
+    // safety: if events mis-order, force finish shortly after all gates are true
     const armSafety = () => {
       if (safetyTimeoutRef.current)
         window.clearTimeout(safetyTimeoutRef.current);
@@ -214,9 +260,14 @@ export default function KrpanoViewer({
       }, 350);
     };
 
-    // light periodic checker just to arm the safety when both pass
+    // light periodic checker just to arm the safety when all pass
     progressTimerRef.current = window.setInterval(() => {
-      if (tilesLoadedRef.current && blendedRef.current) armSafety();
+      if (
+        tilesLoadedRef.current &&
+        blendedRef.current &&
+        menuImagesLoadedRef.current
+      )
+        armSafety();
     }, 80);
   };
 

@@ -44,6 +44,42 @@ export const BottomMenu = ({
   const panorama = panoramas[panoramaType];
   const [isClosing, setIsClosing] = useState(false);
 
+  // Preload images when component mounts
+  useEffect(() => {
+    const preloadImages = () => {
+      const imagesToPreload: string[] = [];
+
+      // Get all model images for current panorama type
+      const models = menu_preview_images[panoramaType].models;
+      models.forEach((model) => {
+        imagesToPreload.push(model.previewFile);
+
+        // Add material images if they exist
+        model.materials?.forEach((material) => {
+          imagesToPreload.push(material.file);
+
+          // Add color images if they exist
+          material.colors?.forEach((color) => {
+            imagesToPreload.push(color.file);
+          });
+        });
+      });
+
+      // Add destination images
+      Object.values(DESTINATION_IMAGES).forEach((img) => {
+        imagesToPreload.push(img);
+      });
+
+      // Preload all images
+      imagesToPreload.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    };
+
+    preloadImages();
+  }, [panoramaType]);
+
   const handleClose = useCallback(() => {
     setIsClosing(true);
     window.setTimeout(() => {

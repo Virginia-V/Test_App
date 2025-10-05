@@ -3,16 +3,21 @@ import {
   IMG_BATHTUB_PREVIEW_IMAGES,
   IMG_FLOOR_PREVIEW_IMAGES
 } from "../lib/panel-images";
-import { CHAIR_MODEL_ITEMS } from "../lib";
+import {
+  BATHTUB_PREVIEW_IMAGES,
+  CHAIR_MODEL_ITEMS,
+  FLOOR_MATERIAL_IMAGES,
+  SINK_PREVIEW_IMAGES
+} from "../lib";
 
 // Allowed category types
 export type CategoryType = "bathtub" | "sink" | "floor";
 
 // Create a mapping for the IMG_ constants
 const IMG_PREVIEW_MAPS = {
-  sink: IMG_SINK_PREVIEW_IMAGES,
-  bathtub: IMG_BATHTUB_PREVIEW_IMAGES,
-  floor: IMG_FLOOR_PREVIEW_IMAGES
+  sink: SINK_PREVIEW_IMAGES,
+  bathtub: BATHTUB_PREVIEW_IMAGES,
+  floor: FLOOR_MATERIAL_IMAGES
 } as const;
 
 /**
