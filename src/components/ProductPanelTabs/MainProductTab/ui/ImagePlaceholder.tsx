@@ -16,6 +16,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   modelIndex
 }) => {
   const [show3D, setShow3D] = useState(false);
+  const [show360, setShow360] = useState(false);
 
   // Use custom hook for data management
   const {
@@ -29,6 +30,12 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
 
   const handleToggle3D = () => {
     setShow3D((prev) => !prev);
+    setShow360(false); // Hide 360 when showing 3D
+  };
+
+  const handleToggle360 = () => {
+    setShow360((prev) => !prev);
+    setShow3D(false); // Hide 3D when showing 360
   };
 
   // Render zoom controls with proper ref handling
@@ -43,6 +50,8 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
       onReset={() => transformRef.current?.resetTransform()}
       show3D={show3D}
       onToggle3D={onToggle3D}
+      show360={show360}
+      onToggle360={handleToggle360}
     />
   );
 
@@ -52,6 +61,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
       modelIndex={derivedModelIndex}
       imageSrc={imageSrc}
       show3D={show3D}
+      show360={show360}
       onToggle3D={handleToggle3D}
       renderZoomControls={renderZoomControls}
     />
