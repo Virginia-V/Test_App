@@ -1,3 +1,4 @@
+import { Logo } from "@/assets/svg/Logo";
 import Image from "next/image";
 
 type InfoIndicatorProps = {
@@ -48,13 +49,7 @@ export const InfoIconWrapper = ({
         onClick={onClick}
       >
         <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white relative">
-          <Image
-            src="/LOGO.png"
-            alt="Info icon"
-            width={36}
-            height={36}
-            className="object-contain"
-          />
+          <Logo/>
           <InfoIndicator showIndicator={showIndicator} onClick={onClick} />
         </div>
       </div>
