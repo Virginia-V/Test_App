@@ -63,7 +63,7 @@ const KrpanoViewer: React.FC<{
       }
     }
 
-    // Check if script already exists
+    // Check if script already exists and remove it
     const existingScript = document.querySelector(
       `script[src="${view.jsPath}"]`
     );
@@ -191,7 +191,7 @@ export const TwoDImagesDialog: React.FC<TwoDImagesDialogProps> = ({
               <Button
                 variant="ghost"
                 size="sm"
-                className="absolute top-2 right-2 sm:top-4 sm:right-4 z-20 bg-gray-500/20 hover:bg-gray-500/30 border border-gray-300/50 backdrop-blur-sm text-white hover:text-white h-8 w-8 rounded-full"
+                className="cursor-pointer absolute top-2 right-2 sm:top-4 sm:right-4 z-20 bg-gray-500/20 hover:bg-gray-500/30 border border-gray-300/50 backdrop-blur-sm text-white hover:text-white h-8 w-8 rounded-full"
                 onClick={onClose}
               >
                 <svg
@@ -213,7 +213,7 @@ export const TwoDImagesDialog: React.FC<TwoDImagesDialogProps> = ({
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="bg-gray-500/20 hover:bg-gray-500/30 border border-gray-300/50 backdrop-blur-sm text-white hover:text-white h-10 w-10 rounded-full pointer-events-auto"
+                    className="cursor-pointer bg-gray-500/20 hover:bg-gray-500/30 border border-gray-300/50 backdrop-blur-sm text-white hover:text-white h-10 w-10 rounded-full pointer-events-auto"
                     onClick={goToPrevious}
                   >
                     <svg
@@ -230,7 +230,7 @@ export const TwoDImagesDialog: React.FC<TwoDImagesDialogProps> = ({
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="bg-gray-500/20 hover:bg-gray-500/30 border border-gray-300/50 backdrop-blur-sm text-white hover:text-white h-10 w-10 rounded-full pointer-events-auto"
+                    className="cursor-pointer bg-gray-500/20 hover:bg-gray-500/30 border border-gray-300/50 backdrop-blur-sm text-white hover:text-white h-10 w-10 rounded-full pointer-events-auto"
                     onClick={goToNext}
                   >
                     <svg
@@ -251,7 +251,7 @@ export const TwoDImagesDialog: React.FC<TwoDImagesDialogProps> = ({
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-full text-sm font-medium z-10">
                 {currentViewIndex + 1} / {views.length}
               </div>
-              
+
               {/* Krpano Viewer */}
               <div className="flex-1 relative">
                 <KrpanoViewer

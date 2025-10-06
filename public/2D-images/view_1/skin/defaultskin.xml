@@ -12,7 +12,7 @@
 	<style name="defaultskin_button" url="buttons-2.png" scale="0.5" align="lefttop" />
 
 	<!-- the container layer that contains the buttons -->
-	<layer name="defaultskin_buttons" type="container" width="120" height="40" align="rightbottom" x="20" y="10" scalechildren="true" scale="1.0" keep="true">
+	<layer name="defaultskin_buttons" type="container" width="120" height="40" align="rightbottom" x="100" y="10" scalechildren="true" scale="1.0" keep="true">
 		<layer name="btn_in"       x="0"   style="defaultskin_button" crop="320|0|80|80" onovercrop="320|80|80|80" ondown="set(fov_moveforce,-1);"     onup="set(fov_moveforce,0);"     />
 		<layer name="btn_out"      x="40"  style="defaultskin_button" crop="400|0|80|80" onovercrop="400|80|80|80" ondown="set(fov_moveforce,+1);"     onup="set(fov_moveforce,0);"     />
 		<layer name="btn_fs"       x="80"  style="defaultskin_button" crop="560|0|80|80" onovercrop="560|80|80|80" onclick="switch(fullscreen);" visible="true" devices="fullscreensupport" />

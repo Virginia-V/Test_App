@@ -1,15 +1,18 @@
 ﻿<krpano bgcolor="0x000000">
 
-	<!-- the skin and the flat pano viewing and controlling setup -->
-	<include url="skin/defaultskin.xml" />
-	<include url="skin/flatpano_setup.xml" />
-	
-	<!-- preview pano image -->
-	<preview url="view_1.tiles/preview.jpg" />
+    <!-- the skin and the flat pano viewing and controlling setup -->
+    <include url="skin/defaultskin.xml" />
+    <include url="skin/flatpano_setup.xml" />
+    
+    <!-- Disable dragging but keep zoom buttons working -->
+    <control mousetype="off" touchtype="off" />
+    
+    <!-- preview pano image -->
+    <preview url="view_1.tiles/preview.jpg" />
 
-	<!-- pano image -->
-	<image hfov="1.00" vfov="0.562500" voffset="0.00">
-		<flat url="view_1.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,512x288,1024x576,2048x1152,3840x2160" />
-	</image>
+    <!-- pano image -->
+    <image hfov="1.00" vfov="0.562500" voffset="0.00">
+        <flat url="view_1.tiles/l%l/%v/l%l_%v_%h.jpg" multires="512,512x288,1024x576,2048x1152,3840x2160" />
+    </image>
 
 </krpano>

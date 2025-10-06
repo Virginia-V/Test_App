@@ -8,7 +8,8 @@ export default function Product360() {
 
   const images = Array.from(
     { length: 120 },
-    (_, i) => `360-images-1/BATH_A_${String(i + 1).padStart(4, "0")}.jpg`
+    (_, i) =>
+      `360-images-2/BATH-A_BMAT-A1_${String(i + 1).padStart(4, "0")}.jpg`
   );
 
   const handleDragStart = () => {
@@ -42,11 +43,11 @@ export default function Product360() {
 
   return (
     <div
-      className="rounded-md overflow-hidden w-full select-none pointer-events-auto relative"
-      style={{
-        height: "500px",
-        minHeight: "500px"
-      }}
+      className="rounded-md overflow-hidden w-full h-full select-none pointer-events-auto relative"
+      // style={{
+      //   height: "500px",
+      //   minHeight: "500px"
+      // }}
       onMouseDown={handleDragStart}
       onTouchStart={handleDragStart}
       onMouseUp={handleDragEnd}
