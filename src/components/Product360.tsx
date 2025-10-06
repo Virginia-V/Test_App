@@ -28,7 +28,10 @@ interface Product360Props {
 }
 
 // Loading Overlay Component
-const LoadingOverlay: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
+const LoadingOverlay: React.FC<{ isVisible: boolean; progress: number }> = ({
+  isVisible,
+  progress
+}) => {
   if (!isVisible) return null;
 
   return (
@@ -37,6 +40,15 @@ const LoadingOverlay: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
         <div className="w-16 h-16 border-4 border-gray-300 border-t-green-500 rounded-full animate-spin mb-4 mx-auto" />
         <p className="text-gray-100 sm:text-gray-600 mb-2 text-base font-medium">
           Loading 360° Viewer...
+        </p>
+        <div className="w-48 bg-gray-200 rounded-full h-2 mb-2">
+          <div
+            className="bg-green-500 h-2 rounded-full transition-all duration-300 ease-out"
+            style={{ width: `${Math.round(progress)}%` }}
+          />
+        </div>
+        <p className="text-gray-100 sm:text-gray-600 text-sm">
+          {Math.round(progress)}%
         </p>
       </div>
     </div>
@@ -185,7 +197,7 @@ export default function Product360({ transformRef }: Product360Props) {
   const images = useMemo(generateImageUrls, []);
 
   // Custom hooks
-  const { isLoading } = useImagePreloader(images);
+  const { isLoading, progress } = useImagePreloader(images);
   const { showDragIndicator, isDragging, handleDragStart, handleDragEnd } =
     useDragIndicator();
 
@@ -209,7 +221,7 @@ export default function Product360({ transformRef }: Product360Props) {
       >
         {({ instance }) => (
           <>
-            <LoadingOverlay isVisible={isLoading} />
+            <LoadingOverlay isVisible={isLoading} progress={progress} />
             <ZoomLevelIndicator instance={instance} />
 
             <TransformComponent

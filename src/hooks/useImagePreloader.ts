@@ -70,10 +70,7 @@ export const useImagePreloader = (imageUrls: string[]) => {
   const [progress, setProgress] = React.useState(0);
 
   // Memoize the URLs array to prevent infinite loops
-  const memoizedUrls = React.useMemo(
-    () => imageUrls,
-    [imageUrls]
-  );
+  const memoizedUrls = React.useMemo(() => imageUrls, [imageUrls]);
 
   React.useEffect(() => {
     if (memoizedUrls.length === 0) {
@@ -81,44 +78,71 @@ export const useImagePreloader = (imageUrls: string[]) => {
       return;
     }
 
-    // Check if all images are already cached
-    const allCached = memoizedUrls.every((url) => imageCache.has(url));
-
-    if (allCached) {
-      const cachedImages = memoizedUrls.map((url) => imageCache.get(url)!);
-      setLoadedImages(cachedImages);
-      setProgress(100);
-      setIsLoading(false);
-      return;
-    }
-
+    // Reset state
     setIsLoading(true);
     setProgress(0);
     setLoadedImages([]);
     setFailedUrls([]);
 
     let loadedCount = 0;
-    const totalImages = memoizedUrls.length;
+    const totalImages = memoizedUrls.length; // This should be 120
     const images: HTMLImageElement[] = new Array(totalImages);
     const failed: string[] = [];
 
     const updateProgress = () => {
-      setProgress((loadedCount / totalImages) * 100);
+      loadedCount++;
+      const currentProgress = Math.round((loadedCount / totalImages) * 100);
+
+      // Use setTimeout to ensure each progress update is visible
+      setTimeout(() => {
+        setProgress(currentProgress);
+      }, 0);
     };
 
     const checkCompletion = () => {
       if (loadedCount === totalImages) {
-        setLoadedImages([...images]);
-        setFailedUrls([...failed]);
-        setIsLoading(false);
+        setTimeout(() => {
+          setLoadedImages([...images]);
+          setFailedUrls([...failed]);
+          setProgress(100);
+          setIsLoading(false);
+        }, 100);
       }
     };
 
+    // Check if all images are already cached
+    const cachedCount = memoizedUrls.filter((url) =>
+      imageCache.has(url)
+    ).length;
+
+    if (cachedCount === totalImages) {
+      // All images are cached, simulate progressive loading for UX
+      const cachedImages = memoizedUrls.map((url) => imageCache.get(url)!);
+
+      let simulatedProgress = 0;
+      const progressStep = 100 / totalImages;
+
+      const simulateProgress = () => {
+        if (simulatedProgress < 100) {
+          simulatedProgress += progressStep * 5; // Load 5 at a time for faster simulation
+          setProgress(Math.min(Math.round(simulatedProgress), 100));
+          setTimeout(simulateProgress, 10);
+        } else {
+          setLoadedImages(cachedImages);
+          setProgress(100);
+          setIsLoading(false);
+        }
+      };
+
+      simulateProgress();
+      return;
+    }
+
+    // Load images that aren't cached
     memoizedUrls.forEach((url, index) => {
       // Check memory cache first
       if (imageCache.has(url)) {
         images[index] = imageCache.get(url)!;
-        loadedCount++;
         updateProgress();
         checkCompletion();
         return;
@@ -129,8 +153,7 @@ export const useImagePreloader = (imageUrls: string[]) => {
 
       img.onload = () => {
         images[index] = img;
-        imageCache.set(url, img); // Cache in memory
-        loadedCount++;
+        imageCache.set(url, img);
         updateProgress();
         checkCompletion();
       };
@@ -138,7 +161,6 @@ export const useImagePreloader = (imageUrls: string[]) => {
       img.onerror = () => {
         console.warn(`Failed to load image: ${url}`);
         failed.push(url);
-        loadedCount++;
         updateProgress();
         checkCompletion();
       };
