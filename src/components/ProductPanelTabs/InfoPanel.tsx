@@ -1,10 +1,11 @@
 "use client";
 import React, { useEffect, useRef } from "react";
+import { X } from "lucide-react";
 
 import { ProductOverview } from "./MainProductTab";
 import { InfoProductOverview } from "./InfoProductTab/InfoProductOverview";
 import { InventoryProductOverview } from "./InventoryProductTab/InventoryProductOverview";
-import { BusinessProductOverview } from "./BusinessProductTab/BusinessProductOverview"; // Add this import
+import { BusinessProductOverview } from "./BusinessProductTab/BusinessProductOverview";
 import {
   Dialog,
   DialogContent,
@@ -78,10 +79,21 @@ export const InfoPanel: React.FC<InfoPanelProps> = ({
 
   return (
     <Dialog open={visible} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[95vw] lg:max-w-[1080px] w-full max-h-[90vh] h-[90vh] sm:h-[80vh] lg:h-[600px] p-0 bg-[#EDECEB] [&>button]:cursor-pointer [&>button]:focus:outline-none [&>button]:focus:ring-0 flex flex-col">
+      <DialogContent className="sm:max-w-[95vw] lg:max-w-[1080px] w-full max-h-[90vh] h-[90vh] sm:h-[80vh] lg:h-[600px] p-0 bg-[#EDECEB] [&>button]:hidden flex flex-col">
         <VisuallyHidden>
           <DialogTitle>Product Information Panel</DialogTitle>
         </VisuallyHidden>
+
+        {/* Custom close button with smaller size and minimal focus ring */}
+        <div className="absolute top-2 right-2 z-50">
+          <button
+            onClick={onClose}
+            className="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 bg-white/90 hover:bg-white rounded-full shadow-md border border-gray-200 transition-all duration-200 hover:scale-105 focus:outline-none  cursor-pointer"
+            aria-label="Close panel"
+          >
+            <X size={16} className="text-gray-600 hover:text-gray-800" />
+          </button>
+        </div>
 
         <div className="flex-1 overflow-hidden">
           <TabsComponent
