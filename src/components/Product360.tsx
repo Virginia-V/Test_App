@@ -9,11 +9,25 @@ import {
 } from "react-zoom-pan-pinch";
 
 // Configuration constants
+// const PRODUCT_360_CONFIG = {
+//   IMAGE_COUNT: 120,
+//   BASE_URL:
+//     "https://pub-ad375fec02084613b3e47524e6061297.r2.dev/menu-images/Bathtub/Bathtub_Model_01/Bathtub_Model_01_360/Bathtub_Model_01_360_Mat_01",
+//   IMAGE_PREFIX: "BATH-A_BMAT-A1_",
+//   ZOOM_CONFIG: {
+//     initialScale: 1,
+//     minScale: 1,
+//     maxScale: 3,
+//     wheelStep: 0.1,
+//     doubleClickStep: 0.7
+//   }
+// } as const;
+
 const PRODUCT_360_CONFIG = {
-  IMAGE_COUNT: 120,
+  IMAGE_COUNT: 60,
   BASE_URL:
-    "https://pub-ad375fec02084613b3e47524e6061297.r2.dev/menu-images/Bathtub/Bathtub_Model_01/Bathtub_Model_01_360/Bathtub_Model_01_360_Mat_01",
-  IMAGE_PREFIX: "BATH-A_BMAT-A1_",
+    "https://pub-ad375fec02084613b3e47524e6061297.r2.dev/menu-images/Bathtub/Bathtub_Model_02/Bathtub_Model_02/Bathtub_Model_02_360_Mat_02",
+  IMAGE_PREFIX: "360VIEWER_BATH-B_BMAT-B2_",
   ZOOM_CONFIG: {
     initialScale: 1,
     minScale: 1,
@@ -22,7 +36,6 @@ const PRODUCT_360_CONFIG = {
     doubleClickStep: 0.7
   }
 } as const;
-
 interface Product360Props {
   transformRef?: React.RefObject<ReactZoomPanPinchRef | null>;
 }
@@ -178,6 +191,16 @@ const useDragIndicator = () => {
 };
 
 // Generate image URLs helper
+// const generateImageUrls = (): string[] => {
+//   return Array.from(
+//     { length: PRODUCT_360_CONFIG.IMAGE_COUNT },
+//     (_, i) =>
+//       `${PRODUCT_360_CONFIG.BASE_URL}/${PRODUCT_360_CONFIG.IMAGE_PREFIX}${String(
+//         i + 1
+//       ).padStart(4, "0")}.jpg`
+//   );
+// };
+
 const generateImageUrls = (): string[] => {
   return Array.from(
     { length: PRODUCT_360_CONFIG.IMAGE_COUNT },
