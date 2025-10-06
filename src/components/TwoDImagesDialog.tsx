@@ -113,10 +113,10 @@ const AnimatedImage: React.FC<{
         src={image.src}
         alt={image.alt}
         fill
-        className="object-cover"
+        className="object-contain sm:object-cover"
         quality={100}
         priority
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 98vw, 95vw"
+        sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1200px) 98vw, 95vw"
       />
     </motion.div>
   );
@@ -163,7 +163,7 @@ export const TwoDImagesDialog: React.FC<TwoDImagesDialogProps> = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const dialogContentStyles =
-    "w-full sm:max-w-[98vw] lg:max-w-[1400px] h-[95vh] sm:h-[90vh] lg:h-[800px] max-h-[95vh] p-0 bg-black border-0 shadow-none flex flex-col overflow-hidden [&>button]:cursor-pointer [&>button]:focus:outline-none [&>button]:focus:ring-0";
+    "w-full max-w-[100vw] sm:max-w-[98vw] lg:max-w-[1400px] h-[100vh] sm:h-[90vh] lg:h-[800px] max-h-[100vh] sm:max-h-[95vh] p-0 bg-black border-0 shadow-none flex flex-col overflow-hidden [&>button]:cursor-pointer [&>button]:focus:outline-none [&>button]:focus:ring-0";
 
   const images: ImageData[] = [
     {
@@ -206,7 +206,7 @@ export const TwoDImagesDialog: React.FC<TwoDImagesDialogProps> = ({
               <Button
                 variant="ghost"
                 size="sm"
-                className="absolute top-4 right-4 z-20 bg-gray-500/20 hover:bg-gray-500/30 border border-gray-300/50 backdrop-blur-sm text-white hover:text-white h-8 w-8 rounded-full pointer-events-auto transition-all duration-200 cursor-pointer shadow-lg hover:shadow-xl hover:scale-105"
+                className="absolute top-2 right-2 sm:top-4 sm:right-4 z-20 bg-gray-500/20 hover:bg-gray-500/30 border border-gray-300/50 backdrop-blur-sm text-white hover:text-white h-8 w-8 rounded-full pointer-events-auto transition-all duration-200 cursor-pointer shadow-lg hover:shadow-xl hover:scale-105"
                 onClick={onClose}
               >
                 <svg
