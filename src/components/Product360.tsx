@@ -73,17 +73,6 @@ const getImageCountFromUrl = (bucket360Url: string): number => {
   return 60;
 };
 
-const pad2 = (n: number) => String(n).padStart(2, "0");
-const replaceSegment = (
-  url: string,
-  kind: "Model" | "Mat" | "Color",
-  idx1Based: number
-): string => {
-  const re = new RegExp(`(${kind}_)\\d+`);
-  if (re.test(url)) return url.replace(re, `$1${pad2(idx1Based)}`);
-  return url;
-};
-
 // ============================================================================
 // UI COMPONENTS
 // ============================================================================
@@ -281,171 +270,155 @@ export default function Product360({
   panoramaType,
   onSelect
 }: Product360Props) {
+  // Access panorama context for current selection and update function
   const { panoramas, updatePanorama } = usePanoramaContext();
 
-  const [currentBucketUrl, setCurrentBucketUrl] = useState<string>(
-    bucket360Url ?? ""
-  );
-  useEffect(() => {
-    if (bucket360Url && bucket360Url !== currentBucketUrl) {
-      setCurrentBucketUrl(bucket360Url);
-    }
-  }, [bucket360Url, currentBucketUrl]);
-
+  // Determine which part (bathtub, sink, floor) is currently active
   const part: PartType = useMemo<PartType>(() => {
     if (panoramaType) return panoramaType;
-    if (currentBucketUrl.includes("Sink")) return "sink";
-    if (currentBucketUrl.includes("Bathtub")) return "bathtub";
+    if (bucket360Url?.includes("Sink")) return "sink";
+    if (bucket360Url?.includes("Bathtub")) return "bathtub";
     return "floor";
-  }, [panoramaType, currentBucketUrl]);
+  }, [panoramaType, bucket360Url]);
 
+  // Get current selection indices from context (model, material, color)
   const selectedModelIndex = (panoramas as any)?.[part]?.modelIndex ?? 0;
   const selectedMaterialIndex = (panoramas as any)?.[part]?.materialIndex ?? 0;
   const selectedColorIndex = (panoramas as any)?.[part]?.colorIndex ?? null;
 
+  // Get the selected model, material, and color objects from menu_preview_images
+  const models = menu_preview_images[part]?.models ?? [];
+  const model = models[selectedModelIndex];
+  const material = model?.materials?.[selectedMaterialIndex];
+  const color =
+    material && selectedColorIndex !== null
+      ? material.colors?.[selectedColorIndex]
+      : undefined;
+
+  // Get string IDs for the current selection (needed for getBucket360Url)
+  const categoryIdStr = menu_preview_images[part]?.categoryId as
+    | string
+    | undefined;
+  const modelIdStr = model?.modelId as string | undefined;
+  const materialIdStr = material?.materialId as string | undefined;
+  const colorIdStr = color?.colorId as string | undefined;
+
+  // Always compute the 360 URL from the current selection using helper
+  // This ensures the viewer always reflects the latest selection
+  const computedBucket360Url =
+    getBucket360Url(
+      categoryIdStr ? Number(categoryIdStr) : null,
+      modelIdStr ? Number(modelIdStr) : null,
+      materialIdStr ? Number(materialIdStr) : null,
+      colorIdStr ? Number(colorIdStr) : undefined
+    ) ??
+    bucket360Url ??
+    "";
+
+  // Compute the list of materials for the current model (for material selector UI)
   const computedMaterialList = useMemo(() => {
     if (part === "bathtub" || part === "sink") {
-      const models = menu_preview_images[part].models;
-      const model = models[selectedModelIndex];
       return (
         model?.materials?.map((m) => ({ file: m.file, id: m.materialId })) ?? []
       );
     }
     return [];
-  }, [part, selectedModelIndex]);
+  }, [model?.materials, part]);
 
+  // Compute the list of colors for the current material (for color selector UI)
   const computedColorList = useMemo(() => {
     if (part === "bathtub" || part === "sink") {
-      const models = menu_preview_images[part].models;
-      const model = models[selectedModelIndex];
-      const material = model?.materials?.[selectedMaterialIndex];
       return (
         material?.colors?.map((c) => ({ file: c.file, id: c.colorId })) ?? []
       );
     }
     return [];
-  }, [part, selectedModelIndex, selectedMaterialIndex]);
+  }, [part, material?.colors]);
 
-  // Viewer + images
+  // Set up refs for zoom/pan pinch
   const internalTransformRef = useRef<ReactZoomPanPinchRef | null>(null);
   const activeTransformRef = transformRef || internalTransformRef;
 
-  const isSink = !!currentBucketUrl?.includes("Sink");
-  const { images, initialImageIndex } = useImageSequence(currentBucketUrl);
+  // Determine if the current product is a sink (affects turntable sensitivity)
+  const isSink = !!computedBucket360Url?.includes("Sink");
+
+  // Get the image sequence for the current 360 URL
+  const { images, initialImageIndex } = useImageSequence(computedBucket360Url);
+
+  // Preload images and track loading progress
   const { isLoading, progress } = useImagePreloader(images);
+
+  // Drag indicator state and handlers
   const { showDragIndicator, isDragging, handleDragStart, handleDragEnd } =
     useDragIndicator();
 
-  // --- NEW: viewerKey to force remounts when selection/URL changes ---
+  // Generate a unique key for the viewer to force remount on selection change
   const viewerKey = useMemo(
     () =>
       `${part}-${selectedModelIndex}-${selectedMaterialIndex}-${
         selectedColorIndex ?? "x"
-      }-${currentBucketUrl}`,
+      }-${computedBucket360Url}`,
     [
       part,
       selectedModelIndex,
       selectedMaterialIndex,
       selectedColorIndex,
-      currentBucketUrl
+      computedBucket360Url
     ]
   );
 
-  const selectionIds = useMemo(() => {
-    if (part === "bathtub" || part === "sink") {
-      const { models, categoryId } = menu_preview_images[part];
-      const model = models[selectedModelIndex];
-      const material = model?.materials?.[selectedMaterialIndex];
-      const color = material?.colors?.[selectedColorIndex ?? -1];
-      return {
-        modelId: model?.modelId as string | undefined,
-        categoryId: categoryId as string | undefined,
-        materialId: material?.materialId as string | undefined,
-        colorId: color?.colorId as string | undefined
-      };
-    }
-    return {};
-  }, [part, selectedModelIndex, selectedMaterialIndex, selectedColorIndex]);
-
-  // handlers (unchanged)
+  // Handler for selecting a material
+  // Updates panorama context and notifies parent with new selection
   const handleMaterialSelect = (idx: number) => {
-    const models = (menu_preview_images as any)[part]?.models ?? [];
-    const model = models[selectedModelIndex];
-    const material = model?.materials?.[idx];
+    const nextMaterial = model?.materials?.[idx];
     const nextHasColors =
-      Array.isArray(material?.colors) && material!.colors.length > 0;
+      Array.isArray(nextMaterial?.colors) && nextMaterial!.colors.length > 0;
     const nextColorIndex = nextHasColors ? 0 : null;
 
+    // Update panorama context with new material and reset color if needed
     updatePanorama({
       part,
       patch: { materialIndex: idx, colorIndex: nextColorIndex }
     });
 
-    const categoryIdStr = (menu_preview_images as any)[part]?.categoryId as
-      | string
-      | undefined;
-    const modelIdStr = model?.modelId as string | undefined;
-    const materialIdStr = material?.materialId as string | undefined;
-    const colorIdStr = nextHasColors
-      ? (material!.colors[0].colorId as string)
+    const nextMaterialIdStr = nextMaterial?.materialId as string | undefined;
+    const nextColorIdStr = nextHasColors
+      ? nextMaterial.colors && (nextMaterial!.colors[0].colorId as string)
       : undefined;
 
-    const nextUrl =
-      getBucket360Url(
-        categoryIdStr ? Number(categoryIdStr) : null,
-        modelIdStr ? Number(modelIdStr) : null,
-        materialIdStr ? Number(materialIdStr) : null,
-        colorIdStr ? Number(colorIdStr) : undefined
-      ) ?? currentBucketUrl;
-
-    setCurrentBucketUrl(nextUrl);
-
+    // Notify parent with new selection data
     onSelect?.({
       modelIndex: selectedModelIndex,
       modelId: modelIdStr,
       categoryId: categoryIdStr,
-      materialId: materialIdStr,
-      colorId: colorIdStr
+      materialId: nextMaterialIdStr,
+      colorId: nextColorIdStr
     });
   };
 
+  // Handler for selecting a color
+  // Updates panorama context and notifies parent with new selection
   const handleColorSelect = (idx: number) => {
     updatePanorama({
       part,
       patch: { colorIndex: idx }
     });
 
-    const { models, categoryId } = (menu_preview_images as any)[part];
-    const model = models[selectedModelIndex];
-    const material = model?.materials?.[selectedMaterialIndex];
-    const color = material?.colors?.[idx];
+    const nextColor = material?.colors?.[idx];
+    const nextColorIdStr = nextColor?.colorId as string | undefined;
 
-    const categoryIdStr = categoryId as string | undefined;
-    const modelIdStr = model?.modelId as string | undefined;
-    const materialIdStr = material?.materialId as string | undefined;
-    const colorIdStr = color?.colorId as string | undefined;
-
-    const nextUrl =
-      getBucket360Url(
-        categoryIdStr ? Number(categoryIdStr) : null,
-        modelIdStr ? Number(modelIdStr) : null,
-        materialIdStr ? Number(materialIdStr) : null,
-        colorIdStr ? Number(colorIdStr) : undefined
-      ) ?? currentBucketUrl;
-
-    setCurrentBucketUrl(nextUrl);
-
+    // Notify parent with new selection data
     onSelect?.({
       modelIndex: selectedModelIndex,
       modelId: modelIdStr,
       categoryId: categoryIdStr,
       materialId: materialIdStr,
-      colorId: colorIdStr
+      colorId: nextColorIdStr
     });
   };
 
-  // Early returns
-  if (!currentBucketUrl) {
+  // If no 360 URL is available, show a fallback message
+  if (!computedBucket360Url) {
     return (
       <div className="flex items-center justify-center w-full h-full bg-gray-100 rounded-md">
         <p className="text-gray-500">No 360° view available</p>
@@ -453,18 +426,21 @@ export default function Product360({
     );
   }
 
+  // If no images are found for the 360 URL, show a fallback message
   if (images.length === 0) {
     return (
       <div className="flex items-center justify-center w-full h-full bg-gray-100 rounded-md">
         <div className="text-center">
           <p className="text-gray-500 mb-2">No 360° images found</p>
-          <p className="text-xs text-gray-400">Base URL: {currentBucketUrl}</p>
+          <p className="text-xs text-gray-400">
+            Base URL: {computedBucket360Url}
+          </p>
         </div>
       </div>
     );
   }
 
-  // Render
+  // Main render: 360 viewer with zoom, drag, and material/color selectors
   return (
     <div className="rounded-md overflow-hidden w-full h-full select-none pointer-events-auto relative flex flex-col">
       <TransformWrapper
@@ -485,11 +461,13 @@ export default function Product360({
       >
         {({ instance }) => (
           <>
+            {/* Show loading overlay while images are loading */}
             <LoadingOverlay isVisible={isLoading} progress={progress} />
+            {/* Show zoom level indicator when zoomed in */}
             <ZoomLevelIndicator instance={instance} />
 
             <TransformComponent
-              key={viewerKey} // <-- OPTION A: force subtree remount on change
+              key={viewerKey}
               wrapperStyle={{ width: "100%", height: "100%" }}
               contentStyle={{ width: "100%", height: "100%" }}
             >
@@ -500,8 +478,9 @@ export default function Product360({
                 onDragEnd={handleDragEnd}
                 initialImageIndex={initialImageIndex}
                 isSink={isSink}
-                turntableKey={viewerKey} // <-- OPTION A: force turntable remount
+                turntableKey={viewerKey}
               >
+                {/* Show material and color selectors if available */}
                 {(computedMaterialList.length || computedColorList.length) && (
                   <div className="flex flex-col gap-2 z-10">
                     {computedMaterialList.length > 0 && (
@@ -517,7 +496,7 @@ export default function Product360({
                                 handleMaterialSelect(idx);
                               }}
                               className={[
-                                "w-9 h-9 rounded-full overflow-hidden border-2 transition-shadow",
+                                "w-9 h-9 rounded-full overflow-hidden border-2 transition-shadow cursor-pointer",
                                 selected
                                   ? "border-white shadow-[0_0_0_2px_rgba(255,255,255,0.6)]"
                                   : "border-white/60 hover:border-white"
@@ -549,7 +528,7 @@ export default function Product360({
                                 handleColorSelect(idx);
                               }}
                               className={[
-                                "w-9 h-9 rounded-full overflow-hidden border-2 transition-shadow",
+                                "w-9 h-9 rounded-full overflow-hidden border-2 transition-shadow cursor-pointer",
                                 selected
                                   ? "border-white shadow-[0_0_0_2px_rgba(255,255,255,0.6)]"
                                   : "border-white/60 hover:border-white"
@@ -572,6 +551,7 @@ export default function Product360({
               </ImageTurntableWrapper>
             </TransformComponent>
 
+            {/* Show drag indicator when appropriate */}
             <DragIndicator
               isLoading={isLoading}
               showDragIndicator={showDragIndicator}
