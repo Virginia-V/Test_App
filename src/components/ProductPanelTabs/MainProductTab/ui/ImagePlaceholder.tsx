@@ -6,6 +6,7 @@ import { ZoomControls } from "./ZoomControls";
 import { useProductData } from "@/hooks/useProductData";
 import { ZoomableContentViewer } from "./components";
 import { TwoDImagesDialog } from "@/components/TwoDImagesDialog";
+import { BathtubImagesDialog } from "@/components/BathtubImagesDialog"; // ✅ Import new dialog
 
 interface ImagePlaceholderProps {
   panoramaType?: string;
@@ -25,6 +26,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   colorId
 }) => {
   const [show2DDialog, setShow2DDialog] = useState(false);
+  const [showBathtubDialog, setShowBathtubDialog] = useState(false); // ✅ Add bathtub dialog state
 
   console.log("🔄 ImagePlaceholder - Received props:", {
     categoryId,
@@ -54,12 +56,22 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
     bucket360Url
   });
 
+  // ✅ Handler for 2D dialog
   const handleToggle2D = () => {
     setShow2DDialog(true);
   };
 
   const handleClose2DDialog = () => {
     setShow2DDialog(false);
+  };
+
+  // ✅ Handler for camera/bathtub dialog
+  const handleCamera = () => {
+    setShowBathtubDialog(true);
+  };
+
+  const handleCloseBathtubDialog = () => {
+    setShowBathtubDialog(false);
   };
 
   // Render zoom controls with proper ref handling
@@ -71,6 +83,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
       onZoomOut={() => transformRef.current?.zoomOut()}
       onReset={() => transformRef.current?.resetTransform()}
       onToggle2D={handleToggle2D}
+      onCamera={handleCamera} // ✅ Pass camera handler
     />
   );
 
@@ -81,11 +94,17 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
         modelIndex={derivedModelIndex}
         imageSrc={imageSrc}
         renderZoomControls={renderZoomControls}
-        bucket360Url={bucket360Url} // ✅ Pass the bucket360Url
+        bucket360Url={bucket360Url}
       />
 
       {/* 2D Images Dialog */}
       <TwoDImagesDialog isOpen={show2DDialog} onClose={handleClose2DDialog} />
+
+      {/* ✅ Bathtub Images Dialog */}
+      <BathtubImagesDialog
+        isOpen={showBathtubDialog}
+        onClose={handleCloseBathtubDialog}
+      />
     </>
   );
 };

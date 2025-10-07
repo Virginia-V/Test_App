@@ -8,6 +8,7 @@ import {
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import ZoomOutIcon from "@mui/icons-material/ZoomOut";
 import RefreshIcon from "@mui/icons-material/Refresh";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import { Icon2D } from "@/assets/svg/Icon2D";
 
 interface ZoomControlsProps {
@@ -15,6 +16,7 @@ interface ZoomControlsProps {
   onZoomOut: () => void;
   onReset: () => void;
   onToggle2D: () => void;
+  onCamera: () => void; // ✅ Add camera handler
 }
 
 const buttonBase =
@@ -28,7 +30,8 @@ export const ZoomControls: React.FC<ZoomControlsProps> = ({
   onZoomIn,
   onZoomOut,
   onReset,
-  onToggle2D
+  onToggle2D,
+  onCamera // ✅ Add camera prop
 }) => (
   <div className="flex flex-row gap-3 items-center">
     <Button
@@ -73,6 +76,22 @@ export const ZoomControls: React.FC<ZoomControlsProps> = ({
         </Button>
       </TooltipTrigger>
       <TooltipContent side="top">Show 2D View</TooltipContent>
+    </Tooltip>
+
+    {/* ✅ Camera button with actual functionality */}
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={onCamera} // ✅ Use the camera handler
+          className="bg-white hover:bg-gray-100 text-black cursor-pointer"
+          aria-label="Camera"
+        >
+          <CameraAltIcon fontSize="small" />
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent side="top">View Bathtub Images</TooltipContent>
     </Tooltip>
   </div>
 );
