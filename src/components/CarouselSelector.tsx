@@ -3,7 +3,13 @@ import * as React from "react";
 import Image from "next/image";
 
 import { Skeleton } from "@/components/ui/skeleton";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from "./ui/carousel";
 
 interface CarouselImageItem {
   src: string;
@@ -85,8 +91,15 @@ export const CarouselSelector = ({
               onClick={
                 selectable
                   ? () => {
+                      console.log(
+                        "🖱️ CarouselSelector onClick - Index:",
+                        index,
+                        "onSelect exists:",
+                        !!onSelect
+                      );
                       setSelectedIdx(index);
                       onSelect?.(index);
+                      console.log("✅ CarouselSelector onClick completed");
                     }
                   : undefined
               }

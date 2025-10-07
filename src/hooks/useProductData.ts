@@ -4,10 +4,10 @@ import { useMemo } from "react";
 import { usePanoramaContext } from "@/context/PanoramaContext";
 import {
   CategoryType,
-  getBucket360Url,
   getEffectiveCategoryType,
   getEffectiveModelIndex,
-  getModelImage
+  getModelImage,
+  getBucket360Url
 } from "@/helpers";
 
 interface UseProductDataProps {
@@ -29,38 +29,44 @@ export function useProductData({
 }: UseProductDataProps) {
   const { panoramas } = usePanoramaContext();
 
-  // Use utility functions to derive type and model index
-  const derivedType = useMemo<CategoryType>(
+  // Derive category type
+  const categoryType = useMemo<CategoryType>(
     () => getEffectiveCategoryType(panoramaType, panoramas),
     [panoramaType, panoramas]
   );
 
-  const derivedModelIndex = useMemo<number>(
-    () =>
-      getEffectiveModelIndex(
-        modelIndex,
-        panoramas?.[derivedType]?.modelIndex ?? undefined
-      ),
-    [modelIndex, panoramas, derivedType]
+  // Derive effective model index
+  const effectiveModelIndex = useMemo(
+    () => getEffectiveModelIndex(modelIndex),
+    [modelIndex]
   );
 
-  // Get the selected image using utility function
-  const selectedImageSrc = useMemo(
-    () => getModelImage(derivedType, derivedModelIndex),
-    [derivedType, derivedModelIndex]
+  // Get image source
+  const imageSrc = useMemo(
+    () => getModelImage(categoryType, effectiveModelIndex),
+    [categoryType, effectiveModelIndex]
   );
 
-  // Get the bucket360Url using the new function
-  const bucket360Url = useMemo(
-    () => getBucket360Url(categoryId, modelId, materialId, colorId),
-    [categoryId, modelId, materialId, colorId]
-  );
+  // Get bucket360Url - CRITICAL: React to all ID changes
+  const bucket360Url = useMemo(() => {
+    console.log("🔄 useProductData - Calculating bucket360Url with:", {
+      categoryId,
+      modelId,
+      materialId,
+      colorId
+    });
+
+    const url = getBucket360Url(categoryId, modelId, materialId, colorId);
+
+    console.log("✅ useProductData - Generated bucket360Url:", url);
+
+    return url;
+  }, [categoryId, modelId, materialId, colorId]); // ✅ All dependencies
 
   return {
-    categoryType: derivedType,
-    modelIndex: derivedModelIndex,
-    imageSrc: selectedImageSrc,
-    bucket360Url,
-    canShow3D: derivedType === "bathtub" || derivedType === "sink"
+    categoryType,
+    modelIndex: effectiveModelIndex,
+    imageSrc,
+    bucket360Url
   };
 }

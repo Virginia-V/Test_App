@@ -61,12 +61,23 @@ export const ZoomableContentViewer: React.FC<ZoomableContentViewerProps> = ({
   // Determine viewer type based on category
   const is360Product = categoryType === "bathtub" || categoryType === "sink";
 
+  console.log("🔄 ZoomableContentViewer - Rendering with:", {
+    categoryType,
+    is360Product,
+    bucket360Url,
+    hasBucket360Url: !!bucket360Url
+  });
+
   return (
     <div className="relative w-full h-full">
       <div className="w-full h-full">
         {is360Product ? (
           // 360° viewer for bathtubs and sinks
-          <Product360 transformRef={transformRef} bucket360Url={bucket360Url} />
+          <Product360
+            transformRef={transformRef}
+            bucket360Url={bucket360Url}
+            key={`product360-${bucket360Url}`} // ✅ Force re-render on URL change
+          />
         ) : (
           // 2D zoomable image for floors and other categories
           <ZoomableImageViewer

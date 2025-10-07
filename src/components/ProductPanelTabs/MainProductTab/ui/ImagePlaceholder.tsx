@@ -24,14 +24,21 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   materialId,
   colorId
 }) => {
-  const [show2DDialog, setShow2DDialog] = useState(false); // New state for dialog
+  const [show2DDialog, setShow2DDialog] = useState(false);
+
+  console.log("🔄 ImagePlaceholder - Received props:", {
+    categoryId,
+    modelId,
+    materialId,
+    colorId
+  });
 
   // Use custom hook for data management
   const {
     categoryType,
     modelIndex: derivedModelIndex,
     imageSrc,
-    bucket360Url // Now available from the hook
+    bucket360Url
   } = useProductData({
     panoramaType,
     modelIndex,
@@ -41,8 +48,14 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
     colorId
   });
 
+  console.log("✅ ImagePlaceholder - Generated data:", {
+    categoryType,
+    derivedModelIndex,
+    bucket360Url
+  });
+
   const handleToggle2D = () => {
-    setShow2DDialog(true); // Open dialog instead of toggling state
+    setShow2DDialog(true);
   };
 
   const handleClose2DDialog = () => {
@@ -68,7 +81,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
         modelIndex={derivedModelIndex}
         imageSrc={imageSrc}
         renderZoomControls={renderZoomControls}
-        bucket360Url={bucket360Url}
+        bucket360Url={bucket360Url} // ✅ Pass the bucket360Url
       />
 
       {/* 2D Images Dialog */}

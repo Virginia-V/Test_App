@@ -56,28 +56,128 @@ export function getModelImage(
 }
 
 /**
- * Gets all model images for a category (useful for galleries)
+ * Helper function to match category by type
+ */
+function findCategoryByType(categoryType: CategoryType) {
+  return Object.values(menu_preview_images).find((category) => {
+    // Match based on categoryId patterns or known IDs
+    // You'll need to adjust these based on your actual category IDs
+    const categoryId = category.categoryId;
+
+    switch (categoryType) {
+      case "bathtub":
+        // Adjust these conditions based on your actual category IDs
+        return (
+          categoryId === "1" ||
+          categoryId === "bathtub" ||
+          categoryId?.toLowerCase().includes("bathtub")
+        );
+      case "sink":
+        return (
+          categoryId === "2" ||
+          categoryId === "sink" ||
+          categoryId?.toLowerCase().includes("sink")
+        );
+      case "floor":
+        return (
+          categoryId === "3" ||
+          categoryId === "floor" ||
+          categoryId?.toLowerCase().includes("floor")
+        );
+      default:
+        return false;
+    }
+  });
+}
+
+/**
+ * Gets all model images for a category with their associated IDs
  */
 export function getCategoryModelImages(categoryType: CategoryType): Array<{
   src: string;
   label: string;
   modelId: string;
+  categoryId?: string;
+  materialId?: string;
+  colorId?: string;
 }> {
   const previewMap = IMG_PREVIEW_MAPS[categoryType];
 
   if (!previewMap) {
+    // Fallback to chair items if no preview map exists
     return Object.keys(CHAIR_MODEL_ITEMS).map((key) => ({
       src: CHAIR_MODEL_ITEMS[key as keyof typeof CHAIR_MODEL_ITEMS].src,
       label: "CH-2045-LN",
-      modelId: key
+      modelId: key,
+      categoryId: undefined,
+      materialId: undefined,
+      colorId: undefined
     }));
   }
 
-  return Object.entries(previewMap).map(([key, src], idx) => ({
-    src,
-    label: `Model ${idx + 1}`,
-    modelId: key
-  }));
+  // Find matching category using the helper function
+  const matchingCategory = findCategoryByType(categoryType);
+
+  if (!matchingCategory) {
+    // Fallback to just preview map data
+    return Object.entries(previewMap).map(([key, src], idx) => ({
+      src,
+      label: `Model ${idx + 1}`,
+      modelId: key,
+      categoryId: undefined,
+      materialId: undefined,
+      colorId: undefined
+    }));
+  }
+
+  // Extract data from menu_preview_images structure
+  const results: Array<{
+    src: string;
+    label: string;
+    modelId: string;
+    categoryId?: string;
+    materialId?: string;
+    colorId?: string;
+  }> = [];
+
+  const previewKeys = Object.keys(previewMap);
+
+  matchingCategory.models.forEach((model, modelIdx) => {
+    // Use the first material as default
+    const firstMaterial = model.materials?.[0];
+
+    // Use the first color if available, otherwise use material data
+    const firstColor = firstMaterial?.colors?.[0];
+
+    // Get preview image from previewMap using model index
+    const previewKey = previewKeys[modelIdx];
+    const previewSrc = previewKey
+      ? previewMap[previewKey as keyof typeof previewMap]
+      : "";
+
+    // Fallback to a default image if no preview found
+    const fallbackSrc = CHAIR_MODEL_ITEMS.Chair_1.src;
+
+    // Generate label from modelId or use generic label
+    const generateLabel = (modelId: string, index: number): string => {
+      // Try to create a meaningful label from modelId
+      if (modelId) {
+        return modelId.toUpperCase();
+      }
+      return `Model ${index + 1}`;
+    };
+
+    results.push({
+      src: previewSrc || fallbackSrc,
+      label: generateLabel(model.modelId, modelIdx),
+      modelId: model.modelId,
+      categoryId: matchingCategory.categoryId,
+      materialId: firstMaterial?.materialId,
+      colorId: firstColor?.colorId
+    });
+  });
+
+  return results;
 }
 
 /**
@@ -128,8 +228,6 @@ export function getEffectiveModelIndex(
   return 0;
 }
 
-
-
 /**
  * Get bucket360Url based on categoryId, modelId, materialId, and optionally colorId
  */
@@ -139,6 +237,13 @@ export const getBucket360Url = (
   materialId?: number | null | undefined,
   colorId?: number | null | undefined
 ): string | undefined => {
+  console.log("🔍 getBucket360Url - Input parameters:", {
+    categoryId,
+    modelId,
+    materialId,
+    colorId
+  });
+
   // Convert to strings for comparison
   const categoryIdStr = categoryId?.toString();
   const modelIdStr = modelId?.toString();
@@ -151,33 +256,56 @@ export const getBucket360Url = (
   );
 
   if (!category) {
-    console.warn(`Category not found for categoryId: ${categoryId}`);
+    console.warn(
+      `❌ getBucket360Url - Category not found for categoryId: ${categoryId}`
+    );
     return undefined;
   }
+
+  console.log("✅ getBucket360Url - Found category:", category.categoryId);
 
   // Find the model
   const model = category.models.find((m) => m.modelId === modelIdStr);
   if (!model) {
-    console.warn(`Model not found for modelId: ${modelId}`);
+    console.warn(
+      `❌ getBucket360Url - Model not found for modelId: ${modelId}`
+    );
     return undefined;
   }
 
+  console.log("✅ getBucket360Url - Found model:", model.modelId);
+
   // Find the material
-  const material = model.materials?.find((mat) => mat.materialId === materialIdStr);
+  const material = model.materials?.find(
+    (mat) => mat.materialId === materialIdStr
+  );
   if (!material) {
-    console.warn(`Material not found for materialId: ${materialId}`);
+    console.warn(
+      `❌ getBucket360Url - Material not found for materialId: ${materialId}`
+    );
     return undefined;
   }
+
+  console.log("✅ getBucket360Url - Found material:", material.materialId);
 
   // If colorId is provided and the material has colors, look for the color's bucket360Url
   if (colorId && material.colors) {
     const color = material.colors.find((c) => c.colorId === colorIdStr);
     if (color?.bucket360Url) {
+      console.log(
+        "✅ getBucket360Url - Using color bucket360Url:",
+        color.bucket360Url
+      );
       return color.bucket360Url;
     }
-    console.warn(`Color not found or no bucket360Url for colorId: ${colorId}`);
+    console.warn(
+      `❌ getBucket360Url - Color not found or no bucket360Url for colorId: ${colorId}`
+    );
   }
 
+  console.log(
+    "✅ getBucket360Url - Using material bucket360Url:",
+    material.bucket360Url
+  );
   return material.bucket360Url;
 };
-

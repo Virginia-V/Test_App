@@ -403,13 +403,13 @@ export default function Product360({
     useDragIndicator();
 
   // Debug logging
-  console.log("Product360 Debug Info:", {
-    bucket360Url,
-    imageCount: images.length,
-    initialImageIndex,
-    isSink,
-    sampleImages: images.slice(0, 3)
-  });
+  // console.log("Product360 Debug Info:", {
+  //   bucket360Url,
+  //   imageCount: images.length,
+  //   initialImageIndex,
+  //   isSink,
+  //   sampleImages: images.slice(0, 3)
+  // });
 
   // Early return: No URL provided
   if (!bucket360Url) {
