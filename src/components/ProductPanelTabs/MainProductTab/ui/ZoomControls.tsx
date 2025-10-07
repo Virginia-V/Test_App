@@ -8,17 +8,12 @@ import {
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import ZoomOutIcon from "@mui/icons-material/ZoomOut";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import { Icon360 } from "@/assets/svg/Icon360";
 import { Icon2D } from "@/assets/svg/Icon2D";
-
 
 interface ZoomControlsProps {
   onZoomIn: () => void;
   onZoomOut: () => void;
   onReset: () => void;
-  show360: boolean;
-  show2D: boolean;
-  onToggle360: () => void;
   onToggle2D: () => void;
 }
 
@@ -33,10 +28,7 @@ export const ZoomControls: React.FC<ZoomControlsProps> = ({
   onZoomIn,
   onZoomOut,
   onReset,
-  onToggle2D,
-  show2D,
-  show360,
-  onToggle360
+  onToggle2D
 }) => (
   <div className="flex flex-row gap-3 items-center">
     <Button
@@ -73,33 +65,14 @@ export const ZoomControls: React.FC<ZoomControlsProps> = ({
         <Button
           variant="ghost"
           size="icon"
-          onClick={onToggle360}
-          className="bg-white hover:bg-gray-100 text-black"
-          aria-label={show360 ? "Hide 360° View" : "Show 360° View"}
-        >
-          <Icon360 />
-        </Button>
-      </TooltipTrigger>
-      <TooltipContent side="top">
-        {show360 ? "Hide 360° View" : "Show 360° View"}
-      </TooltipContent>
-    </Tooltip>
-
-    <Tooltip>
-      <TooltipTrigger asChild>
-        <Button
-          variant="ghost"
-          size="icon"
           onClick={onToggle2D}
-          className="bg-white hover:bg-gray-100 text-black"
-          aria-label={show2D ? "Hide 2D View" : "Show 2D View"}
+          className="bg-white hover:bg-gray-100 text-black cursor-pointer"
+          aria-label="Show 2D View"
         >
           <Icon2D />
         </Button>
       </TooltipTrigger>
-      <TooltipContent side="top">
-        {show2D ? "Hide 2D View" : "Show 2D View"}
-      </TooltipContent>
+      <TooltipContent side="top">Show 2D View</TooltipContent>
     </Tooltip>
   </div>
 );

@@ -24,8 +24,6 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   materialId,
   colorId
 }) => {
-  const [show360, setShow360] = useState(false);
-  const [show2D, setShow2D] = useState(false); // Changed to false since we're showing a dialog
   const [show2DDialog, setShow2DDialog] = useState(false); // New state for dialog
 
   // Use custom hook for data management
@@ -43,11 +41,6 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
     colorId
   });
 
-  const handleToggle360 = () => {
-    setShow360((prev) => !prev);
-    setShow2D(false);
-  };
-
   const handleToggle2D = () => {
     setShow2DDialog(true); // Open dialog instead of toggling state
   };
@@ -64,9 +57,6 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
       onZoomIn={() => transformRef.current?.zoomIn()}
       onZoomOut={() => transformRef.current?.zoomOut()}
       onReset={() => transformRef.current?.resetTransform()}
-      show360={show360}
-      onToggle360={handleToggle360}
-      show2D={show2D}
       onToggle2D={handleToggle2D}
     />
   );
@@ -77,8 +67,6 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
         categoryType={categoryType}
         modelIndex={derivedModelIndex}
         imageSrc={imageSrc}
-        show360={show360}
-        show2D={show2D}
         renderZoomControls={renderZoomControls}
         bucket360Url={bucket360Url}
       />
