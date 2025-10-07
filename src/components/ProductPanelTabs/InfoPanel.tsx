@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useEffect, useRef } from "react";
 import { X } from "lucide-react";
+import { usePanoramaContext } from "@/context/PanoramaContext";
 
 import { ProductOverview } from "./MainProductTab";
 import { InfoProductOverview } from "./InfoProductTab/InfoProductOverview";
@@ -28,17 +30,26 @@ interface InfoPanelProps {
 
 const getTabs = ({
   panoramaType,
-  modelIndex
+  modelIndex,
+  selectionDetails
 }: {
   panoramaType?: string;
   modelIndex?: number | null;
+  selectionDetails: any;
 }) =>
   getTabIcons().map((icon, index) => ({
     id: `tab-${index}`,
     icon,
     content:
       index === 0 ? (
-        <ProductOverview panoramaType={panoramaType} modelIndex={modelIndex} />
+        <ProductOverview
+          panoramaType={panoramaType}
+          modelIndex={modelIndex}
+          categoryId={selectionDetails?.categoryId}
+          modelId={selectionDetails?.modelId}
+          materialId={selectionDetails?.materialId}
+          colorId={selectionDetails?.colorId}
+        />
       ) : index === 1 ? (
         <InfoProductOverview />
       ) : index === 2 ? (
@@ -58,6 +69,8 @@ export const InfoPanel: React.FC<InfoPanelProps> = ({
   panoramaType,
   modelIndex
 }) => {
+  const { getCurrentSelectionDetails } = usePanoramaContext();
+
   // Preserve the last known type/modelIndex so InfoPanel keeps showing the correct content
   // even after the BottomMenu closes (which toggles menuOpen=false).
   const lastTypeRef = useRef<"bathtub" | "sink" | "floor" | undefined>(
@@ -76,6 +89,18 @@ export const InfoPanel: React.FC<InfoPanelProps> = ({
   const stableType = panoramaType ?? lastTypeRef.current;
   const stableModelIndex =
     typeof modelIndex === "number" ? modelIndex : lastModelIndexRef.current;
+
+  // Get the current selection details for the active panorama type
+  const allSelectionDetails = getCurrentSelectionDetails();
+  const currentSelectionDetails = stableType
+    ? allSelectionDetails[stableType]
+    : null;
+
+  console.log("InfoPanel - Current selection details:", {
+    stableType,
+    currentSelectionDetails,
+    allSelectionDetails
+  });
 
   return (
     <Dialog open={visible} onOpenChange={onClose}>
@@ -99,7 +124,8 @@ export const InfoPanel: React.FC<InfoPanelProps> = ({
           <TabsComponent
             tabs={getTabs({
               panoramaType: stableType,
-              modelIndex: stableModelIndex
+              modelIndex: stableModelIndex,
+              selectionDetails: currentSelectionDetails
             })}
             value={value}
             onChange={(_, newValue) => setValue(newValue)}

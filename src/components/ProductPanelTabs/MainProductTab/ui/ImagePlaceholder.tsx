@@ -7,16 +7,22 @@ import { useProductData } from "@/hooks/useProductData";
 import { ZoomableContentViewer } from "./components";
 import { TwoDImagesDialog } from "@/components/TwoDImagesDialog";
 
-
-
 interface ImagePlaceholderProps {
   panoramaType?: string;
   modelIndex?: number | null;
+  categoryId?: number | null | undefined;
+  modelId?: number | null | undefined;
+  materialId?: number | null | undefined;
+  colorId?: number | null | undefined;
 }
 
 export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   panoramaType,
-  modelIndex
+  modelIndex,
+  categoryId,
+  modelId,
+  materialId,
+  colorId
 }) => {
   const [show360, setShow360] = useState(false);
   const [show2D, setShow2D] = useState(false); // Changed to false since we're showing a dialog
@@ -26,10 +32,15 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   const {
     categoryType,
     modelIndex: derivedModelIndex,
-    imageSrc
+    imageSrc,
+    bucket360Url // Now available from the hook
   } = useProductData({
     panoramaType,
-    modelIndex
+    modelIndex,
+    categoryId,
+    modelId,
+    materialId,
+    colorId
   });
 
   const handleToggle360 = () => {
@@ -47,7 +58,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
 
   // Render zoom controls with proper ref handling
   const renderZoomControls = (
-    transformRef: React.RefObject<ReactZoomPanPinchRef | null>,
+    transformRef: React.RefObject<ReactZoomPanPinchRef | null>
   ) => (
     <ZoomControls
       onZoomIn={() => transformRef.current?.zoomIn()}
@@ -69,6 +80,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
         show360={show360}
         show2D={show2D}
         renderZoomControls={renderZoomControls}
+        bucket360Url={bucket360Url}
       />
 
       {/* 2D Images Dialog */}

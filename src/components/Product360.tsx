@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useImagePreloader } from "@/hooks/useImagePreloader";
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ReactImageTurntable } from "react-image-turntable";
 import {
   TransformWrapper,
@@ -8,26 +8,9 @@ import {
   ReactZoomPanPinchRef
 } from "react-zoom-pan-pinch";
 
-// Configuration constants
-// const PRODUCT_360_CONFIG = {
-//   IMAGE_COUNT: 120,
-//   BASE_URL:
-//     "https://pub-ad375fec02084613b3e47524e6061297.r2.dev/menu-images/Bathtub/Bathtub_Model_01/Bathtub_Model_01_360/Bathtub_Model_01_360_Mat_01",
-//   IMAGE_PREFIX: "BATH-A_BMAT-A1_",
-//   ZOOM_CONFIG: {
-//     initialScale: 1,
-//     minScale: 1,
-//     maxScale: 3,
-//     wheelStep: 0.1,
-//     doubleClickStep: 0.7
-//   }
-// } as const;
-
-const PRODUCT_360_CONFIG = {
+// Default configuration - can be overridden
+const DEFAULT_360_CONFIG = {
   IMAGE_COUNT: 60,
-  BASE_URL:
-    "https://pub-ad375fec02084613b3e47524e6061297.r2.dev/menu-images/Bathtub/Bathtub_Model_02/Bathtub_Model_02/Bathtub_Model_02_360_Mat_02",
-  IMAGE_PREFIX: "360VIEWER_BATH-B_BMAT-B2_",
   ZOOM_CONFIG: {
     initialScale: 1,
     minScale: 1,
@@ -36,9 +19,39 @@ const PRODUCT_360_CONFIG = {
     doubleClickStep: 0.7
   }
 } as const;
+
 interface Product360Props {
   transformRef?: React.RefObject<ReactZoomPanPinchRef | null>;
+  bucket360Url?: string;
 }
+
+// Generate image URLs with the standard naming pattern
+const generateImageUrls = (baseUrl: string, imageCount: number): string[] => {
+  console.log(`Generating ${imageCount} images for:`, baseUrl);
+
+  // Remove trailing slash from baseUrl if it exists
+  const cleanBaseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
+
+  return Array.from({ length: imageCount }, (_, i) => {
+    const filename = `${String(i + 1).padStart(4, "0")}.jpg`;
+    return `${cleanBaseUrl}/${filename}`;
+  });
+};
+
+// Determine image count based on URL
+const getImageCountFromUrl = (bucket360Url: string): number => {
+  if (bucket360Url.includes("Bathtub")) {
+    console.log("Detected Bathtub - using 60 images");
+    return 60;
+  } else if (bucket360Url.includes("Sink")) {
+    console.log("Detected Sink - using 30 images");
+    return 30;
+  }
+
+  // Default fallback
+  console.log("Unknown category - using default 60 images");
+  return 60;
+};
 
 // Loading Overlay Component
 const LoadingOverlay: React.FC<{ isVisible: boolean; progress: number }> = ({
@@ -190,52 +203,73 @@ const useDragIndicator = () => {
   };
 };
 
-// Generate image URLs helper
-// const generateImageUrls = (): string[] => {
-//   return Array.from(
-//     { length: PRODUCT_360_CONFIG.IMAGE_COUNT },
-//     (_, i) =>
-//       `${PRODUCT_360_CONFIG.BASE_URL}/${PRODUCT_360_CONFIG.IMAGE_PREFIX}${String(
-//         i + 1
-//       ).padStart(4, "0")}.jpg`
-//   );
-// };
-
-const generateImageUrls = (): string[] => {
-  return Array.from(
-    { length: PRODUCT_360_CONFIG.IMAGE_COUNT },
-    (_, i) =>
-      `${PRODUCT_360_CONFIG.BASE_URL}/${PRODUCT_360_CONFIG.IMAGE_PREFIX}${String(
-        i + 1
-      ).padStart(4, "0")}.jpg`
-  );
-};
-
 // Main Product360 Component
-export default function Product360({ transformRef }: Product360Props) {
+export default function Product360({
+  transformRef,
+  bucket360Url
+}: Product360Props) {
   const internalTransformRef = useRef<ReactZoomPanPinchRef | null>(null);
   const activeTransformRef = transformRef || internalTransformRef;
+  const [images, setImages] = useState<string[]>([]);
 
-  // Memoize the images array to prevent recreation on every render
-  const images = useMemo(generateImageUrls, []);
+  // Generate images based on bucket360Url
+  useEffect(() => {
+    if (!bucket360Url) {
+      setImages([]);
+      return;
+    }
+
+    // Determine image count based on URL
+    const imageCount = getImageCountFromUrl(bucket360Url);
+
+    // Generate image URLs using the standard naming pattern
+    const imageList = generateImageUrls(bucket360Url, imageCount);
+
+    setImages(imageList);
+  }, [bucket360Url]);
 
   // Custom hooks
   const { isLoading, progress } = useImagePreloader(images);
   const { showDragIndicator, isDragging, handleDragStart, handleDragEnd } =
     useDragIndicator();
 
+  console.log("Product360 bucket360Url:", bucket360Url);
+  console.log("Generated images sample:", images.slice(0, 5));
+  console.log("Total image count:", images.length);
+
+  // Don't render if no bucket360Url
+  if (!bucket360Url) {
+    return (
+      <div className="flex items-center justify-center w-full h-full bg-gray-100 rounded-md">
+        <p className="text-gray-500">No 360° view available</p>
+      </div>
+    );
+  }
+
+  // Show debug info if images aren't loading
+  if (images.length === 0) {
+    return (
+      <div className="flex items-center justify-center w-full h-full bg-gray-100 rounded-md">
+        <div className="text-center">
+          <p className="text-gray-500 mb-2">No 360° images found</p>
+          <p className="text-xs text-gray-400">Base URL: {bucket360Url}</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="rounded-md overflow-hidden w-full h-full select-none pointer-events-auto relative">
       <TransformWrapper
         ref={activeTransformRef}
-        initialScale={PRODUCT_360_CONFIG.ZOOM_CONFIG.initialScale}
-        minScale={PRODUCT_360_CONFIG.ZOOM_CONFIG.minScale}
-        maxScale={PRODUCT_360_CONFIG.ZOOM_CONFIG.maxScale}
+        initialScale={DEFAULT_360_CONFIG.ZOOM_CONFIG.initialScale}
+        minScale={DEFAULT_360_CONFIG.ZOOM_CONFIG.minScale}
+        maxScale={DEFAULT_360_CONFIG.ZOOM_CONFIG.maxScale}
         doubleClick={{
           disabled: false,
-          step: PRODUCT_360_CONFIG.ZOOM_CONFIG.doubleClickStep
+          step: DEFAULT_360_CONFIG.ZOOM_CONFIG.doubleClickStep
         }}
-        wheel={{ step: PRODUCT_360_CONFIG.ZOOM_CONFIG.wheelStep }}
+        wheel={{ step: DEFAULT_360_CONFIG.ZOOM_CONFIG.wheelStep }}
         panning={{ disabled: true }}
         pinch={{ disabled: false }}
         centerOnInit

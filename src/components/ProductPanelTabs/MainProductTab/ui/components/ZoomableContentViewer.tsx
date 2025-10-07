@@ -16,6 +16,7 @@ interface ZoomableContentViewerProps {
   imageSrc: string;
   show360: boolean;
   show2D: boolean;
+  bucket360Url?: string; // Add bucket360Url prop
   renderZoomControls: (
     transformRef: React.RefObject<ReactZoomPanPinchRef | null>
   ) => React.ReactNode;
@@ -24,6 +25,7 @@ interface ZoomableContentViewerProps {
 export const ZoomableContentViewer: React.FC<ZoomableContentViewerProps> = ({
   imageSrc,
   show360,
+  bucket360Url, // Add bucket360Url to destructuring
   renderZoomControls
 }) => {
   const transformRef = useRef<ReactZoomPanPinchRef | null>(null);
@@ -32,7 +34,10 @@ export const ZoomableContentViewer: React.FC<ZoomableContentViewerProps> = ({
     <div className="relative w-full h-full">
       <div className="w-full h-full">
         {show360 ? (
-          <Product360 transformRef={transformRef} />
+          <Product360
+            transformRef={transformRef}
+            bucket360Url={bucket360Url} // Pass bucket360Url to Product360
+          />
         ) : (
           // Show regular image with zoom/pan
           <TransformWrapper

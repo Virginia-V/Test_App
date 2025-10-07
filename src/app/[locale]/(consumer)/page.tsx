@@ -18,7 +18,8 @@ function SceneUI() {
     setMenuOpen,
     panelVisible,
     setPanelVisible,
-    openMenuType
+    openMenuType,
+    selection
   } = usePanoramaContext();
 
   // Tabs state for InfoPanel
@@ -58,6 +59,7 @@ function SceneUI() {
     return () => clearTimeout(timer);
   }, []);
 
+  console.log(selection);
   return (
     <>
       {/* Bottom menus */}

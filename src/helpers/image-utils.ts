@@ -2,6 +2,7 @@ import {
   BATHTUB_PREVIEW_IMAGES,
   CHAIR_MODEL_ITEMS,
   FLOOR_MATERIAL_IMAGES,
+  menu_preview_images,
   SINK_PREVIEW_IMAGES
 } from "../lib";
 
@@ -126,3 +127,57 @@ export function getEffectiveModelIndex(
   // Default to 0
   return 0;
 }
+
+
+
+/**
+ * Get bucket360Url based on categoryId, modelId, materialId, and optionally colorId
+ */
+export const getBucket360Url = (
+  categoryId?: number | null | undefined,
+  modelId?: number | null | undefined,
+  materialId?: number | null | undefined,
+  colorId?: number | null | undefined
+): string | undefined => {
+  // Convert to strings for comparison
+  const categoryIdStr = categoryId?.toString();
+  const modelIdStr = modelId?.toString();
+  const materialIdStr = materialId?.toString();
+  const colorIdStr = colorId?.toString();
+
+  // Find the category
+  const category = Object.values(menu_preview_images).find(
+    (cat) => cat.categoryId === categoryIdStr
+  );
+
+  if (!category) {
+    console.warn(`Category not found for categoryId: ${categoryId}`);
+    return undefined;
+  }
+
+  // Find the model
+  const model = category.models.find((m) => m.modelId === modelIdStr);
+  if (!model) {
+    console.warn(`Model not found for modelId: ${modelId}`);
+    return undefined;
+  }
+
+  // Find the material
+  const material = model.materials?.find((mat) => mat.materialId === materialIdStr);
+  if (!material) {
+    console.warn(`Material not found for materialId: ${materialId}`);
+    return undefined;
+  }
+
+  // If colorId is provided and the material has colors, look for the color's bucket360Url
+  if (colorId && material.colors) {
+    const color = material.colors.find((c) => c.colorId === colorIdStr);
+    if (color?.bucket360Url) {
+      return color.bucket360Url;
+    }
+    console.warn(`Color not found or no bucket360Url for colorId: ${colorId}`);
+  }
+
+  return material.bucket360Url;
+};
+
