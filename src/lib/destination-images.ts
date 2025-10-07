@@ -1,6 +1,7 @@
 export const DESTINATION_IMAGES = {
-  ALPES: "/Destinations/ALPES.jpg",
   BALI: "/Destinations/BALI.jpg",
+  ALPES: "/Destinations/ALPES.jpg",
+
   BARCELONE: "/Destinations/BARCELONE.jpg",
   CANCUN: "/Destinations/CANCUN.jpg",
   DUBAI: "/Destinations/DUBAI.jpg",

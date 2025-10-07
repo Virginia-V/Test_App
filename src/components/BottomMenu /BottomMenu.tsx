@@ -219,13 +219,10 @@ export const BottomMenu = ({
                     }
                   })
                 }
-                // selectedDestinationIndex={panorama.destinationIndex ?? 0}
-                // onDestinationSelect={(index) =>
-                //   updatePanorama({
-                //     part: panoramaType,
-                //     patch: { destinationIndex: index }
-                //   })
-                // }
+                // Always select the first destination
+                selectedDestinationIndex={0}
+                // Optionally, disable selection handler
+                onDestinationSelect={() => {}}
                 selectedColorIndex={panorama.colorIndex ?? undefined}
                 onColorSelect={(index) =>
                   updatePanorama({
