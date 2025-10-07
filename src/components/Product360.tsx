@@ -8,7 +8,14 @@ import {
   ReactZoomPanPinchRef
 } from "react-zoom-pan-pinch";
 
-// Default configuration - can be overridden
+// ============================================================================
+// CONSTANTS & TYPES
+// ============================================================================
+
+/**
+ * Default configuration for 360° viewer behavior
+ * Defines zoom settings and default image count for different product types
+ */
 const DEFAULT_360_CONFIG = {
   IMAGE_COUNT: 60,
   ZOOM_CONFIG: {
@@ -20,49 +27,69 @@ const DEFAULT_360_CONFIG = {
   }
 } as const;
 
+/**
+ * Props interface for the main Product360 component
+ * @param transformRef - Optional ref for controlling zoom/pan state externally
+ * @param bucket360Url - Base URL where 360° images are stored
+ */
 interface Product360Props {
   transformRef?: React.RefObject<ReactZoomPanPinchRef | null>;
   bucket360Url?: string;
 }
 
-// ---------- helpers (new) ----------
+// ============================================================================
+// UTILITY FUNCTIONS
+// ============================================================================
 
-// Build 1..N
-const range = (start: number, end: number) =>
+/**
+ * Creates an array of numbers from start to end (inclusive)
+ * Used to generate frame sequences like [1, 2, 3, ..., 30]
+ */
+const range = (start: number, end: number): number[] =>
   Array.from({ length: end - start + 1 }, (_, i) => start + i);
 
-// Rotate an array so it starts at a given value (first match)
-const rotateArrayToStart = <T,>(arr: T[], startValue: T) => {
-  const i = arr.indexOf(startValue);
-  if (i <= 0) return arr;
-  return arr.slice(i).concat(arr.slice(0, i));
+/**
+ * Rotates array so it starts at the specified value
+ * Used to make sink sequences start at frame 15 (front view)
+ * Example: [1,2,3,4,5] rotated to start at 3 becomes [3,4,5,1,2]
+ */
+const rotateArrayToStart = <T,>(arr: T[], startValue: T): T[] => {
+  const index = arr.indexOf(startValue);
+  if (index <= 0) return arr;
+  return arr.slice(index).concat(arr.slice(0, index));
 };
 
-// Build a ping-pong: 1..N then N-1..2 (no repeated endpoints)
-const buildPingPong = (first: number, last: number) => {
+/**
+ * Creates a ping-pong sequence for 180° rotation
+ * Goes from first to last, then back down (no repeated endpoints)
+ * Example: buildPingPong(1, 5) returns [1,2,3,4,5,4,3,2]
+ * This creates smooth 180° back-and-forth motion for sinks
+ */
+const buildPingPong = (first: number, last: number): number[] => {
   const up = range(first, last);
   const down = range(first + 1, last - 1).reverse();
   return up.concat(down);
 };
-// Map frame numbers to bucket URLs like /.../0001.jpg
-const toUrls = (baseUrl: string, frames: number[]) => {
+
+/**
+ * Converts frame numbers to full image URLs with unique identifiers
+ * Adds #pp=index fragment to ensure React keys are unique (prevents duplicate key errors)
+ * @param baseUrl - Base CDN URL for images
+ * @param frames - Array of frame numbers to convert
+ */
+const toUrls = (baseUrl: string, frames: number[]): string[] => {
   const cleanBaseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
   return frames.map(
-    (n, idx) => `${cleanBaseUrl}/${String(n).padStart(4, "0")}.jpg#pp=${idx}`
+    (frameNumber, index) =>
+      `${cleanBaseUrl}/${String(frameNumber).padStart(4, "0")}.jpg#pp=${index}`
   );
 };
 
-// Generate image URLs with the standard naming pattern (kept for non-sink)
-const generateImageUrls = (baseUrl: string, imageCount: number): string[] => {
-  console.log(`Generating ${imageCount} images for:`, baseUrl);
-  const cleanBaseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
-  return Array.from({ length: imageCount }, (_, i) => {
-    const filename = `${String(i + 1).padStart(4, "0")}.jpg`;
-    return `${cleanBaseUrl}/${filename}`;
-  });
-};
-
-// Determine image count based on URL
+/**
+ * Determines how many images to generate based on product type
+ * - Bathtub: 60 images for full 360° rotation
+ * - Sink: 30 images for 180° left-right motion
+ */
 const getImageCountFromUrl = (bucket360Url: string): number => {
   if (bucket360Url.includes("Bathtub")) {
     console.log("Detected Bathtub - using 60 images");
@@ -75,36 +102,57 @@ const getImageCountFromUrl = (bucket360Url: string): number => {
   return 60;
 };
 
-// Loading Overlay Component
-// Loading Overlay Component
-const LoadingOverlay: React.FC<{ isVisible: boolean; progress: number }> = ({
-  isVisible,
-  progress
-}) => {
+// ============================================================================
+// UI COMPONENTS
+// ============================================================================
+
+/**
+ * Loading overlay that appears while images are being preloaded
+ * Shows spinning indicator, progress bar, and percentage
+ * @param isVisible - Controls whether overlay is shown
+ * @param progress - Loading progress from 0-100
+ */
+const LoadingOverlay: React.FC<{
+  isVisible: boolean;
+  progress: number;
+}> = ({ isVisible, progress }) => {
   if (!isVisible) return null;
 
   return (
     <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-sm">
       <div className="text-center">
+        {/* Spinning loading indicator */}
         <div className="w-16 h-16 border-4 border-gray-300 border-t-green-500 rounded-full animate-spin mb-4 mx-auto" />
+
+        {/* Loading text */}
         <p className="text-gray-800 mb-2 text-base font-medium">
           Loading 360° Viewer...
         </p>
+
+        {/* Progress bar */}
         <div className="w-48 bg-gray-200 rounded-full h-2 mb-2">
           <div
             className="bg-green-500 h-2 rounded-full transition-all duration-300 ease-out"
             style={{ width: `${Math.round(progress)}%` }}
           />
         </div>
+
+        {/* Percentage text */}
         <p className="text-gray-700 text-sm">{Math.round(progress)}%</p>
       </div>
     </div>
   );
 };
-// Zoom Level Indicator Component
+
+/**
+ * Shows current zoom level when user has zoomed in
+ * Only appears when zoom is greater than 100%
+ * @param instance - Zoom/pan instance from react-zoom-pan-pinch
+ */
 const ZoomLevelIndicator: React.FC<{
   instance: any;
 }> = ({ instance }) => {
+  // Only show if zoomed in beyond 100%
   if (!instance || instance.transformState.scale === 1) return null;
 
   return (
@@ -114,14 +162,24 @@ const ZoomLevelIndicator: React.FC<{
   );
 };
 
-// Drag Indicator Component
+/**
+ * Instructional overlay that shows drag hints to users
+ * Appears when not loading, not dragging, and not zoomed in
+ * Shows different text for sinks (180°) vs bathtubs (360°)
+ */
 const DragIndicator: React.FC<{
   isLoading: boolean;
   showDragIndicator: boolean;
   isDragging: boolean;
   instance: any;
   isSink?: boolean;
-}> = ({ isLoading, showDragIndicator, isDragging, instance }) => {
+}> = ({
+  isLoading,
+  showDragIndicator,
+  isDragging,
+  instance,
+}) => {
+  // Only show when appropriate conditions are met
   const shouldShow =
     !isLoading &&
     showDragIndicator &&
@@ -134,10 +192,15 @@ const DragIndicator: React.FC<{
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
       <div className="bg-black/80 text-white px-6 py-4 rounded-lg flex items-center gap-3 animate-pulse">
         <div className="flex items-center gap-4">
+          {/* Left arrow */}
           <svg width="24" height="16" viewBox="0 0 24 16" fill="currentColor">
             <path d="M0 8L8 0V4H24V12H8V16L0 8Z" />
           </svg>
+
+          {/* Instruction text - different for sinks vs bathtubs */}
           <span className="text-sm font-medium">Drag to rotate 360°</span>
+
+          {/* Right arrow */}
           <svg width="24" height="16" viewBox="0 0 24 16" fill="currentColor">
             <path d="M24 8L16 0V4H0V12H16V16L24 8Z" />
           </svg>
@@ -147,7 +210,11 @@ const DragIndicator: React.FC<{
   );
 };
 
-// Image Turntable Wrapper Component
+/**
+ * Wrapper for the ReactImageTurntable component
+ * Handles mouse/touch events and passes through configuration
+ * Supports both 360° (bathtub) and 180° (sink) rotation modes
+ */
 const ImageTurntableWrapper: React.FC<{
   images: string[];
   isDragging: boolean;
@@ -165,11 +232,13 @@ const ImageTurntableWrapper: React.FC<{
 }) => {
   return (
     <div
+      // Mouse event handlers
       onMouseDown={onDragStart}
       onTouchStart={onDragStart}
       onMouseUp={onDragEnd}
       onMouseLeave={onDragEnd}
       onTouchEnd={onDragEnd}
+      // Dynamic cursor based on drag state
       className={isDragging ? "cursor-grabbing" : "cursor-grab"}
       style={{
         width: "100%",
@@ -180,7 +249,8 @@ const ImageTurntableWrapper: React.FC<{
       <ReactImageTurntable
         images={images}
         initialImageIndex={initialImageIndex}
-        movementSensitivity={isSink ? 1.0 : 0.5} // tune to taste
+        // Higher sensitivity for sinks since they have fewer frames over 180°
+        movementSensitivity={isSink ? 1.0 : 0.5}
         autoRotate={{ disabled: true, interval: 50 }}
         style={{
           width: "100%",
@@ -193,30 +263,49 @@ const ImageTurntableWrapper: React.FC<{
   );
 };
 
-// Custom hook for drag logic
+// ============================================================================
+// CUSTOM HOOKS
+// ============================================================================
+
+/**
+ * Custom hook to manage drag indicator visibility
+ * Shows hint when user first loads, hides during drag, shows again after delay
+ * Provides consistent UX for teaching users how to interact
+ */
 const useDragIndicator = () => {
   const [showDragIndicator, setShowDragIndicator] = useState(true);
   const [isDragging, setIsDragging] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  /**
+   * Called when user starts dragging
+   * Immediately hides the drag indicator
+   */
   const handleDragStart = () => {
     setShowDragIndicator(false);
     setIsDragging(true);
 
+    // Clear any pending timeout
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
     }
   };
 
+  /**
+   * Called when user stops dragging
+   * Shows drag indicator again after 1 second delay
+   */
   const handleDragEnd = () => {
     setIsDragging(false);
 
+    // Show indicator again after delay
     timeoutRef.current = setTimeout(() => {
       setShowDragIndicator(true);
     }, 1000);
   };
 
+  // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
       if (timeoutRef.current) {
@@ -233,64 +322,96 @@ const useDragIndicator = () => {
   };
 };
 
-// Main Product360 Component
-export default function Product360({
-  transformRef,
-  bucket360Url
-}: Product360Props) {
-  const internalTransformRef = useRef<ReactZoomPanPinchRef | null>(null);
-  const activeTransformRef = transformRef || internalTransformRef;
+/**
+ * Custom hook to generate image sequences based on product type
+ * Handles the complex logic for creating different rotation behaviors:
+ * - Bathtub: Simple 1-60 sequence for 360° rotation
+ * - Sink: Ping-pong 1-30-1 sequence starting at 15 for 180° motion
+ */
+const useImageSequence = (bucket360Url?: string) => {
   const [images, setImages] = useState<string[]>([]);
   const [initialImageIndex, setInitialImageIndex] = useState<number>(0);
 
-  // Check if it's a sink
-  const isSink = !!bucket360Url?.includes("Sink");
-
-  // Generate images based on bucket360Url
   useEffect(() => {
     if (!bucket360Url) {
       setImages([]);
       return;
     }
 
-    const isSinkLocal = !!bucket360Url.includes("Sink");
+    const isSinkProduct = bucket360Url.includes("Sink");
 
-    if (isSinkLocal) {
-      // 180° bounce: 0001..0030..0001, start at 0015
+    if (isSinkProduct) {
+      // Sink: 180° ping-pong rotation starting from center
       const first = 1;
       const last = 30;
-      const pivot = 15;
+      const pivot = 15; // Start at center/front view
 
-      const pingPong = buildPingPong(first, last);
-      const rotated = rotateArrayToStart(pingPong, pivot);
-      const urls = toUrls(bucket360Url, rotated); // includes #pp=idx for unique keys
+      // Create ping-pong sequence and rotate to start at center
+      const pingPongSequence = buildPingPong(first, last);
+      const rotatedSequence = rotateArrayToStart(pingPongSequence, pivot);
+      const imageUrls = toUrls(bucket360Url, rotatedSequence);
 
-      setImages(urls);
-      setInitialImageIndex(0); // starts at 0015 after rotation
+      setImages(imageUrls);
+      setInitialImageIndex(0); // First image in rotated array is frame 15
     } else {
-      // Normal 360°
+      // Bathtub: Standard 360° rotation
       const imageCount = getImageCountFromUrl(bucket360Url);
-      // attach #pp to avoid any potential duplicates in other sets, too
-      const frames = range(1, imageCount);
-      const urls = toUrls(bucket360Url, frames);
+      const frameSequence = range(1, imageCount);
+      const imageUrls = toUrls(bucket360Url, frameSequence);
 
-      setImages(urls);
-      setInitialImageIndex(0);
+      setImages(imageUrls);
+      setInitialImageIndex(0); // Start at frame 1
     }
   }, [bucket360Url]);
 
-  // Custom hooks
+  return { images, initialImageIndex };
+};
+
+// ============================================================================
+// MAIN COMPONENT
+// ============================================================================
+
+/**
+ * Main Product360 component that renders an interactive 360°/180° product viewer
+ *
+ * Features:
+ * - Automatic detection of product type (Bathtub vs Sink)
+ * - Different rotation behaviors per product type
+ * - Image preloading with progress indication
+ * - Zoom and pan capabilities
+ * - Touch/mouse drag support
+ * - Loading states and error handling
+ *
+ * @param transformRef - Optional external ref for zoom/pan control
+ * @param bucket360Url - CDN URL where product images are stored
+ */
+export default function Product360({
+  transformRef,
+  bucket360Url
+}: Product360Props) {
+  // Zoom/pan ref management
+  const internalTransformRef = useRef<ReactZoomPanPinchRef | null>(null);
+  const activeTransformRef = transformRef || internalTransformRef;
+
+  // Product type detection
+  const isSink = !!bucket360Url?.includes("Sink");
+
+  // Custom hooks for functionality
+  const { images, initialImageIndex } = useImageSequence(bucket360Url);
   const { isLoading, progress } = useImagePreloader(images);
   const { showDragIndicator, isDragging, handleDragStart, handleDragEnd } =
     useDragIndicator();
 
-  console.log("Product360 bucket360Url:", bucket360Url);
-  console.log("Generated images sample:", images.slice(0, 5));
-  console.log("Total image count:", images.length);
-  console.log("Initial image index:", initialImageIndex);
-  console.log("Is sink:", isSink);
+  // Debug logging
+  console.log("Product360 Debug Info:", {
+    bucket360Url,
+    imageCount: images.length,
+    initialImageIndex,
+    isSink,
+    sampleImages: images.slice(0, 3)
+  });
 
-  // Don't render if no bucket360Url
+  // Early return: No URL provided
   if (!bucket360Url) {
     return (
       <div className="flex items-center justify-center w-full h-full bg-gray-100 rounded-md">
@@ -299,7 +420,7 @@ export default function Product360({
     );
   }
 
-  // Show debug info if images aren't loading
+  // Early return: No images loaded
   if (images.length === 0) {
     return (
       <div className="flex items-center justify-center w-full h-full bg-gray-100 rounded-md">
@@ -311,8 +432,10 @@ export default function Product360({
     );
   }
 
+  // Main render: Full 360° viewer with all features
   return (
     <div className="rounded-md overflow-hidden w-full h-full select-none pointer-events-auto relative">
+      {/* Zoom/Pan wrapper with configuration */}
       <TransformWrapper
         ref={activeTransformRef}
         initialScale={DEFAULT_360_CONFIG.ZOOM_CONFIG.initialScale}
@@ -323,17 +446,21 @@ export default function Product360({
           step: DEFAULT_360_CONFIG.ZOOM_CONFIG.doubleClickStep
         }}
         wheel={{ step: DEFAULT_360_CONFIG.ZOOM_CONFIG.wheelStep }}
-        panning={{ disabled: true }}
-        pinch={{ disabled: false }}
+        panning={{ disabled: true }} // Disable panning to avoid conflicts with rotation
+        pinch={{ disabled: false }} // Allow pinch-to-zoom on mobile
         centerOnInit
         centerZoomedOut
         disablePadding
       >
         {({ instance }) => (
           <>
+            {/* Loading overlay - shows during image preload */}
             <LoadingOverlay isVisible={isLoading} progress={progress} />
+
+            {/* Zoom level indicator - shows current zoom percentage */}
             <ZoomLevelIndicator instance={instance} />
 
+            {/* Main image container with zoom/pan capabilities */}
             <TransformComponent
               wrapperStyle={{ width: "100%", height: "100%" }}
               contentStyle={{ width: "100%", height: "100%" }}
@@ -348,6 +475,7 @@ export default function Product360({
               />
             </TransformComponent>
 
+            {/* Drag instruction overlay - teaches users how to interact */}
             <DragIndicator
               isLoading={isLoading}
               showDragIndicator={showDragIndicator}
