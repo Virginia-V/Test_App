@@ -7,34 +7,6 @@ export const BATHTUB_PREVIEW_IMAGES = {
     "https://pub-ad375fec02084613b3e47524e6061297.r2.dev/menu-images/Bathtub/Bathtub_Model_03/PREVIEW_BATH-C_BMAT-C1.jpg"
 };
 
-export const BATHTUB_MATERIAL_IMAGES = {
-  BATHTUB_MODEL_01_MAT_01:
-    "/menu-images/Bathtub/Bathtub_Model_01/Bathtub_Model_01_Materials/Bathtub_Model_01_Mat_01/BMAT-A1.jpg",
-  BATHTUB_MODEL_01_MAT_02:
-    "/menu-images/Bathtub/Bathtub_Model_01/Bathtub_Model_01_Materials/Bathtub_Model_01_Mat_02/BMAT-A2.jpg",
-  BATHTUB_MODEL_01_MAT_03:
-    "/menu-images/Bathtub/Bathtub_Model_01/Bathtub_Model_01_Materials/Bathtub_Model_01_Mat_03/BMAT-A3.1.jpg",
-  BATHTUB_MODEL_01_MAT_03_COLOR_01:
-    "/menu-images/Bathtub/Bathtub_Model_01/Bathtub_Model_01_Materials/Bathtub_Model_01_Mat_03/Bathtub_Model_01_Mat_03_Colors/Bathtub_Model_01_Mat_03_Color_01/BMAT-A3.2.jpg",
-  BATHTUB_MODEL_01_MAT_03_COLOR_02:
-    "/menu-images/Bathtub/Bathtub_Model_01/Bathtub_Model_01_Materials/Bathtub_Model_01_Mat_03/Bathtub_Model_01_Mat_03_Colors/Bathtub_Model_01_Mat_03_Color_02/BMAT-A3.3.jpg",
-  BATHTUB_MODEL_01_MAT_03_COLOR_03:
-    "/menu-images/Bathtub/Bathtub_Model_01/Bathtub_Model_01_Materials/Bathtub_Model_01_Mat_03/Bathtub_Model_01_Mat_03_Colors/Bathtub_Model_01_Mat_03_Color_03/BMAT-A3.4.jpg",
-
-  BATHTUB_MODEL_02_MAT_01:
-    "/menu-images/Bathtub/Bathtub_Model_02/Bathtub_Model_02_Materials/Bathtub_Model_02_Mat_01/BMAT-B1.jpg",
-  BATHTUB_MODEL_02_MAT_02:
-    "/menu-images/Bathtub/Bathtub_Model_02/Bathtub_Model_02_Materials/Bathtub_Model_02_Mat_02/BMAT-B2.jpg",
-  BATHTUB_MODEL_02_MAT_03:
-    "/menu-images/Bathtub/Bathtub_Model_02/Bathtub_Model_02_Materials/Bathtub_Model_02_Mat_03/BMAT-B3.jpg",
-  BATHTUB_MODEL_03_MAT_01:
-    "/menu-images/Bathtub/Bathtub_Model_03/Bathtub_Model_03_Materials/Bathtub_Model_03_Mat_01/BMAT-C1.jpg",
-  BATHTUB_MODEL_03_MAT_02:
-    "/menu-images/Bathtub/Bathtub_Model_03/Bathtub_Model_03_Materials/Bathtub_Model_03_Mat_02/BMAT-C2.jpg",
-  BATHTUB_MODEL_03_MAT_03:
-    "/menu-images/Bathtub/Bathtub_Model_03/Bathtub_Model_03_Materials/Bathtub_Model_03_Mat_03/BMAT-C3.jpg"
-};
-
 export const FLOOR_MATERIAL_IMAGES = {
   FLOOR_MAT_01:
     "https://pub-ad375fec02084613b3e47524e6061297.r2.dev/menu-images/Floor/Floor_Materials/Floor_Mat_01/FLOOR-1.jpg",
@@ -51,27 +23,6 @@ export const SINK_PREVIEW_IMAGES = {
     "https://pub-ad375fec02084613b3e47524e6061297.r2.dev/menu-images/Sink/Sink_Model_02/PREVIEW_FURN-B_FMAT-1B.jpg",
   SINK_MODEL_03:
     "https://pub-ad375fec02084613b3e47524e6061297.r2.dev/menu-images/Sink/Sink_Model_03/PREVIEW_FURN-C_FMAT-C1.jpg"
-};
-
-export const SINK_MATERIAL_IMAGES = {
-  SINK_MODEL_01_MAT_01:
-    "/menu-images/Sink/Sink_Model_01/Sink_Model_01_Materials/Sink_Model_01_Mat_01/FMAT-A1.jpg",
-  SINK_MODEL_01_MAT_02:
-    "/menu-images/Sink/Sink_Model_01/Sink_Model_01_Materials/Sink_Model_01_Mat_02/FMAT-A2.jpg",
-  SINK_MODEL_01_MAT_03:
-    "/menu-images/Sink/Sink_Model_01/Sink_Model_01_Materials/Sink_Model_01_Mat_03/FMAT-A3.jpg",
-  SINK_MODEL_02_MAT_01:
-    "/menu-images/Sink/Sink_Model_02/Sink_Model_02_Materials/Sink_Model_02_Mat_01/FMAT-B1.jpg",
-  SINK_MODEL_02_MAT_02:
-    "/menu-images/Sink/Sink_Model_02/Sink_Model_02_Materials/Sink_Model_02_Mat_02/FMAT-B2.jpg",
-  SINK_MODEL_02_MAT_03:
-    "/menu-images/Sink/Sink_Model_02/Sink_Model_02_Materials/Sink_Model_02_Mat_03/FMAT-B3.jpg",
-  SINK_MODEL_03_MAT_01:
-    "/menu-images/Sink/Sink_Model_03/Sink_Model_03_Materials/Sink_Model_03_Mat_01/FMAT-C1.jpg",
-  SINK_MODEL_03_MAT_02:
-    "/menu-images/Sink/Sink_Model_03/Sink_Model_03_Materials/Sink_Model_03_Mat_02/FMAT-C2.jpg",
-  SINK_MODEL_03_MAT_03:
-    "/menu-images/Sink/Sink_Model_03/Sink_Model_03_Materials/Sink_Model_03_Mat_03/FMAT-C3.jpg"
 };
 
 type ColorVariant = {

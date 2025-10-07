@@ -139,7 +139,7 @@ export const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
         onSelect={handleSelect}
         carouselWidthClass="w-[498px]"
         itemWidthClass="w-[150px]"
-        itemHeightClass="h-[150px]"
+        itemHeightClass="h-[170px]"
         itemMarginClass="m-2"
       />
     </div>
