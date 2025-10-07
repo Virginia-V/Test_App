@@ -444,6 +444,15 @@ export default function KrpanoViewer({
         >
           <div style={{ position: "relative", width: size, height: size }}>
             <svg width={size} height={size} style={{ display: "block" }}>
+              {/* White background circle */}
+              <circle
+                cx={size / 2}
+                cy={size / 2}
+                r={radius}
+                fill="white"
+                stroke="none"
+              />
+              {/* Progress background (optional, for subtle ring behind progress) */}
               <circle
                 cx={size / 2}
                 cy={size / 2}
@@ -452,6 +461,7 @@ export default function KrpanoViewer({
                 strokeWidth={stroke}
                 fill="none"
               />
+              {/* Progress ring */}
               <circle
                 cx={size / 2}
                 cy={size / 2}
