@@ -17,6 +17,7 @@ interface UseProductDataProps {
   modelId?: number | null | undefined;
   materialId?: number | null | undefined;
   colorId?: number | null | undefined;
+  materialIndex?: number | null | undefined; // <-- Add this line
 }
 
 export function useProductData({
@@ -25,7 +26,8 @@ export function useProductData({
   categoryId,
   modelId,
   materialId,
-  colorId
+  colorId,
+  materialIndex // <-- Add this line
 }: UseProductDataProps) {
   const { panoramas } = usePanoramaContext();
 
@@ -39,6 +41,12 @@ export function useProductData({
   const effectiveModelIndex = useMemo(
     () => getEffectiveModelIndex(modelIndex),
     [modelIndex]
+  );
+
+  // Derive effective material index (default to 0 if not provided)
+  const effectiveMaterialIndex = useMemo(
+    () => (materialIndex != null ? materialIndex : 0),
+    [materialIndex]
   );
 
   // Get image source
@@ -66,6 +74,7 @@ export function useProductData({
   return {
     categoryType,
     modelIndex: effectiveModelIndex,
+    materialIndex: effectiveMaterialIndex, // <-- Add this line
     imageSrc,
     bucket360Url
   };

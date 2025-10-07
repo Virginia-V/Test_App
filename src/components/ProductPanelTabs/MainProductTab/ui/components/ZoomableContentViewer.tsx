@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import {
   ReactZoomPanPinchRef,
   TransformComponent,
@@ -9,16 +9,22 @@ import {
 import { ZoomableImage } from "./ZoomableImage";
 import { CategoryType } from "@/helpers";
 import Product360 from "@/components/Product360";
+import { menu_preview_images } from "@/lib/menu_preview_images";
+import Image from "next/image";
 
 interface ZoomableContentViewerProps {
   categoryType: CategoryType;
   modelIndex: number;
+  materialIndex?: number; // <-- Add this line
   imageSrc: string;
   bucket360Url?: string;
   renderZoomControls: (
     transformRef: React.RefObject<ReactZoomPanPinchRef | null>
   ) => React.ReactNode;
+  materialList?: { src: string }[];
+  colorList?: { src: string }[];
 }
+
 
 /**
  * Shared zoom configuration for 2D images
@@ -52,42 +58,56 @@ const ZoomableImageViewer: React.FC<{
 
 export const ZoomableContentViewer: React.FC<ZoomableContentViewerProps> = ({
   categoryType,
+  modelIndex,
+  materialIndex = 0,
   imageSrc,
   bucket360Url,
   renderZoomControls
 }) => {
   const transformRef = useRef<ReactZoomPanPinchRef | null>(null);
 
-  // Determine viewer type based on category
   const is360Product = categoryType === "bathtub" || categoryType === "sink";
 
-  console.log("🔄 ZoomableContentViewer - Rendering with:", {
-    categoryType,
-    is360Product,
-    bucket360Url,
-    hasBucket360Url: !!bucket360Url
-  });
+  const materialList = useMemo(() => {
+    if (categoryType === "bathtub" || categoryType === "sink") {
+      const models = menu_preview_images[categoryType].models;
+      const selectedModel = models[modelIndex ?? 0];
+      return selectedModel?.materials
+        ? selectedModel.materials.map((mat) => ({ src: mat.file }))
+        : [];
+    }
+    return [];
+  }, [categoryType, modelIndex]);
+
+  const colorList = useMemo(() => {
+    if (categoryType === "bathtub" || categoryType === "sink") {
+      const models = menu_preview_images[categoryType].models;
+      const selectedModel = models[modelIndex ?? 0];
+      const selectedMaterial = selectedModel?.materials?.[materialIndex ?? 0];
+      return selectedMaterial?.colors?.map((c) => ({ src: c.file })) ?? [];
+    }
+    return [];
+  }, [categoryType, modelIndex, materialIndex]);
 
   return (
     <div className="relative w-full h-full">
+
       <div className="w-full h-full">
         {is360Product ? (
-          // 360° viewer for bathtubs and sinks
           <Product360
             transformRef={transformRef}
             bucket360Url={bucket360Url}
-            key={`product360-${bucket360Url}`} // ✅ Force re-render on URL change
+            key={`product360-${bucket360Url}`}
+            // materialList={materialList}
+            // colorList={colorList}
           />
         ) : (
-          // 2D zoomable image for floors and other categories
           <ZoomableImageViewer
             transformRef={transformRef}
             imageSrc={imageSrc}
           />
         )}
       </div>
-
-      {/* Zoom controls overlay */}
       <div className="absolute top-4 left-4 z-10">
         {renderZoomControls(transformRef)}
       </div>

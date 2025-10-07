@@ -1,21 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useImagePreloader } from "@/hooks/useImagePreloader";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { ReactImageTurntable } from "react-image-turntable";
 import {
   TransformWrapper,
   TransformComponent,
   ReactZoomPanPinchRef
 } from "react-zoom-pan-pinch";
+import Image from "next/image";
+import { usePanoramaContext } from "@/context/PanoramaContext";
+import { menu_preview_images } from "@/lib/menu_preview_images";
+import { getBucket360Url } from "@/helpers/image-utils";
 
 // ============================================================================
 // CONSTANTS & TYPES
 // ============================================================================
-
-/**
- * Default configuration for 360° viewer behavior
- * Defines zoom settings and default image count for different product types
- */
 const DEFAULT_360_CONFIG = {
   IMAGE_COUNT: 60,
   ZOOM_CONFIG: {
@@ -27,56 +26,39 @@ const DEFAULT_360_CONFIG = {
   }
 } as const;
 
-/**
- * Props interface for the main Product360 component
- * @param transformRef - Optional ref for controlling zoom/pan state externally
- * @param bucket360Url - Base URL where 360° images are stored
- */
+type PartType = "bathtub" | "sink" | "floor";
+
 interface Product360Props {
   transformRef?: React.RefObject<ReactZoomPanPinchRef | null>;
   bucket360Url?: string;
+  panoramaType?: PartType;
+  onSelect?: (selection: {
+    modelIndex: number;
+    modelId?: string;
+    categoryId?: string;
+    materialId?: string;
+    colorId?: string;
+  }) => void;
 }
 
 // ============================================================================
 // UTILITY FUNCTIONS
 // ============================================================================
-
-/**
- * Creates an array of numbers from start to end (inclusive)
- * Used to generate frame sequences like [1, 2, 3, ..., 30]
- */
 const range = (start: number, end: number): number[] =>
   Array.from({ length: end - start + 1 }, (_, i) => start + i);
 
-/**
- * Rotates array so it starts at the specified value
- * Used to make sink sequences start at frame 15 (front view)
- * Example: [1,2,3,4,5] rotated to start at 3 becomes [3,4,5,1,2]
- */
 const rotateArrayToStart = <T,>(arr: T[], startValue: T): T[] => {
   const index = arr.indexOf(startValue);
   if (index <= 0) return arr;
   return arr.slice(index).concat(arr.slice(0, index));
 };
 
-/**
- * Creates a ping-pong sequence for 180° rotation
- * Goes from first to last, then back down (no repeated endpoints)
- * Example: buildPingPong(1, 5) returns [1,2,3,4,5,4,3,2]
- * This creates smooth 180° back-and-forth motion for sinks
- */
 const buildPingPong = (first: number, last: number): number[] => {
   const up = range(first, last);
   const down = range(first + 1, last - 1).reverse();
   return up.concat(down);
 };
 
-/**
- * Converts frame numbers to full image URLs with unique identifiers
- * Adds #pp=index fragment to ensure React keys are unique (prevents duplicate key errors)
- * @param baseUrl - Base CDN URL for images
- * @param frames - Array of frame numbers to convert
- */
 const toUrls = (baseUrl: string, frames: number[]): string[] => {
   const cleanBaseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
   return frames.map(
@@ -85,76 +67,52 @@ const toUrls = (baseUrl: string, frames: number[]): string[] => {
   );
 };
 
-/**
- * Determines how many images to generate based on product type
- * - Bathtub: 60 images for full 360° rotation
- * - Sink: 30 images for 180° left-right motion
- */
 const getImageCountFromUrl = (bucket360Url: string): number => {
-  if (bucket360Url.includes("Bathtub")) {
-    console.log("Detected Bathtub - using 60 images");
-    return 60;
-  } else if (bucket360Url.includes("Sink")) {
-    console.log("Detected Sink - using 30 images");
-    return 30;
-  }
-  console.log("Unknown category - using default 60 images");
+  if (bucket360Url.includes("Bathtub")) return 60;
+  if (bucket360Url.includes("Sink")) return 30;
   return 60;
+};
+
+const pad2 = (n: number) => String(n).padStart(2, "0");
+const replaceSegment = (
+  url: string,
+  kind: "Model" | "Mat" | "Color",
+  idx1Based: number
+): string => {
+  const re = new RegExp(`(${kind}_)\\d+`);
+  if (re.test(url)) return url.replace(re, `$1${pad2(idx1Based)}`);
+  return url;
 };
 
 // ============================================================================
 // UI COMPONENTS
 // ============================================================================
-
-/**
- * Loading overlay that appears while images are being preloaded
- * Shows spinning indicator, progress bar, and percentage
- * @param isVisible - Controls whether overlay is shown
- * @param progress - Loading progress from 0-100
- */
-const LoadingOverlay: React.FC<{
-  isVisible: boolean;
-  progress: number;
-}> = ({ isVisible, progress }) => {
+const LoadingOverlay: React.FC<{ isVisible: boolean; progress: number }> = ({
+  isVisible,
+  progress
+}) => {
   if (!isVisible) return null;
-
   return (
     <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-sm">
       <div className="text-center">
-        {/* Spinning loading indicator */}
         <div className="w-16 h-16 border-4 border-gray-300 border-t-green-500 rounded-full animate-spin mb-4 mx-auto" />
-
-        {/* Loading text */}
         <p className="text-gray-800 mb-2 text-base font-medium">
           Loading 360° Viewer...
         </p>
-
-        {/* Progress bar */}
         <div className="w-48 bg-gray-200 rounded-full h-2 mb-2">
           <div
             className="bg-green-500 h-2 rounded-full transition-all duration-300 ease-out"
             style={{ width: `${Math.round(progress)}%` }}
           />
         </div>
-
-        {/* Percentage text */}
         <p className="text-gray-700 text-sm">{Math.round(progress)}%</p>
       </div>
     </div>
   );
 };
 
-/**
- * Shows current zoom level when user has zoomed in
- * Only appears when zoom is greater than 100%
- * @param instance - Zoom/pan instance from react-zoom-pan-pinch
- */
-const ZoomLevelIndicator: React.FC<{
-  instance: any;
-}> = ({ instance }) => {
-  // Only show if zoomed in beyond 100%
+const ZoomLevelIndicator: React.FC<{ instance: any }> = ({ instance }) => {
   if (!instance || instance.transformState.scale === 1) return null;
-
   return (
     <div className="absolute bottom-4 right-4 bg-black/80 text-white px-3 py-1 rounded-lg text-sm z-20">
       {Math.round(instance.transformState.scale * 100)}%
@@ -162,45 +120,28 @@ const ZoomLevelIndicator: React.FC<{
   );
 };
 
-/**
- * Instructional overlay that shows drag hints to users
- * Appears when not loading, not dragging, and not zoomed in
- * Shows different text for sinks (180°) vs bathtubs (360°)
- */
 const DragIndicator: React.FC<{
   isLoading: boolean;
   showDragIndicator: boolean;
   isDragging: boolean;
   instance: any;
   isSink?: boolean;
-}> = ({
-  isLoading,
-  showDragIndicator,
-  isDragging,
-  instance,
-}) => {
-  // Only show when appropriate conditions are met
+}> = ({ isLoading, showDragIndicator, isDragging, instance }) => {
   const shouldShow =
     !isLoading &&
     showDragIndicator &&
     !isDragging &&
     (!instance || instance.transformState.scale === 1);
-
   if (!shouldShow) return null;
 
   return (
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
       <div className="bg-black/80 text-white px-6 py-4 rounded-lg flex items-center gap-3 animate-pulse">
         <div className="flex items-center gap-4">
-          {/* Left arrow */}
           <svg width="24" height="16" viewBox="0 0 24 16" fill="currentColor">
             <path d="M0 8L8 0V4H24V12H8V16L0 8Z" />
           </svg>
-
-          {/* Instruction text - different for sinks vs bathtubs */}
           <span className="text-sm font-medium">Drag to rotate 360°</span>
-
-          {/* Right arrow */}
           <svg width="24" height="16" viewBox="0 0 24 16" fill="currentColor">
             <path d="M24 8L16 0V4H0V12H16V16L24 8Z" />
           </svg>
@@ -210,11 +151,7 @@ const DragIndicator: React.FC<{
   );
 };
 
-/**
- * Wrapper for the ReactImageTurntable component
- * Handles mouse/touch events and passes through configuration
- * Supports both 360° (bathtub) and 180° (sink) rotation modes
- */
+/** Turntable wrapper */
 const ImageTurntableWrapper: React.FC<{
   images: string[];
   isDragging: boolean;
@@ -222,43 +159,52 @@ const ImageTurntableWrapper: React.FC<{
   onDragEnd: () => void;
   initialImageIndex?: number;
   isSink?: boolean;
+  children?: React.ReactNode;
+  turntableKey?: string;
 }> = ({
   images,
   isDragging,
   onDragStart,
   onDragEnd,
   initialImageIndex = 0,
-  isSink = false
+  isSink = false,
+  children,
+  turntableKey
 }) => {
   return (
     <div
-      // Mouse event handlers
       onMouseDown={onDragStart}
       onTouchStart={onDragStart}
       onMouseUp={onDragEnd}
       onMouseLeave={onDragEnd}
       onTouchEnd={onDragEnd}
-      // Dynamic cursor based on drag state
       className={isDragging ? "cursor-grabbing" : "cursor-grab"}
-      style={{
-        width: "100%",
-        height: "100%",
-        cursor: isDragging ? "grabbing" : "grab"
-      }}
+      style={{ width: "100%", height: "100%", flex: 1 }}
     >
-      <ReactImageTurntable
-        images={images}
-        initialImageIndex={initialImageIndex}
-        // Higher sensitivity for sinks since they have fewer frames over 180°
-        movementSensitivity={isSink ? 1.0 : 0.5}
-        autoRotate={{ disabled: true, interval: 50 }}
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          cursor: "inherit"
-        }}
-      />
+      <div
+        className="relative overflow-hidden"
+        style={{ width: "100%", height: "100%" }}
+      >
+        <ReactImageTurntable
+          key={turntableKey} // force remount when key changes
+          images={images}
+          initialImageIndex={initialImageIndex}
+          movementSensitivity={isSink ? 1.0 : 0.5}
+          autoRotate={{ disabled: true, interval: 50 }}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            cursor: "inherit"
+          }}
+        />
+
+        {children ? (
+          <div className="absolute left-3 bottom-40 sm:bottom-32 md:bottom-24 z-20 pointer-events-auto">
+            {children}
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 };
@@ -266,68 +212,34 @@ const ImageTurntableWrapper: React.FC<{
 // ============================================================================
 // CUSTOM HOOKS
 // ============================================================================
-
-/**
- * Custom hook to manage drag indicator visibility
- * Shows hint when user first loads, hides during drag, shows again after delay
- * Provides consistent UX for teaching users how to interact
- */
 const useDragIndicator = () => {
   const [showDragIndicator, setShowDragIndicator] = useState(true);
   const [isDragging, setIsDragging] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  /**
-   * Called when user starts dragging
-   * Immediately hides the drag indicator
-   */
   const handleDragStart = () => {
     setShowDragIndicator(false);
     setIsDragging(true);
-
-    // Clear any pending timeout
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
     }
   };
 
-  /**
-   * Called when user stops dragging
-   * Shows drag indicator again after 1 second delay
-   */
   const handleDragEnd = () => {
     setIsDragging(false);
-
-    // Show indicator again after delay
-    timeoutRef.current = setTimeout(() => {
-      setShowDragIndicator(true);
-    }, 1000);
+    timeoutRef.current = setTimeout(() => setShowDragIndicator(true), 1000);
   };
 
-  // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, []);
 
-  return {
-    showDragIndicator,
-    isDragging,
-    handleDragStart,
-    handleDragEnd
-  };
+  return { showDragIndicator, isDragging, handleDragStart, handleDragEnd };
 };
 
-/**
- * Custom hook to generate image sequences based on product type
- * Handles the complex logic for creating different rotation behaviors:
- * - Bathtub: Simple 1-60 sequence for 360° rotation
- * - Sink: Ping-pong 1-30-1 sequence starting at 15 for 180° motion
- */
 const useImageSequence = (bucket360Url?: string) => {
   const [images, setImages] = useState<string[]>([]);
   const [initialImageIndex, setInitialImageIndex] = useState<number>(0);
@@ -337,30 +249,23 @@ const useImageSequence = (bucket360Url?: string) => {
       setImages([]);
       return;
     }
-
     const isSinkProduct = bucket360Url.includes("Sink");
 
     if (isSinkProduct) {
-      // Sink: 180° ping-pong rotation starting from center
       const first = 1;
       const last = 30;
-      const pivot = 15; // Start at center/front view
-
-      // Create ping-pong sequence and rotate to start at center
+      const pivot = 15;
       const pingPongSequence = buildPingPong(first, last);
       const rotatedSequence = rotateArrayToStart(pingPongSequence, pivot);
       const imageUrls = toUrls(bucket360Url, rotatedSequence);
-
       setImages(imageUrls);
-      setInitialImageIndex(0); // First image in rotated array is frame 15
+      setInitialImageIndex(0);
     } else {
-      // Bathtub: Standard 360° rotation
       const imageCount = getImageCountFromUrl(bucket360Url);
       const frameSequence = range(1, imageCount);
       const imageUrls = toUrls(bucket360Url, frameSequence);
-
       setImages(imageUrls);
-      setInitialImageIndex(0); // Start at frame 1
+      setInitialImageIndex(0);
     }
   }, [bucket360Url]);
 
@@ -370,49 +275,177 @@ const useImageSequence = (bucket360Url?: string) => {
 // ============================================================================
 // MAIN COMPONENT
 // ============================================================================
-
-/**
- * Main Product360 component that renders an interactive 360°/180° product viewer
- *
- * Features:
- * - Automatic detection of product type (Bathtub vs Sink)
- * - Different rotation behaviors per product type
- * - Image preloading with progress indication
- * - Zoom and pan capabilities
- * - Touch/mouse drag support
- * - Loading states and error handling
- *
- * @param transformRef - Optional external ref for zoom/pan control
- * @param bucket360Url - CDN URL where product images are stored
- */
 export default function Product360({
   transformRef,
-  bucket360Url
+  bucket360Url,
+  panoramaType,
+  onSelect
 }: Product360Props) {
-  // Zoom/pan ref management
+  const { panoramas, updatePanorama } = usePanoramaContext();
+
+  const [currentBucketUrl, setCurrentBucketUrl] = useState<string>(
+    bucket360Url ?? ""
+  );
+  useEffect(() => {
+    if (bucket360Url && bucket360Url !== currentBucketUrl) {
+      setCurrentBucketUrl(bucket360Url);
+    }
+  }, [bucket360Url, currentBucketUrl]);
+
+  const part: PartType = useMemo<PartType>(() => {
+    if (panoramaType) return panoramaType;
+    if (currentBucketUrl.includes("Sink")) return "sink";
+    if (currentBucketUrl.includes("Bathtub")) return "bathtub";
+    return "floor";
+  }, [panoramaType, currentBucketUrl]);
+
+  const selectedModelIndex = (panoramas as any)?.[part]?.modelIndex ?? 0;
+  const selectedMaterialIndex = (panoramas as any)?.[part]?.materialIndex ?? 0;
+  const selectedColorIndex = (panoramas as any)?.[part]?.colorIndex ?? null;
+
+  const computedMaterialList = useMemo(() => {
+    if (part === "bathtub" || part === "sink") {
+      const models = menu_preview_images[part].models;
+      const model = models[selectedModelIndex];
+      return (
+        model?.materials?.map((m) => ({ file: m.file, id: m.materialId })) ?? []
+      );
+    }
+    return [];
+  }, [part, selectedModelIndex]);
+
+  const computedColorList = useMemo(() => {
+    if (part === "bathtub" || part === "sink") {
+      const models = menu_preview_images[part].models;
+      const model = models[selectedModelIndex];
+      const material = model?.materials?.[selectedMaterialIndex];
+      return (
+        material?.colors?.map((c) => ({ file: c.file, id: c.colorId })) ?? []
+      );
+    }
+    return [];
+  }, [part, selectedModelIndex, selectedMaterialIndex]);
+
+  // Viewer + images
   const internalTransformRef = useRef<ReactZoomPanPinchRef | null>(null);
   const activeTransformRef = transformRef || internalTransformRef;
 
-  // Product type detection
-  const isSink = !!bucket360Url?.includes("Sink");
-
-  // Custom hooks for functionality
-  const { images, initialImageIndex } = useImageSequence(bucket360Url);
+  const isSink = !!currentBucketUrl?.includes("Sink");
+  const { images, initialImageIndex } = useImageSequence(currentBucketUrl);
   const { isLoading, progress } = useImagePreloader(images);
   const { showDragIndicator, isDragging, handleDragStart, handleDragEnd } =
     useDragIndicator();
 
-  // Debug logging
-  // console.log("Product360 Debug Info:", {
-  //   bucket360Url,
-  //   imageCount: images.length,
-  //   initialImageIndex,
-  //   isSink,
-  //   sampleImages: images.slice(0, 3)
-  // });
+  // --- NEW: viewerKey to force remounts when selection/URL changes ---
+  const viewerKey = useMemo(
+    () =>
+      `${part}-${selectedModelIndex}-${selectedMaterialIndex}-${
+        selectedColorIndex ?? "x"
+      }-${currentBucketUrl}`,
+    [
+      part,
+      selectedModelIndex,
+      selectedMaterialIndex,
+      selectedColorIndex,
+      currentBucketUrl
+    ]
+  );
 
-  // Early return: No URL provided
-  if (!bucket360Url) {
+  const selectionIds = useMemo(() => {
+    if (part === "bathtub" || part === "sink") {
+      const { models, categoryId } = menu_preview_images[part];
+      const model = models[selectedModelIndex];
+      const material = model?.materials?.[selectedMaterialIndex];
+      const color = material?.colors?.[selectedColorIndex ?? -1];
+      return {
+        modelId: model?.modelId as string | undefined,
+        categoryId: categoryId as string | undefined,
+        materialId: material?.materialId as string | undefined,
+        colorId: color?.colorId as string | undefined
+      };
+    }
+    return {};
+  }, [part, selectedModelIndex, selectedMaterialIndex, selectedColorIndex]);
+
+  // handlers (unchanged)
+  const handleMaterialSelect = (idx: number) => {
+    const models = (menu_preview_images as any)[part]?.models ?? [];
+    const model = models[selectedModelIndex];
+    const material = model?.materials?.[idx];
+    const nextHasColors =
+      Array.isArray(material?.colors) && material!.colors.length > 0;
+    const nextColorIndex = nextHasColors ? 0 : null;
+
+    updatePanorama({
+      part,
+      patch: { materialIndex: idx, colorIndex: nextColorIndex }
+    });
+
+    const categoryIdStr = (menu_preview_images as any)[part]?.categoryId as
+      | string
+      | undefined;
+    const modelIdStr = model?.modelId as string | undefined;
+    const materialIdStr = material?.materialId as string | undefined;
+    const colorIdStr = nextHasColors
+      ? (material!.colors[0].colorId as string)
+      : undefined;
+
+    const nextUrl =
+      getBucket360Url(
+        categoryIdStr ? Number(categoryIdStr) : null,
+        modelIdStr ? Number(modelIdStr) : null,
+        materialIdStr ? Number(materialIdStr) : null,
+        colorIdStr ? Number(colorIdStr) : undefined
+      ) ?? currentBucketUrl;
+
+    setCurrentBucketUrl(nextUrl);
+
+    onSelect?.({
+      modelIndex: selectedModelIndex,
+      modelId: modelIdStr,
+      categoryId: categoryIdStr,
+      materialId: materialIdStr,
+      colorId: colorIdStr
+    });
+  };
+
+  const handleColorSelect = (idx: number) => {
+    updatePanorama({
+      part,
+      patch: { colorIndex: idx }
+    });
+
+    const { models, categoryId } = (menu_preview_images as any)[part];
+    const model = models[selectedModelIndex];
+    const material = model?.materials?.[selectedMaterialIndex];
+    const color = material?.colors?.[idx];
+
+    const categoryIdStr = categoryId as string | undefined;
+    const modelIdStr = model?.modelId as string | undefined;
+    const materialIdStr = material?.materialId as string | undefined;
+    const colorIdStr = color?.colorId as string | undefined;
+
+    const nextUrl =
+      getBucket360Url(
+        categoryIdStr ? Number(categoryIdStr) : null,
+        modelIdStr ? Number(modelIdStr) : null,
+        materialIdStr ? Number(materialIdStr) : null,
+        colorIdStr ? Number(colorIdStr) : undefined
+      ) ?? currentBucketUrl;
+
+    setCurrentBucketUrl(nextUrl);
+
+    onSelect?.({
+      modelIndex: selectedModelIndex,
+      modelId: modelIdStr,
+      categoryId: categoryIdStr,
+      materialId: materialIdStr,
+      colorId: colorIdStr
+    });
+  };
+
+  // Early returns
+  if (!currentBucketUrl) {
     return (
       <div className="flex items-center justify-center w-full h-full bg-gray-100 rounded-md">
         <p className="text-gray-500">No 360° view available</p>
@@ -420,22 +453,20 @@ export default function Product360({
     );
   }
 
-  // Early return: No images loaded
   if (images.length === 0) {
     return (
       <div className="flex items-center justify-center w-full h-full bg-gray-100 rounded-md">
         <div className="text-center">
           <p className="text-gray-500 mb-2">No 360° images found</p>
-          <p className="text-xs text-gray-400">Base URL: {bucket360Url}</p>
+          <p className="text-xs text-gray-400">Base URL: {currentBucketUrl}</p>
         </div>
       </div>
     );
   }
 
-  // Main render: Full 360° viewer with all features
+  // Render
   return (
-    <div className="rounded-md overflow-hidden w-full h-full select-none pointer-events-auto relative">
-      {/* Zoom/Pan wrapper with configuration */}
+    <div className="rounded-md overflow-hidden w-full h-full select-none pointer-events-auto relative flex flex-col">
       <TransformWrapper
         ref={activeTransformRef}
         initialScale={DEFAULT_360_CONFIG.ZOOM_CONFIG.initialScale}
@@ -446,22 +477,19 @@ export default function Product360({
           step: DEFAULT_360_CONFIG.ZOOM_CONFIG.doubleClickStep
         }}
         wheel={{ step: DEFAULT_360_CONFIG.ZOOM_CONFIG.wheelStep }}
-        panning={{ disabled: true }} // Disable panning to avoid conflicts with rotation
-        pinch={{ disabled: false }} // Allow pinch-to-zoom on mobile
+        panning={{ disabled: true }}
+        pinch={{ disabled: false }}
         centerOnInit
         centerZoomedOut
         disablePadding
       >
         {({ instance }) => (
           <>
-            {/* Loading overlay - shows during image preload */}
             <LoadingOverlay isVisible={isLoading} progress={progress} />
-
-            {/* Zoom level indicator - shows current zoom percentage */}
             <ZoomLevelIndicator instance={instance} />
 
-            {/* Main image container with zoom/pan capabilities */}
             <TransformComponent
+              key={viewerKey} // <-- OPTION A: force subtree remount on change
               wrapperStyle={{ width: "100%", height: "100%" }}
               contentStyle={{ width: "100%", height: "100%" }}
             >
@@ -472,10 +500,78 @@ export default function Product360({
                 onDragEnd={handleDragEnd}
                 initialImageIndex={initialImageIndex}
                 isSink={isSink}
-              />
+                turntableKey={viewerKey} // <-- OPTION A: force turntable remount
+              >
+                {(computedMaterialList.length || computedColorList.length) && (
+                  <div className="flex flex-col gap-2 z-10">
+                    {computedMaterialList.length > 0 && (
+                      <div className="flex flex-row gap-2 justify-center bg-black/40 backdrop-blur-sm p-2 rounded-xl">
+                        {computedMaterialList.map((mat, idx) => {
+                          const selected = idx === selectedMaterialIndex;
+                          return (
+                            <button
+                              key={`${mat.file}-${idx}`}
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleMaterialSelect(idx);
+                              }}
+                              className={[
+                                "w-9 h-9 rounded-full overflow-hidden border-2 transition-shadow",
+                                selected
+                                  ? "border-white shadow-[0_0_0_2px_rgba(255,255,255,0.6)]"
+                                  : "border-white/60 hover:border-white"
+                              ].join(" ")}
+                            >
+                              <Image
+                                src={mat.file}
+                                alt={`Material ${idx + 1}`}
+                                width={36}
+                                height={36}
+                                className="object-cover w-full h-full pointer-events-none"
+                              />
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
+
+                    {computedColorList.length > 0 && (
+                      <div className="flex flex-row gap-2 justify-center bg-black/40 backdrop-blur-sm p-2 rounded-xl">
+                        {computedColorList.map((col, idx) => {
+                          const selected = idx === selectedColorIndex;
+                          return (
+                            <button
+                              key={`${col.file}-${idx}`}
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleColorSelect(idx);
+                              }}
+                              className={[
+                                "w-9 h-9 rounded-full overflow-hidden border-2 transition-shadow",
+                                selected
+                                  ? "border-white shadow-[0_0_0_2px_rgba(255,255,255,0.6)]"
+                                  : "border-white/60 hover:border-white"
+                              ].join(" ")}
+                            >
+                              <Image
+                                src={col.file}
+                                alt={`Color ${idx + 1}`}
+                                width={36}
+                                height={36}
+                                className="object-cover w-full h-full pointer-events-none"
+                              />
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </ImageTurntableWrapper>
             </TransformComponent>
 
-            {/* Drag instruction overlay - teaches users how to interact */}
             <DragIndicator
               isLoading={isLoading}
               showDragIndicator={showDragIndicator}

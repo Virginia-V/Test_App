@@ -26,7 +26,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   colorId
 }) => {
   const [show2DDialog, setShow2DDialog] = useState(false);
-  const [showBathtubDialog, setShowBathtubDialog] = useState(false); // ✅ Add bathtub dialog state
+  const [showBathtubDialog, setShowBathtubDialog] = useState(false);
 
   console.log("🔄 ImagePlaceholder - Received props:", {
     categoryId,
@@ -39,6 +39,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   const {
     categoryType,
     modelIndex: derivedModelIndex,
+    materialIndex: derivedMaterialIndex, // <-- add this if your hook returns it
     imageSrc,
     bucket360Url
   } = useProductData({
@@ -92,6 +93,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
       <ZoomableContentViewer
         categoryType={categoryType}
         modelIndex={derivedModelIndex}
+        materialIndex={derivedMaterialIndex ?? 0} // <-- pass materialIndex
         imageSrc={imageSrc}
         renderZoomControls={renderZoomControls}
         bucket360Url={bucket360Url}
