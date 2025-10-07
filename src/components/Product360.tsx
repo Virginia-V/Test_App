@@ -25,13 +25,37 @@ interface Product360Props {
   bucket360Url?: string;
 }
 
-// Generate image URLs with the standard naming pattern
+// ---------- helpers (new) ----------
+
+// Build 1..N
+const range = (start: number, end: number) =>
+  Array.from({ length: end - start + 1 }, (_, i) => start + i);
+
+// Rotate an array so it starts at a given value (first match)
+const rotateArrayToStart = <T,>(arr: T[], startValue: T) => {
+  const i = arr.indexOf(startValue);
+  if (i <= 0) return arr;
+  return arr.slice(i).concat(arr.slice(0, i));
+};
+
+// Build a ping-pong: 1..N then N-1..2 (no repeated endpoints)
+const buildPingPong = (first: number, last: number) => {
+  const up = range(first, last);
+  const down = range(first + 1, last - 1).reverse();
+  return up.concat(down);
+};
+// Map frame numbers to bucket URLs like /.../0001.jpg
+const toUrls = (baseUrl: string, frames: number[]) => {
+  const cleanBaseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
+  return frames.map(
+    (n, idx) => `${cleanBaseUrl}/${String(n).padStart(4, "0")}.jpg#pp=${idx}`
+  );
+};
+
+// Generate image URLs with the standard naming pattern (kept for non-sink)
 const generateImageUrls = (baseUrl: string, imageCount: number): string[] => {
   console.log(`Generating ${imageCount} images for:`, baseUrl);
-
-  // Remove trailing slash from baseUrl if it exists
   const cleanBaseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
-
   return Array.from({ length: imageCount }, (_, i) => {
     const filename = `${String(i + 1).padStart(4, "0")}.jpg`;
     return `${cleanBaseUrl}/${filename}`;
@@ -47,12 +71,11 @@ const getImageCountFromUrl = (bucket360Url: string): number => {
     console.log("Detected Sink - using 30 images");
     return 30;
   }
-
-  // Default fallback
   console.log("Unknown category - using default 60 images");
   return 60;
 };
 
+// Loading Overlay Component
 // Loading Overlay Component
 const LoadingOverlay: React.FC<{ isVisible: boolean; progress: number }> = ({
   isVisible,
@@ -64,7 +87,7 @@ const LoadingOverlay: React.FC<{ isVisible: boolean; progress: number }> = ({
     <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-sm">
       <div className="text-center">
         <div className="w-16 h-16 border-4 border-gray-300 border-t-green-500 rounded-full animate-spin mb-4 mx-auto" />
-        <p className="text-gray-100 sm:text-gray-600 mb-2 text-base font-medium">
+        <p className="text-gray-800 mb-2 text-base font-medium">
           Loading 360° Viewer...
         </p>
         <div className="w-48 bg-gray-200 rounded-full h-2 mb-2">
@@ -73,14 +96,11 @@ const LoadingOverlay: React.FC<{ isVisible: boolean; progress: number }> = ({
             style={{ width: `${Math.round(progress)}%` }}
           />
         </div>
-        <p className="text-gray-100 sm:text-gray-600 text-sm">
-          {Math.round(progress)}%
-        </p>
+        <p className="text-gray-700 text-sm">{Math.round(progress)}%</p>
       </div>
     </div>
   );
 };
-
 // Zoom Level Indicator Component
 const ZoomLevelIndicator: React.FC<{
   instance: any;
@@ -101,13 +121,7 @@ const DragIndicator: React.FC<{
   isDragging: boolean;
   instance: any;
   isSink?: boolean;
-}> = ({
-  isLoading,
-  showDragIndicator,
-  isDragging,
-  instance,
-  isSink = false
-}) => {
+}> = ({ isLoading, showDragIndicator, isDragging, instance }) => {
   const shouldShow =
     !isLoading &&
     showDragIndicator &&
@@ -123,9 +137,7 @@ const DragIndicator: React.FC<{
           <svg width="24" height="16" viewBox="0 0 24 16" fill="currentColor">
             <path d="M0 8L8 0V4H24V12H8V16L0 8Z" />
           </svg>
-          <span className="text-sm font-medium">
-            {isSink ? "Drag to rotate 180°" : "Drag to rotate 360°"}
-          </span>
+          <span className="text-sm font-medium">Drag to rotate 360°</span>
           <svg width="24" height="16" viewBox="0 0 24 16" fill="currentColor">
             <path d="M24 8L16 0V4H0V12H16V16L24 8Z" />
           </svg>
@@ -168,10 +180,8 @@ const ImageTurntableWrapper: React.FC<{
       <ReactImageTurntable
         images={images}
         initialImageIndex={initialImageIndex}
-        movementSensitivity={isSink ? 1.0 : 0.5} // More sensitive for 180° rotation
+        movementSensitivity={isSink ? 1.0 : 0.5} // tune to taste
         autoRotate={{ disabled: true, interval: 50 }}
-        // For sinks, we want to limit the rotation range
-        // This might need to be implemented differently depending on the library
         style={{
           width: "100%",
           height: "100%",
@@ -234,7 +244,7 @@ export default function Product360({
   const [initialImageIndex, setInitialImageIndex] = useState<number>(0);
 
   // Check if it's a sink
-  const isSink = bucket360Url?.includes("Sink") || false;
+  const isSink = !!bucket360Url?.includes("Sink");
 
   // Generate images based on bucket360Url
   useEffect(() => {
@@ -243,20 +253,30 @@ export default function Product360({
       return;
     }
 
-    // Determine image count based on URL
-    const imageCount = getImageCountFromUrl(bucket360Url);
+    const isSinkLocal = !!bucket360Url.includes("Sink");
 
-    // Determine initial image index based on category
-    let startIndex = 0;
-    if (bucket360Url.includes("Sink")) {
-      startIndex = 14; // 0015.jpg is at index 14 (0-based) - center position for 180° view
+    if (isSinkLocal) {
+      // 180° bounce: 0001..0030..0001, start at 0015
+      const first = 1;
+      const last = 30;
+      const pivot = 15;
+
+      const pingPong = buildPingPong(first, last);
+      const rotated = rotateArrayToStart(pingPong, pivot);
+      const urls = toUrls(bucket360Url, rotated); // includes #pp=idx for unique keys
+
+      setImages(urls);
+      setInitialImageIndex(0); // starts at 0015 after rotation
+    } else {
+      // Normal 360°
+      const imageCount = getImageCountFromUrl(bucket360Url);
+      // attach #pp to avoid any potential duplicates in other sets, too
+      const frames = range(1, imageCount);
+      const urls = toUrls(bucket360Url, frames);
+
+      setImages(urls);
+      setInitialImageIndex(0);
     }
-    setInitialImageIndex(startIndex);
-
-    // Generate image URLs using the standard naming pattern
-    const imageList = generateImageUrls(bucket360Url, imageCount);
-
-    setImages(imageList);
   }, [bucket360Url]);
 
   // Custom hooks
