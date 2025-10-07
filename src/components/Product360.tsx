@@ -100,7 +100,14 @@ const DragIndicator: React.FC<{
   showDragIndicator: boolean;
   isDragging: boolean;
   instance: any;
-}> = ({ isLoading, showDragIndicator, isDragging, instance }) => {
+  isSink?: boolean;
+}> = ({
+  isLoading,
+  showDragIndicator,
+  isDragging,
+  instance,
+  isSink = false
+}) => {
   const shouldShow =
     !isLoading &&
     showDragIndicator &&
@@ -116,7 +123,9 @@ const DragIndicator: React.FC<{
           <svg width="24" height="16" viewBox="0 0 24 16" fill="currentColor">
             <path d="M0 8L8 0V4H24V12H8V16L0 8Z" />
           </svg>
-          <span className="text-sm font-medium">Drag to rotate 360°</span>
+          <span className="text-sm font-medium">
+            {isSink ? "Drag to rotate 180°" : "Drag to rotate 360°"}
+          </span>
           <svg width="24" height="16" viewBox="0 0 24 16" fill="currentColor">
             <path d="M24 8L16 0V4H0V12H16V16L24 8Z" />
           </svg>
@@ -132,7 +141,16 @@ const ImageTurntableWrapper: React.FC<{
   isDragging: boolean;
   onDragStart: () => void;
   onDragEnd: () => void;
-}> = ({ images, isDragging, onDragStart, onDragEnd }) => {
+  initialImageIndex?: number;
+  isSink?: boolean;
+}> = ({
+  images,
+  isDragging,
+  onDragStart,
+  onDragEnd,
+  initialImageIndex = 0,
+  isSink = false
+}) => {
   return (
     <div
       onMouseDown={onDragStart}
@@ -149,9 +167,11 @@ const ImageTurntableWrapper: React.FC<{
     >
       <ReactImageTurntable
         images={images}
-        initialImageIndex={0}
-        movementSensitivity={0.5}
+        initialImageIndex={initialImageIndex}
+        movementSensitivity={isSink ? 1.0 : 0.5} // More sensitive for 180° rotation
         autoRotate={{ disabled: true, interval: 50 }}
+        // For sinks, we want to limit the rotation range
+        // This might need to be implemented differently depending on the library
         style={{
           width: "100%",
           height: "100%",
@@ -211,6 +231,10 @@ export default function Product360({
   const internalTransformRef = useRef<ReactZoomPanPinchRef | null>(null);
   const activeTransformRef = transformRef || internalTransformRef;
   const [images, setImages] = useState<string[]>([]);
+  const [initialImageIndex, setInitialImageIndex] = useState<number>(0);
+
+  // Check if it's a sink
+  const isSink = bucket360Url?.includes("Sink") || false;
 
   // Generate images based on bucket360Url
   useEffect(() => {
@@ -221,6 +245,13 @@ export default function Product360({
 
     // Determine image count based on URL
     const imageCount = getImageCountFromUrl(bucket360Url);
+
+    // Determine initial image index based on category
+    let startIndex = 0;
+    if (bucket360Url.includes("Sink")) {
+      startIndex = 14; // 0015.jpg is at index 14 (0-based) - center position for 180° view
+    }
+    setInitialImageIndex(startIndex);
 
     // Generate image URLs using the standard naming pattern
     const imageList = generateImageUrls(bucket360Url, imageCount);
@@ -236,6 +267,8 @@ export default function Product360({
   console.log("Product360 bucket360Url:", bucket360Url);
   console.log("Generated images sample:", images.slice(0, 5));
   console.log("Total image count:", images.length);
+  console.log("Initial image index:", initialImageIndex);
+  console.log("Is sink:", isSink);
 
   // Don't render if no bucket360Url
   if (!bucket360Url) {
@@ -290,6 +323,8 @@ export default function Product360({
                 isDragging={isDragging}
                 onDragStart={handleDragStart}
                 onDragEnd={handleDragEnd}
+                initialImageIndex={initialImageIndex}
+                isSink={isSink}
               />
             </TransformComponent>
 
@@ -298,6 +333,7 @@ export default function Product360({
               showDragIndicator={showDragIndicator}
               isDragging={isDragging}
               instance={instance}
+              isSink={isSink}
             />
           </>
         )}
