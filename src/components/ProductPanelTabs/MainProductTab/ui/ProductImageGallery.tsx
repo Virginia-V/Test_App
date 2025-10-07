@@ -27,7 +27,7 @@ export const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
   categoryId,
   onModelSelect
 }) => {
-  const { panoramas } = usePanoramaContext();
+  const { panoramas, updatePanorama } = usePanoramaContext(); // ✅ Add updatePanorama
 
   // Use utility function to derive type
   const derivedType = useMemo<CategoryType>(
@@ -62,7 +62,7 @@ export const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
     return imageListWithIds.map(({ src, label }) => ({ src, label }));
   }, [imageListWithIds]);
 
-  // Handle selection with all IDs - ADD DEBUGGING
+  // Handle selection with all IDs + panorama update
   const handleSelect = (index: number) => {
     console.log(
       "🚨 ProductImageGallery handleSelect called with index:",
@@ -85,6 +85,28 @@ export const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
       // 🎯 Log selection data when user clicks
       console.log("🎯 SELECTED IMAGE DATA:", selectionData);
 
+      // ✅ UPDATE PANORAMA CONTEXT - Same logic as BottomMenu
+      if (panoramaType) {
+        console.log("🔄 Updating panorama context with:", {
+          part: panoramaType,
+          patch: {
+            modelIndex: index,
+            materialIndex: 0,
+            colorIndex: null
+          }
+        });
+
+        updatePanorama({
+          part: panoramaType as "bathtub" | "sink" | "floor",
+          patch: {
+            modelIndex: index,
+            materialIndex: 0,
+            colorIndex: null
+          }
+        });
+      }
+
+      // Call the parent callback
       onModelSelect(selectionData);
     } else {
       console.log("❌ Selection failed:", {
@@ -101,7 +123,8 @@ export const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
     totalImages: imageListWithIds.length,
     currentModelIndex: modelIndex,
     currentCategoryId: categoryId,
-    hasOnModelSelect: !!onModelSelect
+    hasOnModelSelect: !!onModelSelect,
+    panoramaType
   });
 
   return (
@@ -113,7 +136,7 @@ export const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
         itemClassName="rounded-md"
         selectable={true}
         selectedIndex={modelIndex}
-        onSelect={handleSelect} // This should work the same as in CarouselGroup
+        onSelect={handleSelect}
         carouselWidthClass="w-[498px]"
         itemWidthClass="w-[150px]"
         itemHeightClass="h-[150px]"
