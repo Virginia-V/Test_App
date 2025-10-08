@@ -51,8 +51,9 @@
     layout_maxwidth="814"
     controlbar_width="-24"
     controlbar_height="40"
-    controlbar_offset="400"
-    controlbar_offset_closed="380"
+    controlbar_offset.normal="20"
+    controlbar_offset.mobile="20"
+    controlbar_offset_closed="-40"
     controlbar_overlap.no-fractionalscaling="10"
     controlbar_overlap.fractionalscaling="0"
     design_skin_images="vtourskin.png"
@@ -76,7 +77,7 @@
   <!-- <include url="skin/vtourskin_design_black.xml"       /> -->
 
   <!-- ===== Overlay Panel (above skin) ===== -->
-<!-- 
+
  <display autofullscreen="true"
          stereo="false"
          stereooverlap="0.0"
@@ -103,7 +104,7 @@
          wireocclusion="true"
          wirecolor="0x00FF00"
          chromesubpixelantialiasing="false"
-         /> -->
+         /> 
 
 <scene
     name="scene173"
@@ -116,7 +117,6 @@
     heading=""
     preload="true"
   >
-
 
   <control
       mousetype="drag2d"
