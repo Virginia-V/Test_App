@@ -64,7 +64,7 @@
 	<vtourskinxmlpath url="./" />
 
 	<!-- iPhone X safe-area support: use the horizontal safe-area only -->	
-	<display safearea="h-only" />
+	<display safearea="auto" />
 
 	<!-- mouse / touch / keyboard(button) control settings - https://krpano.com/docu/xml/#control -->
 	<control mouse="drag"
