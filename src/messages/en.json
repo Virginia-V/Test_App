@@ -31,7 +31,8 @@
       "loading": "Loading...",
       "error": "An error occurred",
       "success": "Success",
-      "openInfo": "Open Info"
+      "openInfo": "Open Info",
+      "reset": "Reset"
     },
     "clerk": {
       "signIn": {

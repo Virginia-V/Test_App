@@ -190,9 +190,8 @@ const ImageTurntableWrapper: React.FC<{
             cursor: "inherit"
           }}
         />
-
         {children ? (
-          <div className="absolute left-3 bottom-40 sm:bottom-32 md:bottom-24 z-20 pointer-events-auto">
+          <div className="absolute left-3 bottom-24 sm:bottom-28 md:bottom-20 z-20 pointer-events-auto">
             {children}
           </div>
         ) : null}

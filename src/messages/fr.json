@@ -31,7 +31,8 @@
       "loading": "Chargement...",
       "error": "Une erreur s'est produite",
       "success": "Succès",
-      "openInfo": "Ouvrir les infos"
+      "openInfo": "Ouvrir les infos",
+      "reset": "Réinitialiser"
     },
     "clerk": {
       "signIn": {
