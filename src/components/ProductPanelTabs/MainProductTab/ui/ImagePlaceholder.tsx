@@ -5,8 +5,9 @@ import { ReactZoomPanPinchRef } from "react-zoom-pan-pinch";
 import { ZoomControls } from "./ZoomControls";
 import { useProductData } from "@/hooks/useProductData";
 import { ZoomableContentViewer } from "./components";
-import { TwoDImagesDialog } from "@/components/TwoDImagesDialog";
+
 import { BathtubImagesDialog } from "@/components/BathtubImagesDialog"; // ✅ Import new dialog
+import { TwoDImagesDialog } from '@/components/TwoDImagesDialog';
 
 interface ImagePlaceholderProps {
   panoramaType?: string;
@@ -98,7 +99,6 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
         renderZoomControls={renderZoomControls}
         bucket360Url={bucket360Url}
       />
-
       {/* 2D Images Dialog */}
       <TwoDImagesDialog isOpen={show2DDialog} onClose={handleClose2DDialog} />
 

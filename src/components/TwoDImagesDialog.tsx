@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
@@ -12,162 +12,43 @@ interface TwoDImagesDialogProps {
   onClose: () => void;
 }
 
-interface KrpanoView {
-  name: string;
-  xmlPath: string;
-  jsPath: string;
-}
-
-const views: KrpanoView[] = [
+const images: { name: string; src: string }[] = [
   {
-    name: "View 1",
-    xmlPath: "/2D-images/view_1/pano.xml",
-    jsPath: "/2D-images/view_1/pano.js"
+    name: "Bali 1",
+    src: "https://pub-c83f1ba2cc05448bb87021240670356e.r2.dev/bathroom/BALI_001.png"
   },
   {
-    name: "View 2",
-    xmlPath: "/2D-images/view_2/pano.xml",
-    jsPath: "/2D-images/view_2/pano.js"
+    name: "Bali 2",
+    src: "https://pub-c83f1ba2cc05448bb87021240670356e.r2.dev/bathroom/BALI_002.png"
+  },
+  {
+    name: "Bali 3",
+    src: "https://pub-c83f1ba2cc05448bb87021240670356e.r2.dev/bathroom/BALI_003.jpg"
   }
 ];
-
-const KrpanoViewer: React.FC<{
-  view: KrpanoView;
-  containerId: string;
-}> = ({ view, containerId }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const krpanoInstanceRef = useRef<any>(null);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    console.log(
-      "Loading krpano for:",
-      view.name,
-      "with container:",
-      containerId
-    );
-
-    // Clear any existing content
-    const container = document.getElementById(containerId);
-    if (container) {
-      container.innerHTML = "";
-    }
-
-    // Remove any existing krpano instance
-    if (krpanoInstanceRef.current) {
-      try {
-        krpanoInstanceRef.current.call("removepano()");
-      } catch (e) {
-        console.log("Error removing previous instance:", e);
-      }
-    }
-
-    // Check if script already exists and remove it
-    const existingScript = document.querySelector(
-      `script[src="${view.jsPath}"]`
-    );
-    if (existingScript) {
-      existingScript.remove();
-    }
-
-    // Load krpano script
-    const script = document.createElement("script");
-    script.src = view.jsPath;
-    script.onload = () => {
-      console.log("Krpano script loaded:", view.jsPath);
-
-      // Wait a bit for the script to initialize
-      setTimeout(() => {
-        if (typeof window.embedpano === "function") {
-          console.log("Initializing embedpano with:", {
-            xml: view.xmlPath,
-            target: containerId
-          });
-
-          try {
-            window.embedpano({
-              xml: view.xmlPath,
-              target: containerId,
-              html5: "auto",
-              mobilescale: 1.0,
-              passQueryParameters: false,
-              consolelog: true, // Enable console logging for debugging
-              onready: function () {
-                console.log("Krpano viewer ready for:", view.name);
-                krpanoInstanceRef.current = this;
-              },
-              onerror: function (message: string) {
-                console.error("Krpano error:", message);
-              }
-            });
-          } catch (error) {
-            console.error("Error initializing krpano:", error);
-          }
-        } else {
-          console.error("embedpano function not found");
-        }
-      }, 100);
-    };
-
-    script.onerror = (error) => {
-      console.error("Failed to load krpano script:", view.jsPath, error);
-    };
-
-    document.head.appendChild(script);
-
-    return () => {
-      // Cleanup
-      if (krpanoInstanceRef.current) {
-        try {
-          krpanoInstanceRef.current.call("removepano()");
-        } catch (e) {
-          console.log("Cleanup error:", e);
-        }
-      }
-
-      // Remove script
-      const scriptToRemove = document.querySelector(
-        `script[src="${view.jsPath}"]`
-      );
-      if (scriptToRemove) {
-        scriptToRemove.remove();
-      }
-    };
-  }, [view, containerId]);
-
-  return (
-    <div
-      ref={containerRef}
-      id={containerId}
-      className="w-full h-full"
-      style={{
-        minHeight: "400px",
-        position: "relative",
-        overflow: "hidden"
-      }}
-    />
-  );
-};
 
 export const TwoDImagesDialog: React.FC<TwoDImagesDialogProps> = ({
   isOpen,
   onClose
 }) => {
-  const [currentViewIndex, setCurrentViewIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   const goToPrevious = () => {
-    setCurrentViewIndex((prev) => (prev === 0 ? views.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
   const goToNext = () => {
-    setCurrentViewIndex((prev) => (prev === views.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
-  // Debug: Log when view changes
   useEffect(() => {
-    console.log("Current view index changed to:", currentViewIndex);
-  }, [currentViewIndex]);
+    if (!isOpen) setCurrentIndex(0);
+  }, [isOpen]);
+
+  useEffect(() => {
+    setLoading(true);
+  }, [currentIndex, isOpen]);
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -182,9 +63,9 @@ export const TwoDImagesDialog: React.FC<TwoDImagesDialogProps> = ({
               ease: [0.4, 0.0, 0.2, 1]
             }}
           >
-            <DialogContent className="w-full max-w-[100vw] sm:max-w-[98vw] lg:max-w-[1400px] h-[100vh] sm:h-[90vh] lg:h-[800px] max-h-[100vh] sm:max-h-[95vh] p-0 bg-black border-0 shadow-none flex flex-col overflow-hidden">
+            <DialogContent className="w-[1200px] max-w-[100vw] sm:max-w-[98vw] lg:max-w-[1400px] h-[100vh] sm:h-[90vh] lg:h-[800px] max-h-[100vh] sm:max-h-[95vh] p-0 bg-black border-0 shadow-none flex flex-col overflow-hidden">
               <VisuallyHidden>
-                <DialogTitle>2D Views</DialogTitle>
+                <DialogTitle>Bali Images</DialogTitle>
               </VisuallyHidden>
 
               {/* Close Button */}
@@ -208,7 +89,7 @@ export const TwoDImagesDialog: React.FC<TwoDImagesDialogProps> = ({
               </Button>
 
               {/* Navigation Controls */}
-              {views.length > 1 && (
+              {images.length > 1 && (
                 <div className="absolute inset-0 flex items-center justify-between pointer-events-none z-10 px-6">
                   <Button
                     variant="ghost"
@@ -249,14 +130,51 @@ export const TwoDImagesDialog: React.FC<TwoDImagesDialogProps> = ({
 
               {/* Counter */}
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-full text-sm font-medium z-10">
-                {currentViewIndex + 1} / {views.length}
+                {currentIndex + 1} / {images.length}
               </div>
 
-              {/* Krpano Viewer */}
-              <div className="flex-1 relative">
-                <KrpanoViewer
-                  view={views[currentViewIndex]}
-                  containerId={`krpano-viewer-${currentViewIndex}`}
+              {/* Image Viewer */}
+              <div
+                className="flex-1 relative flex items-center justify-center bg-black"
+                draggable={false}
+              >
+                {loading && (
+                  <div className="absolute inset-0 flex items-center justify-center z-20 bg-black/40">
+                    {/* Simple circular spinner */}
+                    <svg
+                      className="animate-spin h-12 w-12 text-white"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                        fill="none"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                      />
+                    </svg>
+                  </div>
+                )}
+                <img
+                  src={images[currentIndex].src}
+                  alt={images[currentIndex].name}
+                  className="h-full w-full object-cover select-none"
+                  draggable={false}
+                  onDragStart={(e) => e.preventDefault()}
+                  onMouseDown={(e) => e.preventDefault()}
+                  style={{
+                    userSelect: "none",
+                    visibility: loading ? "hidden" : "visible"
+                  }}
+                  onLoad={() => setLoading(false)}
+                  onError={() => setLoading(false)}
                 />
               </div>
             </DialogContent>
