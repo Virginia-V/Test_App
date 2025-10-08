@@ -11,6 +11,7 @@ import Image from "next/image";
 import { usePanoramaContext } from "@/context/PanoramaContext";
 import { menu_preview_images } from "@/lib/menu_preview_images";
 import { getBucket360Url } from "@/helpers/image-utils";
+import InvertColorsIcon from "@mui/icons-material/InvertColors";
 
 // ============================================================================
 // CONSTANTS & TYPES
@@ -482,9 +483,9 @@ export default function Product360({
               >
                 {/* Show material and color selectors if available */}
                 {(computedMaterialList.length || computedColorList.length) && (
-                  <div className="flex flex-col gap-2 z-10">
+                  <div className="flex flex-col gap-2 z-10 items-start">
                     {computedMaterialList.length > 0 && (
-                      <div className="flex flex-row gap-2 justify-center bg-black/40 backdrop-blur-sm p-2 rounded-xl">
+                      <div className="flex flex-row gap-2 justify-center bg-black/40 backdrop-blur-sm p-2 rounded-xl self-start">
                         {computedMaterialList.map((mat, idx) => {
                           const selected = idx === selectedMaterialIndex;
                           return (
@@ -498,7 +499,7 @@ export default function Product360({
                               className={[
                                 "w-9 h-9 rounded-full overflow-hidden border-2 transition-shadow cursor-pointer",
                                 selected
-                                  ? "border-white shadow-[0_0_0_2px_rgba(255,255,255,0.6)]"
+                                  ? "border-green-500 shadow-[0_0_0_2px_rgba(34,197,94,0.6)]"
                                   : "border-white/60 hover:border-white"
                               ].join(" ")}
                             >
@@ -516,34 +517,46 @@ export default function Product360({
                     )}
 
                     {computedColorList.length > 0 && (
-                      <div className="flex flex-row gap-2 justify-center bg-black/40 backdrop-blur-sm p-2 rounded-xl">
-                        {computedColorList.map((col, idx) => {
-                          const selected = idx === selectedColorIndex;
-                          return (
-                            <button
-                              key={`${col.file}-${idx}`}
-                              type="button"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleColorSelect(idx);
-                              }}
-                              className={[
-                                "w-9 h-9 rounded-full overflow-hidden border-2 transition-shadow cursor-pointer",
-                                selected
-                                  ? "border-white shadow-[0_0_0_2px_rgba(255,255,255,0.6)]"
-                                  : "border-white/60 hover:border-white"
-                              ].join(" ")}
-                            >
-                              <Image
-                                src={col.file}
-                                alt={`Color ${idx + 1}`}
-                                width={36}
-                                height={36}
-                                className="object-cover w-full h-full pointer-events-none"
-                              />
-                            </button>
-                          );
-                        })}
+                      <div className="flex flex-row items-center gap-3 self-start">
+                        <div className="flex flex-row gap-2 justify-center bg-black/40 backdrop-blur-sm p-2 rounded-xl">
+                          {computedColorList.map((col, idx) => {
+                            const selected = idx === selectedColorIndex;
+                            return (
+                              <button
+                                key={`${col.file}-${idx}`}
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleColorSelect(idx);
+                                }}
+                                className={[
+                                  "w-9 h-9 rounded-full overflow-hidden border-2 transition-shadow cursor-pointer",
+                                  selected
+                                    ? "border-green-500 shadow-[0_0_0_2px_rgba(34,197,94,0.6)]"
+                                    : "border-white/60 hover:border-white"
+                                ].join(" ")}
+                              >
+                                <Image
+                                  src={col.file}
+                                  alt={`Color ${idx + 1}`}
+                                  width={36}
+                                  height={36}
+                                  className="object-cover w-full h-full pointer-events-none"
+                                />
+                              </button>
+                            );
+                          })}
+                        </div>
+
+                        <div className="bg-black/70 text-white px-3 py-1 rounded-md flex items-center gap-2 shadow-sm animate-pulse">
+                          <InvertColorsIcon
+                            fontSize="small"
+                            className="!text-green-500 opacity-80"
+                          />
+                          <span className="text-xs font-medium">
+                            Available Colors
+                          </span>
+                        </div>
                       </div>
                     )}
                   </div>
