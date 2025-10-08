@@ -3,6 +3,8 @@ import { cn } from "@/lib/utils";
 import { ImagePlaceholder } from "./ui/ImagePlaceholder";
 import { ProductImageGallery } from "./ui/ProductImageGallery";
 import { ProductInfoSection } from "./ui";
+import { ProductInfoCategoryKey } from "./data/productInfoMap";
+
 
 interface ProductOverviewProps {
   panoramaType?: string;
@@ -12,6 +14,16 @@ interface ProductOverviewProps {
   materialId?: number | null | undefined;
   colorId?: number | null | undefined;
 }
+
+// Helper to map categoryId to key
+const getCategoryKey = (
+  categoryId?: number | null
+): ProductInfoCategoryKey | undefined => {
+  if (categoryId === 1) return "bathtub";
+  if (categoryId === 2) return "sink";
+  if (categoryId === 3) return "floor";
+  return undefined;
+};
 
 export const ProductOverview: React.FC<ProductOverviewProps> = ({
   panoramaType,
@@ -44,6 +56,9 @@ export const ProductOverview: React.FC<ProductOverviewProps> = ({
   const effectiveModelId = selectedModelId ?? propModelId;
   const effectiveMaterialId = selectedMaterialId ?? propMaterialId;
   const effectiveColorId = selectedColorId ?? propColorId;
+
+  // Map categoryId to categoryKey
+  const categoryKey = getCategoryKey(effectiveCategoryId);
 
   // Handle model selection from gallery
   const handleModelSelect = (selection: {
@@ -102,12 +117,18 @@ export const ProductOverview: React.FC<ProductOverviewProps> = ({
       </div>
 
       <div className="flex flex-col gap-5 md:gap-6 lg:gap-15 flex-1 min-w-0">
-        <ProductInfoSection />
+        {/* Pass categoryKey and modelId as props */}
+        {categoryKey && effectiveModelId != null && (
+          <ProductInfoSection
+            categoryKey={categoryKey}
+            modelId={effectiveModelId}
+          />
+        )}
         <ProductImageGallery
           panoramaType={panoramaType}
           modelIndex={effectiveModelIndex}
           categoryId={effectiveCategoryId}
-          onModelSelect={handleModelSelect} // ✅ MUST BE PASSED
+          onModelSelect={handleModelSelect}
         />
       </div>
     </div>

@@ -30,7 +30,8 @@
       "continue": "Continuer",
       "loading": "Chargement...",
       "error": "Une erreur s'est produite",
-      "success": "Succès"
+      "success": "Succès",
+      "openInfo": "Ouvrir les infos"
     },
     "clerk": {
       "signIn": {
@@ -99,7 +100,18 @@
     "reference": "Référence",
     "shortDescription": "Chaise élégante au design épuré, alliant une structure en bois massif à une assise rembourrée en lin naturel. Conçue pour apporter confort et raffinement à votre intérieur, elle s'intègre aussi bien dans une salle à manger contemporaine que dans un espace de travail chaleureux.",
     "downloadCatalogue": "TÉLÉCHARGER LE CATALOGUE",
-    "visitWebsite": "VISITER LE SITE WEB"
+    "visitWebsite": "VISITER LE SITE WEB",
+    "bathtub_Model_01_Description": "La baignoire Orava séduit par sa silhouette ovale et fluide, pensée pour offrir une immersion douce et relaxante. Ses lignes harmonieuses apportent une touche intemporelle, idéale pour créer une salle de bain élégante et accueillante.",
+    "bathtub_Model_02_Description": "Avec ses lignes droites et géométriques, la baignoire Kalyra incarne un design moderne et minimaliste. Parfaite pour les intérieurs contemporains, elle conjugue rigueur architecturale et confort absolu.",
+    "bathtub_Model_03_Description": "Compacte et entièrement arrondie, la baignoire Serelis est une invitation au bien-être. Sa forme circulaire crée une atmosphère intimiste et apaisante, propice à la détente et au recentrage.",
+    "sink_Model_04_Description": "L’ensemble Aureo associe un support suspendu minimaliste à une vasque double raffinée et un miroir circulaire. Pensé pour les intérieurs modernes, il conjugue simplicité et élégance intemporelle.",
+    "sink_Model_05_Description": "L’ensemble Varel met en valeur un meuble double vasque en bois naturel, complété par deux miroirs verticaux. Son équilibre entre authenticité et modernité crée une atmosphère chaleureuse et sophistiquée dans la salle de bain.",
+    "sink_Model_06_Description": "L’ensemble Sorelis se distingue par ses deux colonnes vasques en pierre, surmontées de miroirs arrondis. Un design sculptural et audacieux qui transforme l’espace en véritable lieu d’exception.",
+    "floor_Model_07_Description": "Le sol Cavare incarne la force de la pierre sombre et texturée. Son caractère affirmé donne une identité forte aux espaces contemporains ou industriels.",
+    "floor_Model_08_Description": "Le sol Terrano séduit par son aspect minéral clair et lumineux. Il agrandit visuellement l’espace et crée une atmosphère épurée, idéale pour les intérieurs modernes.",
+    "floor_Model_09_Description": "Le sol Livaris s’inspire du bois naturel, avec des veinages riches et chaleureux. Parfait pour un style intemporel, il apporte confort visuel et authenticité à chaque pièce.",
+    "dragToRotate": "Faites pivoter à 360°",
+    "availableColors": "Coloris disponibles"
   },
   "form": {
     "firstName": "Prénom",
@@ -204,7 +216,7 @@
     "resellers": "REVENDEURS",
     "distributors": "DISTRIBUTEURS",
     "aboutCompany": "À PROPOS DE L'ENTREPRISE",
-    "companyDescription": "Depuis sa création, notre société s'est imposée comme un acteur incontournable dans l'univers du mobilier haut de gamme. Spécialisée dans la conception, la fabrication et la distribution de meubles design, elle propose une collection alliant esthétique, fonctionnalité et durabilité.\n\nNotre gamme s'adresse aussi bien aux particuliers qu'aux professionnels du secteur de l'aménagement intérieur. Chaque pièce est pensée avec soin, fabriquée à partir de matériaux sélectionnés pour leur qualité, et conçue pour s'intégrer harmonieusement à tout type d'environnement – résidentiel, commercial ou contract."
+    "companyDescription": "Depuis plus de vingt ans, SOLARENO s’impose comme une référence dans l’univers du design intérieur et du mobilier sur mesure. Spécialisée dans la conception et la fabrication de pièces haut de gamme – sols, baignoires, lavabos et mobiliers de salle de bain – l’entreprise associe innovation, esthétique et savoir-faire artisanal. Notre mission est de créer des environnements immersifs où chaque détail compte : du choix des matériaux nobles à l’intégration de technologies interactives, chaque produit incarne un équilibre entre tradition et modernité. Nos collections s’adressent aussi bien aux particuliers en quête d’exception qu’aux professionnels de l’architecture et du design. De Paris à Dubaï, de Milan à New York, SOLARENO accompagne les projets résidentiels, hôteliers et commerciaux les plus ambitieux."
   },
   "businessValues": {
     "artenova": "ARTENOVA",

@@ -1,5 +1,5 @@
 import { Logo } from "@/assets/svg/Logo";
-import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 type InfoIndicatorProps = {
   showIndicator: boolean;
@@ -10,6 +10,7 @@ export const InfoIndicator: React.FC<InfoIndicatorProps> = ({
   showIndicator,
   onClick
 }) => {
+  const t = useTranslations("auth.common");
   if (!showIndicator) return null;
 
   return (
@@ -25,7 +26,7 @@ export const InfoIndicator: React.FC<InfoIndicatorProps> = ({
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 bg-green-400 rounded-full animate-bounce"></div>
           <span className="text-sm font-medium whitespace-nowrap">
-            Open Info
+            {t("openInfo")}
           </span>
         </div>
       </div>
@@ -49,7 +50,7 @@ export const InfoIconWrapper = ({
         onClick={onClick}
       >
         <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white relative">
-          <Logo/>
+          <Logo />
           <InfoIndicator showIndicator={showIndicator} onClick={onClick} />
         </div>
       </div>

@@ -30,7 +30,8 @@
       "continue": "Continue",
       "loading": "Loading...",
       "error": "An error occurred",
-      "success": "Success"
+      "success": "Success",
+      "openInfo": "Open Info"
     },
     "clerk": {
       "signIn": {
@@ -99,7 +100,18 @@
     "reference": "Reference",
     "shortDescription": "Elegant chair with pure design, combining a solid wood structure with a padded seat in natural linen. Designed to bring comfort and refinement to your interior, it integrates as well in a contemporary dining room as in a warm workspace.",
     "downloadCatalogue": "DOWNLOAD CATALOGUE",
-    "visitWebsite": "VISIT THE WEBSITE"
+    "visitWebsite": "VISIT THE WEBSITE",
+    "bathtub_Model_01_Description": "The Orava bathtub captivates with its oval, fluid silhouette, designed to offer a gentle and relaxing immersion. Its harmonious lines bring a timeless touch, ideal for creating an elegant and welcoming bathroom.",
+    "bathtub_Model_02_Description": "With its straight and geometric lines, the Kalyra bathtub embodies a modern and minimalist design. Perfect for contemporary interiors, it combines architectural rigor with absolute comfort.",
+    "bathtub_Model_03_Description": "Compact and fully rounded, the Serelis bathtub is an invitation to well-being. Its circular shape creates an intimate and soothing atmosphere, conducive to relaxation and recentring.",
+    "sink_Model_04_Description": "The Aureo set combines a minimalist suspended support with a refined double basin and a circular mirror. Designed for modern interiors, it blends simplicity with timeless elegance.",
+    "sink_Model_05_Description": "The Varel set highlights a double sink unit in natural wood, complemented by two vertical mirrors. Its balance between authenticity and modernity creates a warm and sophisticated atmosphere in the bathroom.",
+    "sink_Model_06_Description": "The Sorelis set stands out with its two stone column basins, topped with rounded mirrors. A sculptural and bold design that transforms the space into a truly exceptional place.",
+    "floor_Model_07_Description": "The Cavare floor embodies the strength of dark, textured stone. Its assertive character gives a strong identity to contemporary or industrial spaces.",
+    "floor_Model_08_Description": "The Terrano floor impresses with its light and bright mineral appearance. It visually enlarges the space and creates a refined atmosphere, ideal for modern interiors.",
+    "floor_Model_09_Description": "The Livaris floor is inspired by natural wood, with rich and warm grain. Perfect for a timeless style, it brings visual comfort and authenticity to every room.",
+    "dragToRotate": "Drag to rotate 360°",
+    "availableColors": "Available Colors"
   },
   "form": {
     "firstName": "First Name",
@@ -211,7 +223,7 @@
     "resellers": "RESELLERS",
     "distributors": "DISTRIBUTORS",
     "aboutCompany": "ABOUT THE COMPANY",
-    "companyDescription": "Since its creation, our company has established itself as a key player in the high-end furniture industry. Specialized in the design, manufacturing and distribution of designer furniture, it offers a collection combining aesthetics, functionality and durability.\n\nOur range is aimed at both individuals and professionals in the interior design sector. Each piece is carefully designed, manufactured from materials selected for their quality, and designed to integrate harmoniously into any type of environment – residential, commercial or contract."
+    "companyDescription": "For over twenty years, SOLARENO has established itself as a benchmark in the world of interior design and custom furniture. Specializing in the design and manufacture of high-end pieces—floors, bathtubs, sinks, and bathroom furniture—the company combines innovation, aesthetics, and artisanal know-how. Our mission is to create immersive environments where every detail matters: from the selection of noble materials to the integration of interactive technologies, each product embodies a balance between tradition and modernity. Our collections are aimed at both individuals seeking exceptional pieces and professionals in architecture and design.From Paris to Dubai, Milan to New York, SOLARENO supports the most ambitious residential, hotel, and commercial projects."
   },
   "businessValues": {
     "artenova": "ARTENOVA",

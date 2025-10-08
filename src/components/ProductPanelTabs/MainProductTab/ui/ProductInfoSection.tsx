@@ -4,6 +4,11 @@ import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import { Circle } from "@/assets";
 import { useTranslations } from "next-intl";
+import {
+  getProductInfo,
+  ProductInfoCategoryKey,
+  ProductInfo
+} from "../data/productInfoMap";
 
 // --- Styles ---
 const headingStyle = "text-black font-sans font-semibold leading-normal";
@@ -22,9 +27,19 @@ const InfoBadge = ({ label, bgColor }: { label: string; bgColor: string }) => (
 );
 
 // --- Main ---
-export const ProductInfoSection = () => {
-  // const { t } = useTranslation();
-  const t = useTranslations("product");
+type ProductInfoSectionProps = {
+  categoryKey: ProductInfoCategoryKey;
+  modelId: string | number;
+};
+
+export const ProductInfoSection = ({
+  categoryKey,
+  modelId
+}: ProductInfoSectionProps) => {
+  const t = useTranslations();
+  const info: ProductInfo | null = getProductInfo(categoryKey, modelId);
+  console.log("categoryKey, modelId", categoryKey, modelId);
+  if (!info) return null;
 
   return (
     <div className="relative flex items-center gap-2 mt-2 md:mt-5 ml-2 md:ml-5 pr-4">
@@ -38,8 +53,7 @@ export const ProductInfoSection = () => {
               "text-lg md:text-xl lg:text-[25px] flex-1 min-w-0"
             )}
           >
-            {/* Chaise LINA Bois & Lin */}
-            {t("title")}
+            {info.title}
           </h2>
           <div className="flex items-center gap-1 flex-shrink-0">
             <ActionIcon
@@ -60,22 +74,22 @@ export const ProductInfoSection = () => {
             "text-sm md:text-base lg:text-[18px] mb-2 block"
           )}
         >
-          CH-2045-LN
+          {info.reference}
         </span>
 
         {/* Short Description */}
         <p className="text-black font-pt-sans text-[10px] md:text-[11px] font-normal leading-[14px] md:leading-[16px] relative z-10 mb-4 md:mb-[25px] block">
-          {t("shortDescription")}
+          {t(info.description)}
         </p>
 
         {/* Action Badges */}
         <div className="flex gap-2 md:gap-4 lg:gap-6 flex-wrap">
           <InfoBadge
-            label={t("downloadCatalogue")}
+            label={t("product.downloadCatalogue")}
             bgColor="bg-[var(--color-caramel)]"
           />
           <InfoBadge
-            label={t("visitWebsite")}
+            label={t("product.visitWebsite")}
             bgColor="bg-[var(--color-wood)]"
           />
         </div>

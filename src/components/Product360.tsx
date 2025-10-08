@@ -12,6 +12,7 @@ import { usePanoramaContext } from "@/context/PanoramaContext";
 import { menu_preview_images } from "@/lib/menu_preview_images";
 import { getBucket360Url } from "@/helpers/image-utils";
 import InvertColorsIcon from "@mui/icons-material/InvertColors";
+import { useTranslations } from "next-intl";
 
 // ============================================================================
 // CONSTANTS & TYPES
@@ -117,6 +118,7 @@ const DragIndicator: React.FC<{
   instance: any;
   isSink?: boolean;
 }> = ({ isLoading, showDragIndicator, isDragging, instance }) => {
+  const t = useTranslations("product");
   const shouldShow =
     !isLoading &&
     showDragIndicator &&
@@ -131,7 +133,7 @@ const DragIndicator: React.FC<{
           <svg width="24" height="16" viewBox="0 0 24 16" fill="currentColor">
             <path d="M0 8L8 0V4H24V12H8V16L0 8Z" />
           </svg>
-          <span className="text-sm font-medium">Drag to rotate 360°</span>
+          <span className="text-sm font-medium">{t("dragToRotate")}</span>
           <svg width="24" height="16" viewBox="0 0 24 16" fill="currentColor">
             <path d="M24 8L16 0V4H0V12H16V16L24 8Z" />
           </svg>
@@ -273,7 +275,7 @@ export default function Product360({
 }: Product360Props) {
   // Access panorama context for current selection and update function
   const { panoramas, updatePanorama } = usePanoramaContext();
-
+  const t = useTranslations("product");
   // Determine which part (bathtub, sink, floor) is currently active
   const part: PartType = useMemo<PartType>(() => {
     if (panoramaType) return panoramaType;
@@ -554,7 +556,7 @@ export default function Product360({
                             className="!text-green-500 opacity-80"
                           />
                           <span className="text-xs font-medium">
-                            Available Colors
+                            {t("availableColors")}
                           </span>
                         </div>
                       </div>

@@ -5,6 +5,10 @@ import {
   menu_preview_images,
   SINK_PREVIEW_IMAGES
 } from "../lib";
+import {
+  PRODUCT_INFO_MAP,
+  ProductInfoMap
+} from "@/components/ProductPanelTabs/MainProductTab/data/productInfoMap";
 
 // Allowed category types
 export type CategoryType = "bathtub" | "sink" | "floor";
@@ -118,11 +122,23 @@ export function getCategoryModelImages(categoryType: CategoryType): Array<{
   // Find matching category using the helper function
   const matchingCategory = findCategoryByType(categoryType);
 
+  // Get the reference label from PRODUCT_INFO_MAP
+  const getReferenceLabel = (
+    categoryType: CategoryType,
+    modelId: string,
+    fallback: string
+  ) => {
+    const category = PRODUCT_INFO_MAP[categoryType];
+    if (!category) return fallback;
+    const model = category.models.find((m) => m.modelId === modelId);
+    return model?.reference || fallback;
+  };
+
   if (!matchingCategory) {
     // Fallback to just preview map data
     return Object.entries(previewMap).map(([key, src], idx) => ({
       src,
-      label: `Model ${idx + 1}`,
+      label: getReferenceLabel(categoryType, key, `Model ${idx + 1}`),
       modelId: key,
       categoryId: undefined,
       materialId: undefined,
@@ -145,31 +161,19 @@ export function getCategoryModelImages(categoryType: CategoryType): Array<{
   matchingCategory.models.forEach((model, modelIdx) => {
     // Use the first material as default
     const firstMaterial = model.materials?.[0];
-
     // Use the first color if available, otherwise use material data
     const firstColor = firstMaterial?.colors?.[0];
-
     // Get preview image from previewMap using model index
     const previewKey = previewKeys[modelIdx];
     const previewSrc = previewKey
       ? previewMap[previewKey as keyof typeof previewMap]
       : "";
-
     // Fallback to a default image if no preview found
     const fallbackSrc = CHAIR_MODEL_ITEMS.Chair_1.src;
 
-    // Generate label from modelId or use generic label
-    const generateLabel = (modelId: string, index: number): string => {
-      // Try to create a meaningful label from modelId
-      if (modelId) {
-        return modelId.toUpperCase();
-      }
-      return `Model ${index + 1}`;
-    };
-
     results.push({
       src: previewSrc || fallbackSrc,
-      label: generateLabel(model.modelId, modelIdx),
+      label: getReferenceLabel(categoryType, model.modelId, model.modelId),
       modelId: model.modelId,
       categoryId: matchingCategory.categoryId,
       materialId: firstMaterial?.materialId,
