@@ -8,12 +8,17 @@ import {
 } from "./data";
 import { SectionPairGrid } from "./ui";
 import { DividerWithIcon } from "@/components/shared/DividerWithIcon";
+import { Users } from "@/assets/svg/Users";
 
 
 export const InfoProductOverview: React.FC = () => {
   return (
     <div className="flex flex-col p-4">
       <div className="grid gap-3">
+        <DividerWithIcon
+          iconSrc={<Users/>}
+          className="mb-8"
+        />
         <SectionPairGrid
           pairs={highlightPairsPrimary}
           highlightLabels={highlightLabels}

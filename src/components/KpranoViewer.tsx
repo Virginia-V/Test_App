@@ -324,6 +324,11 @@ export default function KrpanoViewer({
             krpanoRef.current = krpano;
             window.krpanoPlayer = krpano;
 
+            // Force fullscreen target to html/body so overlays are visible
+            try {
+              krpano.set("display.fullscreen", "body");
+            } catch {}
+
             // lifecycle handlers — ONLY pano readiness + blend
             window.__kr_onnewpano = () => {
               startLoader();
