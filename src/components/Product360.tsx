@@ -481,89 +481,89 @@ export default function Product360({
                 initialImageIndex={initialImageIndex}
                 isSink={isSink}
                 turntableKey={viewerKey}
-              >
-                {/* Show material and color selectors if available */}
-                {(computedMaterialList.length || computedColorList.length) && (
-                  <div className="flex flex-col gap-2 z-10 items-start">
-                    {computedMaterialList.length > 0 && (
-                      <div className="flex flex-row gap-2 justify-center bg-black/40 backdrop-blur-sm p-2 rounded-xl self-start">
-                        {computedMaterialList.map((mat, idx) => {
-                          const selected = idx === selectedMaterialIndex;
-                          return (
-                            <button
-                              key={`${mat.file}-${idx}`}
-                              type="button"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleMaterialSelect(idx);
-                              }}
-                              className={[
-                                "w-9 h-9 rounded-full overflow-hidden border-2 transition-shadow cursor-pointer",
-                                selected
-                                  ? "border-green-500 shadow-[0_0_0_2px_rgba(34,197,94,0.6)]"
-                                  : "border-white/60 hover:border-white"
-                              ].join(" ")}
-                            >
-                              <Image
-                                src={mat.file}
-                                alt={`Material ${idx + 1}`}
-                                width={36}
-                                height={36}
-                                className="object-cover w-full h-full pointer-events-none"
-                              />
-                            </button>
-                          );
-                        })}
-                      </div>
-                    )}
+              />
+            </TransformComponent>
 
-                    {computedColorList.length > 0 && (
-                      <div className="flex flex-row items-center gap-3 self-start">
-                        <div className="flex flex-row gap-2 justify-center bg-black/40 backdrop-blur-sm p-2 rounded-xl">
-                          {computedColorList.map((col, idx) => {
-                            const selected = idx === selectedColorIndex;
-                            return (
-                              <button
-                                key={`${col.file}-${idx}`}
-                                type="button"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  handleColorSelect(idx);
-                                }}
-                                className={[
-                                  "w-9 h-9 rounded-full overflow-hidden border-2 transition-shadow cursor-pointer",
-                                  selected
-                                    ? "border-green-500 shadow-[0_0_0_2px_rgba(34,197,94,0.6)]"
-                                    : "border-white/60 hover:border-white"
-                                ].join(" ")}
-                              >
-                                <Image
-                                  src={col.file}
-                                  alt={`Color ${idx + 1}`}
-                                  width={36}
-                                  height={36}
-                                  className="object-cover w-full h-full pointer-events-none"
-                                />
-                              </button>
-                            );
-                          })}
-                        </div>
-
-                        <div className="bg-black/70 text-white px-3 py-1 rounded-md flex items-center gap-2 shadow-sm animate-pulse">
-                          <InvertColorsIcon
-                            fontSize="small"
-                            className="!text-green-500 opacity-80"
+            {/* Show material and color selectors OUTSIDE the zoomable area */}
+            {(computedMaterialList.length || computedColorList.length) && (
+              <div className="absolute left-3 bottom-24 sm:bottom-28 md:bottom-20 flex flex-col gap-2 z-30 items-start pointer-events-auto">
+                {computedMaterialList.length > 0 && (
+                  <div className="flex flex-row gap-2 justify-center bg-black/40 backdrop-blur-sm p-2 rounded-xl self-start">
+                    {computedMaterialList.map((mat, idx) => {
+                      const selected = idx === selectedMaterialIndex;
+                      return (
+                        <button
+                          key={`${mat.file}-${idx}`}
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleMaterialSelect(idx);
+                          }}
+                          className={[
+                            "w-9 h-9 rounded-full overflow-hidden border-2 transition-shadow cursor-pointer",
+                            selected
+                              ? "border-green-500 shadow-[0_0_0_2px_rgba(34,197,94,0.6)]"
+                              : "border-white/60 hover:border-white"
+                          ].join(" ")}
+                        >
+                          <Image
+                            src={mat.file}
+                            alt={`Material ${idx + 1}`}
+                            width={36}
+                            height={36}
+                            className="object-cover w-full h-full pointer-events-none"
                           />
-                          <span className="text-xs font-medium">
-                            {t("availableColors")}
-                          </span>
-                        </div>
-                      </div>
-                    )}
+                        </button>
+                      );
+                    })}
                   </div>
                 )}
-              </ImageTurntableWrapper>
-            </TransformComponent>
+
+                {computedColorList.length > 0 && (
+                  <div className="flex flex-row items-center gap-3 self-start">
+                    <div className="flex flex-row gap-2 justify-center bg-black/40 backdrop-blur-sm p-2 rounded-xl">
+                      {computedColorList.map((col, idx) => {
+                        const selected = idx === selectedColorIndex;
+                        return (
+                          <button
+                            key={`${col.file}-${idx}`}
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleColorSelect(idx);
+                            }}
+                            className={[
+                              "w-9 h-9 rounded-full overflow-hidden border-2 transition-shadow cursor-pointer",
+                              selected
+                                ? "border-green-500 shadow-[0_0_0_2px_rgba(34,197,94,0.6)]"
+                                : "border-white/60 hover:border-white"
+                            ].join(" ")}
+                          >
+                            <Image
+                              src={col.file}
+                              alt={`Color ${idx + 1}`}
+                              width={36}
+                              height={36}
+                              className="object-cover w-full h-full pointer-events-none"
+                            />
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    <div className="bg-black/70 text-white px-3 py-1 rounded-md flex items-center gap-2 shadow-sm animate-pulse">
+                      <InvertColorsIcon
+                        fontSize="small"
+                        className="!text-green-500 opacity-80"
+                      />
+                      <span className="text-xs font-medium">
+                        {t("availableColors")}
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* Show drag indicator when appropriate */}
             <DragIndicator
