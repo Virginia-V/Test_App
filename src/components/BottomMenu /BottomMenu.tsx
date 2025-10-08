@@ -40,7 +40,7 @@ export const BottomMenu = ({
 }: BottomMenuProps) => {
   const { panoramas, updatePanorama, setMenuOpen, setPanelVisible } =
     usePanoramaContext();
-
+  const t = useTranslations();
   const panorama = panoramas[panoramaType];
   const [isClosing, setIsClosing] = useState(false);
 
@@ -181,8 +181,8 @@ export const BottomMenu = ({
                       <VisibilityOffIcon fontSize="small" />
                     </Button>
                   </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Close</p>
+                  <TooltipContent className="z-[1050]">
+                    <p>{t("auth.common.close")}</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>

@@ -32,7 +32,8 @@
       "error": "An error occurred",
       "success": "Success",
       "openInfo": "Open Info",
-      "reset": "Reset"
+      "reset": "Reset",
+      "close": "Close"
     },
     "clerk": {
       "signIn": {

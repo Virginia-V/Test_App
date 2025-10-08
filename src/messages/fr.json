@@ -32,7 +32,8 @@
       "error": "Une erreur s'est produite",
       "success": "Succès",
       "openInfo": "Ouvrir les infos",
-      "reset": "Réinitialiser"
+      "reset": "Réinitialiser",
+      "close": "Fermer"
     },
     "clerk": {
       "signIn": {
