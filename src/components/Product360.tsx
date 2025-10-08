@@ -82,13 +82,14 @@ const LoadingOverlay: React.FC<{ isVisible: boolean; progress: number }> = ({
   isVisible,
   progress
 }) => {
+  const t = useTranslations("product");
   if (!isVisible) return null;
   return (
     <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-sm">
       <div className="text-center">
         <div className="w-16 h-16 border-4 border-gray-300 border-t-green-500 rounded-full animate-spin mb-4 mx-auto" />
         <p className="text-gray-800 mb-2 text-base font-medium">
-          Loading 360° Viewer...
+          {t("loadingViewer")}
         </p>
         <div className="w-48 bg-gray-200 rounded-full h-2 mb-2">
           <div

@@ -112,7 +112,8 @@
     "floor_Model_08_Description": "Le sol Terrano séduit par son aspect minéral clair et lumineux. Il agrandit visuellement l’espace et crée une atmosphère épurée, idéale pour les intérieurs modernes.",
     "floor_Model_09_Description": "Le sol Livaris s’inspire du bois naturel, avec des veinages riches et chaleureux. Parfait pour un style intemporel, il apporte confort visuel et authenticité à chaque pièce.",
     "dragToRotate": "Faites pivoter à 360°",
-    "availableColors": "Coloris disponibles"
+    "availableColors": "Coloris disponibles",
+    "loadingViewer": "Chargement du visualiseur 360°..."
   },
   "form": {
     "firstName": "Prénom",

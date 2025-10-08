@@ -112,7 +112,8 @@
     "floor_Model_08_Description": "The Terrano floor impresses with its light and bright mineral appearance. It visually enlarges the space and creates a refined atmosphere, ideal for modern interiors.",
     "floor_Model_09_Description": "The Livaris floor is inspired by natural wood, with rich and warm grain. Perfect for a timeless style, it brings visual comfort and authenticity to every room.",
     "dragToRotate": "Drag to rotate 360°",
-    "availableColors": "Available Colors"
+    "availableColors": "Available Colors",
+    "loadingViewer": "Loading 360° Viewer..."
   },
   "form": {
     "firstName": "First Name",
