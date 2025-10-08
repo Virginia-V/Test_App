@@ -86,12 +86,12 @@ const LoadingOverlay: React.FC<{ isVisible: boolean; progress: number }> = ({
   if (!isVisible) return null;
   return (
     <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-sm">
-      <div className="text-center">
+      <div className="text-center flex flex-col items-center">
         <div className="w-16 h-16 border-4 border-gray-300 border-t-green-500 rounded-full animate-spin mb-4 mx-auto" />
         <p className="text-gray-800 mb-2 text-base font-medium">
           {t("loadingViewer")}
         </p>
-        <div className="w-48 bg-gray-200 rounded-full h-2 mb-2">
+        <div className="w-48 bg-gray-200 rounded-full h-2 mb-2 flex items-center justify-center">
           <div
             className="bg-green-500 h-2 rounded-full transition-all duration-300 ease-out"
             style={{ width: `${Math.round(progress)}%` }}
