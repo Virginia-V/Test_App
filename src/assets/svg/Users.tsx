@@ -1,4 +1,10 @@
-export const Users = ({ width = 32, height = 32 }: { width?: number; height?: number }) => {
+export const Users = ({
+  width = 32,
+  height = 32
+}: {
+  width?: number;
+  height?: number;
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
