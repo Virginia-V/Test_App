@@ -92,7 +92,7 @@ function BottomMenuContainer() {
 
   return (
     <div
-      className="pointer-events-none fixed left-1/2 bottom-24 -translate-x-1/2 z-[1000] w-full px-4"
+      className="pointer-events-none fixed left-1/2 bottom-5 -translate-x-1/2 z-[1000] w-full px-4"
       style={{ maxWidth: 1300 }}
     >
       <div className="pointer-events-auto flex flex-col items-center gap-6">

@@ -395,11 +395,11 @@
 			</layer>
 		</layer>
 
-		<layer name="skin_splitter_bottom" type="container" align="bottom" width="100%" height="calc:skin_settings.controlbar_offset + skin_settings.controlbar_height - skin_settings.controlbar_overlap" y="0" maskchildren="true" onloaded="skin_calc_opened_closed();" zorder="2">
+		<layer name="skin_splitter_bottom" type="container" align="bottom" width="100%" height="calc:skin_settings.controlbar_offset + skin_settings.controlbar_height - skin_settings.controlbar_overlap" y="0" maskchildren="true" onloaded="skin_calc_opened_closed();" zorder="2" visible="false">
 			<layer name="skin_control_bar_bg" type="container" align="bottom" width="get:skin_settings.controlbar_width" height="calc:skin_settings.controlbar_height + skin_settings.controlbar_overlap" x="0" y="get:skin_settings.controlbar_offset" bgcolor="get:skin_settings.design_bgcolor" bgalpha="get:skin_settings.design_bgalpha" bgborder="get:skin_settings.design_bgborder" bgroundedge="get:skin_settings.design_bgroundedge" bgshadow="get:skin_settings.design_bgshadow" />
 		</layer>
 
-		<layer name="skin_control_bar" type="container" align="bottom" width="get:skin_settings.controlbar_width" height="calc:skin_settings.controlbar_height" x="0" y="get:skin_settings.controlbar_offset" onloaded="skin_calc_opened_closed();" zorder="3">
+		<layer name="skin_control_bar" type="container" align="bottom" width="get:skin_settings.controlbar_width" height="calc:skin_settings.controlbar_height" x="0" y="get:skin_settings.controlbar_offset" onloaded="skin_calc_opened_closed();" zorder="3" visible="false">
 			<layer name="skin_control_bar_buttons" type="container" align="leftbottom" width="100%" height="get:skin_settings.controlbar_height">
 				<!-- <layer name="skin_btn_prev"      style="skin_base|skin_glow" crop="0|64|64|64"   align="left"        x="5"    y="0"  scale="0.5" alpha="0.5"  onclick="if(skin_settings.thumbs_loop, skin_nextscene_loop(-1), skin_nextscene(-1) );" /> -->
 				<!-- <layer name="skin_btn_thumbs"    style="skin_base|skin_glow" crop="0|128|64|64"  align="left"        x="50"   y="0"  scale="0.5" ondown="skin_showmap(false); skin_showthumbs();" /> -->
