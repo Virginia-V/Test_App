@@ -7,7 +7,7 @@ import { useProductData } from "@/hooks/useProductData";
 import { ZoomableContentViewer } from "./components";
 
 import { BathtubImagesDialog } from "@/components/BathtubImagesDialog"; // ✅ Import new dialog
-import { TwoDImagesDialog } from '@/components/TwoDImagesDialog';
+import { TwoDImagesDialog } from "@/components/TwoDImagesDialog";
 
 interface ImagePlaceholderProps {
   panoramaType?: string;
@@ -24,7 +24,8 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   categoryId,
   modelId,
   materialId,
-  colorId
+  colorId,
+
 }) => {
   const [show2DDialog, setShow2DDialog] = useState(false);
   const [showBathtubDialog, setShowBathtubDialog] = useState(false);
@@ -33,7 +34,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
     categoryId,
     modelId,
     materialId,
-    colorId
+    colorId,
   });
 
   // Use custom hook for data management
@@ -100,7 +101,10 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
         bucket360Url={bucket360Url}
       />
       {/* 2D Images Dialog */}
-      <TwoDImagesDialog isOpen={show2DDialog} onClose={handleClose2DDialog} />
+      <TwoDImagesDialog
+        isOpen={show2DDialog}
+        onClose={handleClose2DDialog}
+      />
 
       {/* ✅ Bathtub Images Dialog */}
       <BathtubImagesDialog

@@ -184,17 +184,7 @@ export function KrpanoViewer({
       style={{ width: "100%", height: "100vh", position: "relative" }}
     >
       {progressState.loading && (
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            display: "grid",
-            placeItems: "center",
-            background: "rgba(0,0,0,0.15)",
-            zIndex: 10000,
-            pointerEvents: "none"
-          }}
-        >
+        <div className="absolute inset-0 grid place-items-center bg-black/15 z-[10000] pointer-events-none">
           <ProgressRing percent={progressState.percent} />
         </div>
       )}

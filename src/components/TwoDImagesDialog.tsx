@@ -2,10 +2,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface TwoDImagesDialogProps {
   isOpen: boolean;
@@ -29,7 +30,7 @@ const images: { name: string; src: string }[] = [
 
 export const TwoDImagesDialog: React.FC<TwoDImagesDialogProps> = ({
   isOpen,
-  onClose
+  onClose,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -50,7 +51,9 @@ export const TwoDImagesDialog: React.FC<TwoDImagesDialogProps> = ({
     setLoading(true);
   }, [currentIndex, isOpen]);
 
-  return (
+  if (!isOpen) return null;
+
+  const dialogContent = (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <AnimatePresence>
         {isOpen && (
@@ -62,8 +65,25 @@ export const TwoDImagesDialog: React.FC<TwoDImagesDialogProps> = ({
               duration: 0.2,
               ease: [0.4, 0.0, 0.2, 1]
             }}
+            className="fixed inset-0 z-[100000] flex items-center justify-center"
+            style={{
+              position: "fixed", // Use fixed positioning to cover viewport
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: 100000
+            }}
           >
-            <DialogContent className="w-[1200px] max-w-[100vw] sm:max-w-[98vw] lg:max-w-[1400px] h-[100vh] sm:h-[90vh] lg:h-[800px] max-h-[100vh] sm:max-h-[95vh] p-0 bg-black border-0 shadow-none flex flex-col overflow-hidden">
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-black/80" onClick={onClose} />
+
+            {/* Dialog Content - can exceed InfoPanel boundaries */}
+            <div
+              className={cn(
+                "relative w-[1200px] max-w-[95vw] h-[90vh] max-h-[800px] bg-black border-0 shadow-xl rounded-lg overflow-hidden"
+              )}
+            >
               <VisuallyHidden>
                 <DialogTitle>Bali Images</DialogTitle>
               </VisuallyHidden>
@@ -135,12 +155,11 @@ export const TwoDImagesDialog: React.FC<TwoDImagesDialogProps> = ({
 
               {/* Image Viewer */}
               <div
-                className="flex-1 relative flex items-center justify-center bg-black"
+                className="flex-1 relative flex items-center justify-center bg-black h-full"
                 draggable={false}
               >
                 {loading && (
                   <div className="absolute inset-0 flex items-center justify-center z-20 bg-black/40">
-                    {/* Simple circular spinner */}
                     <svg
                       className="animate-spin h-12 w-12 text-white"
                       viewBox="0 0 24 24"
@@ -177,10 +196,13 @@ export const TwoDImagesDialog: React.FC<TwoDImagesDialogProps> = ({
                   onError={() => setLoading(false)}
                 />
               </div>
-            </DialogContent>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
     </Dialog>
   );
+
+  // Render directly without createPortal so it stays within InfoPanel
+  return dialogContent;
 };

@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useRef } from "react";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import {
   PanoramaProvider,
   usePanoramaContext
@@ -9,6 +10,7 @@ import {
 import { BottomMenu } from "@/components/BottomMenu ";
 import { InfoPanel } from "@/components/ProductPanelTabs";
 import { KrpanoViewer } from "@/components/KpranoViewer";
+import { FullScreenButton } from "@/components/FullScreenButton";
 
 // ============================================================================
 // TYPES
@@ -32,7 +34,7 @@ const TOUR_CONFIG = {
 
 function useSelectedModelIndex() {
   const { openMenuType, panoramas } = usePanoramaContext();
-  
+
   return useMemo(() => {
     if (!openMenuType) return null;
     const part = panoramas[openMenuType];
@@ -62,7 +64,7 @@ function useKrpanoGlobalBridge() {
         setMenuOpen(type, true);
       }
     };
-    
+
     (window as any)._krpanoOpenPanel = () => setPanelVisible(true);
     (window as any)._krpanoClosePanel = () => setPanelVisible(false);
 
@@ -96,28 +98,38 @@ function BottomMenuContainer() {
       style={{ maxWidth: 1300 }}
     >
       <div className="pointer-events-auto flex flex-col items-center gap-6">
-        {menuConfigs.map(({ type, isOpen }) => 
-          isOpen && (
-            <BottomMenu
-              key={type}
-              panoramaType={type}
-              onInfoClick={() => setPanelVisible(true)}
-              backdropClosing={false}
-            />
-          )
+        {menuConfigs.map(
+          ({ type, isOpen }) =>
+            isOpen && (
+              <BottomMenu
+                key={type}
+                panoramaType={type}
+                onInfoClick={() => setPanelVisible(true)}
+                backdropClosing={false}
+              />
+            )
         )}
       </div>
     </div>
   );
 }
 
-function InfoPanelContainer() {
+function InfoPanelContainer({
+  fullScreenHandle,
+  mainRef
+}: {
+  fullScreenHandle: any;
+  mainRef: React.RefObject<HTMLElement | null>;
+}) {
   const { panelVisible, setPanelVisible, openMenuType } = usePanoramaContext();
   const selectedModelIndex = useSelectedModelIndex();
   const infoPanelPreloaded = useInfoPanelPreloader();
   const [infoValue, setInfoValue] = useState(0);
 
   if (!infoPanelPreloaded) return null;
+
+  // Determine the correct portal container based on fullscreen state
+  const portalContainer = fullScreenHandle.active ? mainRef.current : undefined; // undefined uses document.body
 
   return (
     <InfoPanel
@@ -130,13 +142,21 @@ function InfoPanelContainer() {
       setValue={setInfoValue}
       panoramaType={openMenuType ?? undefined}
       modelIndex={selectedModelIndex}
+      portalContainer={portalContainer}
+      isFullscreen={fullScreenHandle.active}
     />
   );
 }
 
-function SceneUI() {
+function SceneUI({
+  fullScreenHandle,
+  mainRef
+}: {
+  fullScreenHandle: any;
+  mainRef: React.RefObject<HTMLElement | null>;
+}) {
   const { selection } = usePanoramaContext();
-  
+
   // Set up global bridge functions
   useKrpanoGlobalBridge();
 
@@ -144,8 +164,15 @@ function SceneUI() {
 
   return (
     <>
+      <FullScreenButton
+        handle={fullScreenHandle}
+        position={{ top: 16, right: 16 }}
+      />
       <BottomMenuContainer />
-      <InfoPanelContainer />
+      <InfoPanelContainer
+        fullScreenHandle={fullScreenHandle}
+        mainRef={mainRef}
+      />
     </>
   );
 }
@@ -155,16 +182,21 @@ function SceneUI() {
 // ============================================================================
 
 export default function HomePage() {
+  const handle = useFullScreenHandle();
+  const mainRef = useRef<HTMLElement | null>(null);
+
   return (
     <PanoramaProvider>
-      <main className="relative h-[100dvh] w-full">
-        <KrpanoViewer
-          xmlUrl={TOUR_CONFIG.xmlUrl}
-          viewerScriptUrl={TOUR_CONFIG.viewerScriptUrl}
-          loadsceneFlags={TOUR_CONFIG.loadsceneFlags}
-        />
-        <SceneUI />
-      </main>
+      <FullScreen handle={handle}>
+        <main ref={mainRef} className="relative h-[100dvh] w-full">
+          <KrpanoViewer
+            xmlUrl={TOUR_CONFIG.xmlUrl}
+            viewerScriptUrl={TOUR_CONFIG.viewerScriptUrl}
+            loadsceneFlags={TOUR_CONFIG.loadsceneFlags}
+          />
+          <SceneUI fullScreenHandle={handle} mainRef={mainRef} />
+        </main>
+      </FullScreen>
     </PanoramaProvider>
   );
 }

@@ -5,7 +5,6 @@ import { ProductImageGallery } from "./ui/ProductImageGallery";
 import { ProductInfoSection } from "./ui";
 import { ProductInfoCategoryKey } from "./data/productInfoMap";
 
-
 interface ProductOverviewProps {
   panoramaType?: string;
   modelIndex?: number | null;
@@ -31,7 +30,7 @@ export const ProductOverview: React.FC<ProductOverviewProps> = ({
   categoryId: propCategoryId,
   modelId: propModelId,
   materialId: propMaterialId,
-  colorId: propColorId
+  colorId: propColorId,
 }) => {
   // State for selected model and its properties
   const [selectedModelIndex, setSelectedModelIndex] = useState<number | null>(
@@ -93,7 +92,7 @@ export const ProductOverview: React.FC<ProductOverviewProps> = ({
     effectiveCategoryId,
     effectiveModelId,
     effectiveMaterialId,
-    effectiveColorId
+    effectiveColorId,
   });
 
   return (

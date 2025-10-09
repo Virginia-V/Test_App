@@ -2,12 +2,7 @@
 
 import * as React from "react";
 import { useRef, useEffect, useState } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle
-} from "@/components/ui/dialog";
+import { Dialog, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import {
@@ -18,13 +13,13 @@ import {
   easeOut
 } from "framer-motion";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { cn } from "@/lib/utils";
 
 interface BathtubImagesDialogProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-// ✅ Use string paths to public directory
 const BATHTUB_IMAGES = [
   { src: "/Bathtub_Images/Bathtub_Img_01.jpg", alt: "Bathtub Image 1" },
   { src: "/Bathtub_Images/Bathtub_Img_02.jpg", alt: "Bathtub Image 2" },
@@ -34,7 +29,6 @@ const BATHTUB_IMAGES = [
   { src: "/Bathtub_Images/Bathtub_Img_06.jpg", alt: "Bathtub Image 6" }
 ];
 
-// direction-aware slide + fade
 const variants: Variants = {
   enter: (direction: number) => ({
     x: direction > 0 ? 40 : -40,
@@ -55,13 +49,12 @@ const variants: Variants = {
 
 export const BathtubImagesDialog: React.FC<BathtubImagesDialogProps> = ({
   isOpen,
-  onClose
+  onClose,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // -1 = prev, 1 = next
+  const [direction, setDirection] = useState(0);
   const contentRef = useRef<HTMLDivElement | null>(null);
 
-  // Focus the content so arrow keys work immediately
   useEffect(() => {
     if (isOpen) {
       requestAnimationFrame(() => contentRef.current?.focus());
@@ -83,96 +76,105 @@ export const BathtubImagesDialog: React.FC<BathtubImagesDialogProps> = ({
     if (e.key === "ArrowRight") goToNext();
   };
 
-  return (
+  if (!isOpen) return null;
+
+  const dialogContent = (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent
-        ref={contentRef}
-        className="max-w-5xl max-h-[90vh] outline-none"
-        onKeyDown={handleKeyDown}
-        tabIndex={0}
+      <div
+        className="fixed inset-0 z-[100000] flex items-center justify-center"
+        style={{
+          position: "fixed", // Use fixed positioning to cover viewport
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 100000
+        }}
       >
-        <DialogHeader>
-          <DialogTitle>
-            <VisuallyHidden>Bathtub Images</VisuallyHidden>
-          </DialogTitle>
-        </DialogHeader>
+        {/* Backdrop */}
+        <div className="absolute inset-0 bg-black/50" onClick={onClose} />
 
-        <div className="absolute top-2 right-2 z-50">
-          <button
-            onClick={onClose}
-            className="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 bg-white/90 hover:bg-white rounded-full shadow-md border border-gray-200 transition-all duration-200 hover:scale-105 focus:outline-none  cursor-pointer"
-            aria-label="Close panel"
-          >
-            <X size={16} className="text-gray-600 hover:text-gray-800" />
-          </button>
-        </div>
+        {/* Dialog Content - can exceed InfoPanel boundaries */}
+        <div
+          ref={contentRef}
+          className={cn(
+            "relative bg-white rounded-lg shadow-2xl max-w-5xl w-[95vw] max-h-[90vh] overflow-hidden"
+          )}
+          onKeyDown={handleKeyDown}
+          tabIndex={0}
+        >
+          <DialogHeader>
+            <DialogTitle>
+              <VisuallyHidden>Bathtub Images</VisuallyHidden>
+            </DialogTitle>
+          </DialogHeader>
 
-        <div className="flex flex-col items-center justify-center p-4 sm:p-6 space-y-4">
-          {/* Main Image Display (no cropping) */}
-          <div
-            className="
-              relative w-full max-w-4xl
-              rounded-lg overflow-hidden shadow-lg
-              bg-gray-100
-              grid place-items-center
-              min-h-[280px] sm:min-h-[360px]
-              max-h-[65vh]
-   
-            "
-          >
-            <AnimatePresence initial={false} custom={direction} mode="wait">
-              <motion.img
-                key={currentIndex} // key is critical for AnimatePresence
-                custom={direction}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                src={BATHTUB_IMAGES[currentIndex].src}
-                alt={BATHTUB_IMAGES[currentIndex].alt}
-                draggable={false}
-                className="
-                  max-w-full w-auto
-                  max-h-[65vh] h-auto
-                  object-contain
-                  select-none
-                "
-                onError={() =>
-                  console.error(
-                    `Failed to load image: ${BATHTUB_IMAGES[currentIndex].src}`
-                  )
-                }
-                onLoad={() =>
-                  console.log(
-                    `Successfully loaded: ${BATHTUB_IMAGES[currentIndex].src}`
-                  )
-                }
-              />
-            </AnimatePresence>
-
-            {/* Navigation Arrows */}
-            <Button
-              variant="outline"
-              size="icon"
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white cursor-pointer"
-              onClick={goToPrevious}
-              aria-label="Previous image"
+          {/* Custom close button */}
+          <div className="absolute top-2 right-2 z-50">
+            <button
+              onClick={onClose}
+              className="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 bg-white/90 hover:bg-white rounded-full shadow-md border border-gray-200 transition-all duration-200 hover:scale-105 focus:outline-none cursor-pointer"
+              aria-label="Close panel"
             >
-              <ChevronLeft className="h-5 w-5" />
-            </Button>
+              <X size={16} className="text-gray-600 hover:text-gray-800" />
+            </button>
+          </div>
 
-            <Button
-              variant="outline"
-              size="icon"
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white cursor-pointer"
-              onClick={goToNext}
-              aria-label="Next image"
-            >
-              <ChevronRight className="h-5 w-5 " />
-            </Button>
+          <div className="flex flex-col items-center justify-center p-4 sm:p-6 space-y-4">
+            {/* Main Image Display */}
+            <div className="relative w-full max-w-4xl rounded-lg overflow-hidden shadow-lg bg-gray-100 grid place-items-center min-h-[280px] sm:min-h-[360px] max-h-[65vh]">
+              <AnimatePresence initial={false} custom={direction} mode="wait">
+                <motion.img
+                  key={currentIndex}
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  src={BATHTUB_IMAGES[currentIndex].src}
+                  alt={BATHTUB_IMAGES[currentIndex].alt}
+                  draggable={false}
+                  className="max-w-full w-auto max-h-[65vh] h-auto object-contain select-none"
+                  onError={() =>
+                    console.error(
+                      `Failed to load image: ${BATHTUB_IMAGES[currentIndex].src}`
+                    )
+                  }
+                  onLoad={() =>
+                    console.log(
+                      `Successfully loaded: ${BATHTUB_IMAGES[currentIndex].src}`
+                    )
+                  }
+                />
+              </AnimatePresence>
+
+              {/* Navigation Arrows */}
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white cursor-pointer"
+                onClick={goToPrevious}
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </Button>
+
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white cursor-pointer"
+                onClick={goToNext}
+                aria-label="Next image"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </Button>
+            </div>
           </div>
         </div>
-      </DialogContent>
+      </div>
     </Dialog>
   );
+
+  // Render directly without createPortal so it stays within InfoPanel
+  return dialogContent;
 };
