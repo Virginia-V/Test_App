@@ -43,6 +43,7 @@ export function KrpanoViewer({
 }: Props) {
   const { currentSceneId } = usePanoramaContext();
   const krpanoRef = useRef<any | null>(null);
+  const isInitialLoadRef = useRef(true);
 
   console.log(currentSceneId);
 
@@ -66,6 +67,12 @@ export function KrpanoViewer({
       krpanoRef.current = krpano;
       setupKrpanoEvents();
       hotspotManager.setupHotspots();
+
+      // Start preloading menu images immediately on first load
+      if (isInitialLoadRef.current) {
+        menuImagePreloader.startPreloading();
+        isInitialLoadRef.current = false;
+      }
     }
   });
 
@@ -78,9 +85,11 @@ export function KrpanoViewer({
     window.__kr_onnewpano = () => {
       progressActions.startLoader();
       progressActions.setTilesLoaded(false);
-      // Reset and start preloading menu images
-      menuImagePreloader.resetPreloaded();
-      menuImagePreloader.startPreloading();
+      // Only reset and start preloading menu images for scene changes, not initial load
+      if (!isInitialLoadRef.current) {
+        menuImagePreloader.resetPreloaded();
+        menuImagePreloader.startPreloading();
+      }
     };
 
     window.__kr_onviewloaded = () => {
@@ -167,9 +176,11 @@ export function KrpanoViewer({
       );
       // proactively start loader; events will confirm exact finish time
       progressActions.startLoader();
-      // Reset and start preloading menu images for new scene
-      menuImagePreloader.resetPreloaded();
-      menuImagePreloader.startPreloading();
+      // Only reset and start preloading for scene changes, not initial load
+      if (!isInitialLoadRef.current && !menuImagePreloader.isPreloaded()) {
+        menuImagePreloader.resetPreloaded();
+        menuImagePreloader.startPreloading();
+      }
 
       krpanoRef.current.call(
         `loadscene(${currentSceneId}, null, ${flags}, SLIDEBLEND(0.5, 0, 0.75, linear))`
