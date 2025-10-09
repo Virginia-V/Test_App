@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { usePanoramaContext } from "@/context/PanoramaContext";
 import {
@@ -148,11 +148,11 @@ const useSceneCache = (
 ) => {
   const queryClient = useQueryClient();
 
-  // Main scene query - DISABLED because we handle loading manually
+  // Main scene query
   const sceneQuery = useQuery({
     queryKey: ["krpano-scene", sceneId, xmlUrl],
     queryFn: () => loadSceneData(sceneId!, xmlUrl, krpanoRef, loadsceneFlags),
-    enabled: false, // Disable automatic query execution
+    enabled: !!sceneId && !!krpanoRef.current,
     staleTime: 10 * 60 * 1000, // Consider fresh for 10 minutes
     gcTime: 60 * 60 * 1000, // Keep in cache for 1 hour
     retry: 1,
@@ -173,11 +173,6 @@ const useSceneCache = (
     targetSceneId: string
   ): SceneCacheData | undefined => {
     return queryClient.getQueryData(["krpano-scene", targetSceneId, xmlUrl]);
-  };
-
-  // Manual cache setter
-  const setCacheData = (targetSceneId: string, data: SceneCacheData) => {
-    queryClient.setQueryData(["krpano-scene", targetSceneId, xmlUrl], data);
   };
 
   const invalidateScene = (targetSceneId: string) => {
@@ -280,12 +275,11 @@ const useSceneCache = (
     sceneQuery,
     isSceneCached,
     getCachedScene,
-    setCacheData, // Add this
     invalidateScene,
     getCacheStats,
-    getScenesForXml,
-    clearScenesForXml,
-    isLoading: false, // Always false since query is disabled
+    getScenesForXml, // New function
+    clearScenesForXml, // New function
+    isLoading: sceneQuery.isLoading,
     error: sceneQuery.error,
     data: sceneQuery.data
   };
@@ -301,7 +295,6 @@ export function KrpanoViewer({
   const krpanoRef = useRef<any | null>(null);
   const isInitialLoadRef = useRef(true);
   const sceneLoadStartRef = useRef<number>(0);
-  const queryClient = useQueryClient(); // Move this to component level
 
   console.log(currentSceneId);
 
@@ -334,12 +327,10 @@ export function KrpanoViewer({
       setupKrpanoEvents();
       hotspotManager.setupHotspots();
 
-      // Start loader for initial load
+      // Start preloading menu images immediately on first load
       if (isInitialLoadRef.current) {
-        progressActions.startLoader();
         menuImagePreloader.startPreloading();
-        // DON'T set isInitialLoadRef.current = false here
-        // Set it after first scene completes loading
+        isInitialLoadRef.current = false;
       }
     }
   });
@@ -348,7 +339,6 @@ export function KrpanoViewer({
     if (!krpanoRef.current) return;
 
     const krpano = krpanoRef.current;
-    // Remove the useQueryClient call from here
 
     // Enhanced lifecycle handlers with caching awareness
     window.__kr_onnewpano = () => {
@@ -361,31 +351,20 @@ export function KrpanoViewer({
       if (isCached && currentSceneId) {
         console.log(`📦 Loading cached scene: ${currentSceneId}`);
         const cachedScene = sceneCache.getCachedScene(currentSceneId);
-
-        // For cached scenes: accelerated progress and instant view state restoration
-        progressActions.startLoader();
-
-        // Instantly restore cached view state (no delay)
         if (cachedScene?.viewState) {
-          krpano.call(`view.hlookat = ${cachedScene.viewState.hlookat}`);
-          krpano.call(`view.vlookat = ${cachedScene.viewState.vlookat}`);
-          krpano.call(`view.fov = ${cachedScene.viewState.fov}`);
+          // Restore cached view state
+          setTimeout(() => {
+            krpano.call(`view.hlookat = ${cachedScene.viewState!.hlookat}`);
+            krpano.call(`view.vlookat = ${cachedScene.viewState!.vlookat}`);
+            krpano.call(`view.fov = ${cachedScene.viewState!.fov}`);
+          }, 100);
         }
-
-        // Accelerate progress for cached scenes
-        setTimeout(() => {
-          progressActions.setTilesLoaded(true);
-        }, 50); // Very fast for cached content
-
-        setTimeout(() => {
-          progressActions.setBlended(true); // Complete loading quickly
-        }, 150); // Minimal delay for smooth animation
       } else if (currentSceneId) {
         console.log(`🔄 Loading new scene: ${currentSceneId}`);
-        // Normal loading flow for uncached scenes
-        progressActions.startLoader();
-        progressActions.setTilesLoaded(false);
       }
+
+      progressActions.startLoader();
+      progressActions.setTilesLoaded(false);
 
       // Only reset and start preloading menu images for scene changes, not initial load
       if (!isInitialLoadRef.current) {
@@ -395,60 +374,19 @@ export function KrpanoViewer({
     };
 
     window.__kr_onviewloaded = () => {
-      // Only update progress if scene is not cached (to avoid overriding fast cache loading)
-      if (!currentSceneId || !sceneCache.isSceneCached(currentSceneId)) {
-        progressActions.setTilesLoaded(true);
-      }
+      progressActions.setTilesLoaded(true);
     };
 
     window.__kr_onloadcomplete = () => {
-      // Only update progress if scene is not cached
-      if (!currentSceneId || !sceneCache.isSceneCached(currentSceneId)) {
-        progressActions.setTilesLoaded(true);
-      }
+      progressActions.setTilesLoaded(true);
     };
 
     window.__kr_onblendstart = () => {
-      // Only update progress if scene is not cached
-      if (!currentSceneId || !sceneCache.isSceneCached(currentSceneId)) {
-        progressActions.setBlended(false);
-      }
+      progressActions.setBlended(false);
     };
 
     window.__kr_onblendcomplete = () => {
-      // Always complete, but cached scenes already completed earlier
       progressActions.setBlended(true);
-
-      // Cache ALL scenes, including the initial one
-      if (currentSceneId && !sceneCache.isSceneCached(currentSceneId)) {
-        const loadTime = Date.now() - sceneLoadStartRef.current;
-
-        const viewState = {
-          hlookat: parseFloat(krpano.get("view.hlookat") || "0"),
-          vlookat: parseFloat(krpano.get("view.vlookat") || "0"),
-          fov: parseFloat(krpano.get("view.fov") || "90")
-        };
-
-        const cacheData: SceneCacheData = {
-          sceneId: currentSceneId,
-          xmlUrl,
-          loadedAt: Date.now(),
-          loadTime,
-          success: true,
-          viewState
-        };
-
-        sceneCache.setCacheData(currentSceneId, cacheData);
-
-        console.log(
-          `✅ Scene cached: ${currentSceneId} (${loadTime}ms) - ${isInitialLoadRef.current ? "Initial" : "Subsequent"} load`
-        );
-      }
-
-      // Mark initial load as complete AFTER caching
-      if (isInitialLoadRef.current) {
-        isInitialLoadRef.current = false;
-      }
     };
 
     window.__kr_onloaderror = () => {
@@ -502,10 +440,6 @@ export function KrpanoViewer({
 
     const initializeKrpano = async () => {
       if (destroyed) return;
-
-      // Start loader immediately for first scene
-      progressActions.startLoader();
-
       await krpanoScript.initialize();
     };
 
@@ -603,6 +537,11 @@ export function KrpanoViewer({
       {(progressState.loading || sceneCache.isLoading) && (
         <div className="absolute inset-0 grid place-items-center bg-black/15 z-[10000] pointer-events-none">
           <ProgressRing percent={progressState.percent} />
+          {currentSceneId && sceneCache.isSceneCached(currentSceneId) && (
+            <div className="absolute top-full mt-2 text-sm text-gray-600 bg-white/80 px-2 py-1 rounded">
+              📦 Loading from cache...
+            </div>
+          )}
         </div>
       )}
     </div>
