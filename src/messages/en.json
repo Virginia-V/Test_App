@@ -130,7 +130,8 @@
     "getInTouch": "Get in Touch",
     "sendRequest": "Send Request",
     "successMessage": "Form submitted successfully!",
-    "privacyNotice": "By clicking on SEND, you authorize the communication of your data to companies with whom you make a request in order to receive a response from them (Terms of use). Connect or enter your coordinates to subscribe to the site.",
+    "privacyNotice1": "By clicking on SEND, you authorize the communication of your data to companies with whom you make a request in order to receive a response from them (Terms of use).",
+    "privacyNotice2": "Connect or enter your coordinates to subscribe to the site.",
     "dropdownOptions": {
       "priceQuote": "Price quote",
       "catalogue": "Catalogue",

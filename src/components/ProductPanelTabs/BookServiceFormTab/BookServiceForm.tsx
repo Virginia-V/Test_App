@@ -151,7 +151,11 @@ export const BookServiceForm: React.FC = () => {
         </Button>
 
         <div className="mt-4 text-center">
-          <p className="text-xs text-gray-600">{t("form.privacyNotice")}</p>
+          <p className="text-xs text-gray-600">
+            {t("form.privacyNotice1")}
+            <br />
+            {t("form.privacyNotice2")}
+          </p>
         </div>
       </form>
     </div>

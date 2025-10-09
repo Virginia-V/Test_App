@@ -130,7 +130,8 @@
     "getInTouch": "Contactez notre équipe",
     "sendRequest": "Envoyez-nous votre demande",
     "successMessage": "Formulaire soumis avec succès!",
-    "privacyNotice": "En cliquant sur ENVOYER, vous autorisez la communication de vos données aux entreprises auprès desquelles vous faites une demande afin de recevoir une réponse de ces dernières (Conditions d'utilisation). Connectez-vous ou entrez vos coordonnées pour vous abonner au site.",
+    "privacyNotice1": "En cliquant sur ENVOYER, vous autorisez la communication de vos données aux entreprises auprès desquelles vous faites une demande afin de recevoir une réponse de ces dernières (Conditions d'utilisation).",
+    "privacyNotice2": "Connectez-vous ou entrez vos coordonnées pour vous abonner au site.",
     "dropdownOptions": {
       "priceQuote": "Prise de contact",
       "catalogue": "Catalogue",
