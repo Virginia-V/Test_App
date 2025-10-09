@@ -114,7 +114,9 @@
     "floor_Model_09_Description": "Le sol Livaris s’inspire du bois naturel, avec des veinages riches et chaleureux. Parfait pour un style intemporel, il apporte confort visuel et authenticité à chaque pièce.",
     "dragToRotate": "Faites pivoter à 360°",
     "availableColors": "Coloris disponibles",
-    "loadingViewer": "Chargement du visualiseur 360°..."
+    "loadingViewer": "Chargement du visualiseur 360°...",
+    "show2DView": "Afficher la vue 2D",
+    "viewRealTimeImages": "Voir les images en temps réel"
   },
   "form": {
     "firstName": "Prénom",

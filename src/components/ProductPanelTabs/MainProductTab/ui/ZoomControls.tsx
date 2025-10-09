@@ -32,9 +32,9 @@ export const ZoomControls: React.FC<ZoomControlsProps> = ({
   onZoomOut,
   onReset,
   onToggle2D,
-  onCamera // ✅ Add camera prop
+  onCamera 
 }) => {
-  const t = useTranslations("auth.common"); // or useTranslations() if not namespaced
+  const t = useTranslations(); 
 
   return (
     <div className="flex flex-row gap-3 items-center">
@@ -64,7 +64,7 @@ export const ZoomControls: React.FC<ZoomControlsProps> = ({
         aria-label="Reset"
       >
         <RefreshIcon fontSize="small" />
-        <span>{t("reset")}</span>
+        <span>{t("auth.common.reset")}</span>
       </Button>
 
       <Tooltip>
@@ -79,7 +79,7 @@ export const ZoomControls: React.FC<ZoomControlsProps> = ({
             <Icon2D />
           </Button>
         </TooltipTrigger>
-        <TooltipContent side="top">Show 2D View</TooltipContent>
+        <TooltipContent side="top">{t("product.show2DView")}</TooltipContent>
       </Tooltip>
 
       {/* ✅ Camera button with actual functionality */}
@@ -95,7 +95,9 @@ export const ZoomControls: React.FC<ZoomControlsProps> = ({
             <CameraAltIcon fontSize="small" />
           </Button>
         </TooltipTrigger>
-        <TooltipContent side="top">View Bathtub Images</TooltipContent>
+        <TooltipContent side="top">
+          {t("product.viewRealTimeImages")}
+        </TooltipContent>
       </Tooltip>
     </div>
   );

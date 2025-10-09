@@ -114,7 +114,9 @@
     "floor_Model_09_Description": "The Livaris floor is inspired by natural wood, with rich and warm grain. Perfect for a timeless style, it brings visual comfort and authenticity to every room.",
     "dragToRotate": "Drag to rotate 360°",
     "availableColors": "Available Colors",
-    "loadingViewer": "Loading 360° Viewer..."
+    "loadingViewer": "Loading 360° Viewer...",
+    "show2DView": "Show 2D View",
+    "viewRealTimeImages": "View Real-Time Images"
   },
   "form": {
     "firstName": "First Name",
